@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liang Cheng's Vendor Dashboard | SG Hawker Central</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="sidebar" aria-label="Vendor Sidebar">
+        <div class="brand-logo">
+            <img src="logo.png" alt="oinkzZ Hawker Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#rental" class="active"> Rental Agreement</a></li>
+            <li><a href="#performance"> Stall Performance</a></li>
+            <li><a href="#queue"> Queue Management</a></li>
+            <li><a href="#satisfaction"> Customer Satisfaction</a></li>
+            <li><a href="#hygiene"> Inspection Trends</a></li>
+        </ul>
+    </nav>
+
+    <main class="dashboard-content">
+        <header class="top-nav">
+            <div class="welcome-msg">
+                <h2>Welcome! Vendor Name</h2>
+            </div>
+            <div class="top-actions">
+                <a href="#contact">Contact Us</a>
+                <a href="#profile" class="profile-link">Profile</a>
+                <button id="notif-btn" class="icon-btn" aria-label="View Notifications">
+                    <span class="notif-badge">3</span>
+                </button>
+            </div>
+        </header>
+
+        <section id="performance" class="card-section">
+            <div class="stats-overview">
+                <article class="stats-box">
+                    <h3>Customer Satisfaction</h3>
+                    <div class="stars">★★★★★</div>
+                    <p>5.0</p>
+                </article>
+                <article class="stats-box">
+                    <h3>Current Sales (Month)</h3>
+                    <p class="money">$ 4,200</p>
+                </article>
+                <article class="hygiene-grade">
+                    <h3>Hygiene Grade</h3>
+                    <div class="grade-badge">A</div>
+                </article>
+            </div>
+            
+            <div class="charts-container">
+                <div class="chart-box">
+                    <h3>Analytics of Past 12 Months: Sales Revenue</h3>
+                    <canvas id="sales-chart"></canvas> </div>
+            </div>
+        </section>
+
+        <section id="queue" class="boxed-section">
+            <div class="section-header">
+                <h3>Queue Management</h3>
+                <div class="search-filter">
+                    <input type="text" placeholder="Search Order ID">
+                    <select title="stats-filter">
+                        <option>Status: All</option>
+                        <option>Pending</option>
+                        <option>Accepted</option>
+                    </select>
+                </div>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Order Number</th>
+                        <th>Customer Name</th>
+                        <th>Order Details</th>
+                        <th>Status / Action</th>
+                    </tr>
+                </thead>
+                <tbody id="queue-list">
+                    <tr>
+                        <td>#2026-001</td>
+                        <td>Ong Liang Cheng</td>
+                        <td>Hokkien Mee (No Chili) x2</td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn-accept">Accept</button>
+                                <button class="btn-decline">Decline</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="menu" class="boxed-section">
+            <h3>Menu Management</h3>
+            <div class="menu-grid">
+                <article class="menu-item">
+                    <img src="dish.jpg" alt="Signature Dish">
+                    <h4>Seafood Laksa</h4>
+                    <p class="cuisine-tags">Cuisines: Malay, Chinese</p> <div class="toggle-switch">
+                        <input type="checkbox" id="item1" checked>
+                        <label for="item1">Available</label>
+                    </div>
+                </article>
+                <button class="add-item-btn">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Add New Menu Item</span>
+                </button>
+            </div>
+        </section>
+
+        <section id="rental" class="card-section">
+            <h3>Rental Agreement Tracking</h3>
+            <div class="agreement-viewer">
+                <div class="doc-placeholder">Rental Agreement Document PDF</div>
+                <a href="#" class="download-link">Download PDF</a>
+            </div>
+            <div class="status-indicator effective">
+                <p>Effective: Valid Till 01/01/2027</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p></p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
