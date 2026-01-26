@@ -1,18 +1,18 @@
     // Toggle dropdown menu
-    const loginMenuBtn = document.getElementById('loginMenuBtn');
-    const loginMenu = document.getElementById('loginMenu');
+    let loginMenuBtn = document.getElementById('loginMenuBtn');
+    let loginMenu = document.getElementById('loginMenu');
 
     loginMenuBtn.addEventListener('click', () => {
       loginMenu.hidden = !loginMenu.hidden;
     });
 
     // Handle login button click
-    const loginBtn = document.getElementById('loginBtn');
+    let loginBtn = document.getElementById('loginBtn');
 
     loginBtn.addEventListener('click', () => {
-      const officerId = document.getElementById('officerId').value;
-      const password = document.getElementById('password').value;
-      const rememberMe = document.getElementById('rememberMe').checked;
+      let officerId = document.getElementById('officerId').value;
+      let password = document.getElementById('password').value;
+      let rememberMe = document.getElementById('rememberMe').checked;
 
       if (!officerId || !password) {
         alert('Please enter both OfficerID and Password.');
