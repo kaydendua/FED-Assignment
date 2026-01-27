@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Main Page</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main page.css">
 </head>
 
 <body>
@@ -29,7 +29,14 @@
             style="width: 900px; border: none; height: 
             2px; background-color: black;">
         </section>
-
+        <div class="calendar">
+            <div class="header">
+                <button id="prev">&lt;</button>
+                <h3 id="monthYear"></h3>
+                <button id="next">&gt;</button>
+            </div>
+            <div class="days" id="calendarDays"></div>
+        </div>
         
     </main>
     <script src="main page.js"></script>
