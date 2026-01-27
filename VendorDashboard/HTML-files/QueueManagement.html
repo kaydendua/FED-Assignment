@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liang Cheng's Vendor Dashboard (QueueManagement Page)</title>
+    <link rel="stylesheet" href="../CSS-Files/Vendor.css">
+</head>
+<body>
+    <nav class="sidebar" aria-label="Vendor Sidebar">
+        <div class="brand-logo">
+            <img src="logo.png" alt="Hawker Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="/VendorDashboard/HTML-Files/MenuManagement.html">Menu</a></li>
+            <li><a href="/VendorDashboard/HTML-Files/RentalAgreement.html" class="active"> Rental Agreement</a></li>
+            <li><a href="/VendorDashboard/HTML-Files/StallPerformance.html"> Stall Performance</a></li>
+            <li><a href="/VendorDashboard/HTML-Files/QueueManagement.html"> Queue Management</a></li>
+            <li><a href="#satisfaction"> Customer Satisfaction</a></li>
+            <li><a href="#hygiene"> Inspection Trends</a></li>
+        </ul>
+    </nav>
+
+    <main class="dashboard-content">
+        <header class="top-nav">
+            <div class="welcome-msg">
+                <h2>Welcome! Vendor Name</h2>
+            </div>
+            <div class="top-actions">
+                <a href="#contact">Contact Us</a>
+                <a href="/VendorDashboard/HTML-Files/Profile.html" class="profile-link">Profile</a>
+                <button id="notif-btn" class="icon-btn" aria-label="View Notifications">
+                    <span class="notif-badge">3</span>
+                </button>
+            </div>
+        </header>
+
+        <section id="queue" class="boxed-section">
+            <div class="section-header">
+                <h3>Queue Management</h3>
+                <div class="search-filter">
+                    <input type="text" placeholder="Search Order ID">
+                    <select title="stats-filter">
+                        <option>Status: All</option>
+                        <option>Pending</option>
+                        <option>Accepted</option>
+                    </select>
+                </div>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Order Number</th>
+                        <th>Customer Name</th>
+                        <th>Order Details</th>
+                        <th>Status / Action</th>
+                    </tr>
+                </thead>
+                <tbody id="queue-list">
+                    <tr>
+                        <td>#2026-001</td>
+                        <td>Ong Liang Cheng</td>
+                        <td>Hokkien Mee (No Chili) x2</td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn-accept">Accept</button>
+                                <button class="btn-decline">Decline</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+</body>
+</html>

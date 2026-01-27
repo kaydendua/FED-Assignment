@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liang Cheng's Vendor Dashboard (Stall Performance Page)</title>
+    <link rel="stylesheet" href="../CSS-Files/Vendor.css">
+</head>
+<body>
+    <nav class="sidebar" aria-label="Vendor Sidebar">
+        <div class="brand-logo">
+            <img src="logo.png" alt="Hawker Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="/VendorDashboard/HTML-Files/MenuManagement.html">Menu</a></li>
+            <li><a href="/VendorDashboard/HTML-Files/RentalAgreement.html" class="active"> Rental Agreement</a></li>
+            <li><a href="/VendorDashboard/HTML-Files/StallPerformance.html"> Stall Performance</a></li>
+            <li><a href="/VendorDashboard/HTML-Files/QueueManagement.html"> Queue Management</a></li>
+            <li><a href="#satisfaction"> Customer Satisfaction</a></li>
+            <li><a href="#hygiene"> Inspection Trends</a></li>
+        </ul>
+    </nav>
+
+    <main class="dashboard-content">
+        <header class="top-nav">
+            <div class="welcome-msg">
+                <h2>Welcome! Vendor Name</h2>
+            </div>
+            <div class="top-actions">
+                <a href="#contact">Contact Us</a>
+                <a href="/VendorDashboard/HTML-Files/Profile.html" class="profile-link">Profile</a>
+                <button id="notif-btn" class="icon-btn" aria-label="View Notifications">
+                    <span class="notif-badge">3</span>
+                </button>
+            </div>
+        </header>
+
+        <section id="performance" class="boxed-section">
+            <div class="stats-overview">
+                <article class="stats-box">
+                    <h3>Customer Satisfaction</h3>
+                    <div class="stars">★★★★★</div>
+                    <p>5.0</p>
+                </article>
+                <article class="stats-box">
+                    <h3>Current Sales (Month)</h3>
+                    <p class="money">$ 4,200</p>
+                </article>
+                <article class="hygiene-grade">
+                    <h3>Hygiene Grade</h3>
+                    <div class="grade-badge">A</div>
+                </article>
+            </div>
+            
+            <div class="charts-container">
+                <div class="chart-box">
+                    <h3>Analytics of Past 12 Months: Sales Revenue</h3>
+                    <canvas id="sales-chart"></canvas> </div>
+            </div>
+        </section>
+
+</body>
+</html>

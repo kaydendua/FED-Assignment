@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liang Cheng's Vendor Dashboard (Rental Agreement Page)</title>
+    <link rel="stylesheet" href="../CSS-Files/Vendor.css">
+</head>
+<body>
+    <nav class="sidebar" aria-label="Vendor Sidebar">
+        <div class="brand-logo">
+            <img src="logo.png" alt="Hawker Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="/VendorDashboard/HTML-Files/MenuManagement.html">Menu</a></li>
+            <li><a href="/VendorDashboard/HTML-Files/RentalAgreement.html" class="active"> Rental Agreement</a></li>
+            <li><a href="/VendorDashboard/HTML-Files/StallPerformance.html"> Stall Performance</a></li>
+            <li><a href="/VendorDashboard/HTML-Files/QueueManagement.html"> Queue Management</a></li>
+            <li><a href="#satisfaction"> Customer Satisfaction</a></li>
+            <li><a href="#hygiene"> Inspection Trends</a></li>
+        </ul>
+    </nav>
+
+    <main class="dashboard-content">
+        <header class="top-nav">
+            <div class="welcome-msg">
+                <h2>Welcome! Vendor Name</h2>
+            </div>
+            <div class="top-actions">
+                <a href="#contact">Contact Us</a>
+                <a href="/VendorDashboard/HTML-Files/Profile.html" class="profile-link">Profile</a>
+                <button id="notif-btn" class="icon-btn" aria-label="View Notifications">
+                    <span class="notif-badge">3</span>
+                </button>
+            </div>
+        </header>
+
+    <section id="rental" class="boxed-section">
+        <h3>Rental Agreement Tracking</h3>
+        <div class="agreement-viewer">
+            <div class="doc-placeholder">Rental Agreement Document PDF</div>
+            <a href="#" class="download-link">Download PDF</a>
+                </div>
+        <div class="status-indicator effective">
+            <p>Effective: Valid Till 01/01/2027</p>
+        </div>
+    </section>
+</body>
+</html>
