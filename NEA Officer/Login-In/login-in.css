@@ -1,0 +1,51 @@
+html,body {
+    margin: 0;
+    padding: 0;
+}
+
+#mainHeader {
+    background-color: lightgrey;
+    display: flex;
+    align-items: center; 
+    padding: 15px 20px;     
+}
+
+#logoArea {
+    margin-right: auto;
+}
+
+#siteName {
+    margin-right: 200px;
+}
+
+#contentWrapper {
+    background-color: lightgrey;
+    border: 1px solid lightgrey;;
+    padding: 45px;
+    padding-top: 0px;
+    margin: 30px;
+    border-radius: 8px;
+}
+
+#loginIn {
+    font-size: 20px;
+    padding-top: 3px;
+}
+
+.inputGroup {
+    padding: 5px;
+    font-size: 20px;
+}
+
+.checkboxGroup {
+    padding: 10px;
+}
+
+#contactHr {
+    padding-top: 25px;
+}
+
+#logoSection {
+    display: flex;
+    align-items: center;
+}

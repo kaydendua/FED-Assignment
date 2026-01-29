@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Historical Hygiene Grade Graph </title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <header id="mainHeader">
+        <div id="logoArea">LOGO LOGO LOGO</div>
+        <div id="siteName">Website Name</div>
+        <div id="navbar">Search</div>
+        <div id="navbar">Home</div>
+        <div id="navbar">Profile</div>
+    </header>
+    <section> 
+        <h2> Historical Hygiene Grade Graphs ▾</h2>
+
+        <select id="timeRange">
+            <option value="week">Past Week</option>
+            <option value="month">Past Month</option>
+            <option value="year">Past Year</option>
+        </select>
+
+        <br><br>
+        <canvas id="hygieneChart" width="400" height="200"></canvas>
+    </section>
+
+    <script src="hygiene grade.js"></script>
+
+
+</body>
