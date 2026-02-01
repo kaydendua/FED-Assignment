@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #d9d9d9;
+}
+
+/* NAV BAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #bfbfbf;
+    padding: 10px 20px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-btn {
+    border: none;
+    background: #e0e0e0;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.logo {
+    font-size: 12px;
+}
+
+.nav-center {
+    font-weight: bold;
+}
+
+.nav-right {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+}
+
+/* MAIN CONTAINER */
+.container {
+    display: flex;
+    padding: 40px;
+    gap: 40px;
+}
+
+/* LEFT SIDE */
+.left-content {
+    flex: 1;
+}
+
+.small-text {
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.left-content h1 {
+    font-size: 70px;
+    margin: 60px 0 30px;
+}
+
+.signup-btn {
+    padding: 10px 100px;
+    border: 1px  #000;
+    background: #fff;
+    cursor: pointer;
+    margin-top: 30px;
+    border-radius: 25px
+}
+
+/* RIGHT SIDE */
+.right-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-box {
+    width: 700px;
+    height: 600px;
+    background: #cfcfcf;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
