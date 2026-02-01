@@ -1,6 +1,3 @@
-// File: js/queue.js
-// Purpose: Manages live order queue and notifications.
-
 document.addEventListener('DOMContentLoaded', () => {
     // Mock Database
     const mockOrders = [

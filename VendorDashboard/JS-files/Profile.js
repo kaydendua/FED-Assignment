@@ -1,6 +1,3 @@
-// File: js/profile.js
-// Purpose: Manages vendor profile details and edit modes.
-
 document.addEventListener('DOMContentLoaded', () => {
     // Mock User Profile Data
     const userProfile = {

@@ -1,6 +1,3 @@
-// File: js/rental.js
-// Purpose: Calculates lease expiry and visualizes contract status.
-
 document.addEventListener('DOMContentLoaded', () => {
     const rentalConfig = {
         expiryDate: '2027-01-01', // YYYY-MM-DD

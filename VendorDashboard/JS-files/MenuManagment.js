@@ -1,6 +1,3 @@
-// File: js/menu.js
-// Purpose: Handles menu item toggles and sustainability features.
-
 document.addEventListener('DOMContentLoaded', () => {
     const menuItems = document.querySelectorAll('.menu-item input[type="checkbox"]');
 
@@ -10,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (savedState === 'true') box.checked = true;
         if (savedState === 'false') box.checked = false;
 
-        // Add Event Listener for toggling
+        // Event Listener for toggling
         box.addEventListener('change', (e) => {
             const isAvailable = e.target.checked;
             const itemName = e.target.closest('.menu-item').querySelector('h4').innerText;

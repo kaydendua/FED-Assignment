@@ -1,6 +1,3 @@
-// File: js/performance.js
-// Purpose: Renders analytics charts and calculates hygiene trends.
-
 document.addEventListener('DOMContentLoaded', () => {
     const ctx = document.getElementById('salesChart');
     
