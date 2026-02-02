@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liang Cheng's Vendor Dashboard (Menu Page)</title>
     <link rel="stylesheet" href="../CSS-Files/Vendor.css">
+    <link rel="stylesheet" href="../CSS-files/MenuManagement.css">
 </head>
 <body>
     <nav class="sidebar" aria-label="Vendor Sidebar">
@@ -29,28 +30,113 @@
             <div class="top-actions">
                 <a href="#contact">Contact Us</a>
                 <a href="/VendorDashboard/HTML-Files/Profile.html" class="profile-link">Profile</a>
-                <button id="notif-btn" class="icon-btn" aria-label="View Notifications">
-                    <span class="notif-badge">3</span>
-                </button>
             </div>
         </header>
     
         <section id="menu" class="boxed-section">
-            <h3>Menu Management</h3>
-            <div class="menu-grid">
-                <article class="menu-item">
-                    <img src="dish.jpg" alt="Signature Dish">
-                    <h4>Seafood Laksa</h4>
-                    <p class="cuisine-tags">Cuisines: Malay, Chinese</p> <div class="toggle-switch">
-                        <input type="checkbox" id="item1" checked>
-                        <label for="item1">Available</label>
+
+                <div class="menu-box">
+                    <h3>Carbonara Pasta</h3>
+                    <div class="image-placeholder">
+                        <img src="../PNG-files/dish1.png" alt="Carbonara Pasta">
                     </div>
-                </article>
-                <button class="add-item-btn">
-                    <i class="fa-solid fa-plus"></i>
-                    <span>Add New Menu Item</span>
-                </button>
-            </div>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="item1" checked>
+                        <label class="slider" for="item1"></label>
+                        <span class="status-text">Available</span>
+                    </div>
+                </div>
+
+                <div class="menu-box">
+                    <h3>Grilled Chicken Chop</h3>
+                    <div class="image-placeholder">
+                        <img src="../PNG-files/dish2.png" alt="Grilled Chicken Chop">
+                    </div>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="item2" checked>
+                        <label class="slider" for="item2"></label>
+                        <span class="status-text">Available</span>
+                    </div>
+                </div>
+
+                <div class="menu-box">
+                    <h3>Aglio Olio</h3>
+                    <div class="image-placeholder">
+                        <img src="../PNG-files/dish3.png" alt="Aglio Olio">
+                    </div>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="item3" checked>
+                        <label class="slider" for="item3"></label>
+                        <span class="status-text">Available</span>
+                    </div>
+                </div>
+
+                <div class="menu-box">
+                    <h3>Fish and Chip</h3>
+                    <div class="image-placeholder">
+                        <img src="../PNG-files/dish4.png" alt="Fish and Chip">
+                    </div>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="item4" checked>
+                        <label class="slider" for="item4"></label>
+                        <span class="status-text">Available</span>
+                    </div>
+                </div>
+
+                <div class="menu-box">
+                    <h3>Grilled Salmon</h3>
+                    <div class="image-placeholder">
+                        <img src="../PNG-files/dish5.png" alt="Grilled Salmon">
+                    </div>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="item5" checked>
+                        <label class="slider" for="item5"></label>
+                        <span class="status-text">Available</span>
+                    </div>
+                </div>
+
+                <div class="menu-box">
+                    <h3>Seafood Baked Rice</h3>
+                    <div class="image-placeholder">
+                        <img src="../PNG-files/dish6.png" alt="Seafood Baked Rice">
+                    </div>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="item6" checked>
+                        <label class="slider" for="item6"></label>
+                        <span class="status-text">Available</span>
+                    </div>
+                </div>
+
+                <div class="menu-box">
+                    <h3>Cheesy Fries</h3>
+                    <div class="image-placeholder">
+                        <img src="../PNG-files/dish7.png" alt="Cheesy Fries">
+                    </div>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="item7" checked>
+                        <label class="slider" for="item7"></label>
+                        <span class="status-text">Available</span>
+                    </div>
+                </div>
+
+                <div class="menu-box">
+                    <h3>Mushroom Soup</h3>
+                    <div class="image-placeholder">
+                        <img src="../PNG-files/dish8.png" alt="Mushroom Soup">
+                    </div>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="item8" checked>
+                        <label class="slider" for="item8"></label>
+                        <span class="status-text">Available</span>
+                    </div>
+                </div>
+
+                <div class="menu-box add-new-box">
+                    <button class="add-item-btn" aria-label="Add new menu item">
+                        <span>+</span>
+                    </button>
+                    <h4>Add New Menu Item</h4>
+                </div>
 
     </main>
 
