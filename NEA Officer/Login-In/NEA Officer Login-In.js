@@ -29,3 +29,18 @@
 
     window.addEventListener('resize', handleResize);
     handleResize();
+
+
+    // Toggle show/hide password
+  const passwordInput = document.getElementById('password');
+  const togglePasswordBtn = document.getElementById('togglePassword');
+
+  togglePasswordBtn.addEventListener('click', () => {
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      togglePasswordBtn.textContent = 'Hide';
+    } else {
+      passwordInput.type = 'password';
+      togglePasswordBtn.textContent = 'Show';
+    }
+  });

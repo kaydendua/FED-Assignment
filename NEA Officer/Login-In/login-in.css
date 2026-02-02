@@ -1,51 +1,188 @@
-html,body {
-    margin: 0;
-    padding: 0;
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif
 }
 
+body {
+    margin: 0;
+    background-color: white;
+}
+
+
 #mainHeader {
+    height: 70px;
     background-color: lightgrey;
     display: flex;
     align-items: center; 
     padding: 15px 20px;     
 }
 
-#logoArea {
+/* insert the logo here */
+#logoArea { 
     margin-right: auto;
 }
 
 #siteName {
+    font-size: 16px;
     margin-right: 200px;
 }
 
+#loginMenuBtn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* main */
 #contentWrapper {
     background-color: lightgrey;
-    border: 1px solid lightgrey;;
-    padding: 45px;
-    padding-top: 0px;
+    display: flex;
+    justify-content: center;   
+    align-items: center;       
+    padding: 60px;
     margin: 30px;
     border-radius: 8px;
 }
 
+#loginCard {
+  width: 900px;
+  height: 420px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: row;        
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+#formSection {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+}
+
+#divider {
+  width: 1px;
+  height: 80%;
+  background-color: #777;
+  margin: 0 30px;
+  flex-shrink: 0;   
+}
+
 #loginIn {
-    font-size: 20px;
-    padding-top: 3px;
+    font-size: 30px;
+    display: flex;
+    padding-top: 20px;
 }
 
 .inputGroup {
-    padding: 5px;
-    font-size: 20px;
+    margin-bottom: 20px;
 }
+
+.inputGroup input {
+    width: 100%;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 10px;
+    background-color: #e6e6e6;
+    font-size: 14px;
+}
+
 
 .checkboxGroup {
-    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 25px;
+    font-size: 14px;
 }
 
-#contactHr {
-    padding-top: 25px;
+#loginBtn {
+  width: 300px;
+  padding: 15px;
+  border: none;
+  border-radius: 30px;
+  background-color: #e6e6e6;
+  margin-top: -20px;
+  cursor: pointer;
+  font-size: 16px;  
 }
+
 
 #logoSection {
     display: flex;
     align-items: center;
 }
+
+.inputGroup input {
+  width: 100%;
+  max-width: 400px;  
+  padding: 30px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.checkboxGroup input[type="checkbox"] {
+    transform: scale(1.4);
+    transform-origin: center;  
+}
+
+.checkboxGroup label {
+    font-size: 16px;
+    line-height: 2.5; 
+}
+
+#contactHr {
+  margin-top: 30px;
+  font-size: 16px;
+}
+
+#logoSection {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#logoSection h1 {
+  font-size: 64px;
+  font-weight: normal;
+}
+
+.passwordGroup {
+  position: relative;
+}
+
+.passwordGroup input {
+  padding-right: 45px; /* space for the icon */
+}
+
+.passwordGroup {
+  position: relative;
+}
+
+.passwordGroup input {
+  padding-right: 45px; /* space for the icon */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #555;
+  font-size: 14px;
+}
+
+
+
+
+
+
+
