@@ -1,0 +1,72 @@
+* {
+  font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: white;
+}
+
+#mainHeader {
+    height: 70px;
+    background-color: lightgrey;
+    display: flex;
+    align-items: center; 
+    padding: 15px 20px;     
+}
+
+/* insert the logo here */
+#logoArea { 
+    margin-right: auto;
+}
+
+#siteName {
+    font-size: 16px;
+    margin-right: 200px;
+}
+
+.navbar{
+  margin-left: 25px;
+  cursor: pointer;
+}
+
+body {
+  background-color: #e6e6e6;
+}
+
+.profile-page {
+  display: flex;
+  padding: 40px;
+  gap: 60px;
+}
+
+.left-panel {
+  width: 300px;
+}
+
+.profile-container {
+  background-color: white;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-container img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+
+.field label {
+  font-size: 14px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.box {
+  height: 35px;
+  background-color: #cfcfcf;
+  border-radius: 3px;
+}

@@ -156,7 +156,7 @@ body {
 }
 
 .passwordGroup input {
-  padding-right: 45px; /* space for the icon */
+  padding-right: 45px; 
 }
 
 .passwordGroup {
@@ -164,7 +164,7 @@ body {
 }
 
 .passwordGroup input {
-  padding-right: 45px; /* space for the icon */
+  padding-right: 45px;
 }
 
 .toggle-password {
