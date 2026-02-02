@@ -1,83 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Vendor Log-in</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vendor Login</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-<header>
-<div class="left-nav">
-<button class="menu-btn"><i class=""></i></button>
-<div class="logo-box">LOGO LOGO LOGO<br />LOGO LOGO LOGO</div>
-</div>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <i class="fas fa-bars menu-icon"></i>
+      <div class="logo">LOGO</div>
+    </div>
+    <div class="nav-center">Website Name</div>
+    <div class="nav-right">
+      <a href="#" class="nav-link">Log in here</a>
+      <a href="#" class="nav-link">Contact us</a>
+    </div>
+  </nav>
 
+  <!-- Main Content -->
+  <div class="container">
+    <div class="login-box">
 
-<div class="nav-center">Website Name</div>
+      <!-- FORM START -->
+      <form class="left-panel" action="#" method="post">
+        <h2>Sign up or Log in!</h2>
 
+        <div class="input-box">
+          <i class="fa fa-envelope"></i>
+          <input
+            type="email"
+            id="username"
+            name="email"
+            placeholder="Email"
+            required
+          />
+        </div>
 
-<div class="right-nav">
-<div class="dropdown">Log in here <i class="fas fa-chevron-down"></i></div>
-<div>Contact us!</div>
-</div>
-</header>
+        <div class="input-box">
+          <i class="fa fa-lock"></i>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+        </div>
 
+        <button type="submit" class="btn">Login</button>
+      </form>
+      <!-- FORM END -->
 
-<main>
-<div class="card">
-<div class="form-box">
-<h2>Sign up or Log in!</h2>
+      <div class="divider"></div>
 
+      <div class="right-panel">
+        <p class="motto-small">MOTTO (VENDOR)</p>
+        <h3 class="motto-big">MOTTO (VENDOR)</h3>
+        <p class="sign-up-text">Sign up here!</p>
+        <button type="button" class="btn-outline" id="signupBtn">
+          Sign up now!
+        </button>
+      </div>
 
-<div class="input-group">
-<i class="fas fa-envelope"></i>
-<input type="email" id="email" placeholder="Email" />
-</div>
+    </div>
+  </div>
 
-
-<div class="input-group">
-<i class="fas fa-lock"></i>
-<input type="password" id="password" placeholder="Password" />
-</div>
-
-
-<div class="remember">
-<input type="checkbox" id="remember" />
-<label for="remember">Remember me</label>
-</div>
-
-
-<button class="btn" id="loginBtn">Log in</button>
-
-
-<div class="social">
-Or continue with
-<div class="social-icons">
-<div class="icon-btn"><i class="fab fa-apple"></i></div>
-<div class="icon-btn"><i class="fab fa-facebook-f"></i></div>
-<div class="icon-btn"><i class="fab fa-twitter"></i></div>
-</div>
-</div>
-</div>
-
-
-<div class="divider"></div>
-
-
-<div class="info-box">
-<div class="motto">MOTTO (VENDOR)</div>
-<h3>MOTTO (VENDOR)</h3>
-<div>Sign up here!</div>
-<button class="signup-btn" id="signupBtn">Sign up now!</button>
-</div>
-</div>
-</main>
-
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
