@@ -31,12 +31,13 @@
     <div class="login-box">
 
         <!-- FORM START -->
-        <form class="login-left" action="#" method="post">
+        <form class="login-left" id="signup-form">
             <h2>Sign up or Log in!</h2>
 
             <div class="input-box">
                 <span class="icon">✉</span>
                 <input
+                    id="email"
                     type="email"
                     name="email"
                     placeholder="Email"
@@ -47,6 +48,7 @@
             <div class="input-box">
                 <span class="icon">🔒</span>
                 <input
+                    id="password"
                     type="password"
                     name="password"
                     placeholder="Password"
@@ -55,8 +57,8 @@
             </div>
 
             <!-- SUBMIT BUTTON (required for form) -->
-            <button type="submit" class="primary-btn">
-                Log in
+            <button type="submit" class="primary-btn" id="signup-btn">
+                Sign Up
             </button>
 
             <p class="or-text">Or Continue with</p>
@@ -86,6 +88,6 @@
     </div>
 </main>
 
-<script src="script.js"></script>
+<script type="module"src="script.js"></script>
 </body>
 </html>
