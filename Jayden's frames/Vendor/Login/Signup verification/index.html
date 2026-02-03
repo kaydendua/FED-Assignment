@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vendor Sign-up</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+<header class="page-header">
+    <h1>Jayden's Vendor sign up questions</h1>
+</header>
+
+<nav class="navbar">
+    <div class="logo">Logo</div>
+    <div class="nav-links">
+        <span>For You</span>
+        <span>Search</span>
+        <span>Points</span>
+        <span>Profile</span>
+    </div>
+</nav>
+
+<main class="form-container" id="formContainer">
+
+    <p id="stepIndicator">Step 1 of 3</p>
+
+    <div class="image-box">Image</div>
+
+    <!-- STEP 1 -->
+    <section class="form-step" id="step1">
+        <h2>Tell us about yourself!</h2>
+
+        <label>First name</label>
+        <input type="text" id="firstName">
+
+        <label>Last name</label>
+        <input type="text" id="lastName">
+
+        <label>Email</label>
+        <input type="email" id="email">
+
+        <button id="nextBtn1">Next</button>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="form-step hidden" id="step2">
+        <h2>Business Details</h2>
+
+        <label>Business name</label>
+        <input type="text" id="businessName">
+
+
+        <label>Years in business</label>
+        <input type="number" id="years">
+
+        <div class="btn-group">
+            <button id="backBtn1">Back</button>
+            <button id="nextBtn2">Next</button>
+        </div>
+    </section>
+
+    <!-- STEP 3 -->
+    <section class="form-step hidden" id="step3">
+        <h2>Final Details</h2>
+
+
+        <label class="checkbox-row">
+            <input type="checkbox" id="agree">
+            <span>I agree to the terms and conditions</span>
+        </label>
+
+        <div class="btn-group">
+            <button id="backBtn2">Back</button>
+            <button id="submitBtn">Submit</button>
+        </div>
+    </section>
+
+</main>
+
+</body>
+</html>
