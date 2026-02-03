@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liang Cheng's Vendor Dashboard (Stall Performance Page)</title>
+    <link rel="stylesheet" href="../styles/Vendor.css">
+</head>
+<body>
+        <main class="dashboard-content">
+        <header class="top-nav">
+            <div class="brand-logo">
+                <img src="../PNG-files/FED_LOGO.png" alt="Hawker Logo">
+            </div>
+            <div class="welcome-msg">
+                <h2>Welcome! Vendor Name</h2>
+            </div>
+            <nav>
+                <ul class="nav-links">
+            <li><a href="/VendorDashboard/StallMenagement.html">Stall Management</a></li>
+            <li><a href="/VendorDashboard/StallAnalytics.html" class="active">Stall Analytics</a></li>
+            <li><a href="/VendorDashboard/CustomerSatisfaction.html">Customer Satisfaction</a></li>
+            <li><a href="/VendorDashboard/Profile.html">Profile</a></li>
+                </ul>
+        </header>
+
+                <section id="queue" class="boxed-section">
+            <div class="section-header">
+                <h3>Queue Management</h3>
+                <div class="search-filter">
+                    <input type="text" placeholder="Search Order ID">
+                    <select title="stats-filter">
+                        <option>Status: All</option>
+                        <option>Pending</option>
+                        <option>Accepted</option>
+                    </select>
+                </div>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Order Number</th>
+                        <th>Customer Name</th>
+                        <th>Order Details</th>
+                        <th>Status / Action</th>
+                    </tr>
+                </thead>
+                <tbody id="queue-list">
+                    <tr>
+                        <td>#2026-001</td>
+                        <td>Ong Liang Cheng</td>
+                        <td>Hokkien Mee (No Chili) x2</td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn-accept">Accept</button>
+                                <button class="btn-decline">Decline</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="performance" class="boxed-section">
+            <div class="stats-overview">
+                <article class="stats-box">
+                    <h3>Customer Satisfaction</h3>
+                    <div class="stars">★★★★★</div>
+                    <p>5.0</p>
+                </article>
+                <article class="stats-box">
+                    <h3>Current Sales (Month)</h3>
+                    <p class="money">$ 4,200</p>
+                </article>
+                <article class="hygiene-grade">
+                    <h3>Hygiene Grade</h3>
+                    <div class="grade-badge">A</div>
+                </article>
+            </div>
+            
+            <div class="charts-container">
+                <div class="chart-box">
+                    <h3>Analytics of Past 12 Months: Sales Revenue</h3>
+                    <canvas id="sales-chart"></canvas> </div>
+            </div>
+        </section>
+
+        <script src="../JS-Files/StallPerformance.js"></script>
+</body>
+</html>

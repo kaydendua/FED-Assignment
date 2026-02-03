@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.brand-logo img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.brand-logo {
+    padding: 10px;
+    text-align: center;
+}
+/*#1C0F13 #28587B #4988BB #749EC1 #C9D0DC #F2ECF1 #FAF9F9*/
+.dashboard{
+    background-color: #28587B;
+    padding: 10px;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcome-msg{
+    color: #C9D0DC;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: row;
+    font-size: small;
+}
+
+.nav-links li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #1C0F13;
+}
+
+.nav-links li a:hover{
+    background-color: #d1d1d1; /*Darker gray when hover*/
+}
+
+.nav-links li a.active {
+    background-color: #d1d1d1; /*Darker gray for active state*/
+}
+
+body {
+    flex-direction: column;
+    display: flex;
+    min-height: 100%;
+    background-color: #F2ECF1;
+}
+
+.contents {
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.welcome-msg {
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: 100;
+}

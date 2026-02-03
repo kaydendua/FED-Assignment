@@ -4,42 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liang Cheng's Vendor Dashboard (Menu Page)</title>
-    <link rel="stylesheet" href="../CSS-Files/Vendor.css">
-    <link rel="stylesheet" href="../CSS-files/MenuManagement.css">
+    <link rel="stylesheet" href="styles/Vendor.css">
+    <link rel="stylesheet" href="styles/MenuManagement.css">
 </head>
 <body>
-    <nav class="sidebar" aria-label="Vendor Sidebar">
-        
-        <ul class="nav-links">
-            <li><a href="/VendorDashboard/HTML-Files/MenuManagement.html">Menu</a></li>
-            <li><a href="/VendorDashboard/HTML-Files/RentalAgreement.html" class="active"> Rental Agreement</a></li>
-            <li><a href="/VendorDashboard/HTML-Files/StallPerformance.html"> Stall Performance</a></li>
-            <li><a href="/VendorDashboard/HTML-Files/QueueManagement.html"> Queue Management</a></li>
-            <li><a href="#satisfaction"> Customer Satisfaction</a></li>
-            <li><a href="#hygiene"> Inspection Trends</a></li>
-        </ul>
-    </nav>
-
-    <main class="dashboard-content">
-        <header class="top-nav">
-            <div class="brand-logo">
-                <img src="../PNG-files/FED_LOGO.jpg" alt="Hawker Logo">
-            </div>
-            <div class="welcome-msg">
-                <h2>Welcome! Vendor Name</h2>
-            </div>
-            <div class="top-actions">
-                <a href="#contact">Contact Us</a>
-                <a href="/VendorDashboard/HTML-Files/Profile.html" class="profile-link">Profile</a>
-            </div>
+        <header class="dashboard">
+        <div class="brand-logo">
+            <img src="img/FED_LOGO.png" alt="Hawker Logo">
+        </div>
+        <div class="welcome-msg">
+            <h2>Welcome! Vendor Name</h2>
+        </div>
+            <nav>
+                <ul class="nav-links">
+            <li><a href="/VendorDashboard/StallManagement.html">Stall Management</a></li>
+            <li><a href="/VendorDashboard/Analytics.html" class="active">Stall Analytics</a></li>
+            <li><a href="/VendorDashboard/CustomerSatisfaction.html">Customer Satisfaction</a></li>
+            <li><a href="/VendorDashboard/Profile.html">Profile</a></li>
+                </ul>
         </header>
-    
+        
+        <main class="contents">
         <section id="menu" class="boxed-section">
 
                 <div class="menu-box">
                     <h3>Carbonara Pasta</h3>
                     <div class="image-placeholder">
-                        <img src="../PNG-files/dish1.png" alt="Carbonara Pasta">
+                        <img src="img/dish1.png" alt="Carbonara Pasta">
                     </div>
                     <div class="toggle-switch">
                         <input type="checkbox" id="item1" checked>
@@ -51,7 +42,7 @@
                 <div class="menu-box">
                     <h3>Grilled Chicken Chop</h3>
                     <div class="image-placeholder">
-                        <img src="../PNG-files/dish2.png" alt="Grilled Chicken Chop">
+                        <img src="img/dish2.png" alt="Grilled Chicken Chop">
                     </div>
                     <div class="toggle-switch">
                         <input type="checkbox" id="item2" checked>
@@ -63,7 +54,7 @@
                 <div class="menu-box">
                     <h3>Aglio Olio</h3>
                     <div class="image-placeholder">
-                        <img src="../PNG-files/dish3.png" alt="Aglio Olio">
+                        <img src="img/dish3.png" alt="Aglio Olio">
                     </div>
                     <div class="toggle-switch">
                         <input type="checkbox" id="item3" checked>
@@ -75,7 +66,7 @@
                 <div class="menu-box">
                     <h3>Fish and Chip</h3>
                     <div class="image-placeholder">
-                        <img src="../PNG-files/dish4.png" alt="Fish and Chip">
+                        <img src="img/dish4.png" alt="Fish and Chip">
                     </div>
                     <div class="toggle-switch">
                         <input type="checkbox" id="item4" checked>
@@ -87,7 +78,7 @@
                 <div class="menu-box">
                     <h3>Grilled Salmon</h3>
                     <div class="image-placeholder">
-                        <img src="../PNG-files/dish5.png" alt="Grilled Salmon">
+                        <img src="img/dish5.png" alt="Grilled Salmon">
                     </div>
                     <div class="toggle-switch">
                         <input type="checkbox" id="item5" checked>
@@ -99,7 +90,7 @@
                 <div class="menu-box">
                     <h3>Seafood Baked Rice</h3>
                     <div class="image-placeholder">
-                        <img src="../PNG-files/dish6.png" alt="Seafood Baked Rice">
+                        <img src="img/dish6.png" alt="Seafood Baked Rice">
                     </div>
                     <div class="toggle-switch">
                         <input type="checkbox" id="item6" checked>
@@ -111,7 +102,7 @@
                 <div class="menu-box">
                     <h3>Cheesy Fries</h3>
                     <div class="image-placeholder">
-                        <img src="../PNG-files/dish7.png" alt="Cheesy Fries">
+                        <img src="img/dish7.png" alt="Cheesy Fries">
                     </div>
                     <div class="toggle-switch">
                         <input type="checkbox" id="item7" checked>
@@ -123,7 +114,7 @@
                 <div class="menu-box">
                     <h3>Mushroom Soup</h3>
                     <div class="image-placeholder">
-                        <img src="../PNG-files/dish8.png" alt="Mushroom Soup">
+                        <img src="img/dish8.png" alt="Mushroom Soup">
                     </div>
                     <div class="toggle-switch">
                         <input type="checkbox" id="item8" checked>
