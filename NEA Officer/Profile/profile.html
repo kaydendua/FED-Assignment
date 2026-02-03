@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profile Page</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="profile.css">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
         <div id="navbar">Profile</div>
     </header>
 
-    <main> 
+    <main class = "profile-page"> 
         <input type="file" id="fileInput" accept="image/*">
 
         <!-- Clickable profile picture -->
@@ -26,13 +26,35 @@
     </main>
     <script src="profile.js"></script>
     
-    <section>
-        <h4>Name</h4>
-        <h4>Officer ID</h4>
-        <h4>Designation</h4>
-        <h4>Department/Division</h4>
-        <h4>Contact Email</h4>
-        <h4>Contact Number</h4>
-    </section>
+    <div class="right-panel">
+        <div class="field">
+        <label>Name</label>
+        <div class="box"></div>
+    </div>
 
+    <div class="field">
+      <label>Officer ID</label>
+      <div class="box"></div>
+    </div>
+
+    <div class="field">
+      <label>Designation</label>
+      <div class="box"></div>
+    </div>
+
+    <div class="field">
+      <label>Department/Division</label>
+      <div class="box"></div>
+    </div>
+
+    <div class="field">
+      <label>Contact Email</label>
+      <div class="box"></div>
+    </div>
+
+    <div class="field">
+      <label>Contact Number</label>
+      <div class="box"></div>
+    </div>
+  </div>
 </body>

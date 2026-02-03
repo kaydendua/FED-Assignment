@@ -1,46 +1,44 @@
-    // Toggle dropdown menu
-    let loginMenuBtn = document.getElementById('loginMenuBtn');
-    let loginMenu = document.getElementById('loginMenu');
+// Toggle dropdown menu
+const loginMenuBtn = document.getElementById('loginMenuBtn');
+const loginMenu = document.getElementById('loginMenu');
 
-    loginMenuBtn.addEventListener('click', () => {
-      loginMenu.hidden = !loginMenu.hidden;
-    });
+loginMenuBtn.addEventListener('click', () => {
+  loginMenu.hidden = !loginMenu.hidden;
+});
 
-    // Handle login button click
-    let loginBtn = document.getElementById('loginBtn');
+// Handle form submission
+const loginForm = document.getElementById('loginForm');
 
-    loginBtn.addEventListener('click', () => {
-      let officerId = document.getElementById('officerId').value;
-      let password = document.getElementById('password').value;
-      let rememberMe = document.getElementById('rememberMe').checked;
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault(); // prevent page reload
 
-      if (!officerId || !password) {
-        alert('Please enter both OfficerID and Password.');
-        return;
-      }
+  const officerId = document.getElementById('officerId').value;
+  const password = document.getElementById('password').value;
+  const rememberMe = document.getElementById('rememberMe').checked;
 
-      // Placeholder for real login logic
-      console.log('OfficerID:', officerId);
-      console.log('Password:', password);
-      console.log('Remember Me:', rememberMe);
+  if (!officerId || !password) {
+    alert('Please enter both OfficerID and Password.');
+    return;
+  }
 
-      alert('Login submitted (demo).');
-    });
+  console.log('OfficerID:', officerId);
+  console.log('Password:', password);
+  console.log('Remember Me:', rememberMe);
 
-    window.addEventListener('resize', handleResize);
-    handleResize();
+  alert('Login submitted (demo).');
+});
 
+// Toggle show/hide password
+const passwordInput = document.getElementById('password');
+const togglePasswordBtn = document.getElementById('togglePassword');
 
-    // Toggle show/hide password
-  const passwordInput = document.getElementById('password');
-  const togglePasswordBtn = document.getElementById('togglePassword');
+togglePasswordBtn.addEventListener('click', () => {
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    togglePasswordBtn.textContent = 'Hide';
+  } else {
+    passwordInput.type = 'password';
+    togglePasswordBtn.textContent = 'Show';
+  }
+});
 
-  togglePasswordBtn.addEventListener('click', () => {
-    if (passwordInput.type === 'password') {
-      passwordInput.type = 'text';
-      togglePasswordBtn.textContent = 'Hide';
-    } else {
-      passwordInput.type = 'password';
-      togglePasswordBtn.textContent = 'Show';
-    }
-  });
