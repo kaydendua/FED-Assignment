@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liang Cheng's Vendor Dashboard (Menu Page)</title>
     <link rel="stylesheet" href="styles/Vendor.css">
-    <link rel="stylesheet" href="styles/MenuManagement.css">
+    <link rel="stylesheet" href="styles/StallManagement.css">
 </head>
 <body>
         <header class="dashboard">
@@ -18,7 +18,7 @@
             <nav>
                 <ul class="nav-links">
             <li><a href="/VendorDashboard/StallManagement.html">Stall Management</a></li>
-            <li><a href="/VendorDashboard/Analytics.html" class="active">Stall Analytics</a></li>
+            <li><a href="/VendorDashboard/StallAnalytics.html" class="active">Stall Analytics</a></li>
             <li><a href="/VendorDashboard/CustomerSatisfaction.html">Customer Satisfaction</a></li>
             <li><a href="/VendorDashboard/Profile.html">Profile</a></li>
                 </ul>
@@ -32,9 +32,8 @@
                     <div class="image-placeholder">
                         <img src="img/dish1.png" alt="Carbonara Pasta">
                     </div>
-                    <div class="toggle-switch">
+                    <div class="toggle-checkbox">
                         <input type="checkbox" id="item1" checked>
-                        <label class="slider" for="item1"></label>
                         <span class="status-text">Available</span>
                     </div>
                 </div>
@@ -44,9 +43,8 @@
                     <div class="image-placeholder">
                         <img src="img/dish2.png" alt="Grilled Chicken Chop">
                     </div>
-                    <div class="toggle-switch">
+                    <div class="toggle-checkbox">
                         <input type="checkbox" id="item2" checked>
-                        <label class="slider" for="item2"></label>
                         <span class="status-text">Available</span>
                     </div>
                 </div>
@@ -56,9 +54,8 @@
                     <div class="image-placeholder">
                         <img src="img/dish3.png" alt="Aglio Olio">
                     </div>
-                    <div class="toggle-switch">
+                    <div class="toggle-checkbox">
                         <input type="checkbox" id="item3" checked>
-                        <label class="slider" for="item3"></label>
                         <span class="status-text">Available</span>
                     </div>
                 </div>
@@ -68,9 +65,8 @@
                     <div class="image-placeholder">
                         <img src="img/dish4.png" alt="Fish and Chip">
                     </div>
-                    <div class="toggle-switch">
+                    <div class="toggle-checkbox">
                         <input type="checkbox" id="item4" checked>
-                        <label class="slider" for="item4"></label>
                         <span class="status-text">Available</span>
                     </div>
                 </div>
@@ -80,9 +76,8 @@
                     <div class="image-placeholder">
                         <img src="img/dish5.png" alt="Grilled Salmon">
                     </div>
-                    <div class="toggle-switch">
+                    <div class="toggle-checkbox">
                         <input type="checkbox" id="item5" checked>
-                        <label class="slider" for="item5"></label>
                         <span class="status-text">Available</span>
                     </div>
                 </div>
@@ -92,9 +87,8 @@
                     <div class="image-placeholder">
                         <img src="img/dish6.png" alt="Seafood Baked Rice">
                     </div>
-                    <div class="toggle-switch">
+                    <div class="toggle-checkbox">
                         <input type="checkbox" id="item6" checked>
-                        <label class="slider" for="item6"></label>
                         <span class="status-text">Available</span>
                     </div>
                 </div>
@@ -104,9 +98,8 @@
                     <div class="image-placeholder">
                         <img src="img/dish7.png" alt="Cheesy Fries">
                     </div>
-                    <div class="toggle-switch">
+                    <div class="toggle-checkbox">
                         <input type="checkbox" id="item7" checked>
-                        <label class="slider" for="item7"></label>
                         <span class="status-text">Available</span>
                     </div>
                 </div>
@@ -116,22 +109,19 @@
                     <div class="image-placeholder">
                         <img src="img/dish8.png" alt="Mushroom Soup">
                     </div>
-                    <div class="toggle-switch">
+                    <div class="toggle-checkbox">
                         <input type="checkbox" id="item8" checked>
-                        <label class="slider" for="item8"></label>
                         <span class="status-text">Available</span>
                     </div>
                 </div>
 
                 <div class="menu-box add-new-box">
-                    <button class="add-item-btn" aria-label="Add new menu item">
-                        <span>+</span>
+                    <button id="add-btn" aria-label="Add new menu item">
+                        <span id="plus">+</span>
                     </button>
                     <h4>Add New Menu Item</h4>
                 </div>
-
     </main>
-
-    <script src="../JS-Files/MenuManagment.js"></script>
+    <script src="js/StallManagement.js"></script>
 </body>
 </html>
