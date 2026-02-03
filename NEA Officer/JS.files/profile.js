@@ -21,3 +21,24 @@ fileInput.addEventListener("change", () => {
     reader.readAsDataURL(file);
   }
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const searchBtn = document.getElementById("searchBtn");
+  const searchBox = document.getElementById("searchBox");
+
+  searchBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    searchBox.style.display =
+      searchBox.style.display === "block" ? "none" : "block";
+  });
+
+    searchBox.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+  document.addEventListener("click", () => {
+    searchBox.style.display = "none";
+  });
+});
+
