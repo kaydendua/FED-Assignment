@@ -197,7 +197,6 @@ FAF9F9 - snow */
     position: relative;
 }
 
-/* dropdown box */
 #loginMenu {
     position: absolute;
     top: 100%;         
@@ -220,6 +219,9 @@ FAF9F9 - snow */
 #loginMenu a:hover {
     color: #28587B;
 }
+
+
+
 
 
 

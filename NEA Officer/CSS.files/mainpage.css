@@ -37,3 +37,32 @@ body {
 button {
   cursor: pointer;
 }
+
+#mainHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #bfbfbf;
+  padding: 15px 30px;
+}
+
+#logoArea {
+  background: #a6a6a6;
+  padding: 10px;
+  font-size: 12px;
+}
+
+#siteName {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#navLinks {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-item {
+  cursor: pointer;
+}
+
