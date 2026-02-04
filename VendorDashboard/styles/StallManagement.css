@@ -1,3 +1,31 @@
+/*Colour Padlet: #1C0F13 #28587B #4988BB #749EC1 #C9D0DC #F6ECF4 #FAF9F9*/
+
+/*QueueManagement*/
+.queue-box{
+    background-color: #F6ECF4;
+    padding: 10px;
+    margin: 3%;
+    border: 1px solid #1C0F13;
+    border-radius: 10px;
+}
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #1C0F13;
+}
+
+.section-header h3{
+    font-size: 1.5rem;
+}
+
+.search-filter {
+    display: flex;
+    gap: 10px;
+}
+
+/*MenuManagement*/
 .image-placeholder{
     width: 100%;
     height: 160px;
@@ -74,6 +102,10 @@
     font-size: 50px;
     color: #1C0F13;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
 }
 
 #add-btn:hover{
@@ -83,4 +115,48 @@
 #plus{
     color: #1C0F13;
     font-size: 50px;
+}
+
+/*Phone View*/
+@media screen and (max-width: 768px)
+{
+    /* Switch Menu Grid to 2-Columns for Phone */
+    .boxed-section {
+        gap: 15px;
+        padding: 15px; 
+    }
+
+    .menu-box {
+        width: 45%; 
+        padding: 10px;
+        min-height: 220px; /* Ensure boxes are tall enough */
+    }
+
+    /* 5. Shrink text and images slightly to fit small screens */
+    .menu-box h3 {
+        font-size: 1rem;
+        padding-bottom: 8px;
+    }
+
+    .image-placeholder {
+        height: 110px; /* Smaller image height */
+    }
+    
+    .status-text {
+        font-size: 0.9rem;
+    }
+
+    /* Fix the "Add New" button size */
+    .add-new-box {
+        min-height: 220px; /* Match other cards */
+    }
+    
+    #add-btn {
+        width: 70px;
+        height: 70px;
+    }
+
+    #plus {
+        font-size: 30px;
+    }
 }
