@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vendor Login</title>
+
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/pages.css">
+</head>
+
+<body id="page-v-login">
+
+  <!-- Shared Navbar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <button class="menu-btn" id="v-login-menu-btn">☰<br><small>Menu</small></button>
+      <div class="logo">LOGO</div>
+    </div>
+
+    <div class="nav-center">Website Name</div>
+
+    <div class="nav-right">
+      <a href="#" class="nav-link" id="v-login-nav-login">Log in here</a>
+      <a href="#" class="nav-link" id="v-login-nav-contact">Contact us</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="v-login-container">
+    <div id="v-login-box">
+
+      <!-- FORM -->
+      <form id="v-login-form" action="#" method="post">
+        <h2 id="v-login-title">Sign up or Log in!</h2>
+
+        <div class="v-login-input-box" id="v-login-email-box">
+          <span class="v-login-icon" aria-hidden="true">✉</span>
+          <input
+            type="email"
+            id="v-login-email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+        </div>
+
+        <div class="v-login-input-box" id="v-login-password-box">
+          <span class="v-login-icon" aria-hidden="true">🔒</span>
+          <input
+            type="password"
+            id="v-login-password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+
+        <button type="submit" id="v-login-submit-btn">Login</button>
+      </form>
+
+      <div id="v-login-divider"></div>
+
+      <section id="v-login-side">
+        <p id="v-login-motto-small">MOTTO (VENDOR)</p>
+        <h3 id="v-login-motto-big">MOTTO (VENDOR)</h3>
+        <p id="v-login-signup-text">Sign up here!</p>
+
+        <button type="button" id="v-login-signup-btn">
+          Sign up now!
+        </button>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

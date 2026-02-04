@@ -1,0 +1,43 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #bfbfbf;
+  padding: 10px 20px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-btn {
+  border: none;
+  background: #e0e0e0;
+  cursor: pointer;
+  padding: 6px 10px;
+}
+
+.logo {
+  font-size: 12px;
+}
+
+.nav-center {
+  font-weight: bold;
+}
+
+.nav-right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-right a {
+  text-decoration: none;
+  color: #000;
+}
+
+.nav-right a.active {
+  font-weight: bold;
+}

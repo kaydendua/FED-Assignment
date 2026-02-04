@@ -1,0 +1,514 @@
+/* pages.css */
+
+/* ---------------- STARTING PAGE ---------------- */
+
+#page-start {
+  background-color: #f0f0f0;
+}
+
+/* Dropdown */
+#start-login-dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+#start-dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  min-width: 150px;
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#start-dropdown-content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+#start-dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show dropdown on hover */
+#start-login-dropdown:hover #start-dropdown-content {
+  display: block;
+}
+
+/* Main Section */
+#start-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+#start-video-container {
+  width: 80%;
+  max-width: 800px;
+  margin-bottom: 2rem;
+}
+
+#start-video-container video {
+  width: 100%;
+  border-radius: 10px;
+}
+
+#start-motto {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  #start-motto {
+    font-size: 1.5rem;
+  }
+}
+
+/* ---------------- CUSTOMER HERO PAGE (C-HERO) ---------------- */
+
+#page-c-hero {
+  background: #d9d9d9;
+}
+
+#page-c-hero #c-hero-container {
+  display: flex;
+  padding: 40px;
+  gap: 40px;
+}
+
+#page-c-hero #c-hero-left {
+  flex: 1;
+}
+
+#page-c-hero #c-hero-motto-small {
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+#page-c-hero #c-hero-motto-title {
+  font-size: 70px;
+  margin: 60px 0 30px;
+}
+
+#page-c-hero #c-hero-signup-btn {
+  padding: 10px 100px;
+  border: 1px solid #000;
+  background: #fff;
+  cursor: pointer;
+  margin-top: 30px;
+  border-radius: 25px;
+}
+
+#page-c-hero #c-hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#page-c-hero #c-hero-image-box {
+  width: 700px;
+  height: 600px;
+  background: #cfcfcf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+/* ---------------- CUSTOMER LOGIN PAGE ---------------- */
+
+#page-login #login-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+#page-login #login-box {
+  background: #cfcfcf;
+  padding: 40px;
+  display: flex;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 10px;
+}
+
+#page-login #login-form {
+  flex: 1;
+}
+
+#page-login #login-title {
+  margin-bottom: 20px;
+}
+
+#page-login #login-email-box,
+#page-login #login-password-box {
+  display: flex;
+  align-items: center;
+  background: #eaeaea;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+}
+
+#page-login #login-email,
+#page-login #login-password {
+  border: none;
+  background: transparent;
+  margin-left: 10px;
+  width: 100%;
+  outline: none;
+}
+
+#page-login #login-submit,
+#page-login #login-signup-btn,
+#page-login #login-guest-btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  background: #e6e6e6;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+#page-login #login-or-text {
+  text-align: center;
+  font-size: 14px;
+  margin: 20px 0;
+}
+
+#page-login #login-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+#page-login #login-social-apple,
+#page-login #login-social-facebook,
+#page-login #login-social-twitter {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+#page-login #login-divider {
+  width: 2px;
+  background: #999;
+  margin: 0 30px;
+}
+
+#page-login #login-side {
+  flex: 1;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  #page-login #login-box {
+    flex-direction: column;
+  }
+
+  #page-login #login-divider {
+    display: none;
+  }
+}
+
+/* ---------------- CUSTOMER PROFILE PAGE ---------------- */
+
+#page-profile #profile-container {
+  padding: 30px;
+  background: #f2f2f2;
+  min-height: 100vh;
+}
+
+#page-profile #profile-top {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+#page-profile #profile-image-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 5px;
+  width: 300px;
+}
+
+#page-profile #profile-big-img {
+  grid-row: span 3;
+  background: #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#page-profile .profile-small-img {
+  background: #cfcfcf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#page-profile #profile-info {
+  max-width: 500px;
+}
+
+#page-profile #profile-order-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+#page-profile #profile-history-title {
+  margin-bottom: 15px;
+}
+
+#page-profile #profile-history-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+}
+
+#page-profile .profile-history-card {
+  min-width: 220px;
+  background: #e0e0e0;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+#page-profile .profile-history-img {
+  background: #cfcfcf;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  #page-profile #profile-top {
+    flex-direction: column;
+  }
+
+  #page-profile #profile-image-grid {
+    width: 100%;
+  }
+}
+
+/* ---------------- VENDOR HERO PAGE (V-HERO) ---------------- */
+
+#page-v-hero {
+  background: #e6e6e6;
+}
+
+#page-v-hero #v-hero-main {
+  height: calc(100vh - 140px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#page-v-hero #v-hero-intro {
+  font-size: 14px;
+  color: #555;
+}
+
+#page-v-hero #v-hero-headline {
+  font-size: 32px;
+  margin: 10px 0 20px;
+  margin-top: 200px;
+}
+
+#page-v-hero #v-hero-apply-btn {
+  padding: 12px 30px;
+  border-radius: 20px;
+  border: none;
+  background: #cfcfcf;
+  color: #777;
+  cursor: pointer;
+}
+
+/* ---------------- VENDOR LOGIN PAGE (V-LOGIN) ---------------- */
+
+#page-v-login {
+  background: #f2f2f2;
+}
+
+#page-v-login #v-login-container {
+  width: 100%;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#page-v-login #v-login-box {
+  width: 70%;
+  background: #dcdcdc;
+  border-radius: 12px;
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 400px;
+}
+
+#page-v-login #v-login-form {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  padding-right: 20px;
+}
+
+#page-v-login #v-login-side {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+}
+
+#page-v-login #v-login-divider {
+  width: 2px;
+  background: #999;
+  margin: 0 10px;
+}
+
+#page-v-login #v-login-title {
+  margin-bottom: 20px;
+}
+
+#page-v-login .v-login-input-box {
+  width: 100%;
+  background: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#page-v-login .v-login-icon {
+  margin-right: 8px;
+}
+
+#page-v-login #v-login-email,
+#page-v-login #v-login-password {
+  border: none;
+  outline: none;
+  width: 100%;
+  background: transparent;
+}
+
+#page-v-login #v-login-submit-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background: #bfbfbf;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+#page-v-login #v-login-signup-btn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid #999;
+  background: #eee;
+  cursor: pointer;
+}
+
+#page-v-login #v-login-motto-small {
+  font-size: 12px;
+  color: #666;
+  margin-top: 30px;
+}
+
+#page-v-login #v-login-motto-big {
+  padding-top: 60px;
+}
+
+#page-v-login #v-login-signup-text {
+  padding-top: 7px;
+}
+
+/* ---------------- VENDOR SIGNUP FORM (V-SIGNUP) ---------------- */
+
+#page-v-signup {
+  background: #e6e6e6;
+  overflow-y: auto;
+}
+
+#page-v-signup #v-signup-container {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  background: white;
+  margin: 30px auto;
+  padding: 30px;
+  width: 500px;
+  border-radius: 10px;
+}
+
+#page-v-signup #v-signup-step-indicator {
+  margin-bottom: 10px;
+}
+
+#page-v-signup #v-signup-image-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  background: #f0f0f0;
+  margin-bottom: 15px;
+}
+
+#page-v-signup .v-signup-step {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#page-v-signup .v-signup-hidden {
+  display: none;
+}
+
+#page-v-signup input {
+  padding: 8px;
+}
+
+#page-v-signup button {
+  padding: 10px 20px;
+  border: none;
+  background: #d3d3d3;
+  cursor: pointer;
+}
+
+#page-v-signup .v-signup-btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+#page-v-signup .v-signup-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

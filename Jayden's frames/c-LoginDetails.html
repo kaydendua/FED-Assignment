@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/pages.css">
+</head>
+
+<body id="page-login">
+
+  <!-- TOP BAR -->
+  <header class="navbar">
+    <div class="nav-left">
+      <button class="menu-btn">☰<br>Menu</button>
+      <div class="logo">
+        LOGO LOGO LOGO<br>
+        LOGO LOGO LOGO
+      </div>
+    </div>
+
+    <div class="nav-center">Website Name</div>
+
+    <div class="nav-right">
+      <span>Log in here ▼</span>
+      <span>Contact us!</span>
+    </div>
+  </header>
+
+  <!-- LOGIN FRAME -->
+  <main id="login-container">
+    <div id="login-box">
+
+      <!-- FORM -->
+      <form id="login-form">
+        <h2 id="login-title">Sign up or Log in!</h2>
+
+        <div id="login-email-box">
+          <span id="login-email-icon">✉</span>
+          <input id="login-email" type="email" name="email" placeholder="Email" required>
+        </div>
+
+        <div id="login-password-box">
+          <span id="login-password-icon">🔒</span>
+          <input id="login-password" type="password" name="password" placeholder="Password" required>
+        </div>
+
+        <button type="submit" id="login-submit">Sign Up</button>
+
+        <p id="login-or-text">Or Continue with</p>
+
+        <div id="login-social-icons">
+          <button type="button" id="login-social-apple"></button>
+          <button type="button" id="login-social-facebook">f</button>
+          <button type="button" id="login-social-twitter">🐦</button>
+        </div>
+      </form>
+
+      <div id="login-divider"></div>
+
+      <!-- RIGHT SIDE -->
+      <div id="login-side">
+        <h3 id="login-side-title">Sign up here!</h3>
+        <button type="button" id="login-signup-btn">Sign up now!</button>
+
+        <p id="login-guest-text">Or Continue as guest!</p>
+        <button type="button" id="login-guest-btn">Continue as guest</button>
+      </div>
+
+    </div>
+  </main>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
