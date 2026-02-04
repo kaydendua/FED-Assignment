@@ -1,0 +1,59 @@
+.stall-info {
+    margin: 48px 72px;
+    display: flex;
+}
+
+.image-display {
+    width: 50%;
+    height: 50%;
+}
+
+.image-display img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.details-display {
+    width: 50%;
+    padding-left: 24px;
+}
+
+.stall-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 12px;
+}
+
+.review-section {
+    margin: 48px 72px;
+}
+
+#review-display {
+    margin-top: 12px;
+    display: flex;
+    gap: 12px;
+}
+
+.review {
+    background-color: white;
+    padding: 16px;
+    width: 30%;
+    height: 200px;;
+    border-radius: 8px;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.review-writer {
+    font-size: 0.8rem;
+    margin-bottom: 12px;
+}
+
+#review-placeholder {
+    margin: 12px 0px
+}

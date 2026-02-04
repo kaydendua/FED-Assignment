@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stall Page</title>
+
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/stallPage.css">
+</head>
+<body>
+    <nav class="navbar">
+        <img src="/img/FED_LOGO.png" alt="Logo" id="logo">
+
+        <ul class="nav-links">
+            <li><a href="#">For You</a></li>
+            <li><a href="#">Search</a></li>
+            <li><a href="#">Points</a></li>
+            <li><a href="#">Profile</a></li>
+        </ul>
+    </nav>
+
+    <section class="stall-info">
+        <div class="image-display">
+            <img src="/img/dish1.png" alt="Stall Image">
+        </div>
+        <div class="details-display">
+            <div class="stall-header">
+                <h2>Stall Name</h2>
+                <h2>rating</h2>
+            </div>
+            <p>description</p>
+            <p>Cuisine Type</p>
+            <p>Operating Hours: 9:00 AM - 9:00 PM</p>
+            <p>Location: Food Court A</p>
+        </div>
+    </section>
+
+    <section class="review-section">
+        <h3>Customer Reviews</h3>
+        <p id="review-placeholder">Loading reviews...</p>
+        <div id="review-display">
+        </div>
+    </section>
+
+    <script type="module" src="js/review.js"></script>
+</body>
+</html>
