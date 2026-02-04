@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile Page</title>
+  <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+
+<header id="mainHeader">
+  <div id="logoArea">LOGO LOGO LOGO</div>
+  <div id="siteName">Website Name</div>
+
+  <nav class="nav-links">
+    <span id = "searchBtn">Search</span>
+    <span>Home</span>
+    <span>Profile</span>
+  </nav>
+
+  <div id="searchBox">
+    <input type="text" placeholder="Search..." />
+  </div>
+
+</header>
+
+<main class="profile-page">
+
+  <div class="left-panel">
+    <input type="file" id="fileInput" accept="image/*">
+
+    <div class="profile-container" id="profilePic">
+      <img id="preview" src="default-profile.png" alt="Profile Picture">
+    </div>
+  </div>
+
+  <div class="right-panel">
+
+    <div class="field">
+      <label>Name</label>
+      <input type="text" class="box">
+    </div>
+
+    <div class="field">
+      <label>Officer ID</label>
+      <input type="text" class="box">
+    </div>
+
+    <div class="field">
+      <label>Designation</label>
+      <input type="text" class="box">
+    </div>
+
+    <div class="field">
+      <label>Department / Division</label>
+      <input type="text" class="box">
+    </div>
+
+    <div class="field">
+      <label>Contact Email</label>
+      <input type="text" class="box">
+    </div>
+
+    <div class="field">
+      <label>Contact Number</label>
+      <input type="text" class="box">
+    </div>
+
+  </div>
+
+</main>
+
+<script src="profile.js"></script>
+</body>
+</html>
