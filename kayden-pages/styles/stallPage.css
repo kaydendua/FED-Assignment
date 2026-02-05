@@ -1,21 +1,21 @@
-.stall-info {
+#stall-info {
     margin: 48px 72px;
     display: flex;
 }
 
-.image-display {
+#image-display {
     width: 50%;
     height: 50%;
 }
 
-.image-display img {
+#image-display img {
     width: 100%;
     height: auto;
     max-height: 400px;
     object-fit: cover;
 }
 
-.details-display {
+#details-display {
     width: 50%;
     padding-left: 24px;
 }

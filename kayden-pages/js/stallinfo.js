@@ -11,26 +11,36 @@ import {
 
 const reviewsContainer = document.getElementById("review-display");
 const placeholder = document.getElementById("review-placeholder");
-// replace with actual stall ID (from URL, etc.)
-const stallId = "1";
 
-async function loadReviews() {
+function getStallIdFromUrl() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get('id');
+}
+
+const stallId = getStallIdFromUrl();
+
+async function loadStallData() {
   reviewsContainer.innerHTML = "";
 
-  // 1. Get stall document
+  if (!stallId) {
+    reviewsContainer.innerHTML = "<p>No stall specified.</p>";
+    return;
+  }
+
   const stallSnap = await getDoc(doc(db, "stalls", stallId));
   if (!stallSnap.exists()) {
     reviewsContainer.innerHTML = "<p>Stall not found.</p>";
     return;
   }
 
-  const { reviews } = stallSnap.data();
+  const stallData = stallSnap.data();
+  const { reviews } = stallData;
+
   if (!reviews || reviews.length === 0) {
     reviewsContainer.innerHTML = "<p>No reviews yet.</p>";
     return;
   }
 
-  // 2. Firestore "in" query (max 10)
   const reviewsQuery = query(
     collection(db, "reviews"),
     where(documentId(), "in", reviews.slice(0, 10))
@@ -38,21 +48,27 @@ async function loadReviews() {
 
   const reviewSnap = await getDocs(reviewsQuery);
 
-  
-
   if (reviewSnap.empty) {
     placeholder.value = "No reviews here yet.";
     return;
   } else {
     placeholder.hidden = true;
   }
+
+  let totalRating = 0;
+  let reviewCount = 0;
+
   for (const reviewDoc of reviewSnap.docs) {
     const review = reviewDoc.data();
     if (review.anonymous) {
       review.author = "Anonymous";
     }
+    totalRating += review.rating;
+    reviewCount++;
     displayReview(review);
   }
+
+  displayStallInfo(stallData, (totalRating / reviewCount).toFixed(1));
 }
 
 function displayReview(review) {
@@ -71,4 +87,16 @@ function displayReview(review) {
   reviewsContainer.appendChild(div);
 }
 
-loadReviews();
+function displayStallInfo(stall, rating) {
+  const div = document.getElementById("details-display");
+
+  div.innerHTML = `
+    <div class="stall-header">
+        <h2>${stall.name}</h2>
+        <h2>${rating} ⭐</h2>
+    </div>
+    <p>${stall.description}</p>
+  `;
+}
+
+loadStallData();
