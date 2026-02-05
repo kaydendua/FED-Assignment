@@ -3,37 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liang Cheng's Vendor Dashboard (Stall Performance Page)</title>
-    <link rel="stylesheet" href="../styles/Vendor.css">
+    <title>Liang Cheng's Vendor Dashboard (Menu Page)</title>
+    <link rel="stylesheet" href="styles/Vendor.css">
     <link rel="stylesheet" href="styles/StallAnalytics.css">
 </head>
 <body>
-        <header class="dashboard">
+    <header class="dashboard">
         <div class="brand-logo">
             <img src="img/FED_LOGO.png" alt="Hawker Logo">
         </div>
         <div class="welcome-msg">
             <h2>Welcome! Vendor Name</h2>
         </div>
-            <nav>
-                <ul class="nav-links">
-            <li><a href="/VendorDashboard/StallManagement.html">Stall Management</a></li>
-            <li><a href="/VendorDashboard/StallAnalytics.html" class="active">Stall Analytics</a></li>
-            <li><a href="/VendorDashboard/CustomerSatisfaction.html">Customer Satisfaction</a></li>
-            <li><a href="/VendorDashboard/Profile.html">Profile</a></li>
-                </ul>
-        </header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/VendorDashboard/StallManagement.html">Stall Management</a></li>
+                <li><a href="/VendorDashboard/StallAnalytics.html" class="active">Stall Analytics</a></li>
+                <li><a href="/VendorDashboard/CustomerSatisfaction.html">Customer Satisfaction</a></li>
+                <li><a href="/VendorDashboard/Profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
         
-        <main class="contents">
+    <main class="contents">
 
         <section id="performance" class="boxed-section">
             <div class="stats-overview">
-                <article class="stats-box">
-                    <h3>Customer Satisfaction</h3>
-                    <div class="stars">★★★★★</div>
-                    <p>5.0</p>
-                </article>
-                <article class="stats-box">
+                <article class="sales-box">
                     <h3>Current Sales (Month)</h3>
                     <p class="money">$ 4,200</p>
                 </article>
@@ -49,7 +45,7 @@
                     <canvas id="sales-chart"></canvas> </div>
             </div>
         </section>
-
+    </main>
         <script src="../JS-Files/StallPerformance.js"></script>
 </body>
 </html>

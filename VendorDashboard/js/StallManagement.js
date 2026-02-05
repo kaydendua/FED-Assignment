@@ -24,3 +24,36 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+// Handle Accept/Decline button
+document.querySelectorAll('.btn-accept').forEach(btn => {
+    btn.addEventListener('click', function () {
+        const cell = this.closest('td');
+
+        cell.innerHTML = `
+            <div class="order-status">
+                <p>Accepted Order.</p>
+                <button class="btn-ready">Ready</button>
+            </div>
+        `;
+
+        attachReadyLogic(cell);
+    });
+});
+
+document.querySelectorAll('.btn-decline').forEach(btn => {
+    btn.addEventListener('click', function () {
+        const cell = this.closest('td');
+        cell.innerHTML = `<p>Declined Order.</p>`;
+    });
+});
+
+
+// Handle Ready button
+function readyLogic(cell) {
+    const readyBtn = cell.querySelector('.btn-ready');
+
+    readyBtn.addEventListener('click', function () {
+        cell.innerHTML = `<p>Order Ready for Collection.</p>`;
+    });
+}
