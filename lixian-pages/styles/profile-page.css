@@ -1,35 +1,3 @@
-* {
-  font-family: Arial, sans-serif;
-}
-
-body {
-    margin: 0;
-    background-color: white;
-}
-
-#mainHeader {
-    height: 70px;
-    background-color: lightgrey;
-    display: flex;
-    align-items: center; 
-    padding: 0px 30px;     
-}
-
-/* insert the logo here */
-#logoArea { 
-    margin-right: auto;
-}
-
-#siteName {
-    font-size: auto;
-    margin-right: 200px;
-}
-
-.nav-links span {
-  margin-left: 25px;
-  cursor: pointer;
-}
-
 body {
   background-color: #e6e6e6;
 }
@@ -96,17 +64,3 @@ body {
   font-size: 14px;
 }
 
-#searchBox {
-  position: absolute;
-  top: 70px;
-  right: 30px;
-  display: none;
-}
-
-#searchBox input {
-  width: 220px;
-  padding: 8px 10px;
-  font-size: auto;
-  border: 1px solid black;
-  border-radius: 5px;
-}

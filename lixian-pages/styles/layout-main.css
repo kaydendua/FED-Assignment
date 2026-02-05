@@ -1,0 +1,36 @@
+#mainHeader {
+    height: 70px;
+    background-color: white;;
+    display: flex;
+    align-items: center; 
+    padding: 0px 30px;     
+}
+
+#logoArea { 
+    margin-right: auto;
+}
+
+#siteName {
+    font-size: 16px;
+    margin-right: 200px;
+}
+
+.nav-links span {
+  margin-left: 25px;
+  cursor: pointer;
+}
+
+#searchBox {
+  position: absolute;
+  top: 70px;
+  right: 30px;
+  display: none;
+}
+
+#searchBox input {
+  width: 220px;
+  padding: 8px 10px;
+  font-size: auto;
+  border: 1px solid black;
+  border-radius: 5px;
+}
