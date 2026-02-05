@@ -72,19 +72,30 @@ async function loadStallData() {
 }
 
 function displayReview(review) {
-  const div = document.createElement("div");
-  div.className = "review";
+  const card = document.createElement("div");
+  card.className = "review";
 
-  div.innerHTML = `
+  const descriptionPreview = review.description.length > 150 
+    ? review.description.substring(0, 200) + "..." 
+    : review.description;
+  
+  const needsReadMore = review.description.length > 150;
+
+  card.innerHTML = `
     <div class="review-header">
       <h4>${review.title}</h4>
-      <h4>${"⭐".repeat(review.rating)}${"☆".repeat(5 - review.rating)}</h4>
+      <div>${"⭐".repeat(review.rating)}${"☆".repeat(5 - review.rating)}</div>
     </div>
     <p class="review-writer">by ${review.author}</p>
-    <p>${review.description}</p>
+    <p>${descriptionPreview}</p>
+
+    <div class="review-footer">
+      <span></span>
+      ${needsReadMore ? `<a href="reviews.html?stallId=${stallId}" class="review-read-more">Read more</a>` : ''}
+    </div>
   `;
 
-  reviewsContainer.appendChild(div);
+  reviewsContainer.appendChild(card);
 }
 
 function displayStallInfo(stall, rating) {
