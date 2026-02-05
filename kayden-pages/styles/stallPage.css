@@ -45,6 +45,7 @@
     height: 200px;;
     border-radius: 8px;
     flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
 .review-header {
@@ -75,7 +76,7 @@
 
 /* Hide scrollbar for cleaner look (optional) */
 .review-scroll-container::-webkit-scrollbar {
-  height: 8px;
+  height: 2px;
 }
 
 .review-scroll-container::-webkit-scrollbar-track {
@@ -92,7 +93,7 @@
   background: #555;
 }
 
-.read-more-btn {
+#read-more-btn {
   padding: 0.5rem 1.5rem;
   color: black;
   text-decoration: none;
@@ -101,7 +102,7 @@
   transition: color 0.3s;
 }
 
-.read-more-btn:hover {
+#read-more-btn:hover {
   color: #007bff;
   cursor: pointer
 }

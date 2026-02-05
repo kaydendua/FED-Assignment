@@ -11,6 +11,7 @@ import {
 
 const reviewsContainer = document.getElementById("review-display");
 const placeholder = document.getElementById("review-placeholder");
+const reviewsPageBtn = document.getElementById("read-more-btn");
 
 function getStallIdFromUrl() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -32,6 +33,8 @@ async function loadStallData() {
     reviewsContainer.innerHTML = "<p>Stall not found.</p>";
     return;
   }
+  reviewsPageBtn.href = `reviews.html?id=${stallId}`;
+  reviewsPageBtn.hidden = false;
 
   const stallData = stallSnap.data();
   const { reviews } = stallData;
@@ -75,11 +78,11 @@ function displayReview(review) {
   const card = document.createElement("div");
   card.className = "review";
 
-  const descriptionPreview = review.description.length > 150 
-    ? review.description.substring(0, 200) + "..." 
+  const descriptionPreview = review.description.length > 250 
+    ? review.description.substring(0, 250) + "..." 
     : review.description;
   
-  const needsReadMore = review.description.length > 150;
+  const needsReadMore = review.description.length > 250;
 
   card.innerHTML = `
     <div class="review-header">
@@ -91,7 +94,7 @@ function displayReview(review) {
 
     <div class="review-footer">
       <span></span>
-      ${needsReadMore ? `<a href="reviews.html?stallId=${stallId}" class="review-read-more">Read more</a>` : ''}
+      ${needsReadMore ? `<a href="reviews.html?id=${stallId}" class="review-read-more">Read more</a>` : ''}
     </div>
   `;
 
