@@ -1,0 +1,27 @@
+#mainHeader {
+    height: 70px;
+    background-color: #F2ECF1;
+    display: flex;
+    align-items: center; 
+    padding: 15px 20px;     
+}
+
+/* insert the logo here */
+#logoArea { 
+
+    margin-right: auto;
+}
+
+#siteName {
+    font-size: 16px;
+    margin-right: 200px;
+    color: #1C0F13;
+}
+
+#loginMenuBtn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #1C0F13;
+}
