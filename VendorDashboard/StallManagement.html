@@ -9,12 +9,12 @@
 </head>
 <body>
     <header class="dashboard">
-    <div class="brand-logo">
-        <img src="img/FED_LOGO.png" alt="Hawker Logo">
-    </div>
-    <div class="welcome-msg">
-        <h2>Welcome! Vendor Name</h2>
-    </div>
+        <div class="brand-logo">
+            <img src="img/FED_LOGO.png" alt="Hawker Logo">
+        </div>
+        <div class="welcome-msg">
+            <h2>Welcome! Vendor Name</h2>
+        </div>
         <nav>
             <ul class="nav-links">
                 <li><a href="/VendorDashboard/StallManagement.html" class="active">Stall Management</a></li>
@@ -27,7 +27,7 @@
         
     <main class="contents">
         <section id="queue" class="queue-box">
-            <div class="section-header">
+            <div class="queue-header">
                 <h3>Queue Management</h3>
                 <div class="search-filter">
                     <input type="text" placeholder="Search Order ID">
@@ -53,9 +53,11 @@
                         <td>Ong Liang Cheng</td>
                         <td>Hokkien Mee (No Chili) x2</td>
                         <td>
+                            <p class="order-status">Pending...</p>
                             <div class="btn-group">
                                 <button class="btn-accept">Accept</button>
                                 <button class="btn-decline">Decline</button>
+                                <button class="btn-ready">Ready</button>
                             </div>
                         </td>
                     </tr>
@@ -63,8 +65,8 @@
             </table>
         </section>
 
+        <span class="menu-header"><h3>Menu Management</h3></span>
         <section id="menu" class="boxed-section">
-
             <div class="menu-box">
                 <h3>Carbonara Pasta</h3>
                 <div class="image-placeholder">

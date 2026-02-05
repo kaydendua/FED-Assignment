@@ -8,7 +8,7 @@
     box-shadow: 2px 2px 5px #28587B;
     border-radius: 10px;
 }
-.section-header {
+.queue-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,7 +16,7 @@
     color: #1C0F13;
 }
 
-.section-header h3{
+.queue-header h3{
     font-size: 1.5rem;
 }
 
@@ -62,7 +62,23 @@ button:hover{
     background-color: #4988BB;
 }
 
+.order-status{
+    margin-bottom: 10px;
+}
+
+.btn-ready{
+    display: none;
+}
+
 /*MenuManagement*/
+.menu-header h3{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: #1C0F13;
+    font-size: 1.5rem;
+}
+
 .image-placeholder{
     width: 100%;
     height: 160px;

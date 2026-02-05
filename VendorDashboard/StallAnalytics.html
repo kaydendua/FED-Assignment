@@ -27,25 +27,24 @@
         
     <main class="contents">
 
-        <section id="performance" class="boxed-section">
-            <div class="stats-overview">
-                <article class="sales-box">
-                    <h3>Current Sales (Month)</h3>
-                    <p class="money">$ 4,200</p>
-                </article>
-                <article class="hygiene-grade">
-                    <h3>Hygiene Grade</h3>
-                    <div class="grade-badge">A</div>
-                </article>
-            </div>
-            
-            <div class="charts-container">
-                <div class="chart-box">
-                    <h3>Analytics of Past 12 Months: Sales Revenue</h3>
-                    <canvas id="sales-chart"></canvas> </div>
-            </div>
+        <section class="dashboard-body">
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <p>Current Sales (This Month):</p>
+                        <div class="sales-box">$4200</div>
+                    </div>
+                    <div class="grade-box">
+                        <p>Current Hygiene Grade:</p>
+                        <div class="hygiene-grade">A</div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>Analytics of Past 12 Months in terms of Sales Revenue</h3>
+                    <canvas id="salesChart"></canvas>
+                </div>
         </section>
     </main>
-        <script src="../JS-Files/StallPerformance.js"></script>
+    <script src="js/StallAnalytics.js"></script>
 </body>
 </html>

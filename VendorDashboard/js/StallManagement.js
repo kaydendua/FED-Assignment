@@ -23,37 +23,30 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-});
+// Handle accept, decline, and ready
+    document.querySelectorAll('#queue-list tr').forEach(row => {
 
-// Handle Accept/Decline button
-document.querySelectorAll('.btn-accept').forEach(btn => {
-    btn.addEventListener('click', function () {
-        const cell = this.closest('td');
+        const statusText = row.querySelector('.order-status');
+        const acceptBtn = row.querySelector('.btn-accept');
+        const declineBtn = row.querySelector('.btn-decline');
+        const readyBtn = row.querySelector('.btn-ready');
 
-        cell.innerHTML = `
-            <div class="order-status">
-                <p>Accepted Order.</p>
-                <button class="btn-ready">Ready</button>
-            </div>
-        `;
+        acceptBtn.addEventListener('click', () => {
+            statusText.textContent = "Accepted Order";
+            acceptBtn.style.display = "none";
+            declineBtn.style.display = "none";
+            readyBtn.style.display = "inline-block";
+        });
 
-        attachReadyLogic(cell);
+        declineBtn.addEventListener('click', () => {
+            statusText.textContent = "Declined Order";
+            acceptBtn.style.display = "none";
+            declineBtn.style.display = "none";
+        });
+
+        readyBtn.addEventListener('click', () => {
+            statusText.textContent = "Order Ready for Collection";
+            readyBtn.style.display = "none";
+        });
     });
 });
-
-document.querySelectorAll('.btn-decline').forEach(btn => {
-    btn.addEventListener('click', function () {
-        const cell = this.closest('td');
-        cell.innerHTML = `<p>Declined Order.</p>`;
-    });
-});
-
-
-// Handle Ready button
-function readyLogic(cell) {
-    const readyBtn = cell.querySelector('.btn-ready');
-
-    readyBtn.addEventListener('click', function () {
-        cell.innerHTML = `<p>Order Ready for Collection.</p>`;
-    });
-}

@@ -1,0 +1,48 @@
+/*Colour Padlet: #1C0F13 #28587B #4988BB #749EC1 #C9D0DC #F6ECF4 #FAF9F9*/
+
+.dashboard-body {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-bottom: 40px;
+}
+
+.stat-card p, .grade-box p {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.sales-box {
+    background-color: #F6ECF4;
+    width: 200px;
+    padding: 15px 0;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    box-shadow: 2px 2px 5px #28587B;
+}
+
+.hygiene-grade {
+    width: 100px;
+    height: 100px;
+    background-color: #F6ECF4;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Times New Roman', serif;
+    font-size: 3.5rem;
+    color: #1C0F13;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px #28587B;
+    margin: 0 auto;
+}
