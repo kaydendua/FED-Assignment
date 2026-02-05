@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Main Page</title>
-  <link rel="stylesheet" href="../styles/base.css">
-  <link rel="stylesheet" href="../styles/layout-main.css">
-  <link rel="stylesheet" href="../styles/mainpage.css">
-
+  <link rel="stylesheet" href="../lixian-pages/styles/base.css">
+  <link rel="stylesheet" href="../lixian-pages/styles/layout-main.css">
+  <link rel="stylesheet" href="../lixian-pages/styles/main-page.css">
+ 
 </head>
 
 <body>
@@ -15,39 +15,44 @@
         <div id="logoArea">LOGO LOGO LOGO</div>
         <div id="siteName">Website Name</div>
 
-        <nav id="navLinks">
-            <span class="nav-item">Search</span>
-            <span class="nav-item">Home</span>
-            <span class="nav-item">Profile</span>
-        </nav>
-
+    <nav class="navLinks">
+        <span class="nav-item" id="searchBtn">Search</span>
+        <span class="nav-item">Home</span>
+        <span class="nav-item">Profile</span>
+    </nav>
+    <div id="searchBox">
+        <input type="text" placeholder="Search..." />
+    </div>
     </header>
 
     <main id = "contentbackground"> 
-        <section> 
-            <h2> Welcome Back! </h2>
-            <h3> Historical Hygiene Grade Graph </h3>
-            <h3> Month, Year ▾</h3>
+        <section class="topRow">
+            <h2 class="welcome">Welcome Back!</h2>
+            <h3 class="graphTitle">Historical Hygiene Grade Graph</h3>
+            <div class="monthPick">
+                <select id="monthSelect"></select>
+                <select id="yearSelect"></select>
+            </div>
         </section>
 
-
         <div class ="content-box">
-            <section> 
+            <section class= "schedTitleRow"> 
                 <h1> Inspection Scheduling </h1>
+
                 <hr 
                 style="width: 900px; border: none; height: 
                 2px; background-color: black;">
             </section>
             <div class="calendar">
                 <div class="header">
-                    <button id="prev">&lt;</button>
+                    <button id="prev" class="cal-btn" aria-label="Previous month">‹</button>
                     <h3 id="monthYear"></h3>
-                    <button id="next">&gt;</button>
-            </div>
+                    <button id="next" class="cal-btn" aria-label="Next month">›</button>
+                </div>
             <div class="days" id="calendarDays"></div>
         </div>
    
     </main>
-    <script src="..//js/mainpage.js"></script>
+    <script src="../lixian-pages/js/mainpage.js"></script>
 
 </body>

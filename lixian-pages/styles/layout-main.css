@@ -1,18 +1,33 @@
 #mainHeader {
-    height: 70px;
-    background-color: white;;
-    display: flex;
-    align-items: center; 
-    padding: 0px 30px;     
+  height: 70px;
+  background: #bfbfbf;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  gap: 20px;
 }
 
-#logoArea { 
-    margin-right: auto;
+#logoArea {
+  background: #a6a6a6;
+  padding: 10px 14px;
+  font-size: 12px;
+  line-height: 1.1;
 }
 
 #siteName {
-    font-size: 16px;
-    margin-right: 200px;
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#navLinks {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-item {
+  cursor: pointer;
 }
 
 .nav-links span {
@@ -34,3 +49,5 @@
   border: 1px solid black;
   border-radius: 5px;
 }
+
+

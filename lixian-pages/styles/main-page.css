@@ -1,0 +1,163 @@
+body {
+  margin: 0;
+  background: #ffffff;     
+  font-family: Arial, sans-serif;
+}
+
+#contentbackground{
+  width: min(1200px, 94vw); /* grows up to 1200, still responsive */
+  margin: 24px auto;
+  padding: 0;
+}
+
+.calendar .header{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  margin: 16px 0 22px;
+}
+
+.cal-btn{
+  width: 52px;
+  height: 52x;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.35);
+  background: rgba(255,255,255,0.65);
+  font-size: 30px;
+  line-height: 1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition: transform .12s ease, background .12s ease, box-shadow .12s ease;
+}
+
+.cal-btn:hover{
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+
+.cal-btn:active{
+  transform: translateY(0px) scale(0.98);
+}
+
+#monthYear {
+  font-size: 56px;     
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+#prev, #next {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #000;
+  background: #fff;
+  cursor: pointer;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-top: 10px;
+}
+
+.day {
+  border: 1px solid #000;
+  min-height: 60px;
+  padding: 16px;
+  font-size: 16px;
+}
+
+.day.header {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.day.today {
+  background: transparent;
+  border-radius: 0;
+}
+
+.day:not(.header) {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+button {
+  cursor: pointer;
+}
+
+.content-box {
+  background: lightblue;
+  width: 100%;
+  max-width: 1100px;
+  margin: 16px auto;
+  padding: 28px 38px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.navLinks span {
+  margin-left: 25px;
+  cursor: pointer;
+}
+
+.topRow{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.welcome { margin: 0; justify-self: start; }
+.graphTitle { margin: 0; justify-self: center; }
+.monthPick { justify-self: end; font-weight: 600; }
+
+.content-box{
+  width: 100%;
+  max-width: 1100px;
+  margin: 16px auto;
+  padding: 28px 38px;
+}
+
+.schedTitleRow h1{
+  margin: 0 0 12px 0;
+  text-align: center;  
+  font-size: 40px;      
+  font-weight: 700;
+}
+
+.schedTitleRow hr{
+  border: none;
+  height: 2px;
+  background: #000;
+  width: 85%;
+  margin: 0 auto 18px auto;
+}
+
+.monthPick{
+  justify-self:end;
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.monthPick select{
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.25);
+  background: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}

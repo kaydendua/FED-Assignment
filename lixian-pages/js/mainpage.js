@@ -64,3 +64,65 @@ nextBtn.addEventListener('click', () => {
 });
 
 renderCalendar();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const searchBtn = document.getElementById("searchBtn");
+  const searchBox = document.getElementById("searchBox");
+
+  if (!searchBtn || !searchBox) return; // safety
+
+  searchBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    searchBox.style.display = (searchBox.style.display === "block") ? "none" : "block";
+  });
+
+  // prevent clicks inside the box from closing it
+  searchBox.addEventListener("click", (e) => e.stopPropagation());
+
+  // click anywhere else closes it
+  document.addEventListener("click", () => {
+    searchBox.style.display = "none";
+  });
+});
+
+const monthSelect = document.getElementById("monthSelect");
+const yearSelect  = document.getElementById("yearSelect");
+
+const monthNames = [
+  'January','February','March','April','May','June',
+  'July','August','September','October','November','December'
+];
+
+// fill month dropdown
+monthNames.forEach((m, idx) => {
+  const opt = document.createElement("option");
+  opt.value = idx;
+  opt.textContent = m;
+  monthSelect.appendChild(opt);
+});
+
+// fill year dropdown (adjust range as you like)
+const startYear = 2020;
+const endYear = 2035;
+
+for (let y = startYear; y <= endYear; y++) {
+  const opt = document.createElement("option");
+  opt.value = y;
+  opt.textContent = y;
+  yearSelect.appendChild(opt);
+}
+
+function syncPickersToDate(){
+  monthSelect.value = currentDate.getMonth();
+  yearSelect.value  = currentDate.getFullYear();
+}
+
+monthSelect.addEventListener("change", () => {
+  currentDate.setMonth(parseInt(monthSelect.value, 10));
+  renderCalendar();
+});
+
+yearSelect.addEventListener("change", () => {
+  currentDate.setFullYear(parseInt(yearSelect.value, 10));
+  renderCalendar();
+});
