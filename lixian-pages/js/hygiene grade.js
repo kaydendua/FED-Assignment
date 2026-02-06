@@ -125,18 +125,22 @@ if (defaultLocBtn) setActive(defaultLocBtn, "#locationGroup .pill");
 setActiveRange("month");
 
 // ===== Search box logic =====
-const searchBtn = document.getElementById("searchBtn");
-const searchBox = document.getElementById("searchBox");
+document.addEventListener("DOMContentLoaded", () => {
+  const searchBtn = document.getElementById("searchBtn");
+  const searchBox = document.getElementById("searchBox");
 
-searchBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  searchBox.style.display =
-    searchBox.style.display === "block" ? "none" : "block";
-});
+  searchBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    searchBox.style.display =
+      searchBox.style.display === "block" ? "none" : "block";
+  });
 
-searchBox.addEventListener("click", (e) => e.stopPropagation());
+    searchBox.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
 
-document.addEventListener("click", () => {
-  searchBox.style.display = "none";
+  document.addEventListener("click", () => {
+    searchBox.style.display = "none";
+  });
 });
 
