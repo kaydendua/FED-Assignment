@@ -3,33 +3,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> Historical Hygiene Grade Graph </title>
-  <link rel="stylesheet" href="style.css">
+  <title>Historical Hygiene Grade Graph</title>
+
+  <link rel="stylesheet" href="../lixian-pages/styles/base.css">
+  <link rel="stylesheet" href="../lixian-pages/styles/layout-main.css">
+  <link rel="stylesheet" href="../lixian-pages/styles/hygiene-graph.css">
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
-    <header id="mainHeader">
-        <div id="logoArea">LOGO LOGO LOGO</div>
-        <div id="siteName">Website Name</div>
-        <div id="navbar">Search</div>
-        <div id="navbar">Home</div>
-        <div id="navbar">Profile</div>
-    </header>
-    <section> 
-        <h2> Historical Hygiene Grade Graphs ▾</h2>
 
-        <select id="timeRange">
-            <option value="week">Past Week</option>
-            <option value="month">Past Month</option>
-            <option value="year">Past Year</option>
-        </select>
+  <!-- ================= HEADER ================= -->
+  <header id="mainHeader">
+    <div id="logoArea">LOGO LOGO LOGO</div>
+    <div id="siteName">Website Name</div>
 
-        <br><br>
-        <canvas id="hygieneChart" width="400" height="200"></canvas>
-    </section>
+    <nav id="navLinks">
+      <span class="nav-item" id="searchBtn">Search</span>
+      <span class="nav-item">Home</span>
+      <span class="nav-item">Profile</span>
+    </nav>
 
-    <script src="hygiene grade.js"></script>
+    <!-- search dropdown -->
+    <div id="searchBox">
+      <input id="searchInput" type="text" placeholder="Search..." />
+    </div>
+  </header>
 
+  <!-- ================= GRAPH SECTION ================= -->
+  <section class="graphSection">
+
+    <!-- Title -->
+    <div class="graphHeader">
+      <h2 class="graphTitle">HISTORICAL HYGIENE GRADE GRAPHS</h2>
+    </div>
+
+    <!-- Pills -->
+    <div class="pillRow">
+
+      <!-- Range pills -->
+      <div class="pillGroup" id="rangeGroup" role="tablist" aria-label="Graph Range">
+        <button type="button"
+                class="pill active"
+                data-range="month"
+                aria-pressed="true">
+          Past 3 Months
+        </button>
+
+        <button type="button"
+                class="pill"
+                data-range="year"
+                aria-pressed="false">
+          Past Year
+        </button>
+      </div>
+
+      <!-- Location pills -->
+      <div class="pillGroup" id="locationGroup" role="tablist" aria-label="Location">
+        <button type="button"
+                class="pill active"
+                data-location="north"
+                aria-pressed="true">
+          North
+        </button>
+
+        <button type="button"
+                class="pill"
+                data-location="central"
+                aria-pressed="false">
+          Central
+        </button>
+
+        <button type="button"
+                class="pill"
+                data-location="east"
+                aria-pressed="false">
+          East
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Chart -->
+    <div class="graphCard">
+      <canvas id="hygieneChart"></canvas>
+    </div>
+
+  </section>
+
+  <!-- ================= JS ================= -->
+  <script src="../lixian-pages/js/hygiene grade.js"></script>
 
 </body>
+</html>
+
