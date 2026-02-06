@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Page</title>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/pages.css">
+
+
+<body>
+
+  <!-- ===== NAV BAR (uses your navbar.css) ===== -->
+  <header class="navbar">
+    <div class="nav-left">
+      <button class="menu-btn">☰<br>Menu</button>
+      <div class="logo">
+        LOGO LOGO LOGO<br>
+        LOGO LOGO LOGO
+      </div>
+    </div>
+
+    <div class="nav-center"></div>
+
+    <div class="nav-right">
+      <a href="#" id="pay-avatar">JO</a>
+    </div>
+  </header>
+
+
+  <main id="page-payment">
+
+    <section id="pay-card">
+
+      <h2 id="pay-title">Payment details</h2>
+      <div id="pay-line"></div>
+
+      <div class="pay-section">
+        <label class="pay-label" for="pay-method">Payment method</label>
+        <select id="pay-method">
+          <option value="">Payment method</option>
+          <option value="card">Credit / Debit Card</option>
+          <option value="paynow">PayNow</option>
+          <option value="paypal">PayPal</option>
+        </select>
+      </div>
+
+      <div class="pay-section">
+        <h3 id="pay-promo-title">Promo</h3>
+
+        <div id="pay-promo-row">
+          <input id="pay-promo-input" type="text" placeholder="Add promo code">
+          <button id="pay-apply-btn" type="button">Apply</button>
+        </div>
+      </div>
+
+      <div id="pay-points-row">
+        <span>Points to claim</span>
+        <span id="pay-arrow">›</span>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ===== Bottom Bar ===== -->
+  <footer id="pay-bottom-bar">
+    <div id="pay-total-box">
+      <div id="pay-total-label">Total</div>
+      <div id="pay-total-price">$36.50</div>
+    </div>
+
+    <button id="pay-place-order-btn" type="button">Place order</button>
+  </footer>
+
+  <!-- If you already created payment.js -->
+  <script src="payment.js"></script>
+
+</body>
+</html>
