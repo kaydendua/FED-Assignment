@@ -1,12 +1,12 @@
 const sgCenter = [1.3521, 103.8198];
 const sgBounds = L.latLngBounds([1.130, 103.590], [1.475, 104.100]);
-let userLatLng = sgCenter;
 
 // Downloaded from https://data.gov.sg/datasets/d_4a086da0a5553be1d89383cd90d07ecd/view
 // Tried using API calls but could not work because of "Access-Control-Allow-Origin" policy
 const url = "/hawker-centre-data/HawkerCentresGEOJSON.geojson";
 
-let apiData = {};
+export let userLatLng = sgCenter;
+export let apiData = {};
 let mapCenter;
 
 const loadingPopup = document.getElementById("loadingpopup");
@@ -37,19 +37,19 @@ const userMarker = L.marker(mapCenter, {
 userMarker._icon.classList.add("huechange");
 
 userMarker.on('dragend', async function () {
-    const {lat, lng} = userMarker.getLatLng();
+    const userLatLng = userMarker.getLatLng();
+    const {lat, lng} = userLatLng;
     sessionStorage.setItem("userLatLng", JSON.stringify([lat, lng]));
-    map.setView(userMarker.getLatLng());
-});
-
-userMarker.on('click', function () {
-    
+    sortByDistance(lat, lng, apiData);
+    map.setView(userLatLng);
 });
 
 map.on('click', async function (location) {
     if (userMarker.dragging.enabled()) {
         userMarker.setLatLng(location.latlng);
         sessionStorage.setItem("userLatLng", JSON.stringify([location.latlng.lat, location.latlng.lng]));
+        sortByDistance(location.latlng.lat, location.latlng.lng, apiData);
+        map.setView(location.latlng);
     }
 });
 
@@ -63,6 +63,18 @@ function loadMarkers(apiData) {
         newMarker.bindPopup(`<b>${feature.properties.NAME}</b><br>${feature.properties.ADDRESSSTREETNAME} ${feature.properties.ADDRESSPOSTALCODE}`);
         newMarker.addTo(map);
     }
+}
+
+function sortByDistance(userLat, userLng, apiData) {
+    apiData.sort((a, b) => {
+        const [lonA, latA] = a.geometry.coordinates;
+        const [lonB, latB] = b.geometry.coordinates;
+        const distanceA = haversineDistance(userLat, userLng, latA, lonA);
+        const distanceB = haversineDistance(userLat, userLng, latB, lonB);
+        return distanceA - distanceB;
+    });
+    
+    return apiData;
 }
 
 function haversineDistance(lat1, lon1, lat2, lon2) {
