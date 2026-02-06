@@ -31,6 +31,32 @@
         <div id="map"></div>
     </div>
 
+     <div class="search-container">
+
+
+        <div class="search-section">
+            <div class="search-bar">
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    placeholder="Search for hawker centres by name or address..."
+                >
+                <button id="clear-btn" class="clear-btn">✕</button>
+            </div>
+
+            <div class="filter-options">
+                <button id="sort-distance" class="filter-btn active">Nearest First</button>
+                <button id="sort-name" class="filter-btn">A-Z</button>
+            </div>
+
+            <div id="results-count" class="results-count"></div>
+
+            <div id="search-results" class="search-results">
+                <!-- Results will be populated here -->
+            </div>
+        </div>
+    </div>
+
     <script type="module" src="js/search.js"></script>
     <script type="module" src="js/map.js"></script>
 </body>

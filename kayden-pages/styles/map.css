@@ -14,8 +14,8 @@
 #map {
     position: absolute;
     height: 450px;
-    width: 80%;
-    z-index: -1;
+    width: 90%;
+    z-index: 1;
     border-radius: 8px;
     border-color: black;
     border-style: solid;
@@ -49,13 +49,12 @@ img.huechange {
     filter: hue-rotate(150deg);
 }
 
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
     .map-div {
         margin: 20px;
     }
 
     #map {
-        width: 360px;
-        height: 240px;
+        height: 400px;
     }
-} */
+}

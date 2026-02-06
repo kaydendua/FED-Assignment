@@ -5,12 +5,15 @@ const sgBounds = L.latLngBounds([1.130, 103.590], [1.475, 104.100]);
 // Tried using API calls but could not work because of "Access-Control-Allow-Origin" policy
 const url = "/hawker-centre-data/HawkerCentresGEOJSON.geojson";
 
-export let userLatLng = sgCenter;
-export let apiData = {};
+let userLatLng = sgCenter;
+let apiData = {};
+export let sortedApiData = {}; // only for use in search.js
 let mapCenter;
 
 const loadingPopup = document.getElementById("loadingpopup");
 const loadingText = document.getElementById("loadingtext");
+
+const locationUpdatedEvent = new Event('locationUpdated')
 
 if (sessionStorage.getItem("userLatLng")) {
     mapCenter = JSON.parse(sessionStorage.getItem("userLatLng"));
@@ -40,16 +43,20 @@ userMarker.on('dragend', async function () {
     const userLatLng = userMarker.getLatLng();
     const {lat, lng} = userLatLng;
     sessionStorage.setItem("userLatLng", JSON.stringify([lat, lng]));
-    sortByDistance(lat, lng, apiData);
     map.setView(userLatLng);
+
+    sortedApiData = sortByDistance(lat, lng, apiData);
+    document.dispatchEvent(locationUpdatedEvent);
 });
 
 map.on('click', async function (location) {
     if (userMarker.dragging.enabled()) {
         userMarker.setLatLng(location.latlng);
         sessionStorage.setItem("userLatLng", JSON.stringify([location.latlng.lat, location.latlng.lng]));
-        sortByDistance(location.latlng.lat, location.latlng.lng, apiData);
         map.setView(location.latlng);
+
+        sortedApiData = sortByDistance(location.latlng.lat, location.latlng.lng, apiData);
+        document.dispatchEvent(locationUpdatedEvent);
     }
 });
 
@@ -95,7 +102,7 @@ function haversineDistance(lat1, lon1, lat2, lon2) {
     return R * c;
 }
 
-async function fetchAPIData() {
+export async function fetchAPIData() {
     try {
         const response = await fetch(url);
 
@@ -145,4 +152,5 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     userMarker.dragging.enable();
     loadMarkers(apiData);
+    sortedApiData = sortByDistance(userLatLng[0], userLatLng[1], apiData);
 });
