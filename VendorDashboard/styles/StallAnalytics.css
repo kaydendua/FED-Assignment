@@ -50,7 +50,6 @@
 .current-sales h3, 
 .hygiene-grade h3 {
     text-align: center;
-    color: #1C0F13;
     margin-bottom: 10px;
 }
 
@@ -67,7 +66,6 @@
 .doughnut-box h3 {
     margin: 10px;
     text-align: center;
-    color: #1C0F13;
 }
 
 .doughnut-box canvas {
@@ -87,5 +85,4 @@
     display: flex;
     justify-content: center;
     padding-bottom: 50px;
-    color: #1C0F13;
 }

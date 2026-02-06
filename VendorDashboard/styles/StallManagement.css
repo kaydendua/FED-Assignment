@@ -1,6 +1,6 @@
 /*Colour Padlet: #1C0F13 #28587B #4988BB #749EC1 #C9D0DC #F6ECF4 #FAF9F9*/
 
-/*QueueManagement*/
+/* QueueManagement */
 .queue-box{
     background-color: #F6ECF4;
     padding: 10px;
@@ -13,7 +13,6 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    color: #1C0F13;
 }
 
 .queue-header h3{
@@ -83,12 +82,11 @@ button:hover{
     display: none;
 }
 
-/*MenuManagement*/
+/* MenuManagement */
 .menu-header h3{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    color: #1C0F13;
     font-size: 1.5rem;
 }
 
@@ -110,7 +108,6 @@ button:hover{
     width: 240px;
     padding: 20px;
     text-align: center;
-    color: #1C0F13;
     background-color: #F6ECF4;
     border-radius: 12px;
     box-shadow: 2px 2px 5px #28587B;
@@ -166,7 +163,6 @@ button:hover{
     width: 120px;
     height: 120px;
     font-size: 50px;
-    color: #1C0F13;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -179,14 +175,13 @@ button:hover{
 }
 
 #plus{
-    color: #1C0F13;
     font-size: 50px;
 }
 
-/*Phone View*/
+/* Phone View */
 @media screen and (max-width: 768px)
 {
-    /*QueueManagement*/
+    /* QueueManagement */
         .status-actions{
         flex-wrap: wrap;
         gap: 10px;
@@ -208,7 +203,7 @@ button:hover{
         font-size: 0.8rem;
     }
 
-    /*MenuManagement*/
+    /* MenuManagement */
     .boxed-section {
         gap: 15px;
         padding: 15px; 
@@ -217,10 +212,10 @@ button:hover{
     .menu-box {
         width: 45%; 
         padding: 10px;
-        min-height: 220px; /*Ensure boxes are tall enough*/
+        min-height: 220px; /* Ensure boxes are tall enough */
     }
 
-    /*Shrink text and images slightly to fit small screens*/
+    /* Shrink text and images slightly to fit small screens */
     .menu-box h3 {
         font-size: 1rem;
         padding-bottom: 8px;
@@ -234,9 +229,9 @@ button:hover{
         font-size: 0.9rem;
     }
 
-    /*Change the "Add New" button size*/
+    /* Change the "Add New" button size */
     .add-new-box {
-        min-height: 220px; /*Match other cards*/
+        min-height: 220px; /* Match other cards */
     }
     
     #add-btn {
