@@ -23,4 +23,30 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+// Handle accept, decline, and ready
+    document.querySelectorAll('#queue-list tr').forEach(row => {
+
+        const statusText = row.querySelector('.order-status');
+        const acceptBtn = row.querySelector('.btn-accept');
+        const declineBtn = row.querySelector('.btn-decline');
+        const readyBtn = row.querySelector('.btn-ready');
+
+        acceptBtn.addEventListener('click', () => {
+            statusText.textContent = "Accepted Order";
+            acceptBtn.style.display = "none";
+            declineBtn.style.display = "none";
+            readyBtn.style.display = "inline-block";
+        });
+
+        declineBtn.addEventListener('click', () => {
+            statusText.textContent = "Declined Order";
+            acceptBtn.style.display = "none";
+            declineBtn.style.display = "none";
+        });
+
+        readyBtn.addEventListener('click', () => {
+            statusText.textContent = "Order Ready for Collection";
+            readyBtn.style.display = "none";
+        });
+    });
 });

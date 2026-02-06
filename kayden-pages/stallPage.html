@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stall Page</title>
+
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/stallPage.css">
+</head>
+<body>
+    <nav class="navbar">
+        <img src="/img/FED_LOGO.png" alt="Logo" id="logo">
+
+        <ul class="nav-links">
+            <li><a href="#">For You</a></li>
+            <li><a href="#">Search</a></li>
+            <li><a href="#">Points</a></li>
+            <li><a href="#">Profile</a></li>
+        </ul>
+    </nav>
+
+    <section id="stall-info">
+        <div id="image-display">
+            <img src="/img/dish1.png" alt="Stall Image">
+        </div>
+        <div id="details-display">
+            <div class="stall-header">
+                <h2>Loading info...</h2>
+            </div>
+            <p>Please wait.</p>
+        </div>
+    </section>
+
+    <section class="review-section">
+        <div class="review-section-header">
+            <h3>Customer Reviews</h3>
+            <a id="read-more-btn" href="reviews.html" hidden="true">See All Reviews →</a>
+        </div>
+        <p id="review-placeholder">Loading reviews...</p>
+        <div id="review-display" class="review-scroll-container">
+        </div>
+    </section>
+
+    <script type="module" src="js/stallinfo.js"></script>
+</body>
+</html>

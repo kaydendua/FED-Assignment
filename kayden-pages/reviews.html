@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/reviews.css">
+</head>
+<body>
+    <nav class="navbar">
+    <img src="/img/FED_LOGO.png" alt="Logo" id="logo">
+
+    <ul class="nav-links">
+        <li><a href="#">For You</a></li>
+        <li><a href="#">Search</a></li>
+        <li><a href="#">Points</a></li>
+        <li><a href="#">Profile</a></li>
+    </ul>
+    </nav>
+
+    <header class="review-page-header">
+        <a id="back-btn">← Back to Stall</a>
+        <h2>All Reviews</h2>
+        <span></span>
+    </header>
+
+    <div id="placeholder">
+        <p>Loading reviews...</p>
+    </div>
+
+    <main class="reviews-container">
+        <div class="review-column" id="left-column"></div>
+        <div class="review-column" id="right-column"></div>
+    </main>
+
+    <div class="loading-indicator" id="loading-indicator">
+        <p>Loading...</p>
+    </div>
+
+    <div class="end-message" id="end-message">
+        <p>You've reached the end of all reviews!</p>
+    </div>
+    
+    <script type="module" src="js/reviews.js"></script>
+</body>
+</html>

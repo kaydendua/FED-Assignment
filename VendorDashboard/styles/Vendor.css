@@ -70,4 +70,38 @@ body {
     flex-wrap: wrap;
 }
 
+@media screen and (max-width: 768px) {
+    
+    /* Stack the Header vertically */
+    .dashboard {
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 15px;
+    }
+
+    /* Adjust Welcome Message */
+    .welcome-msg {
+        padding-left: 0;
+        margin: 10px 0;
+        font-size: 18px;
+    }
+
+    /* Make Navigation easier to tap */
+    .nav-links {
+        flex-direction: column; /* Stack links vertically */
+        width: 100%;
+        padding: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links li a {
+        padding: 12px;
+        border-bottom: 1px solid #FAF9F9;
+        width: 100%;
+        display: block;
+    }
+}
 
