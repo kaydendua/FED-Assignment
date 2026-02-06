@@ -40,38 +40,58 @@ async function loadStallData() {
   const { reviews } = stallData;
 
   if (!reviews || reviews.length === 0) {
+    displayStallInfo(stallData, 0, 0);
     reviewsContainer.innerHTML = "<p>No reviews yet.</p>";
     return;
   }
 
-  const reviewsQuery = query(
-    collection(db, "reviews"),
-    where(documentId(), "in", reviews.slice(0, 10))
-  );
+  const allReviews = [];
+  const batchSize = 30;
+  
+  for (let i = 0; i < reviews.length; i += batchSize) {
+    const batch = reviews.slice(i, i + batchSize);
+    
+    const reviewsQuery = query(
+      collection(db, "reviews"),
+      where(documentId(), "in", batch)
+    );
 
-  const reviewSnap = await getDocs(reviewsQuery);
+    const reviewSnap = await getDocs(reviewsQuery);
+    
+    reviewSnap.forEach((reviewDoc) => {
+      const review = reviewDoc.data();
+      if (review.anonymous) {
+        review.author = "Anonymous";
+      }
+      allReviews.push(review);
+    });
+  }
 
-  if (reviewSnap.empty) {
+  if (allReviews.length === 0) {
     placeholder.value = "No reviews here yet.";
+    displayStallInfo(stallData, 0, 0);
     return;
   } else {
     placeholder.hidden = true;
   }
 
+  // Calculate average rating from ALL reviews
   let totalRating = 0;
-  let reviewCount = 0;
-
-  for (const reviewDoc of reviewSnap.docs) {
-    const review = reviewDoc.data();
-    if (review.anonymous) {
-      review.author = "Anonymous";
-    }
+  allReviews.forEach(review => {
     totalRating += review.rating;
-    reviewCount++;
-    displayReview(review);
-  }
+  });
+  
+  const averageRating = (totalRating / allReviews.length).toFixed(1);
+  const reviewCount = allReviews.length;
 
-  displayStallInfo(stallData, (totalRating / reviewCount).toFixed(1));
+  // Display stall info with accurate rating
+  displayStallInfo(stallData, averageRating, reviewCount);
+
+  // Display only the first 10 reviews in the preview
+  const displayReviews = allReviews.slice(0, 10);
+  displayReviews.forEach(review => {
+    displayReview(review);
+  });
 }
 
 function displayReview(review) {
@@ -101,13 +121,17 @@ function displayReview(review) {
   reviewsContainer.appendChild(card);
 }
 
-function displayStallInfo(stall, rating) {
+function displayStallInfo(stall, rating, reviewCount) {
   const div = document.getElementById("details-display");
+
+  const ratingDisplay = rating > 0 
+    ? `${rating} ⭐ <span class="review-count">(${reviewCount})</span>`
+    : 'No ratings yet';
 
   div.innerHTML = `
     <div class="stall-header">
         <h2>${stall.name}</h2>
-        <h2>${rating} ⭐</h2>
+        <h2>${ratingDisplay}</h2>
     </div>
     <p>${stall.description}</p>
   `;

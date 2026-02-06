@@ -19,7 +19,6 @@ const submitBtn = document.getElementById("submit-btn");
 
 let selectedRating = 0;
 
-// Get stall ID from URL
 function getStallIdFromUrl() {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get('id');
@@ -32,7 +31,6 @@ const user = await getCurrentUser();
 
 // Star rating functionality
 starButtons.forEach((button, index) => {
-  // Click to select rating
   button.addEventListener("click", () => {
     selectedRating = parseInt(button.dataset.rating);
     updateStars(selectedRating);
@@ -83,12 +81,6 @@ reviewText.addEventListener("input", () => {
 // Submit review
 submitBtn.addEventListener("click", async () => {
 
-  console.log("Current User:", {
-    uid: user.uid,
-    isAnonymous: user.isAnonymous,
-    email: user.email
-  });
-
   // Validation
   if (selectedRating === 0) {
     alert("Please select a star rating!");
@@ -115,28 +107,34 @@ submitBtn.addEventListener("click", async () => {
   submitBtn.textContent = "Submitting...";
 
   try {
-    // Create review document
     const reviewData = {
       title: reviewTitle.value.trim(),
       description: reviewText.value.trim(),
       rating: selectedRating,
       anonymous: anonymousToggle.checked,
-      author: !user ? user.name : "Guest", // Replace with actual user name from auth
+      author: !user ? user.name : "Guest",
       createdAt: serverTimestamp(),
       stallId: stallId
     };
 
-    // Add review to reviews collection
+    // update review and stall doc
     const reviewRef = await addDoc(collection(db, "reviews"), reviewData);
 
-    // Update stall document to include this review ID
     const stallRef = doc(db, "stalls", stallId);
+    const stallDoc = await getDoc(stallRef);
+    const currentData = stallDoc.data();
+
+    const currentAvg = currentData.averageRating || 0;
+    const currentCount = currentData.reviewCount || 0;
+    const newCount = currentCount + 1;
+    const newAvg = ((currentAvg * currentCount) + selectedRating) / newCount;
+
     await updateDoc(stallRef, {
-      reviews: arrayUnion(reviewRef.id)
+    reviews: arrayUnion(reviewRef.id),
+    averageRating: newAvg,
+    reviewCount: newCount
     });
 
-    // Success - redirect back to reviews page
-    alert("Review submitted successfully!");
     window.location.href = `reviews.html?id=${stallId}`;
 
   } catch (error) {
