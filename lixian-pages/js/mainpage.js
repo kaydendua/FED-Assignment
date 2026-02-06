@@ -126,3 +126,4 @@ yearSelect.addEventListener("change", () => {
   currentDate.setFullYear(parseInt(yearSelect.value, 10));
   renderCalendar();
 });
+ 

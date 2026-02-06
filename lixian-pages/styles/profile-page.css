@@ -30,9 +30,11 @@ body {
 
 .profile-container img {
   width: 180px;
-  height: 300px;
+  height: 180px;
   border-radius: 50%;
+  object-fit: cover;
 }
+
 
 .right-panel {
   max-width: 450px;

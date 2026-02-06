@@ -121,9 +121,6 @@ if (defaultRangeBtn) setActive(defaultRangeBtn, "#rangeGroup .pill");
 const defaultLocBtn = document.querySelector('#locationGroup .pill[data-location="north"]');
 if (defaultLocBtn) setActive(defaultLocBtn, "#locationGroup .pill");
 
-// default selection
-setActiveRange("month");
-
 // ===== Search box logic =====
 document.addEventListener("DOMContentLoaded", () => {
   const searchBtn = document.getElementById("searchBtn");

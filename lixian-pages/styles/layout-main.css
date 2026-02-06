@@ -10,11 +10,18 @@
 
 
 #logoArea {
-  background: #a6a6a6;
-  padding: 10px 14px;
-  font-size: 12px;
-  line-height: 1.1;
+  display: flex;
+  align-items: center;
+  height: 100%;          
 }
+
+#logoArea img {
+  max-height: 50px;      
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
 
 #siteName {
   flex: 1;
@@ -52,4 +59,7 @@
   border-radius: 5px;
 }
 
-
+.nav-item.active {
+  text-decoration: none;
+  color: black;
+}

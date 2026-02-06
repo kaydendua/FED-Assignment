@@ -161,3 +161,14 @@ button {
   font-weight: 600;
   cursor: pointer;
 }
+
+.graphLink {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.graphLink:hover .graphTitle {
+  text-decoration: underline; /* optional hover effect */
+  cursor: pointer;
+}
