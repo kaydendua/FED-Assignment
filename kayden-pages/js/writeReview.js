@@ -130,9 +130,9 @@ submitBtn.addEventListener("click", async () => {
     const newAvg = ((currentAvg * currentCount) + selectedRating) / newCount;
 
     await updateDoc(stallRef, {
-    reviews: arrayUnion(reviewRef.id),
-    averageRating: newAvg,
-    reviewCount: newCount
+      reviews: arrayUnion(reviewRef.id),
+      averageRating: newAvg,
+      reviewCount: newCount
     });
 
     window.location.href = `reviews.html?id=${stallId}`;
