@@ -1,37 +1,50 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Mock User Profile Data
-    const userProfile = {
-        name: "Ong Liang Cheng",
-        studentID: "S10274212",
-        stallName: "oinkzZ Hawker",
-        email: "liangcheng@gmail.com"
-    };
+document.addEventListener("DOMContentLoaded", () => {
 
-    // Initialize Profile Fields
-    const welcomeMsg = document.querySelector('.welcome-msg h2');
-    if (welcomeMsg) {
-        welcomeMsg.innerText = `Welcome! ${userProfile.name}`;
-    }
+    const editButtons = document.querySelectorAll(".edit-btn");
 
-    // Handle "Edit" clicks on the profile page
-    const editLabels = document.querySelectorAll('.edit-label');
-    
-    editLabels.forEach(label => {
-        label.addEventListener('click', (e) => {
-            const field = e.target.parentElement;
-            const currentText = field.innerText.split('\n')[0]; // Get text without the label
-            
-            // Simple prompt to simulate editing (A-grade: Replace with modal later)
-            const newValue = prompt(`Update your ${e.target.innerText}:`, currentText);
-            
-            if (newValue) {
-                // Update DOM
-                field.childNodes[0].nodeValue = newValue; 
-                
-                // Save to LocalStorage for persistence
-                localStorage.setItem(`profile_${e.target.innerText}`, newValue);
-                console.log(`Updated ${e.target.innerText} to ${newValue}`);
+    editButtons.forEach(btn => {
+
+        btn.addEventListener("click", () => {
+
+            const field = btn.closest(".info-field");
+            const text = field.querySelector(".info-text");
+            const input = field.querySelector(".info-input");
+
+            const isPassword = field.previousElementSibling.textContent.trim() === "Password";
+
+            // EDIT MODE
+            if (btn.textContent === "Edit") {
+
+                text.style.display = "none";
+                input.style.display = "block";
+
+                // If password → show actual password
+                if (isPassword) {
+                    input.type = "text";
+                }
+
+                input.value = input.value; // keep real value
+                input.focus();
+                btn.textContent = "Save";
             }
+
+            // SAVE MODE
+            else {
+
+                if (isPassword) {
+                    text.textContent = "••••••••"; // hide password
+                } else {
+                    text.textContent = input.value;
+                }
+
+                text.style.display = "block";
+                input.style.display = "none";
+                btn.textContent = "Edit";
+            }
+
         });
+
     });
+
 });
+
