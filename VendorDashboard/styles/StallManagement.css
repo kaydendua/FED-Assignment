@@ -41,12 +41,18 @@
     text-align: left;
 }
 
-.data-table th, .data-table td {
+.data-table th{
+    padding: 15px;
+    font-size: 1.2rem;
+}
+
+.data-table td {
     padding: 15px;
 }
 
 .btn-group {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
@@ -62,8 +68,15 @@ button:hover{
     background-color: #4988BB;
 }
 
+.status-actions{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 .order-status{
-    margin-bottom: 10px;
+    min-width: 90px;  /* keeps buttons from shifting when text changes */
+    font-weight: bold;
 }
 
 .btn-ready{
@@ -173,7 +186,29 @@ button:hover{
 /*Phone View*/
 @media screen and (max-width: 768px)
 {
-    /* Switch Menu Grid to 2-Columns for Phone */
+    /*QueueManagement*/
+        .status-actions{
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .order-status{
+        flex-basis: 100%;
+    }
+
+    .btn-group{
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .btn-group button{
+        flex: 1 1 30%;
+        min-width: 70px;
+        padding: 6px 8px;
+        font-size: 0.8rem;
+    }
+
+    /*MenuManagement*/
     .boxed-section {
         gap: 15px;
         padding: 15px; 
@@ -182,26 +217,26 @@ button:hover{
     .menu-box {
         width: 45%; 
         padding: 10px;
-        min-height: 220px; /* Ensure boxes are tall enough */
+        min-height: 220px; /*Ensure boxes are tall enough*/
     }
 
-    /* 5. Shrink text and images slightly to fit small screens */
+    /*Shrink text and images slightly to fit small screens*/
     .menu-box h3 {
         font-size: 1rem;
         padding-bottom: 8px;
     }
 
     .image-placeholder {
-        height: 110px; /* Smaller image height */
+        height: 110px;
     }
     
     .status-text {
         font-size: 0.9rem;
     }
 
-    /* Fix the "Add New" button size */
+    /*Change the "Add New" button size*/
     .add-new-box {
-        min-height: 220px; /* Match other cards */
+        min-height: 220px; /*Match other cards*/
     }
     
     #add-btn {
