@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Browse</title>
+<link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/pages.css">
+ />
+</head>
+<body>
+
+  <!-- ===== TOP INFO BAR (promo + location + cart) ===== -->
+  <header id="ob-topbar">
+    <div id="ob-topbar-left">
+      <span id="ob-promo">Get 5% off your first order, Promo: <b>ORDERS</b></span>
+    </div>
+
+    <div id="ob-topbar-mid">
+      <span id="ob-location">
+        📍 Yishun street 60, BLK 20, 888888
+      </span>
+      <a id="ob-change-location" href="#">Change location</a>
+    </div>
+
+    <div id="ob-topbar-right">
+      <div class="ob-chip">🏠</div>
+      <div class="ob-chip"><b>23</b> Items</div>
+      <div class="ob-chip"><b>GBP</b> 79.98</div>
+      <div class="ob-chip">⏻</div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN NAV BAR (logo + links + login) ===== -->
+  <nav id="ob-navbar">
+    <div id="ob-nav-left">
+      <div id="ob-logo">LOGO</div>
+    </div>
+
+    <div id="ob-nav-center">
+      <a class="ob-navlink ob-active" href="#">Home</a>
+      <a class="ob-navlink" href="#">Browse Menu</a>
+      <a class="ob-navlink" href="#">Special Offers</a>
+      <a class="ob-navlink" href="#">Restaurants</a>
+      <a class="ob-navlink" href="#">Track Order</a>
+    </div>
+
+    <div id="ob-nav-right">
+      <a id="ob-login-btn" href="#">Login/Signup</a>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE BODY ===== -->
+  <main id="page-order-browse">
+
+    <!-- HERO -->
+    <section id="ob-hero">
+      <div id="ob-hero-left">
+        <h1 id="ob-motto">
+          MOTTO<br />MOTTO
+        </h1>
+      </div>
+
+      <div id="ob-hero-image">
+        Image
+      </div>
+
+      <div id="ob-search-area">
+        <p id="ob-search-hint">Enter a postcode to see what we deliver</p>
+
+        <div id="ob-search-bar">
+          <input id="ob-postcode" type="text" placeholder="e.g. EC4R 3TE" />
+          <button id="ob-search-btn" type="button">Search</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEALS HEADER + CATEGORY PILLS -->
+    <section id="ob-deals-head">
+      <h2 id="ob-deals-title">Up to -40% Order.SG exclusive deals</h2>
+
+      <div id="ob-cats">
+        <button class="ob-cat">Vegan</button>
+        <button class="ob-cat">Sushi</button>
+        <button class="ob-cat ob-cat-active">Pizza &amp; Fast food</button>
+        <button class="ob-cat">others</button>
+      </div>
+    </section>
+
+    <!-- DEALS ROW -->
+    <section id="ob-deals-row">
+      <div class="ob-deal-card">Image</div>
+      <div class="ob-deal-card">Image</div>
+      <div class="ob-deal-card">Image</div>
+    </section>
+
+  </main>
+
+</body>
+</html>
