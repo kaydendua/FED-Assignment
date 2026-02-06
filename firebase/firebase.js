@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signInAnonymously } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -28,6 +28,16 @@ onAuthStateChanged(auth, (user) => {
   currentUser = user;
 });
 
-export function getCurrentUser() {
+export async function getCurrentUser() {  
+  if (!currentUser) {
+    try {
+      const userCredential = await signInAnonymously(auth);
+      currentUser = userCredential.user;
+      console.log("Signed in as guest");
+    } catch (error) {
+      console.error("Error signing in anonymously:", error);
+      alert("Unable to connect. Please refresh the page.");
+    }
+  }
   return currentUser;
 }

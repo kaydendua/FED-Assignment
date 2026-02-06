@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a Review</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/writeReview.css">
+</head>
+<body>
+    <nav class="navbar">
+        <img src="/img/FED_LOGO.png" alt="Logo" id="logo">
+
+        <ul class="nav-links">
+            <li><a href="#">For You</a></li>
+            <li><a href="#">Search</a></li>
+            <li><a href="#">Points</a></li>
+            <li><a href="#">Profile</a></li>
+        </ul>
+    </nav>
+
+    <div class="write-review-container">
+        <a id="back-btn" class="back-link">← Back to Reviews</a>
+
+        <div class="review-form">
+            <div class="review-form-header">
+                <h1>Write a Review</h1>
+                <div class="star-rating" id="star-rating">
+                    <button class="star-btn" data-rating="1">☆</button>
+                    <button class="star-btn" data-rating="2">☆</button>
+                    <button class="star-btn" data-rating="3">☆</button>
+                    <button class="star-btn" data-rating="4">☆</button>
+                    <button class="star-btn" data-rating="5">☆</button>
+                </div>
+            </div>
+
+            <div class="review-input-section">
+                <input 
+                    type="text" 
+                    id="review-title" 
+                    class="review-title-input" 
+                    placeholder="Review title (e.g., 'Best chicken rice ever!')"
+                    maxlength="100"
+                >
+                <textarea 
+                    id="review-text" 
+                    class="review-textarea" 
+                    placeholder="Share your experience with this stall..."
+                    maxlength="1000"
+                ></textarea>
+                <div class="char-count">
+                    <span id="char-counter">0</span>/1000 characters
+                </div>
+            </div>
+
+            <div class="review-form-footer">
+                <label class="anonymous-checkbox">
+                    <input type="checkbox" id="anonymous-toggle">
+                    <span>Post anonymously</span>
+                </label>
+                <button id="submit-btn" class="submit-btn">Submit Review</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/writeReview.js"></script>
+</body>
+</html>

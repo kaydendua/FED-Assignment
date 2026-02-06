@@ -15,6 +15,7 @@ const placeholder = document.getElementById("placeholder");
 const reviewsPageBtn = document.getElementById("back-btn");
 const loadingIndicator = document.getElementById("loading-indicator");
 const endMessage = document.getElementById("end-message");
+const writeReviewBtn = document.getElementById("write-review-btn");
 
 // Infinite scroll settings
 const REVIEWS_PER_BATCH = 20;
@@ -29,6 +30,7 @@ function getStallIdFromUrl() {
 
 const stallId = getStallIdFromUrl();
 reviewsPageBtn.setAttribute("href", `stallPage.html?id=${stallId}`);
+writeReviewBtn.setAttribute("href", `writeReview.html?id=${stallId}`);
 
 async function loadAllReviews() {
   // Clear columns

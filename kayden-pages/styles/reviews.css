@@ -92,3 +92,45 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.floating-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  background: #007bff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.floating-btn:hover {
+  background: #0056b3;
+  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.6);
+  transform: scale(1.1);
+}
+
+.floating-btn:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .floating-btn {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 56px;
+    height: 56px;
+    font-size: 1.8rem;
+  }
+}
