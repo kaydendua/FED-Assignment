@@ -512,3 +512,793 @@
   align-items: center;
   gap: 10px;
 }
+
+/* ---------------- VENDOR REGISTRATION COMPLETE ---------------- */
+
+#page-v-complete {
+  background: #f2f2f2;
+  min-height: calc(100vh - 140px);
+}
+
+#v-complete-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+}
+
+#v-complete-card {
+  width: 360px;
+  background: #dcdcdc;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Top section */
+#v-complete-top {
+  height: 220px;
+  background: #cfcfcf;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+#v-complete-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #bfbfbf;
+}
+
+#v-complete-logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Body */
+#v-complete-body {
+  text-align: center;
+  padding: 20px;
+}
+
+#v-complete-hint {
+  font-size: 12px;
+  color: #555;
+}
+
+#v-complete-hello {
+  margin: 10px 0 5px;
+}
+
+#v-complete-title {
+  margin-bottom: 10px;
+}
+
+#v-complete-text {
+  font-size: 12px;
+  color: #444;
+}
+
+#v-complete-activate {
+  font-size: 11px;
+  margin: 12px 0;
+}
+
+#v-complete-login-btn {
+  width: 80%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background: #eee;
+  cursor: pointer;
+}
+
+/* Footer */
+#v-complete-footer {
+  background: #bfbfbf;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+}
+
+#v-complete-socials {
+  display: flex;
+  gap: 8px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  #v-complete-card {
+    width: 92%;
+  }
+}
+
+
+
+/* LOGIN BUTTON */
+#ob-login-signup {
+  text-decoration: none;
+  color: #000;
+  background: #d9d9d9;
+  padding: 8px 14px;
+  border-radius: 18px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  #ob-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  #ob-topbar-left,
+  #ob-topbar-middle,
+  #ob-topbar-right {
+    flex-wrap: wrap;
+  }
+
+  #ob-navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  #ob-logo {
+    font-size: 22px;
+  }
+
+  #ob-nav-links {
+    gap: 10px;
+  }
+}
+
+/* ---------------- CUSTOMER CHECKOUT PAGE (C-CHECKOUT) ---------------- */
+
+#page-checkout {
+  background: #f2f2f2;
+  min-height: calc(100vh - 140px);
+  padding: 30px 20px 110px; /* bottom padding so content doesn't hide behind bottom bar */
+  box-sizing: border-box;
+}
+
+/* Avatar circle (only this small item, doesn't override navbar layout) */
+#co-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Title */
+#co-title-area {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+
+#co-title {
+  margin: 0;
+  font-size: 34px;
+}
+
+#co-subtitle {
+  margin: 6px 0 0;
+  color: #333;
+  font-size: 14px;
+}
+
+/* Main card */
+#co-card {
+  width: 70%;
+  max-width: 700px;
+  min-width: 320px;
+  margin: 0 auto;
+  background: #d9d9d9;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #b5b5b5;
+}
+
+#co-card-header {
+  padding: 14px 16px;
+  border-bottom: 1px solid #bdbdbd;
+}
+
+#co-deliver-title {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+
+#co-arrival {
+  margin: 0;
+  font-size: 11px;
+  color: #333;
+}
+
+/* Body layout */
+#co-card-body {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px 18px;
+}
+
+#co-map {
+  flex: 1;
+  min-height: 170px;
+  background: #efefef;
+  border: 1px solid #bdbdbd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+#co-address-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.co-label {
+  font-size: 11px;
+  color: #222;
+}
+
+#co-address,
+#co-address-detail {
+  border: 1px solid #777;
+  border-radius: 6px;
+  padding: 10px;
+  background: #fff;
+  outline: none;
+  font-size: 12px;
+}
+
+/* Fixed bottom bar */
+#co-bottom-bar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #7a7a7a;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+#co-total-label {
+  font-size: 12px;
+  color: #fff;
+}
+
+#co-total-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+#co-place-order-btn {
+  width: 200px;
+  max-width: 45%;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: #e6e6e6;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  #co-title {
+    font-size: 20px;
+  }
+
+  #co-card {
+    width: 92%;
+  }
+
+  #co-card-body {
+    flex-direction: column;
+  }
+
+  #co-place-order-btn {
+    width: 160px;
+  }
+}
+
+/* ---------------- PAYMENT PAGE ---------------- */
+
+#page-payment {
+  background: #f2f2f2;
+  min-height: calc(100vh - 140px);
+  padding: 30px 20px 110px; /* space for fixed bottom bar */
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Small avatar circle on navbar right (doesn't change navbar layout) */
+#pay-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Center grey card */
+#pay-card {
+  width: 520px;
+  max-width: 92%;
+  background: #d9d9d9;
+  border: 1px solid #b5b5b5;
+  border-radius: 8px;
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+#pay-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#pay-line {
+  height: 1px;
+  background: #bdbdbd;
+  margin: 10px 0 16px;
+}
+
+/* Sections */
+.pay-section {
+  margin-bottom: 18px;
+}
+
+.pay-label {
+  display: block;
+  font-size: 11px;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+/* Dropdown */
+#pay-method {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #777;
+  background: #fff;
+  outline: none;
+  font-size: 12px;
+}
+
+/* Promo */
+#pay-promo-title {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#pay-promo-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#pay-promo-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #777;
+  outline: none;
+  font-size: 12px;
+  background: #fff;
+}
+
+#pay-apply-btn {
+  width: 90px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #666;
+  background: #bfbfbf;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#pay-apply-btn:hover {
+  background: #a9a9a9;
+}
+
+/* Points row (bottom-right inside card) */
+#pay-points-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  color: #333;
+  margin-top: 10px;
+}
+
+#pay-arrow {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Fixed bottom total bar */
+#pay-bottom-bar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #7a7a7a;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+#pay-total-label {
+  font-size: 12px;
+  color: #fff;
+}
+
+#pay-total-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+#pay-place-order-btn {
+  width: 220px;
+  max-width: 50%;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: #e6e6e6;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  #pay-card {
+    padding: 14px;
+  }
+
+  #pay-place-order-btn {
+    width: 160px;
+  }
+}
+
+/* ================================
+   CHECKOUT SUCCESS PAGE (SCOPED)
+   Wrapper ID: #checkout-success-element
+================================ */
+
+#checkout-success-element {
+  background: #f4f4f4;
+  min-height: 100vh;
+}
+
+/* NAVBAR (only affects this page) */
+#checkout-success-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #fff;
+}
+
+#checkout-success-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#checkout-success-menu-btn {
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#checkout-success-logo {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#checkout-success-profile {
+  width: 35px;
+  height: 35px;
+  background: #ddd;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+/* MAIN LAYOUT */
+#checkout-success-main {
+  display: flex;
+  justify-content: center;
+  padding: 30px 15px;
+}
+
+#checkout-success-card {
+  width: 100%;
+  max-width: 650px;
+  background: #d9d9d9;
+  padding: 25px;
+  border-radius: 6px;
+}
+
+#checkout-success-title {
+  margin: 0;
+  font-size: 18px;
+}
+
+#checkout-success-subtitle {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+}
+
+/* DIVIDERS */
+#checkout-success-element .cs-divider {
+  height: 1px;
+  background: #bdbdbd;
+  margin: 15px 0;
+}
+
+/* ORDER ITEMS */
+#checkout-success-order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#checkout-success-element .cs-order-item {
+  display: flex;
+  gap: 15px;
+  font-size: 14px;
+}
+
+#checkout-success-element .cs-qty {
+  width: 35px;
+}
+
+/* FEES */
+#checkout-success-fees {
+  margin-top: 5px;
+}
+
+#checkout-success-element .cs-fee-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+  font-size: 13px;
+  color: #555;
+}
+
+/* TOTAL */
+#checkout-success-total {
+  margin: 10px 0 0 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* BUTTON */
+#checkout-success-order-more-btn {
+  margin-top: 15px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #fff;
+  cursor: pointer;
+}
+
+#checkout-success-order-more-btn:hover {
+  background: #eee;
+}
+
+/* MOBILE */
+@media (max-width: 520px) {
+  #checkout-success-card {
+    padding: 18px;
+  }
+}
+
+/* =========================
+   CUSTOMER SIGNUP (SCOPED)
+========================= */
+
+#customer-signup-page {
+  min-height: 100vh;
+  background: #f4f4f4;
+}
+
+/* Simple top bar (replace with your existing navbar if you want) */
+#customer-signup-navbar {
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+}
+
+#customer-signup-navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#customer-signup-menu-btn {
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#customer-signup-logo {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+#customer-signup-login-link {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+/* Main */
+#customer-signup-main {
+  display: flex;
+  justify-content: center;
+  padding: 24px 12px;
+}
+
+#customer-signup-card {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+#customer-signup-title {
+  margin: 0 0 6px 0;
+  font-size: 20px;
+}
+
+#customer-signup-subtitle {
+  margin: 0 0 14px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+/* Alert */
+#customer-signup-alert {
+  display: none;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+#customer-signup-alert.success {
+  display: block;
+  background: #eaffea;
+  border: 1px solid #b9e6b9;
+  color: #1f6b1f;
+}
+
+#customer-signup-alert.error {
+  display: block;
+  background: #ffecec;
+  border: 1px solid #f3b5b5;
+  color: #8a1f1f;
+}
+
+/* Form */
+.csu-field {
+  margin-bottom: 12px;
+}
+
+.csu-label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.csu-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+  outline: none;
+}
+
+.csu-input:focus {
+  border-color: #777;
+}
+
+.csu-error {
+  display: block;
+  min-height: 16px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #b00020;
+}
+
+.csu-row {
+  display: flex;
+  gap: 10px;
+}
+
+.csu-row .csu-field {
+  flex: 1;
+}
+
+.csu-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.csu-btn {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.csu-btn:hover {
+  background: #f0f0f0;
+}
+
+#customer-signup-footer {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #444;
+  text-align: center;
+}
+
+#customer-signup-footer a {
+  color: #333;
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+  #customer-signup-card {
+    padding: 16px;
+  }
+  .csu-row {
+    flex-direction: column;
+  }
+}

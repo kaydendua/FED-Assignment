@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Sign Up</title>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/pages.css">
+</head>
+<body>
+
+  <div id="customer-signup-page">
+
+    <!-- OPTIONAL: Your existing navbar can replace this -->
+    <header id="customer-signup-navbar">
+      <div id="customer-signup-navbar-left">
+        <button id="customer-signup-menu-btn" type="button">☰</button>
+        <div id="customer-signup-logo">LOGO LOGO LOGO</div>
+      </div>
+      <div id="customer-signup-navbar-right">
+        <a id="customer-signup-login-link" href="customer-login.html">Log in</a>
+      </div>
+    </header>
+
+    <main id="customer-signup-main">
+      <section id="customer-signup-card">
+
+        <h2 id="customer-signup-title">Create your account</h2>
+        <p id="customer-signup-subtitle">Sign up to order food and track your history.</p>
+
+        <div id="customer-signup-alert" aria-live="polite"></div>
+
+        <form id="customer-signup-form" novalidate>
+
+          <div class="csu-field">
+            <label for="csu-fullname" class="csu-label">Full Name</label>
+            <input id="csu-fullname" class="csu-input" type="text" placeholder="e.g., Jayden Ong" required />
+            <small id="csu-fullname-error" class="csu-error"></small>
+          </div>
+
+          <div class="csu-field">
+            <label for="csu-email" class="csu-label">Email</label>
+            <input id="csu-email" class="csu-input" type="email" placeholder="e.g., you@example.com" required />
+            <small id="csu-email-error" class="csu-error"></small>
+          </div>
+
+          <div class="csu-field">
+            <label for="csu-phone" class="csu-label">Mobile Number</label>
+            <input id="csu-phone" class="csu-input" type="tel" placeholder="e.g., 91234567" required />
+            <small id="csu-phone-error" class="csu-error"></small>
+          </div>
+
+          <div class="csu-field">
+            <label for="csu-address" class="csu-label">Delivery Address</label>
+            <input id="csu-address" class="csu-input" type="text" placeholder="e.g., 123 Bedok North Ave 3" required />
+            <small id="csu-address-error" class="csu-error"></small>
+          </div>
+
+          <div class="csu-row">
+            <div class="csu-field">
+              <label for="csu-postal" class="csu-label">Postal Code</label>
+              <input id="csu-postal" class="csu-input" type="text" placeholder="e.g., 123456" required />
+              <small id="csu-postal-error" class="csu-error"></small>
+            </div>
+
+            <div class="csu-field">
+              <label for="csu-unit" class="csu-label">Unit No. (Optional)</label>
+              <input id="csu-unit" class="csu-input" type="text" placeholder="#01-01" />
+              <small id="csu-unit-error" class="csu-error"></small>
+            </div>
+          </div>
+
+          <div class="csu-field">
+            <label for="csu-password" class="csu-label">Password</label>
+            <input id="csu-password" class="csu-input" type="password" placeholder="Min 8 chars" required />
+            <small id="csu-password-error" class="csu-error"></small>
+          </div>
+
+          <div class="csu-field">
+            <label for="csu-confirm" class="csu-label">Confirm Password</label>
+            <input id="csu-confirm" class="csu-input" type="password" placeholder="Re-type your password" required />
+            <small id="csu-confirm-error" class="csu-error"></small>
+          </div>
+
+          <div class="csu-field csu-check">
+            <input id="csu-terms" type="checkbox" />
+            <label for="csu-terms">I agree to the Terms & Conditions</label>
+          </div>
+          <small id="csu-terms-error" class="csu-error"></small>
+
+          <button id="customer-signup-submit" class="csu-btn" type="submit">
+            Create Account
+          </button>
+
+          <p id="customer-signup-footer">
+            Already have an account?
+            <a href="customer-login.html">Log in</a>
+          </p>
+
+        </form>
+
+      </section>
+    </main>
+
+  </div>
+
+  <script type="module" src="js/c-signup-questions.js"></script>
+</body>
+</html>

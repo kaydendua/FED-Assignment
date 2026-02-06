@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liang Cheng's Vendor Dashboard (Profile Page)</title>
     <link rel="stylesheet" href="styles/Vendor.css">
+    <link rel="stylesheet" href="styles/Profile.css">
 </head>
 <body>
     <header class="dashboard">
@@ -26,21 +27,64 @@
         
     <main class="contents">
 
-        <section id="Profile">
-            <img src="PFP.png" alt="Profile Picture">
-        </section>
+        <section class="profile-layout">
 
-            <section id="rental" class="boxed-section">
-        <h3>Rental Agreement Tracking</h3>
-        <div class="agreement-viewer">
-            <div class="doc-placeholder">Rental Agreement Document PDF</div>
-            <a href="#" class="download-link">Download PDF</a>
+            <div class="profile-card">
+                <div class="profile-header">
+                    <h3>Profile Picture of Vendor</h3>
+                    <button class="edit-btn">Edit</button>
                 </div>
-        <div class="status-indicator effective">
-            <p>Effective: Valid Till 01/01/2027</p>
-        </div>
-    </section>
 
-    <script src="../JS-Files/Profile.js"></script>
+                <div class="profile-image">
+                    <img src="img/profile-placeholder.png" alt="Vendor Profile Picture">
+                </div>
+            </div>
+
+            <div class="info-card">
+
+                <div class="info-row">
+                    <label>Name</label>
+                    <div class="info-field">
+                        <span>Liang Cheng</span>
+                        <button class="edit-btn">Edit</button>
+                    </div>
+                </div>
+
+                <div class="info-row">
+                    <label>Contact Number</label>
+                    <div class="info-field">
+                        <span>91234567</span>
+                        <button class="edit-btn">Edit</button>
+                    </div>
+                </div>
+
+                <div class="info-row">
+                    <label>Email Address</label>
+                    <div class="info-field">
+                        <span>liang@email.com</span>
+                        <button class="edit-btn">Edit</button>
+                    </div>
+                </div>
+
+                <div class="info-row">
+                    <label>Stall Location</label>
+                    <div class="info-field">
+                        <span>#02-15</span>
+                        <button class="edit-btn">Edit</button>
+                    </div>
+                </div>
+
+                <div class="info-row">
+                    <label>Password</label>
+                    <div class="info-field">
+                        <span>••••••••</span>
+                        <button class="edit-btn">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/Profile.js"></script>
 </body>
 </html>

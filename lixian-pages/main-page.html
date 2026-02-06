@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Main Page</title>
+
+  <link rel="stylesheet" href="../lixian-pages/styles/base.css">
+  <link rel="stylesheet" href="../lixian-pages/styles/layout-main.css">
+  <link rel="stylesheet" href="../lixian-pages/styles/main-page.css">
+</head>
+
+<body>
+  <header id="mainHeader">
+    <div id="logoArea">
+      <img src="../img/FED_LOGO.png" alt="Website Logo">
+    </div>
+
+    <div id="siteName">Website Name</div>
+
+    <nav class="navLinks">
+      <span class="nav-item" id="searchBtn">Search</span>
+        <a href="main-page.html" class="nav-item active">Home</a>
+        <a href="profile.html" class="nav-item active">Profile</a>
+    </nav>
+
+    <div id="searchBox">
+      <input type="text" placeholder="Search..." />
+    </div>
+  </header>
+
+  <main id="contentbackground">
+    <section class="topRow">
+      <h2 class="welcome">Welcome Back!</h2>
+
+      <a class="graphLink" href="../lixian-pages/hygiene-grade.html">
+        <h3 class="graphTitle">Historical Hygiene Grade Graph</h3>
+      </a>
+
+      <div class="monthPick">
+        <select id="monthSelect"></select>
+        <select id="yearSelect"></select>
+      </div>
+    </section>
+
+    <div class="content-box">
+      <section class="schedTitleRow">
+        <h1>Inspection Scheduling</h1>
+
+        <hr style="width: 900px; border: none; height: 2px; background-color: black;">
+      </section>
+
+      <div class="calendar">
+        <div class="header">
+          <button id="prev" class="cal-btn" aria-label="Previous month">‹</button>
+          <h3 id="monthYear"></h3>
+          <button id="next" class="cal-btn" aria-label="Next month">›</button>
+        </div>
+
+        <div class="days" id="calendarDays"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../lixian-pages/js/mainpage.js"></script>
+</body>
+</html>

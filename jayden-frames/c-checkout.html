@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Checkout</title>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/pages.css">
+</head>
+<body>
+
+  <!-- ========== NAV BAR (uses your existing navbar.css) ========== -->
+  <header class="navbar">
+    <div class="nav-left">
+      <button class="menu-btn">☰<br>Menu</button>
+      <div class="logo">
+        LOGO LOGO LOGO<br>
+        LOGO LOGO LOGO
+      </div>
+    </div>
+
+    <div class="nav-center"></div>
+
+    <div class="nav-right">
+      <!-- small circle icon on the right like mockup -->
+      <a href="#" id="co-avatar">JO</a>
+    </div>
+  </header>
+  <!-- ============================================================= -->
+
+  <main id="page-checkout">
+
+    <!-- Title area -->
+    <section id="co-title-area">
+      <h1 id="co-title">Last step - Checkout</h1>
+      <p id="co-subtitle">Restaurant name Address</p>
+    </section>
+
+    <!-- Main checkout card -->
+    <section id="co-card">
+
+      <div id="co-card-header">
+        <h3 id="co-deliver-title">Deliver to</h3>
+        <p id="co-arrival">Delivery arrival time<br><b>65 minutes (17 km away)</b></p>
+      </div>
+
+      <div id="co-card-body">
+
+        <!-- Map placeholder (left) -->
+        <div id="co-map">
+          Map
+        </div>
+
+        <!-- Address fields (right) -->
+        <div id="co-address-panel">
+
+          <label class="co-label" for="co-address">Address</label>
+          <input
+            id="co-address"
+            type="text"
+            value="8 Chelsea road, Blk 556, Singapore"
+          />
+
+          <label class="co-label" for="co-address-detail">Address Detail</label>
+          <textarea id="co-address-detail" rows="3">8 Chelsea road, Blk 556, Singapore
+Lorem ipsum
+Lorem ipsum</textarea>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Fixed bottom bar -->
+  <footer id="co-bottom-bar">
+    <div id="co-total">
+      <div id="co-total-label">Total</div>
+      <div id="co-total-price">$36.50</div>
+    </div>
+
+    <button id="co-place-order-btn" type="button">Place order</button>
+  </footer>
+
+</body>
+</html>

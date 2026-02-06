@@ -1,26 +1,25 @@
-let fileInput = document.getElementById("fileInput");
-let profilePic = document.getElementById("profilePic");
-let preview = document.getElementById("preview");
+const profilePic = document.getElementById("profilePic");
+const fileInput = document.getElementById("fileInput");
+const preview = document.getElementById("preview");
 
-// When user clicks profile picture, open file picker
+// when clicking the image box, open file picker
 profilePic.addEventListener("click", () => {
   fileInput.click();
 });
 
-// When user selects a file, show preview
+// when a file is selected, preview it
 fileInput.addEventListener("change", () => {
-  let file = fileInput.files[0];
+  const file = fileInput.files[0];
 
-  if (file && file.type.startsWith("image/")) {
-    let reader = new FileReader();
-
-    reader.onload = (e) => {
-      preview.src = e.target.result;
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      preview.src = reader.result;
     };
-
     reader.readAsDataURL(file);
   }
 });
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
