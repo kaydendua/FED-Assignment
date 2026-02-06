@@ -2,10 +2,10 @@ const sgCenter = [1.3521, 103.8198];
 const sgBounds = L.latLngBounds([1.130, 103.590], [1.475, 104.100]);
 let userLatLng = sgCenter;
 
-const tempInfoURL = "https://api-open.data.gov.sg/v2/real-time/api/air-temperature";
-const humidityInfoURL = "https://api-open.data.gov.sg/v2/real-time/api/relative-humidity";
+// Downloaded from https://data.gov.sg/datasets/d_4a086da0a5553be1d89383cd90d07ecd/view
+// Tried using API calls but could not work because of "Access-Control-Allow-Origin" policy
+const url = "/hawker-centre-data/HawkerCentresGEOJSON.geojson";
 
-let fallbackData = {};
 let apiData = {};
 let mapCenter;
 
@@ -31,64 +31,38 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-const marker = L.marker(mapCenter, {
-    draggable: false //
+const userMarker = L.marker(mapCenter, {
+    draggable: false 
 }).addTo(map);
+userMarker._icon.classList.add("huechange");
 
-marker.on('dragend', async function () {
-    const {lat, lng} = marker.getLatLng();
+userMarker.on('dragend', async function () {
+    const {lat, lng} = userMarker.getLatLng();
     sessionStorage.setItem("userLatLng", JSON.stringify([lat, lng]));
-    let weatherData = fetchWeatherDataAtLocation(lat, lng);
-    showWeatherData(weatherData)
+    map.setView(userMarker.getLatLng());
+});
+
+userMarker.on('click', function () {
+    
 });
 
 map.on('click', async function (location) {
-    if (marker.dragging.enabled()) {
-        marker.setLatLng(location.latlng);
+    if (userMarker.dragging.enabled()) {
+        userMarker.setLatLng(location.latlng);
         sessionStorage.setItem("userLatLng", JSON.stringify([location.latlng.lat, location.latlng.lng]));
-        let weatherData = fetchWeatherDataAtLocation(location.latlng.lat, location.latlng.lng);
-        showWeatherData(weatherData);
     }
 });
 
-function showWeatherData(weatherData) {
-    console.log("Weather Data:", weatherData);
-}
-
-function fetchWeatherDataAtLocation(lat, lng) {
-    const nearestStationID = getNearestWeatherStation(lat, lng);
-
-    if (!apiData.tempData) {
-        if (!fallbackData.tempData) {
-            fallbackData = JSON.parse(sessionStorage.getItem("fallbackData"));
-        }
-        apiData = fallbackData;
+function loadMarkers(apiData) {
+    for (const feature of apiData) {
+        const location = feature.geometry.coordinates;
+        const latLng = [location[1], location[0]];
+        const newMarker = L.marker(latLng, {
+            draggable: false
+        })
+        newMarker.bindPopup(`<b>${feature.properties.NAME}</b><br>${feature.properties.ADDRESSSTREETNAME} ${feature.properties.ADDRESSPOSTALCODE}`);
+        newMarker.addTo(map);
     }
-    
-    let weatherData = {};
-    weatherData["temperature"] = apiData.tempData.data.readings[0].data.find(reading => reading.stationId === nearestStationID).value;
-    weatherData["humidity"] = apiData.humidityData.data.readings[0].data.find(reading => reading.stationId === nearestStationID).value;
-
-    return weatherData;
-}
-
-function getNearestWeatherStation(lat, lng) {
-    let stationLatLngList = [];
-    for (let station of apiData.tempData.data.stations) {
-        stationLatLngList.push([station.id, station.location.latitude, station.location.longitude]);
-    }
-
-    let minDiff;
-    let nearestStationID;
-    for (let stationLatLng of stationLatLngList) {
-        let latLngDiff = haversineDistance(lat, lng, stationLatLng[1], stationLatLng[2]);
-        if (latLngDiff < minDiff || minDiff === undefined) {
-            minDiff = latLngDiff;
-            nearestStationID = stationLatLng[0];
-        }
-    }
-
-    return nearestStationID;
 }
 
 function haversineDistance(lat1, lon1, lat2, lon2) {
@@ -111,72 +85,52 @@ function haversineDistance(lat1, lon1, lat2, lon2) {
 
 async function fetchAPIData() {
     try {
-        // Fetch temperature data  
-        const tempData = await (await fetch(tempInfoURL)).json();
-            
-        // Fetch humidity data  
-        const humidityData = await (await fetch(humidityInfoURL)).json();
+        const response = await fetch(url);
 
-        fallbackData = { "tempData":tempData, "humidityData":humidityData };
-        sessionStorage.setItem("fallbackData", JSON.stringify(apiData));
-        return {"tempData":tempData, "humidityData":humidityData };
-            
+        if (!response.ok) {
+            throw new Error("Failed to fetch data");
+        }
+
+        const data = await response.json();
+        return data.features;
     } catch (error) {
-        console.error("API fetch error:", error);
-        if (fallbackData == {}) {
-            fallbackData = JSON.parse(sessionStorage.getItem("fallbackData"));
-        } 
-        return fallbackData
+        console.error("Error fetching data:", error);
+        return [];
     }
 }
 
+function setViewToLocation(latLng) {
+    userMarker.setLatLng(latLng);
+    map.setView(latLng, 15);
+    userMarker.bindPopup("<b>You are here!</b><br>Try dragging this marker around.").openPopup();
+}
+
 document.addEventListener('DOMContentLoaded', async function() {
-    if (sessionStorage.getItem("apiData")) {
-        apiData = JSON.parse(sessionStorage.getItem("apiData"));
-        if (Date.now() - new Date(apiData.tempData.data.readings[0].timestamp) > 10 * 60 * 1000) {
-            apiData = await fetchAPIData();
-            sessionStorage.setItem("apiData", JSON.stringify(apiData));
-        }
-    } else {
-        apiData = await fetchAPIData();
-        sessionStorage.setItem("apiData", JSON.stringify(apiData));
-    }
-    
+    apiData = await fetchAPIData();
+
     if (sessionStorage.getItem("userLatLng")) {
-        console.log("Found userLatLng in sessionStorage");
-        console.log("UserLatLng string:", sessionStorage.getItem("userLatLng"));
         userLatLng = JSON.parse(sessionStorage.getItem("userLatLng"));
         loadingPopup.classList.add("hidden");
-        setViewToUserLocation();
+        setViewToLocation(userLatLng);
     } else {
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition( function (position) {
                 userLatLng = [position.coords.latitude, position.coords.longitude];
                 sessionStorage.setItem("userLatLng", JSON.stringify(userLatLng));
                 loadingPopup.classList.add("hidden");
-                setViewToUserLocation();
+                setViewToLocation(userLatLng);
             });
         } else {
             loadingText.innerText = "Geolocation not enabled/supported by your browser.";
             userLatLng = sgCenter;
             sessionStorage.setItem("userLatLng", JSON.stringify(userLatLng));
-            setViewToUserLocation();
+            setViewToLocation(userLatLng);
             setTimeout(() => {
                 loadingPopup.classList.add("hidden");
             }, 3000);
         }
     } 
-    
-    function setViewToUserLocation() {
-        marker.setLatLng(userLatLng);
-        map.setView(userLatLng, 17);
-        marker.bindPopup("<b>You are here!</b><br>Scroll down for weather info.").openPopup();
-    }
 
-    showWeatherData(fetchWeatherDataAtLocation(userLatLng[0], userLatLng[1]));
-    setInterval(async function() {
-        apiData = await fetchAPIData();
-        sessionStorage.setItem("apiData", JSON.stringify(apiData));
-    }, 10 * 60 * 1000);
-    marker.dragging.enable();
+    userMarker.dragging.enable();
+    loadMarkers(apiData);
 });
