@@ -111,6 +111,44 @@ input[type="file"]{
   box-shadow: 0 0 0 2px rgba(40, 88, 123, 0.25);
 }
 
+/* ===== ACTION BUTTONS ===== */
+.profile-actions{
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn{
+  border: none;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.btn.primary{
+  background: var(--navy);
+  color: white;
+}
+
+.btn.danger{
+  background: #8b2c3a;
+  color: white;
+}
+
+.btn:active{
+  transform: translateY(1px);
+}
+
+.save-status{
+  font-size: 14px;
+  color: rgba(0,0,0,0.55);
+  font-style: italic;
+}
+
 /* =========================
    PHONE VERSION – PROFILE PAGE
    ========================= */
@@ -167,6 +205,7 @@ input[type="file"]{
     border-radius: 12px;
   }
 }
+
 
 
 

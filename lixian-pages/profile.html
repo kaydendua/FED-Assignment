@@ -51,32 +51,39 @@
 
     <div class="field">
       <label>Name</label>
-      <input type="text" class="box" placeholder="Enter full name">
+      <input id="p-name" type="text" class="box" placeholder="Enter full name">
     </div>
 
     <div class="field">
       <label>Officer ID</label>
-      <input type="text" class="box" placeholder="Enter officer ID">
+      <input id="p-officerId" type="text" class="box" placeholder="Enter officer ID">
     </div>
 
     <div class="field">
       <label>Designation</label>
-      <input type="text" class="box" placeholder="Enter designation">
+      <input id="p-designation" type="text" class="box" placeholder="Enter designation">
     </div>
 
     <div class="field">
       <label>Department / Division</label>
-      <input type="text" class="box" placeholder="Enter department or division">
+      <input id="p-department" type="text" class="box" placeholder="Enter department or division">
     </div>
 
     <div class="field">
       <label>Contact Email</label>
-      <input type="email" class="box" placeholder="Enter contact email">
+      <input id="p-email" type="email" class="box" placeholder="Enter contact email">
     </div>
 
     <div class="field">
       <label>Contact Number</label>
-      <input type="tel" class="box" placeholder="Enter contact number">
+      <input id="p-phone" type="tel" class="box" placeholder="Enter contact number">
+    </div>
+
+    <!-- Buttons -->
+    <div class="profile-actions">
+      <button type="button" id="saveProfileBtn" class="btn primary">Save</button>
+      <button type="button" id="clearProfileBtn" class="btn danger">Deselect All</button>
+      <span id="saveStatus" class="save-status" aria-live="polite"></span>
     </div>
 
   </div>
@@ -86,5 +93,6 @@
 <script src="../lixian-pages/js/profile.js"></script>
 </body>
 </html>
+
 
  
