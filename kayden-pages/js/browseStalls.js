@@ -51,7 +51,7 @@ function displayStalls(stallDoc) {
     const stall = stallDoc.data();
     const stallId = stallDoc.id;
 
-    const photoUrl = stall.photo || '/img/image-not-found.png';
+    const photoUrl = stall.img || '/img/image-not-found.png';
 
     card.innerHTML = `
         <div class="stall-image-container">

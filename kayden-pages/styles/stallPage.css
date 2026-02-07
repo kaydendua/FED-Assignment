@@ -1,30 +1,39 @@
+/*Colour Padlet: #1C0F13 #28587B #4988BB #749EC1 #C9D0DC #F6ECF4 #FAF9F9*/
+
 #stall-info {
     margin: 48px 72px;
     display: flex;
+    gap: 24px;
 }
 
 #image-display {
     width: 50%;
-    height: 50%;
-}
-
-#image-display img {
-    width: 100%;
     height: auto;
     max-height: 400px;
+}
+
+#stall-image {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    padding-right: 12px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 4px #28587B;
 }
 
 #details-display {
     width: 50%;
-    padding-left: 12px;
+    background-color: #F6ECF4;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px #28587B;
 }
 
 .stall-header {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 12px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 2px solid #C9D0DC;
 }
 
 .review-section {
@@ -39,13 +48,13 @@
 }
 
 .review {
-    background-color: white;
+    background-color: #F6ECF4;
     padding: 16px;
     width: 30%;
     height: 200px;;
     border-radius: 8px;
     flex-shrink: 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    box-shadow: 1px 1px 4px #28587B;
 }
 
 .review-header {
@@ -64,14 +73,14 @@
 
 /* Horizontal Scrollable Review Container */
 .review-scroll-container {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  flex-wrap: nowrap;
-  width: 100%;
-  max-width: 100%;
-  overflow-y: hidden;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 100%;
+    overflow-y: hidden;
 }
 
 /* Hide scrollbar for cleaner look (optional) */
@@ -95,7 +104,7 @@
 
 #read-more-btn {
   padding: 0.5rem 1.5rem;
-  color: black;
+  color: #1C0F13;
   text-decoration: none;
   border-radius: 5px;
   font-weight: 500;
@@ -103,7 +112,7 @@
 }
 
 #read-more-btn:hover {
-  color: #007bff;
+  color: #4988BB;
   cursor: pointer
 }
 
@@ -121,7 +130,7 @@
 
 .review-read-more {
     text-decoration: none;
-    color: #007bff;
+    color: #4988BB;
     font-size: 0.9rem;
     transition: color 0.2s ease;
 }
@@ -130,4 +139,52 @@
     color: #0056b3;
     text-decoration: underline;
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    #stall-info {
+        margin: 24px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    #image-display {
+        width: 100%;
+        height: 300px;
+    }
+
+    #stall-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 2px 2px 4px #28587B;
+    }
+
+    #details-display {
+        width: 100%;
+        min-height: 200px;
+        background-color: #F6ECF4;
+        padding: 16px;
+        border-radius: 8px;
+        box-shadow: 2px 2px 4px #28587B;
+    }
+
+    .review-scroll-container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        overflow: visible;
+    }
+
+    .review {
+        width: 100%;
+        min-height: 120px;
+    }
+
+    .review-section {
+        margin: 24px 24px;
+        overflow: visible;
+    }
 }
