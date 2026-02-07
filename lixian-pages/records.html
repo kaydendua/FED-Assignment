@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Records</title>
+
+  <!-- shared styles -->
+  <link rel="stylesheet" href="../lixian-pages/styles/base.css">
+  <link rel="stylesheet" href="../lixian-pages/styles/layout-main.css">
+  <link rel="stylesheet" href="../lixian-pages/styles/main-page.css">
+
+  <!-- records page -->
+  <link rel="stylesheet" href="../lixian-pages/styles/records.css">
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header id="mainHeader">
+    <div id="logoArea">
+      <img src="../img/FED_LOGO.png" alt="Website Logo">
+    </div>
+
+    <div id="siteName">HawkerCentral</div>
+
+    <nav class="navLinks">
+      <span class="nav-item" id="searchBtn">Search</span>
+      <a href="main-page.html" class="nav-item">Home</a>
+      <a href="profile.html" class="nav-item">Profile</a>
+    </nav>
+
+    <div id="searchBox">
+      <input type="text" placeholder="Search..." />
+    </div>
+  </header>
+
+  <main id="contentbackground">
+    <div class="content-box recordsBox">
+
+      <h1 class="recordsTitle">Records</h1>
+
+      <section class="recordsGrid">
+
+        <!-- LEFT -->
+        <div class="recordsLeft">
+          <div class="bigDay" id="recDayName">THURSDAY</div>
+
+          <div class="bigCard">
+            <div class="bigCardText">
+              <div id="recTitleLine">Inspection at Woodlands Hawker Centre</div>
+              <div id="recTimeLine">Time: 1pm</div>
+            </div>
+            <div class="bigCardNumber" id="recDayNumber">1</div>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="recordsRight">
+
+          <div class="rightCard infoCard">
+            <div class="infoRow"><span>Inspection Date:</span> <b id="recDate">1 January 2026</b></div>
+            <div class="infoRow"><span>Inspection ID:</span> <b id="recId">INSP-2026-014</b></div>
+            <div class="infoRow"><span>Inspector Name:</span> <b id="recInspector">Alex Tan</b></div>
+            <div class="infoRow"><span>Location / Area Inspected:</span> <b id="recLocation">Main Kitchen & Food Preparation Area</b></div>
+          </div>
+
+          <div class="rightCard scoreCard">
+            <div class="scoreGrid">
+              <div class="scoreHead">Inspection Category</div>
+              <div class="scoreHead">Max</div>
+              <div class="scoreHead">Score</div>
+
+              <div>Safety Compliance</div><div>25</div><div id="s1" contenteditable="true">23 / 25</div>
+              <div>Cleanliness & Hygiene</div><div>25</div><div id="s2" contenteditable="true">22 / 25</div>
+              <div>Equipment Condition</div><div>25</div><div id="s3" contenteditable="true">18 / 25</div>
+              <div>Documentation & Records</div><div>25</div><div id="s4" contenteditable="true">24 / 25</div>
+
+              <div class="totalLabel">Total Score</div>
+              <div class="totalLabel">100</div>
+              <div class="totalValue" id="recTotal" contenteditable="true">87 / 100</div>
+
+              <div class="totalLabel">Overall Rating</div>
+              <div></div>
+              <div class="totalValue" id="recRating" contenteditable="true">Excellent</div>
+            </div>
+          </div>
+
+          <!-- COMMENTS (only special box) -->
+          <div class="rightCard notesCard is-empty"
+               id="recNotes"
+               contenteditable="true"
+               data-placeholder="Click here to add inspection comments and observations..."></div>
+
+          <div class="rightCard gradeCard">
+            <div class="gradeText">Hygiene Grade:</div>
+            <div class="gradeValue" id="recGrade" contenteditable="true">A</div>
+          </div>
+
+          <a class="backLink" href="main-page.html">← Back to calendar</a>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <script src="../lixian-pages/js/records.js"></script>
+</body>
+</html>
+
+
+

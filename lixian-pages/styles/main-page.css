@@ -178,11 +178,41 @@ body {
   outline: 2px solid #28587B;
 }
 
-/* content alignment */
+/* ✅ IMPORTANT: change layout so inspection text can show nicely */
 .day:not(.header) {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+  display: block;
+}
+
+/* number area */
+.dayTop{
+  font-weight: 800;
+}
+
+/* inspection text inside a cell */
+.inspText{
+  margin-top: 8px;
+  font-size: 11px;
+  line-height: 1.25;
+  text-align: left;
+  color: rgba(28, 15, 19, 0.92);
+}
+
+/* clickable inspection day */
+.has-inspection{
+  cursor: pointer;
+  outline: 2px solid rgba(40, 88, 123, 0.45);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.has-inspection:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+/* blank/empty cells (optional) */
+.day.empty{
+  background: transparent;
+  box-shadow: none;
 }
 
 /* ===== SELECT DROPDOWNS ===== */
