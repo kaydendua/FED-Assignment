@@ -231,3 +231,102 @@ body{
   color: var(--navy);
 }
 
+/* =========================
+   PHONE VERSION (MEDIA QUERY)
+   ========================= */
+@media (max-width: 600px){
+
+  /* Wrapper: less padding so card fits */
+  #contentWrapper{
+    padding: 14px;
+    align-items: flex-start; /* prevents vertical squish */
+  }
+
+  /* Card: stack vertically instead of 2 columns */
+  #loginCard{
+    flex-direction: column;
+    gap: 18px;
+    padding: 18px;
+    min-height: auto;
+  }
+
+  /* Divider: hide on phone */
+  #divider{
+    display: none;
+  }
+
+  /* Headings: smaller */
+  #loginIn h2{
+    font-size: 26px;
+  }
+
+  /* Inputs: slightly tighter */
+  .inputGroup input{
+    padding: 12px 14px;
+    font-size: 15px;
+    border-radius: 12px;
+  }
+
+  /* Checkbox row: slightly smaller */
+  .checkboxGroup{
+    font-size: 14px;
+    margin: 6px 0 16px;
+  }
+
+  .checkboxGroup input[type="checkbox"]{
+    transform: scale(1.1);
+  }
+
+  /* Button: full width on phone */
+  #loginBtn{
+    width: 100%;
+    max-width: 420px;
+    border-radius: 999px;
+    padding: 13px 16px;
+    font-size: 15px;
+  }
+
+  /* Contact text */
+  #contactHr{
+    font-size: 14px;
+    margin-top: 16px;
+  }
+
+  /* Logo section: move ABOVE or BELOW form nicely */
+  #logoSection{
+    order: -1; /* put logo at top on phone (remove if you want it at bottom) */
+  }
+
+  /* Logo box: shorter height */
+  #logoSection h1{
+    min-height: 180px;
+    border-radius: 14px;
+  }
+
+  #logoSection img{
+    max-width: 160px;
+  }
+
+  /* Password toggle: smaller, tighter */
+  .passwordGroup input{
+    padding-right: 72px;
+  }
+
+  .toggle-password{
+    right: 10px;
+    font-size: 13px;
+    padding: 5px 8px;
+  }
+
+  /* Dropdown: stay inside screen */
+  #loginMenu{
+    min-width: 160px;
+    max-width: 85vw;
+    right: 0;
+  }
+
+  #loginMenu a{
+    padding: 12px 16px; /* easier tapping */
+    font-size: 14px;
+  }
+}

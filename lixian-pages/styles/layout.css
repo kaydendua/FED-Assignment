@@ -79,4 +79,51 @@
   background: #F6ECF4;
 }
 
+/* =========================
+   PHONE VERSION (MEDIA QUERY)
+   ========================= */
+@media (max-width: 600px){
+
+  /* NAVBAR: shorter + tighter padding */
+  #mainHeader{
+    height: 64px;
+    padding: 0 14px;
+  }
+
+  /* LOGO: smaller */
+  #logoArea img{
+    max-height: 40px;
+  }
+
+  /* SITE NAME: smaller + allow truncation so it won’t overlap */
+  #siteName{
+    font-size: 16px;
+    max-width: 45vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* LOGIN BUTTON: smaller */
+  #loginMenuBtn{
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 8px;
+  }
+
+  /* DROPDOWN: fit phone width and stay inside screen */
+  #loginMenu{
+    top: 42px;
+    right: 0;
+    min-width: 160px;
+    max-width: 80vw;
+    border-radius: 12px;
+  }
+
+  /* DROPDOWN LINKS: easier to tap */
+  #loginMenu a{
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+}
 
