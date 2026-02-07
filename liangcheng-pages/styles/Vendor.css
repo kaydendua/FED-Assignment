@@ -49,6 +49,10 @@
     color: #FAF9F9;
 }
 
+#logout-btn{
+    font-weight: bold;
+}
+
 .nav-links li a:hover{
     color: #1C0F13;
 }

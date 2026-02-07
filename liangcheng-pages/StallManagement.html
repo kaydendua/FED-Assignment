@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liang Cheng's Vendor Dashboard (Stall Management Page)</title>
+    <title>Vendor Dashboard</title>
     <link rel="stylesheet" href="styles/Vendor.css">
     <link rel="stylesheet" href="styles/StallManagement.css">
 </head>
@@ -13,14 +13,15 @@
             <img src="img/FED_LOGO.png" alt="Hawker Logo">
         </div>
         <div class="welcome-msg">
-            <h2>Welcome! Vendor Name</h2>
+            <h2 id="welcome-text">Welcome! Vendor</h2>
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="/VendorDashboard/StallManagement.html" class="active">Stall Management</a></li>
-                <li><a href="/VendorDashboard/StallAnalytics.html">Stall Analytics</a></li>
-                <li><a href="/VendorDashboard/CustomerSatisfaction.html">Customer Satisfaction</a></li>
-                <li><a href="/VendorDashboard/Profile.html">Profile</a></li>
+                <li><a href="StallManagement.html" class="active">Stall Management</a></li>
+                <li><a href="StallAnalytics.html">Stall Analytics</a></li>
+                <li><a href="CustomerSatisfaction.html">Customer Satisfaction</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+                <li><a href="#" id="logout-btn">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -44,6 +45,7 @@
                         <th>Order Number</th>
                         <th>Customer Name</th>
                         <th>Order Details</th>
+                        <th>Quantity</th>
                         <th>Status / Action</th>
                     </tr>
                 </thead>
@@ -51,11 +53,11 @@
                     <tr>
                         <td>#2026-001</td>
                         <td>Ong Liang Cheng</td>
-                        <td>Hokkien Mee (No Chili) x2</td>
+                        <td>Food Item</td>
+                        <td>2</td>
                         <td>
                             <div class="status-actions">
                                 <span class="order-status">Pending...</span>
-
                                 <div class="btn-group">
                                     <button class="btn-accept">Accept</button>
                                     <button class="btn-decline">Decline</button>
@@ -68,104 +70,39 @@
             </table>
         </section>
 
-        <span class="menu-header"><h3>Menu Management</h3></span>
-        <section id="menu" class="boxed-section">
-            <div class="menu-box">
-                <h3>Carbonara Pasta</h3>
-                <div class="image-placeholder">
-                    <img src="img/dish1.png" alt="Carbonara Pasta">
-                </div>
-                <div class="toggle-checkbox">
-                    <input type="checkbox" id="item1" checked>
-                    <span class="status-text">Available</span>
-                </div>
-            </div>
-
-            <div class="menu-box">
-                <h3>Grilled Chicken Chop</h3>
-                <div class="image-placeholder">
-                    <img src="img/dish2.png" alt="Grilled Chicken Chop">
-                </div>
-                <div class="toggle-checkbox">
-                    <input type="checkbox" id="item2" checked>
-                    <span class="status-text">Available</span>
-                </div>
-            </div>
-
-            <div class="menu-box">
-                <h3>Aglio Olio</h3>
-                <div class="image-placeholder">
-                    <img src="img/dish3.png" alt="Aglio Olio">
-                </div>
-                <div class="toggle-checkbox">
-                    <input type="checkbox" id="item3" checked>
-                    <span class="status-text">Available</span>
-                </div>
-            </div>
-
-            <div class="menu-box">
-                <h3>Fish and Chip</h3>
-                <div class="image-placeholder">
-                    <img src="img/dish4.png" alt="Fish and Chip">
-                </div>
-                <div class="toggle-checkbox">
-                    <input type="checkbox" id="item4" checked>
-                    <span class="status-text">Available</span>
-                </div>
-            </div>
-
-            <div class="menu-box">
-                <h3>Grilled Salmon</h3>
-                <div class="image-placeholder">
-                    <img src="img/dish5.png" alt="Grilled Salmon">
-                </div>
-                <div class="toggle-checkbox">
-                    <input type="checkbox" id="item5" checked>
-                    <span class="status-text">Available</span>
-                </div>
-            </div>
-
-            <div class="menu-box">
-                <h3>Seafood Baked Rice</h3>
-                <div class="image-placeholder">
-                    <img src="img/dish6.png" alt="Seafood Baked Rice">
-                </div>
-                <div class="toggle-checkbox">
-                    <input type="checkbox" id="item6" checked>
-                    <span class="status-text">Available</span>
-                </div>
-            </div>
-
-            <div class="menu-box">
-                <h3>Cheesy Fries</h3>
-                <div class="image-placeholder">
-                    <img src="img/dish7.png" alt="Cheesy Fries">
-                </div>
-                    <div class="toggle-checkbox">
-                    <input type="checkbox" id="item7" checked>
-                    <span class="status-text">Available</span>
-                </div>
-            </div>
-
-            <div class="menu-box">
-                <h3>Mushroom Soup</h3>
-                <div class="image-placeholder">
-                    <img src="img/dish8.png" alt="Mushroom Soup">
-                </div>
-                <div class="toggle-checkbox">
-                    <input type="checkbox" id="item8" checked>
-                    <span class="status-text">Available</span>
-                </div>
-            </div>
-
+        <div class="menu-header-container">
+            <span class="menu-header"><h3>Menu Management</h3></span>
+        </div>
+        
+        <section id="menu-container" class="boxed-section">
             <div class="menu-box add-new-box">
-                <button id="add-btn" aria-label="Add new menu item">
+                <button id="add-btn" onclick="window.openModal()">
                     <span id="plus">+</span>
                 </button>
                 <h4>Add New Menu Item</h4>
             </div>
         </section>
     </main>
-    <script src="js/StallManagement.js"></script>
+
+    <div id="dish-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3 id="modal-title">Add New Dish</h3>
+            <form id="dish-form">
+                <input type="hidden" id="dish-id">
+                <label for="dish-name">Dish Name:</label>
+                <input type="text" id="dish-name" required placeholder="e.g. Carbonara Pasta">
+                <label for="dish-price">Price ($):</label>
+                <input type="number" id="dish-price" step="0.01" required placeholder="e.g. 8.90">
+                <label for="dish-img">Image URL:</label>
+                <input type="text" id="dish-img" placeholder="Paste image link here">
+                <div class="modal-actions">
+                    <button type="button" onclick="window.closeModal()" class="btn-decline">Cancel</button>
+                    <button type="submit" class="btn-accept">Save Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="js/StallManagement.js"></script>
 </body>
 </html>
