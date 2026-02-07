@@ -4,17 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Payment Successful</title>
-    <link rel="stylesheet" href="styles/base.css">
+
+  <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/pages.css">
-
 </head>
 <body>
 
-  <!-- PAGE WRAPPER -->
   <div id="checkout-success-element">
 
-    <!-- TOP NAV (keep your existing classes if you already have them) -->
     <header id="checkout-success-navbar" class="navbar">
       <div id="checkout-success-nav-left" class="nav-left">
         <button id="checkout-success-menu-btn" class="menu-btn">☰</button>
@@ -30,7 +28,6 @@
       </div>
     </header>
 
-    <!-- MAIN CONTENT -->
     <main id="checkout-success-main">
       <section id="checkout-success-card">
 
@@ -40,51 +37,40 @@
 
         <h3 id="checkout-success-subtitle">Order summary</h3>
 
-        <!-- ORDER ITEMS -->
-        <div id="checkout-success-order-list">
-          <div id="checkout-success-item-1" class="cs-order-item">
-            <span class="cs-qty">1x</span>
-            <span class="cs-name">Dish name</span>
-          </div>
-          <div id="checkout-success-item-2" class="cs-order-item">
-            <span class="cs-qty">1x</span>
-            <span class="cs-name">Dish name</span>
-          </div>
-          <div id="checkout-success-item-3" class="cs-order-item">
-            <span class="cs-qty">1x</span>
-            <span class="cs-name">Dish name</span>
-          </div>
-        </div>
+        <!-- ✅ JS will inject items here -->
+        <div id="checkout-success-order-list"></div>
 
         <div id="checkout-success-divider-2" class="cs-divider"></div>
 
-        <!-- FEES -->
+        <!-- ✅ JS will inject fees here -->
         <div id="checkout-success-fees">
-          <p id="checkout-success-fee-delivery" class="cs-fee-row">
+          <p class="cs-fee-row">
             <span>Delivery fee:</span>
-            <span>$5.00</span>
+            <span id="cs-delivery-fee">$0.00</span>
           </p>
-
-          <p id="checkout-success-fee-service" class="cs-fee-row">
-            <span>Service charge:</span>
-            <span>$2.70</span>
-          </p>
-
-          <p id="checkout-success-fee-utensils" class="cs-fee-row">
-            <span>Utensils:</span>
-            <span>$0.50</span>
+          <p class="cs-fee-row">
+            <span>GST (9%):</span>
+            <span id="cs-gst">$0.00</span>
           </p>
         </div>
 
-        <p id="checkout-success-total" class="cs-total">Total: $50.67</p>
+        <p id="checkout-success-total" class="cs-total">Total: $0.00</p>
+        <div id="cs-timer-box">
+           <div id="cs-timer-label">Estimated delivery time</div>
+           <div id="cs-timer">40:00</div>
+           <div id="cs-timer-note">Your order is being prepared.</div>
+        </div>
 
-        <!-- BUTTON -->
+
         <button id="checkout-success-order-more-btn" class="cs-btn" type="button">
           Order more!
         </button>
 
       </section>
     </main>
-    <script src="../jayden-frames/js/c-successful-payment.js"></script>
+
   </div>
+
+  <script src="js/c-successful-payment.js"></script>
+</body>
 </html>

@@ -106,6 +106,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1500);
   });
 
+  document.getElementById("co-place-order-btn").addEventListener("click", () => {
+  // Get final total
+  const total = document.getElementById("co-total-final").innerText;
+
+  // Save total so payment page can read it
+  localStorage.setItem("checkoutTotal", total);
+
+  // Go to payment page
+  window.location.href = "c-payment.html";
+});
+
   // ===============================
   // NAV PLACEHOLDERS
   // ===============================
