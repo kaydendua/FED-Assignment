@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Login successful!");
 
       // 5) Redirect
-      window.location.href = "vendor-dashboard.html"; // <-- change to your vendor page
+      window.location.href = "../../liangcheng-pages/StallManagement.html"; // <-- change to your vendor page
 
     } catch (err) {
       console.error("Vendor Firestore login error:", err);
