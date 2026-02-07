@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Customer Checkout</title>
+
+  <!-- Your existing base + layout -->
   <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="../jayden-frames/styles/layout.css">
-  <link rel="stylesheet" href="../jayden-frames/styles/c-checkout.css">
+  <link rel="stylesheet" href="styles/pages.css">
+  <link rel="stylesheet" href="styles/layout.css">
 </head>
 <body>
 
-  <!-- ========== NAV BAR (uses your existing navbar.css) ========== -->
-<!-- ========== NAV BAR ========== -->
+  <!-- ========== NAV BAR (uses your existing navbar styles) ========== -->
   <header class="navbar">
-  <!-- LEFT -->
     <div class="nav-left">
       <button class="menu-btn">☰<br>Menu</button>
 
@@ -22,17 +22,13 @@
       </div>
     </div>
 
-  <!-- TRUE CENTER TITLE -->
     <h2 id="siteName">HawkerCentral</h2>
 
-  <!-- RIGHT -->
     <div class="nav-right">
       <a href="#" id="co-avatar">JO</a>
     </div>
   </header>
-<!-- ============================= -->
-
-  <!-- ============================================================= -->
+  <!-- =============================================================== -->
 
   <main id="page-checkout">
 
@@ -51,15 +47,11 @@
       </div>
 
       <div id="co-card-body">
-
         <!-- Map placeholder (left) -->
-        <div id="co-map">
-          Map
-        </div>
+        <div id="co-map">Map</div>
 
         <!-- Address fields (right) -->
         <div id="co-address-panel">
-
           <label class="co-label" for="co-address">Address</label>
           <input
             id="co-address"
@@ -71,52 +63,62 @@
           <textarea id="co-address-detail" rows="3">8 Chelsea road, Blk 556, Singapore
 Lorem ipsum
 Lorem ipsum</textarea>
-
         </div>
-
       </div>
 
-      <!-- ✅ ORDER SUMMARY (NEW) -->
+      <!-- ORDER SUMMARY -->
       <div id="co-summary">
-        <h3 id="co-summary-title">Your Order</h3>
+        <div id="co-summary-head">
+          <h3 id="co-summary-title">Your Order</h3>
+          <span id="co-summary-badge">Summary</span>
+        </div>
 
         <!-- Items injected by JS -->
-        <div id="co-items"></div>
-
-        <div class="co-line"></div>
-
-        <div class="co-row">
-          <span>Subtotal</span>
-          <span id="co-subtotal">$0.00</span>
+        <div id="co-items">
+          <!-- Example fallback rows (you can delete if JS injects items) -->
+          <!--
+          <div class="co-item">
+            <div class="co-item-left">
+              <div class="co-item-name">Chicken Rice</div>
+              <div class="co-item-meta">Qty 1</div>
+            </div>
+            <div class="co-item-price">$4.50</div>
+          </div>
+          -->
         </div>
 
-        <div class="co-row">
-          <span>Delivery fee</span>
-          <span id="co-delivery">$4.00</span>
-        </div>
+        <div class="co-sep"></div>
 
-        <div class="co-row">
-          <span>GST (9%)</span>
-          <span id="co-gst">$0.00</span>
-        </div>
+        <div id="co-totals">
+          <div class="co-row">
+            <span>Subtotal</span>
+            <span id="co-subtotal">$0.00</span>
+          </div>
 
-        <div class="co-line"></div>
+          <div class="co-row">
+            <span>Delivery fee</span>
+            <span id="co-delivery">$4.00</span>
+          </div>
 
-        <div class="co-row co-total-row">
-          <span>Total</span>
-          <span id="co-total-final">$0.00</span>
+          <div class="co-row">
+            <span>GST (9%)</span>
+            <span id="co-gst">$0.00</span>
+          </div>
+
+          <div class="co-row co-total-row">
+            <span>Total</span>
+            <span id="co-total-final">$0.00</span>
+          </div>
         </div>
       </div>
 
     </section>
-
   </main>
 
   <!-- Fixed bottom bar -->
   <footer id="co-bottom-bar">
     <div id="co-total">
       <div id="co-total-label">Total</div>
-      <!-- ✅ JS will update this -->
       <div id="co-total-price">$0.00</div>
     </div>
 
