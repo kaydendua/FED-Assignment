@@ -5,28 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Customer Checkout</title>
   <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/pages.css">
+  <link rel="stylesheet" href="../jayden-frames/styles/layout.css">
+  <link rel="stylesheet" href="../jayden-frames/styles/c-checkout.css">
 </head>
 <body>
 
   <!-- ========== NAV BAR (uses your existing navbar.css) ========== -->
+<!-- ========== NAV BAR ========== -->
   <header class="navbar">
+  <!-- LEFT -->
     <div class="nav-left">
       <button class="menu-btn">☰<br>Menu</button>
-      <div class="logo">
-        LOGO LOGO LOGO<br>
-        LOGO LOGO LOGO
+
+      <div id="logoArea">
+        <img src="../img/FED_LOGO.png" alt="Website Logo">
       </div>
     </div>
 
-    <div class="nav-center"></div>
+  <!-- TRUE CENTER TITLE -->
+    <h2 id="siteName">HawkerCentral</h2>
 
+  <!-- RIGHT -->
     <div class="nav-right">
-      <!-- small circle icon on the right like mockup -->
       <a href="#" id="co-avatar">JO</a>
     </div>
   </header>
+<!-- ============================= -->
+
   <!-- ============================================================= -->
 
   <main id="page-checkout">
@@ -84,5 +89,6 @@ Lorem ipsum</textarea>
     <button id="co-place-order-btn" type="button">Place order</button>
   </footer>
 
+  <script src="js/c-checkout.js"></script>
 </body>
 </html>

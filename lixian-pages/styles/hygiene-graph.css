@@ -5,6 +5,11 @@
 .graphSection{
   width: min(1200px, 94vw);
   margin: 28px auto;
+
+  /* NEW: section background behind everything */
+  background: #C9D0DC;          /* bluish background */
+  border-radius: 16px;
+  padding: 32px 28px 36px;      /* space so blue shows around the pink box */
 }
 
 .graphHeader{
@@ -28,7 +33,7 @@
   justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  margin: 18px 0 22px;
 }
 
 .pillGroup{
@@ -69,15 +74,71 @@
    ========================= */
 
 .graphCard{
-  background: #ffffff;
+  background: #F6ECF4;                 /* pinkish background */
   border-radius: 14px;
-  padding: 18px 22px;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+  padding: 24px 28px;
+  box-shadow: 2px 2px 6px rgba(40, 88, 123, 0.55);
 
-  height: 460px; /* control chart proportion */
+  height: 460px; /* KEEP the same size */
 }
 
+/* keep chart itself white */
 .graphCard canvas{
   width: 100% !important;
   height: 100% !important;
+  background: #FAF9F9;
+  border-radius: 10px;
+  padding: 12px;
 }
+
+
+/* =========================
+   PHONE VERSION – GRAPH
+   ========================= */
+@media (max-width: 600px){
+
+  /* Section: tighter padding so it fits */
+  .graphSection{
+    width: 94vw;
+    margin: 16px auto;
+    padding: 18px 14px 20px;
+    border-radius: 14px;
+  }
+
+  /* Title: smaller so it doesn’t overflow */
+  .graphTitle{
+    font-size: 30px;   /* overrides clamp on phone */
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  /* Pills: tighter spacing + smaller buttons */
+  .pillRow{
+    gap: 10px;
+    margin: 14px 0 16px;
+  }
+
+  .pillGroup{
+    gap: 6px;
+    padding: 5px;
+  }
+
+  .pill{
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  /* Card: tighter padding; keep your height the same */
+  .graphCard{
+    padding: 14px 14px;
+    border-radius: 12px;
+    height: 460px; /* KEEP same size as you requested */
+  }
+
+  /* Canvas: less padding so graph area is bigger */
+  .graphCard canvas{
+    padding: 8px;
+    border-radius: 10px;
+  }
+}
+

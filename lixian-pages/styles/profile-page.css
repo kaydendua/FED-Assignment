@@ -1,68 +1,211 @@
-body {
-  background-color: #e6e6e6;
+/* ===== PALETTE ===== */
+:root{
+  --ink: #1C0F13;
+  --navy: #28587B;
+  --bg: #C9D0DC;
+  --card: #F6ECF4;
+  --paper: #FAF9F9;
+  --shadow: 2px 2px 6px rgba(40, 88, 123, 0.55);
+  --radius: 12px;
 }
 
-.profile-page {
-  display: flex;
-  align-items: flex-start;
-  padding: 60px 200px;  
-  gap: 60px;  
+/* ===== PAGE WRAPPER ===== */
+.profile-page{
+  flex: 1;
+  width: 100%;
+  max-width: 1300px;
+  margin: 30px auto 40px;
+  padding: 0 30px;
+
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
 }
 
-.left-panel {
-  width: 320px;
-}
+/* ===== LEFT PANEL ===== */
+.left-panel{
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 25px;
 
-#fileInput {
-  display: none;
-} 
-
-.profile-container {
-  background-color: white;
-  padding: 40px;
   display: flex;
   justify-content: center;
+}
+
+/* hide default file input */
+input[type="file"]{
+  display: none;
+}
+
+/* image card */
+.profile-container{
+  width: 100%;
+  min-height: 420px;
+  background: var(--paper);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+
+  padding: 20px;
   cursor: pointer;
-  border-radius: 6px;
-  margin-top: 40px;
 }
 
-.profile-container img {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
+.profile-container img{
+  max-width: 260px;
+  height: auto;
+  border-radius: 8px;
 }
 
-
-.right-panel {
-  max-width: 450px;
-  width: 100%;
-
-  margin-left: 60px;   
-  margin-top: 20px;   
-}
-
-
-.field {
-  margin-bottom: 24px;
-}
-
-.field label {
+.upload-hint{
+  margin-top: 14px;
   font-size: 14px;
-  font-weight: bold;
+  color: rgba(0,0,0,0.45);
+  font-style: italic;
+}
+
+/* ===== RIGHT PANEL ===== */
+.right-panel{
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 30px;
+}
+
+/* ===== FORM FIELDS ===== */
+.field{
+  margin-bottom: 22px;
+}
+
+.field label{
   display: block;
-  margin-bottom: 6px;
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: var(--ink);
 }
 
-.box {
+.field .box{
   width: 100%;
-  height: 38px;
-  background-color: #d3d3d3;
+  padding: 14px 16px;
   border: none;
-  border-radius: 6px;
-  padding: 0 12px;
-  font-size: 14px;
+  border-radius: 10px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  font-size: 16px;
+  outline: none;
 }
+
+/* placeholder text */
+.field .box::placeholder{
+  color: rgba(0,0,0,0.4);
+  font-style: italic;
+}
+
+/* focus effect */
+.field .box:focus{
+  box-shadow: 0 0 0 2px rgba(40, 88, 123, 0.25);
+}
+
+/* ===== ACTION BUTTONS ===== */
+.profile-actions{
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn{
+  border: none;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.btn.primary{
+  background: var(--navy);
+  color: white;
+}
+
+.btn.danger{
+  background: #8b2c3a;
+  color: white;
+}
+
+.btn:active{
+  transform: translateY(1px);
+}
+
+.save-status{
+  font-size: 14px;
+  color: rgba(0,0,0,0.55);
+  font-style: italic;
+}
+
+/* =========================
+   PHONE VERSION – PROFILE PAGE
+   ========================= */
+@media (max-width: 600px){
+
+  /* page wrapper: stack panels */
+  .profile-page{
+    grid-template-columns: 1fr;   /* 1 column */
+    gap: 18px;
+    margin: 16px auto 24px;
+    padding: 0 14px;
+  }
+
+  /* left panel: tighter padding */
+  .left-panel{
+    padding: 16px;
+  }
+
+  /* profile image card: shorter */
+  .profile-container{
+    min-height: 220px;
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .profile-container img{
+    max-width: 160px;
+  }
+
+  .upload-hint{
+    font-size: 13px;
+    margin-top: 10px;
+  }
+
+  /* right panel: tighter */
+  .right-panel{
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  /* form spacing */
+  .field{
+    margin-bottom: 16px;
+  }
+
+  .field label{
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  .field .box{
+    padding: 12px 14px;
+    font-size: 15px;
+    border-radius: 12px;
+  }
+}
+
+
+
 

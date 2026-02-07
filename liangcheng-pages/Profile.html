@@ -6,14 +6,14 @@
     <title>Liang Cheng's Vendor Dashboard (Profile Page)</title>
     <link rel="stylesheet" href="styles/Vendor.css">
     <link rel="stylesheet" href="styles/Profile.css">
-</head>
+    </head>
 <body>
     <header class="dashboard">
         <div class="brand-logo">
             <img src="img/FED_LOGO.png" alt="Hawker Logo">
         </div>
         <div class="welcome-msg">
-            <h2>Welcome! Vendor Name</h2>
+            <h2>Welcome! <span id="header-name">Vendor</span></h2>
         </div>
         <nav>
             <ul class="nav-links">
@@ -31,7 +31,7 @@
 
             <div class="profile-box">
                 <div class="profile-header">
-                    <h3>Profile Picture of Vendor</h3>
+                    <h3>Profile Picture</h3>
                     <button class="edit-btn">Edit</button>
                 </div>
 
@@ -45,56 +45,59 @@
                 <div class="info-row">
                     <label>Name</label>
                     <div class="info-field">
-                        <span class="info-text">Ong Liang Cheng</span>
-                        <input class="info-input" type="text" value="Ong Liang Cheng">
-                        <button class="edit-btn">Edit</button>
+                        <span id="name-display" class="info-text">Loading...</span>
+                        <input id="name-input" class="info-input" type="text">
+                        <button class="edit-btn" data-field="name">Edit</button>
                     </div>
                 </div>
 
                 <div class="info-row">
                     <label>NRIC</label>
                     <div class="info-field">
-                        <span class="info-text">S1234567B</span>
-                    </div>
+                        <span id="nric-display" class="info-text">Loading...</span>
+                        </div>
                 </div>
 
                 <div class="info-row">
                     <label>Contact Number</label>
                     <div class="info-field">
-                        <span class="info-text">91234567</span>
-                        <input class="info-input" type="tel" value="91234567">
-                        <button class="edit-btn">Edit</button>
+                        <span id="contact-display" class="info-text">Loading...</span>
+                        <input id="contact-input" class="info-input" type="tel">
+                        <button class="edit-btn" data-field="contactNumber">Edit</button>
                     </div>
                 </div>
 
                 <div class="info-row">
                     <label>Email Address</label>
                     <div class="info-field">
-                        <span class="info-text">liang@email.com</span>
-                        <input class="info-input" type="email" value="liang@email.com">
-                        <button class="edit-btn">Edit</button>
+                        <span id="email-display" class="info-text">Loading...</span>
+                        <input id="email-input" class="info-input" type="email">
+                        <button class="edit-btn" data-field="emailAddress">Edit</button>
                     </div>
                 </div>
 
                 <div class="info-row">
                     <label>Stall Location</label>
                     <div class="info-field">
-                        <span class="info-text">676 Woodlands Drive 71, Singapore 730676</span>
+                        <span id="location-display" class="info-text">Loading...</span>
+                        <input id="location-input" class="info-input" type="text">
+                        <button class="edit-btn" data-field="stallLocation">Edit</button>
                     </div>
                 </div>
 
                 <div class="info-row">
                     <label>Password</label>
                     <div class="info-field">
-                        <span class="info-text">••••••••</span>
-                        <input class="info-input" type="text" value="password123">
-                        <button class="edit-btn">Edit</button>
+                        <span id="password-display" class="info-text">••••••••</span>
+                        <input id="password-input" class="info-input" type="password">
+                        <button class="edit-btn" data-field="password">Edit</button>
                     </div>
                 </div>
+
             </div>
         </section>
     </main>
 
-    <script src="js/Profile.js"></script>
+    <script type="module" src="js/Profile.js"></script>
 </body>
 </html>

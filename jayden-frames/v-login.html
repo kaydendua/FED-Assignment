@@ -12,7 +12,7 @@
 
 <body id="page-v-login">
 
-  <!-- Shared Navbar -->
+  <!-- NAVBAR -->
   <header class="navbar">
     <div class="nav-left">
       <button class="menu-btn" id="v-login-menu-btn">☰<br><small>Menu</small></button>
@@ -22,39 +22,33 @@
     <div class="nav-center">Website Name</div>
 
     <div class="nav-right">
-      <a href="#" class="nav-link" id="v-login-nav-login">Log in here</a>
+      <!-- LOGIN DROPDOWN -->
+      <div class="nav-login" id="v-login-nav-login">
+        <span class="nav-link">Log in here ▼</span>
+
+        <div id="v-login-dropdown-content" class="dropdown-content">
+          <a href="#">Customer</a>
+          <a href="#">NEA Officer</a>
+        </div>
+      </div>
+
       <a href="#" class="nav-link" id="v-login-nav-contact">Contact us</a>
     </div>
   </header>
 
-  <!-- Main Content -->
+  <!-- MAIN CONTENT -->
   <main id="v-login-container">
     <div id="v-login-box">
 
-      <!-- FORM -->
-      <form id="v-login-form" action="#" method="post">
-        <h2 id="v-login-title">Sign up or Log in!</h2>
+      <form id="v-login-form">
+        <h2>Vendor Login</h2>
 
-        <div class="v-login-input-box" id="v-login-email-box">
-          <span class="v-login-icon" aria-hidden="true">✉</span>
-          <input
-            type="email"
-            id="v-login-email"
-            name="email"
-            placeholder="Email"
-            required
-          />
+        <div class="v-login-input-box">
+          <input type="email" id="v-login-email" placeholder="Email">
         </div>
 
-        <div class="v-login-input-box" id="v-login-password-box">
-          <span class="v-login-icon" aria-hidden="true">🔒</span>
-          <input
-            type="password"
-            id="v-login-password"
-            name="password"
-            placeholder="Password"
-            required
-          />
+        <div class="v-login-input-box">
+          <input type="password" id="v-login-password" placeholder="Password">
         </div>
 
         <button type="submit" id="v-login-submit-btn">Login</button>
@@ -62,19 +56,10 @@
 
       <div id="v-login-divider"></div>
 
-      <section id="v-login-side">
-        <p id="v-login-motto-small">MOTTO (VENDOR)</p>
-        <h3 id="v-login-motto-big">MOTTO (VENDOR)</h3>
-        <p id="v-login-signup-text">Sign up here!</p>
-
-        <button type="button" id="v-login-signup-btn">
-          Sign up now!
-        </button>
-      </section>
 
     </div>
   </main>
 
-  <script src="script.js"></script>
+  <script type = "module" src="../jayden-frames/js/v-login.js"></script>
 </body>
 </html>

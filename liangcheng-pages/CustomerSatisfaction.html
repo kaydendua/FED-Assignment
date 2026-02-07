@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liang Cheng's Vendor Dashboard (Customer Satisfaction)</title>
+    <link rel="stylesheet" href="styles/Vendor.css">
+    <link rel="stylesheet" href="styles/CustomerSatisfaction.css">
+</head>
+<body>
+    <header class="dashboard">
+        <div class="brand-logo">
+            <img src="img/FED_LOGO.png" alt="Hawker Logo">
+        </div>
+        <div class="welcome-msg">
+            <h2>Welcome! Vendor Name</h2>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/VendorDashboard/StallManagement.html">Stall Management</a></li>
+                <li><a href="/VendorDashboard/StallAnalytics.html">Stall Analytics</a></li>
+                <li><a href="/VendorDashboard/CustomerSatisfaction.html" class="active">Customer Satisfaction</a></li>
+                <li><a href="/VendorDashboard/Profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+        
+    <main class="contents">
+        <section class="satisfaction-layout">
+            
+            <div class="overview-box">
+                <h3>Overall Rating</h3>
+                
+                <div class="average-rating">
+                    <span id="avg-score">4.8</span>
+                    <div class="stars">
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                    </div>
+                    <p class="total-reviews">Based on <span id="total-count">124</span> reviews</p>
+                </div>
+
+                <div class="rating-breakdown">
+                    <div class="rating-row">
+                        <span>5 <span class="star small filled">★</span></span>
+                        <div class="bar-container">
+                            <div class="bar-fill level-5"></div>
+                        </div>
+                        <span class="count">90</span>
+                    </div>
+                    <div class="rating-row">
+                        <span>4 <span class="star small filled">★</span></span>
+                        <div class="bar-container">
+                            <div class="bar-fill level-4"></div>
+                        </div>
+                        <span class="count">20</span>
+                    </div>
+                    <div class="rating-row">
+                        <span>3 <span class="star small filled">★</span></span>
+                        <div class="bar-container">
+                            <div class="bar-fill level-3"></div>
+                        </div>
+                        <span class="count">10</span>
+                    </div>
+                    <div class="rating-row">
+                        <span>2 <span class="star small filled">★</span></span>
+                        <div class="bar-container">
+                            <div class="bar-fill level-2"></div>
+                        </div>
+                        <span class="count">4</span>
+                    </div>
+                    <div class="rating-row">
+                        <span>1 <span class="star small filled">★</span></span>
+                        <div class="bar-container">
+                            <div class="bar-fill level-1"></div>
+                        </div>
+                        <span class="count">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviews-section">
+                <h3>Recent Feedback</h3>
+                <div id="reviews-list" class="reviews-container">
+                    </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script type="module" src="js/CustomerSatisfaction.js"></script>
+</body>
+</html>

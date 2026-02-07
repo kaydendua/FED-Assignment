@@ -59,11 +59,11 @@
 }
 
 .star-btn.active {
-    color: #ffc107;
+    color: #FFD700;
 }
 
 .star-btn.hovered {
-    color: #ffc107;
+    color: #FFD700;
 }
 
 /* Review Input Section */
