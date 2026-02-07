@@ -5,6 +5,7 @@
   <title>Customer Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Shared Styles -->
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/pages.css">
@@ -12,10 +13,12 @@
 
 <body id="page-login">
 
-  <!-- TOP BAR -->
+  <!-- ===============================
+       NAVBAR
+  =============================== -->
   <header class="navbar">
     <div class="nav-left">
-      <button class="menu-btn">☰<br>Menu</button>
+      <button class="menu-btn" id="c-login-menu-btn">☰<br>Menu</button>
       <div class="logo">
         LOGO LOGO LOGO<br>
         LOGO LOGO LOGO
@@ -25,30 +28,53 @@
     <div class="nav-center">Website Name</div>
 
     <div class="nav-right">
-      <span>Log in here ▼</span>
-      <span>Contact us!</span>
+      <!-- LOGIN DROPDOWN -->
+      <div class="nav-login" id="c-login-nav-login">
+        <span class="nav-link">Log in here ▼</span>
+
+        <div id="c-login-dropdown-content" class="dropdown-content">
+          <a href="#">Vendor</a>
+          <a href="#">NEA Officer</a>
+        </div>
+      </div>
+
+      <span class="nav-link" id="c-login-nav-contact">Contact us!</span>
     </div>
   </header>
 
-  <!-- LOGIN FRAME -->
+  <!-- ===============================
+       LOGIN CONTENT
+  =============================== -->
   <main id="login-container">
     <div id="login-box">
 
       <!-- FORM -->
       <form id="login-form">
-        <h2 id="login-title">Sign up or Log in!</h2>
+        <h2 id="login-title">Log in!</h2>
 
         <div id="login-email-box">
           <span id="login-email-icon">✉</span>
-          <input id="login-email" type="email" name="email" placeholder="Email" required>
+          <input
+            id="login-email"
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+          >
         </div>
 
         <div id="login-password-box">
           <span id="login-password-icon">🔒</span>
-          <input id="login-password" type="password" name="password" placeholder="Password" required>
+          <input
+            id="login-password"
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+          >
         </div>
 
-        <button type="submit" id="login-submit">Sign Up</button>
+        <button type="submit" id="login-submit">Log in!</button>
 
         <p id="login-or-text">Or Continue with</p>
 
@@ -64,15 +90,23 @@
       <!-- RIGHT SIDE -->
       <div id="login-side">
         <h3 id="login-side-title">Sign up here!</h3>
-        <a href="c-signup-questions.html" id="login-signup-btn">Sign up now!</a>
+
+        <a href="c-signup-questions.html" id="login-signup-btn">
+          Sign up now!
+        </a>
 
         <p id="login-guest-text">Or Continue as guest!</p>
-        <button type="button" id="login-guest-btn">Continue as guest</button>
+        <button type="button" id="login-guest-btn">
+          Continue as guest
+        </button>
       </div>
 
     </div>
   </main>
 
+  <!-- MODULE SCRIPT -->
+  <script type = "module" src = "js/c-navbardropdown.js"></script>
   <script type="module" src="js/c-logindetails.js"></script>
+  
 </body>
 </html>

@@ -140,6 +140,7 @@
   border-radius: 10px;
 }
 
+/* ---------- LEFT (FORM) ---------- */
 #page-login #login-form {
   flex: 1;
 }
@@ -167,9 +168,8 @@
   outline: none;
 }
 
-#page-login #login-submit,
-#page-login #login-signup-btn,
-#page-login #login-guest-btn {
+/* submit button ONLY (don’t affect right-side buttons) */
+#page-login #login-submit {
   padding: 12px 25px;
   border: none;
   border-radius: 25px;
@@ -201,16 +201,84 @@
   font-size: 18px;
 }
 
+/* ---------- DIVIDER ---------- */
 #page-login #login-divider {
   width: 2px;
   background: #999;
   margin: 0 30px;
 }
 
+/* ---------- RIGHT SIDE (MATCH REFERENCE) ---------- */
 #page-login #login-side {
   flex: 1;
   text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; /* spreads content to fill space */
+  align-items: center;
+  min-height: 320px;
 }
+
+#page-login #login-side-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+}
+
+#page-login #login-signup-btn {
+  display: inline-block;
+  padding: 14px 34px;
+  border-radius: 25px;
+  background: #e6e6e6;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+#page-login #login-guest-text {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+#page-login #login-guest-btn {
+  padding: 14px 34px;
+  border: none;
+  border-radius: 25px;
+  background: #e6e6e6;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+/* hover */
+#page-login #login-signup-btn:hover,
+#page-login #login-guest-btn:hover,
+#page-login #login-submit:hover {
+  background: #dcdcdc;
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 768px) {
+  #page-login #login-box {
+    flex-direction: column;
+  }
+
+  #page-login #login-divider {
+    display: none;
+  }
+
+  #page-login #login-side {
+    min-height: auto;
+    gap: 20px;
+    padding-top: 30px;
+    justify-content: center;
+  }
+}
+
+
 
 @media (max-width: 768px) {
   #page-login #login-box {
@@ -307,41 +375,6 @@
   #page-profile #profile-image-grid {
     width: 100%;
   }
-}
-
-/* ---------------- VENDOR HERO PAGE (V-HERO) ---------------- */
-
-#page-v-hero {
-  background: #e6e6e6;
-}
-
-#page-v-hero #v-hero-main {
-  height: calc(100vh - 140px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-#page-v-hero #v-hero-intro {
-  font-size: 14px;
-  color: #555;
-}
-
-#page-v-hero #v-hero-headline {
-  font-size: 32px;
-  margin: 10px 0 20px;
-  margin-top: 200px;
-}
-
-#page-v-hero #v-hero-apply-btn {
-  padding: 12px 30px;
-  border-radius: 20px;
-  border: none;
-  background: #cfcfcf;
-  color: #777;
-  cursor: pointer;
 }
 
 /* ---------------- VENDOR LOGIN PAGE (V-LOGIN) ---------------- */
@@ -448,70 +481,6 @@
   padding-top: 7px;
 }
 
-/* ---------------- VENDOR SIGNUP FORM (V-SIGNUP) ---------------- */
-
-#page-v-signup {
-  background: #e6e6e6;
-  overflow-y: auto;
-}
-
-#page-v-signup #v-signup-container {
-  display: flex;
-  flex-direction: column;
-  max-height: calc(100vh - 140px);
-  overflow-y: auto;
-  background: white;
-  margin: 30px auto;
-  padding: 30px;
-  width: 500px;
-  border-radius: 10px;
-}
-
-#page-v-signup #v-signup-step-indicator {
-  margin-bottom: 10px;
-}
-
-#page-v-signup #v-signup-image-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 150px;
-  background: #f0f0f0;
-  margin-bottom: 15px;
-}
-
-#page-v-signup .v-signup-step {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-#page-v-signup .v-signup-hidden {
-  display: none;
-}
-
-#page-v-signup input {
-  padding: 8px;
-}
-
-#page-v-signup button {
-  padding: 10px 20px;
-  border: none;
-  background: #d3d3d3;
-  cursor: pointer;
-}
-
-#page-v-signup .v-signup-btn-group {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-#page-v-signup .v-signup-checkbox-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
 
 /* ---------------- VENDOR REGISTRATION COMPLETE ---------------- */
 
@@ -1301,4 +1270,48 @@
   .csu-row {
     flex-direction: column;
   }
+}
+
+/* ===============================
+   CUSTOMER LOGIN NAVBAR DROPDOWN
+=============================== */
+
+#c-login-nav-login {
+  position: relative;
+  cursor: pointer;
+}
+
+#c-login-dropdown-content {
+  display: none;              /* JS toggles this */
+  position: absolute;
+  top: 120%;
+  right: 0;
+
+  background: #ffffff;
+  border: 1px solid #bdbdbd;
+  border-radius: 8px;
+
+  min-width: 180px;
+  padding: 6px 0;
+
+  z-index: 999999;            /* FORCE on top */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
+
+#c-login-dropdown-content a {
+  display: block;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #222;
+  text-decoration: none;
+}
+
+#c-login-dropdown-content a:hover {
+  background: #f2f2f2;
+}
+
+/* Make sure navbar does NOT clip dropdown */
+.navbar,
+.nav-right {
+  overflow: visible;
 }

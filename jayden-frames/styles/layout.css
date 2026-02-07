@@ -41,3 +41,33 @@
 .nav-right a.active {
   font-weight: bold;
 }
+
+/* ---------- LOGIN DROPDOWN ---------- */
+.nav-login {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 170px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 14px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-content a:hover {
+  background: #eee;
+}
