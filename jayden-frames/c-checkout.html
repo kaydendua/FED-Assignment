@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <!-- ========== NAV BAR (uses your existing navbar.css) ========== -->
+  <!-- NAV BAR -->
   <header class="navbar">
     <div class="nav-left">
       <button class="menu-btn">☰<br>Menu</button>
@@ -23,11 +23,9 @@
     <div class="nav-center"></div>
 
     <div class="nav-right">
-      <!-- small circle icon on the right like mockup -->
       <a href="#" id="co-avatar">JO</a>
     </div>
   </header>
-  <!-- ============================================================= -->
 
   <main id="page-checkout">
 
@@ -70,6 +68,39 @@ Lorem ipsum</textarea>
         </div>
 
       </div>
+
+      <!-- ✅ ORDER SUMMARY (NEW) -->
+      <div id="co-summary">
+        <h3 id="co-summary-title">Your Order</h3>
+
+        <!-- Items injected by JS -->
+        <div id="co-items"></div>
+
+        <div class="co-line"></div>
+
+        <div class="co-row">
+          <span>Subtotal</span>
+          <span id="co-subtotal">$0.00</span>
+        </div>
+
+        <div class="co-row">
+          <span>Delivery fee</span>
+          <span id="co-delivery">$4.00</span>
+        </div>
+
+        <div class="co-row">
+          <span>GST (9%)</span>
+          <span id="co-gst">$0.00</span>
+        </div>
+
+        <div class="co-line"></div>
+
+        <div class="co-row co-total-row">
+          <span>Total</span>
+          <span id="co-total-final">$0.00</span>
+        </div>
+      </div>
+
     </section>
 
   </main>
@@ -78,7 +109,8 @@ Lorem ipsum</textarea>
   <footer id="co-bottom-bar">
     <div id="co-total">
       <div id="co-total-label">Total</div>
-      <div id="co-total-price">$36.50</div>
+      <!-- ✅ JS will update this -->
+      <div id="co-total-price">$0.00</div>
     </div>
 
     <button id="co-place-order-btn" type="button">Place order</button>

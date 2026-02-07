@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu</title>
+
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/pages.css">
+</head>
+
+<body id="page-menu">
+
+  <!-- NAVBAR (same style as your other pages) -->
+  <header class="navbar">
+    <div class="nav-left">
+      <button class="menu-btn" id="menu-menu-btn">☰<br>Menu</button>
+      <div class="logo">
+        LOGO LOGO LOGO<br>
+        LOGO LOGO LOGO
+      </div>
+    </div>
+
+    <div class="nav-center">Website Name</div>
+
+    <div class="nav-right">
+      <button id="menu-cart-btn" class="nav-link-btn" type="button">
+        Cart <span id="menu-cart-count" class="badge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- PAGE -->
+  <main id="menu-container">
+
+    <section id="menu-header-card">
+      <h1 id="menu-title">Menu</h1>
+      <p id="menu-subtitle">Choose your items and add to cart.</p>
+
+      <div id="menu-vendor-row">
+        <span id="menu-vendor-name">Loading vendor...</span>
+        <span id="menu-vendor-location"></span>
+      </div>
+    </section>
+
+    <!-- GRID -->
+    <section id="menu-grid">
+      <!-- Cards inserted by JS -->
+    </section>
+
+    <!-- Empty state -->
+    <p id="menu-empty" style="display:none;">No menu items found.</p>
+
+  </main>
+
+  <!-- CART PANEL (hidden by default) -->
+  <aside id="cart-panel" aria-hidden="true">
+    <div id="cart-panel-inner">
+
+      <div id="cart-panel-top">
+        <h2 id="cart-title">Your Cart</h2>
+        <button id="cart-close-btn" type="button">✕</button>
+      </div>
+
+      <div id="cart-items"></div>
+
+      <div id="cart-summary">
+        <div class="cart-row">
+          <span>Total</span>
+          <span id="cart-total">$0.00</span>
+        </div>
+
+        <div id="cart-actions">
+          <button id="cart-clear-btn" type="button">Clear</button>
+          <button id="cart-checkout-btn" type="button">Checkout</button>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- IMPORTANT: module script -->
+  <script type="module" src="js/c-menu.js"></script>
+</body>
+</html>
