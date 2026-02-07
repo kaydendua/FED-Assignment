@@ -155,7 +155,7 @@ function createHawkerCard(feature) {
             <h3 class="hawker-name">${props.NAME || 'Unnamed Hawker Centre'}</h3>
             <p class="hawker-address">${address}</p>
             <p class="hawker-stalls">🍽️ ${stallCount} stalls</p>
-            <a href="stallsPage.html?hId=${props.OBJECTID}" class="view-stalls-btn">View Stalls →</a>
+            <a href="browseStalls.html?hId=${props.OBJECTID}" class="view-stalls-btn">View Stalls →</a>
         </div>
     `;
     
