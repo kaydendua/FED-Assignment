@@ -111,6 +111,62 @@ input[type="file"]{
   box-shadow: 0 0 0 2px rgba(40, 88, 123, 0.25);
 }
 
+/* =========================
+   PHONE VERSION – PROFILE PAGE
+   ========================= */
+@media (max-width: 600px){
+
+  /* page wrapper: stack panels */
+  .profile-page{
+    grid-template-columns: 1fr;   /* 1 column */
+    gap: 18px;
+    margin: 16px auto 24px;
+    padding: 0 14px;
+  }
+
+  /* left panel: tighter padding */
+  .left-panel{
+    padding: 16px;
+  }
+
+  /* profile image card: shorter */
+  .profile-container{
+    min-height: 220px;
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .profile-container img{
+    max-width: 160px;
+  }
+
+  .upload-hint{
+    font-size: 13px;
+    margin-top: 10px;
+  }
+
+  /* right panel: tighter */
+  .right-panel{
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  /* form spacing */
+  .field{
+    margin-bottom: 16px;
+  }
+
+  .field label{
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  .field .box{
+    padding: 12px 14px;
+    font-size: 15px;
+    border-radius: 12px;
+  }
+}
 
 
 

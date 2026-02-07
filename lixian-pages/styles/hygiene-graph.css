@@ -92,4 +92,53 @@
 }
 
 
+/* =========================
+   PHONE VERSION – GRAPH
+   ========================= */
+@media (max-width: 600px){
+
+  /* Section: tighter padding so it fits */
+  .graphSection{
+    width: 94vw;
+    margin: 16px auto;
+    padding: 18px 14px 20px;
+    border-radius: 14px;
+  }
+
+  /* Title: smaller so it doesn’t overflow */
+  .graphTitle{
+    font-size: 30px;   /* overrides clamp on phone */
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  /* Pills: tighter spacing + smaller buttons */
+  .pillRow{
+    gap: 10px;
+    margin: 14px 0 16px;
+  }
+
+  .pillGroup{
+    gap: 6px;
+    padding: 5px;
+  }
+
+  .pill{
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  /* Card: tighter padding; keep your height the same */
+  .graphCard{
+    padding: 14px 14px;
+    border-radius: 12px;
+    height: 460px; /* KEEP same size as you requested */
+  }
+
+  /* Canvas: less padding so graph area is bigger */
+  .graphCard canvas{
+    padding: 8px;
+    border-radius: 10px;
+  }
+}
 
