@@ -1,139 +1,184 @@
-/* main */
-#contentWrapper {
-    background-color: #C9D0DC;
-    display: flex;
-    justify-content: center;   
-    align-items: center;       
-    padding: 60px;
-    margin: 30px;
-    border-radius: 8px;
+/* ===== PALETTE ===== */
+:root{
+  --ink: #1C0F13;
+  --navy: #28587B;
+  --bg: #C9D0DC;
+  --card: #F6ECF4;
+  --paper: #FAF9F9;
+  --shadow: 2px 2px 6px rgba(40, 88, 123, 0.55);
+  --radius: 12px;
 }
 
-#loginCard {
-  width: 900px;
-  height: 420px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: row;        
-  align-items: center;
-  justify-content: space-between;
-  padding: 40px;
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
-#formSection {
-  width: 45%;
+html, body{
+  height: 100%;
+}
+
+body{
+  background: var(--bg);
+  color: var(--ink);
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
-#divider {
+/* ===== MAIN WRAPPER (fills page, less gaps) ===== */
+#contentWrapper{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+/* ===== CARD (pink box like screenshot) ===== */
+#loginCard{
+  width: min(1100px, 100%);
+  min-height: 520px;
+
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+
+  padding: 35px;
+  gap: 30px;
+}
+
+/* ===== LEFT SIDE ===== */
+#formSection{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#loginIn{
+  margin-bottom: 18px;
+}
+
+#loginIn h2{
+  font-size: 34px;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* ===== divider ===== */
+#divider{
   width: 1px;
-  height: 80%;
-  background-color: #777;
-  margin: 0 30px;
-  flex-shrink: 0;   
+  background: rgba(28, 15, 19, 0.25);
+  border-radius: 2px;
 }
 
-#loginIn {
-    font-size: 30px;
-    color: #1C0F13;
-    display: flex;
-    padding-top: 20px;
+/* ===== inputs ===== */
+.inputGroup{
+  margin-bottom: 18px;
 }
 
-.inputGroup {
-    margin-bottom: 20px;
+.inputGroup input{
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 10px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  font-size: 16px;
+  outline: none;
 }
 
-.inputGroup input {
-    width: 100%;
-    padding: 12px 14px;
-    border: none;
-    border-radius: 10px;
-    background-color: #FAF9F9;
-    font-size: 14px;
+.inputGroup input::placeholder{
+  color: rgba(28, 15, 19, 0.6);
 }
 
-
-.checkboxGroup {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 25px;
-    font-size: 14px;
+/* ===== checkbox ===== */
+.checkboxGroup{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0 22px;
+  font-size: 15px;
 }
 
-#loginBtn {
-  width: 260px;         
-  padding: 15px;
+.checkboxGroup input[type="checkbox"]{
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+/* ===== button ===== */
+#loginBtn{
+  width: 260px;
+  padding: 14px 18px;
   border: none;
   border-radius: 30px;
-  background-color: #FAF9F9;
+  background: var(--navy);
+  color: var(--paper);
   font-size: 16px;
+  font-weight: 700;
   cursor: pointer;
-  margin: 0 auto;        
+  margin: 0 auto;
   display: block;
+  box-shadow: var(--shadow);
 }
 
-
-#logoSection {
-    display: flex;
-    align-items: center;
+#loginBtn:hover{
+  filter: brightness(1.05);
 }
 
-.inputGroup input {
-  width: 100%;
-  max-width: 400px;  
-  padding: 30px;
-  font-size: 16px;
-  box-sizing: border-box;
+/* ===== contact text ===== */
+#contactHr{
+  margin-top: 22px;
+  font-size: 15px;
+  text-align: center;
+  opacity: 0.9;
 }
 
-.checkboxGroup input[type="checkbox"] {
-    transform: scale(1.4);
-    transform-origin: center;  
-}
-
-.checkboxGroup label {
-    font-size: 16px;
-    line-height: 2.5; 
-}
-
-#contactHr {
-  margin-top:35px;
-  font-size: 16px;
-}
-
-#logoSection {
-  width: 45%;
+/* ===== RIGHT SIDE (logo box) ===== */
+#logoSection{
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Make the logo sit inside a white “inner card” like screenshot */
+#logoSection h1{
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
 
-#logoSection h1 {
-  font-size: 64px;
-  font-weight: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--paper);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
-.passwordGroup {
+#logoSection img{
+  max-width: 240px;
+  height: auto;
+}
+
+/* ===== password toggle ===== */
+.passwordGroup{
   position: relative;
 }
 
-.passwordGroup input {
-  padding-right: 45px; 
+.passwordGroup input{
+  padding-right: 80px; /* room for the button */
 }
 
-.passwordGroup {
-  position: relative;
-}
-
-.passwordGroup input {
-  padding-right: 45px;
-}
-
-.toggle-password {
+.toggle-password{
   position: absolute;
   right: 12px;
   top: 50%;
@@ -141,34 +186,48 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 18px;
-  color: #555;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(28, 15, 19, 0.7);
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.toggle-password:hover{
+  background: rgba(40, 88, 123, 0.12);
+  color: var(--navy);
+}
+
+/* ===== Dropdown menu (keep your tags, match theme) ===== */
+#loginDropdown{
+  position: relative;
+}
+
+#loginMenu{
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 10px;
+
+  background: var(--paper);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+
+  padding: 10px 0;
+  min-width: 180px;
+  z-index: 1000;
+}
+
+#loginMenu a{
+  text-decoration: none;
+  color: var(--ink);
+  display: block;
+  padding: 10px 16px;
   font-size: 14px;
 }
 
-#loginDropdown {
-    position: relative;
+#loginMenu a:hover{
+  background: var(--card);
+  color: var(--navy);
 }
 
-#loginMenu {
-    position: absolute;
-    top: 100%;         
-    right: 0;
-    background-color: #FAF9F9;
-    border: 1px solid #ccc;
-    padding: 10px 14px;
-    border-radius: 6px;
-    min-width: 160px;
-    z-index: 1000;
-}
-
-#loginMenu a {
-    text-decoration: none;
-    color: #1C0F13;
-    display: block;
-    padding: 6px 0;
-}
-
-#loginMenu a:hover {
-    color: #28587B;
-}

@@ -1,36 +1,82 @@
+/* ===== NAVBAR ===== */
 #mainHeader {
-  height: 70px;
-  background-color: #F2ECF1;
+  height: 80px;
+  background-color: #28587B;          /* dark blue */
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 30px;
+  position: relative;
 }
 
+/* ===== LOGO ===== */
 #logoArea {
   display: flex;
   align-items: center;
-  height: 100%;
 }
 
 #logoArea img {
-  max-height: 45px;
+  max-height: 55px;
   width: auto;
   object-fit: contain;
-  display: block;
 }
 
+/* ===== WEBSITE NAME (TRUE CENTER) ===== */
 #siteName {
-  flex: 1;
-  text-align: center;
-  font-size: 16px;
-  color: #1C0F13;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  font-weight: bold;
+  color: #FAF9F9;
+  pointer-events: none;   /* prevents blocking dropdown clicks */
 }
 
+/* ===== LOGIN DROPDOWN (RIGHT SIDE) ===== */
+#loginDropdown {
+  margin-left: auto;      /* pushes it to the right */
+  position: relative;
+}
+
+/* Login button */
 #loginMenuBtn {
   background: none;
   border: none;
-  font-size: 16px;
+  color: #FAF9F9;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
-  color: #1C0F13;
+  padding: 8px 14px;
+  border-radius: 8px;
 }
+
+#loginMenuBtn:hover {
+  background: rgba(250, 249, 249, 0.15);
+}
+
+/* ===== DROPDOWN MENU ===== */
+#loginMenu {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: #FAF9F9;
+  padding: 12px 0;
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px rgba(40, 88, 123, 0.6);
+  min-width: 180px;
+  z-index: 50;
+}
+
+/* Dropdown links */
+#loginMenu a {
+  display: block;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #1C0F13;
+  font-size: 14px;
+}
+
+#loginMenu a:hover {
+  background: #F6ECF4;
+}
+
 
