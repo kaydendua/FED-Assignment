@@ -27,8 +27,18 @@
     border-radius: 12px;
 }
 
+.stall-card:hover {
+    cursor: pointer;
+}
+
 .stall-info {
     padding: 16px;
+}
+
+.stall-info-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
 }
 
 .stall-image-container {
@@ -50,30 +60,6 @@
     height: 100%;
     border-radius: 12px 12px 0 0;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
-}
-
-.loading-indicator {
-  display: none;
-  text-align: center;
-  padding: 2rem;
-  color: #666;
-}
-
-.loading-indicator p {
-  font-style: italic;
-}
-
-.loading-indicator::after {
-  content: '';
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  margin-left: 10px;
-  border: 3px solid #f3f3f3;
-  border-top: 3px solid #007bff;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  vertical-align: middle;
 }
 
 @keyframes spin {

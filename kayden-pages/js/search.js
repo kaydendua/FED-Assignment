@@ -149,7 +149,7 @@ function createHawkerCard(feature) {
     
     card.innerHTML = `
         <div class="hawker-image">
-            <img src="${photoUrl}" alt="Image Unavailable" onerror="this.src='/img/image-not-found.png'">
+            <img src="${photoUrl}" alt="Image Unavailable">
         </div>
         <div class="hawker-details">
             <h3 class="hawker-name">${props.NAME || 'Unnamed Hawker Centre'}</h3>

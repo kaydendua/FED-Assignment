@@ -9,13 +9,69 @@ import {
   documentId
 } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
 
+const stallsContainer = document.getElementById("stalls-container")
 const placeholder = document.getElementById("placeholder");
-const loadingIndicator = document.getElementById("loading-indicator");
-const endMessage = document.getElementById("end-message");
 
 function getHawkerIdFromUrl() {
   const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get('id');
+  return urlParams.get('hId');
 }
 
 const hawkerId = getHawkerIdFromUrl();
+
+async function loadStalls() {
+    
+    if (!hawkerId) {
+        placeholder.textContent = "No hawker center selected"
+        return;
+    }
+
+    const stallQuery = query(
+        collection(db, "stalls"),
+        where("hawkerCentre", "==", hawkerId)
+    )
+    const stallSnap = await getDocs(stallQuery);
+
+    if (stallSnap.empty) {
+        placeholder.textContent = "No stalls registered yet"
+        return;
+    }
+
+    for (const stallDoc of stallSnap.docs) {
+        displayStalls(stallDoc)
+    }
+
+    placeholder.hidden = true;
+}
+
+function displayStalls(stallDoc) {
+    const card = document.createElement("div")
+    card.className = "stall-card";
+
+    const stall = stallDoc.data();
+    const stallId = stallDoc.id;
+
+    const photoUrl = stall.photo || '/img/image-not-found.png';
+
+    card.innerHTML = `
+        <div class="stall-image-container">
+            <div class="transparent-gradient"></div>
+            <img src="${photoUrl}" alt="Image Unavailable" class="stall-image">
+        </div>
+        <div class="stall-info">
+            <div class="stall-info-header">
+                <h3>${stall.name}</h3>
+                <p>${stall.averageRating.toFixed(1)} ⭐</p>
+            </div>
+            <p>${stall.description}</p>
+        </div>
+    `;
+
+    card.addEventListener("click", ()=>{
+        window.location.href = `stallPage.html?id=${stallId}`
+    })
+
+    stallsContainer.appendChild(card)
+}
+
+loadStalls();
