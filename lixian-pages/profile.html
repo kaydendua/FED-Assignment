@@ -4,72 +4,79 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profile Page</title>
+
   <link rel="stylesheet" href="../lixian-pages/styles/base.css">
   <link rel="stylesheet" href="../lixian-pages/styles/layout-main.css">
   <link rel="stylesheet" href="../lixian-pages/styles/profile-page.css">
 </head>
 
 <body>
- 
+
 <header id="mainHeader">
   <div id="logoArea">
-    <img src="../img/FED_LOGO.png" alt="Website Logo"> 
+    <img src="../img/FED_LOGO.png" alt="Website Logo">
   </div>
+
   <div id="siteName">Website Name</div>
 
-  <nav class="nav-links">
-    <span id = "searchBtn">Search</span>
-    <span>Home</span>
-    <span>Profile</span>
+  <nav class="navLinks">
+    <span class="nav-item" id="searchBtn">Search</span>
+    <a href="main-page.html" class="nav-item">Home</a>
+    <a href="profile.html" class="nav-item">Profile</a>
   </nav>
 
   <div id="searchBox">
     <input type="text" placeholder="Search..." />
   </div>
-
 </header>
 
 <main class="profile-page">
 
+  <!-- LEFT PANEL -->
   <div class="left-panel">
-    <input type="file" id="fileInput" accept="image/*">
 
-  <div class="profile-container" id="profilePic">
-    <img id="preview" src="../img/profile.png" alt="Profile Picture">
+    <!-- hidden file input -->
+    <input type="file" id="fileInput" accept="image/*" hidden>
+
+    <!-- clickable image -->
+    <div class="profile-container" id="profilePic">
+      <img id="preview" src="../img/profile.png" alt="Profile Picture">
+      <p class="upload-hint">Click image to upload</p>
+    </div>
+
   </div>
 
-  </div>
-
+  <!-- RIGHT PANEL -->
   <div class="right-panel">
 
     <div class="field">
       <label>Name</label>
-      <input type="text" class="box">
+      <input type="text" class="box" placeholder="Enter full name">
     </div>
 
     <div class="field">
       <label>Officer ID</label>
-      <input type="text" class="box">
+      <input type="text" class="box" placeholder="Enter officer ID">
     </div>
 
     <div class="field">
       <label>Designation</label>
-      <input type="text" class="box">
+      <input type="text" class="box" placeholder="Enter designation">
     </div>
 
     <div class="field">
       <label>Department / Division</label>
-      <input type="text" class="box">
+      <input type="text" class="box" placeholder="Enter department or division">
     </div>
 
     <div class="field">
       <label>Contact Email</label>
-      <input type="text" class="box">
+      <input type="email" class="box" placeholder="Enter contact email">
     </div>
 
     <div class="field">
       <label>Contact Number</label>
-      <input type="text" class="box">
+      <input type="tel" class="box" placeholder="Enter contact number">
     </div>
 
   </div>
@@ -79,4 +86,5 @@
 <script src="../lixian-pages/js/profile.js"></script>
 </body>
 </html>
+
  

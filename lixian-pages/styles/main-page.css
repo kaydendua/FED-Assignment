@@ -1,174 +1,198 @@
+/* ===== GLOBAL ===== */
 body {
   margin: 0;
-  background: #ffffff;     
+  background: #C9D0DC;
   font-family: Arial, sans-serif;
+  color: #1C0F13;
 }
 
+/* ===== MAIN CONTENT WRAPPER ===== */
 #contentbackground{
-  width: min(1200px, 94vw); /* grows up to 1200, still responsive */
-  margin: 24px auto;
+  flex: 1;
+  width: min(1300px, 96vw);
+  margin: 24px auto 40px;
   padding: 0;
 }
 
+/* ===== TOP ROW ===== */
+.topRow{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+/* Welcome Back */
+.welcome {
+  margin: 0;
+  justify-self: start;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+/* Graph button wrapper */
+.graphLink {
+  justify-self: center;
+  text-decoration: none;
+}
+
+/* Graph button */
+.graphTitle {
+  margin: 0;
+  padding: 10px 18px;
+
+  background: #FAF9F9;
+  border-radius: 999px;
+  box-shadow: 2px 2px 6px rgba(40, 88, 123, 0.45);
+
+  font-size: 16px;
+  font-weight: 700;
+  color: #1C0F13;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* hover effect */
+.graphLink:hover .graphTitle {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(40, 88, 123, 0.55);
+  cursor: pointer;
+}
+
+/* click feedback */
+.graphLink:active .graphTitle {
+  transform: scale(0.96);
+}
+
+/* Month picker */
+.monthPick {
+  justify-self: end;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 600;
+}
+
+/* ===== CARD (PINK BOX) ===== */
+.content-box{
+  background: #F6ECF4;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 30px;
+  padding: 32px 40px;
+  border-radius: 12px;
+  box-shadow: 2px 2px 6px rgba(40, 88, 123, 0.55);
+}
+
+/* ===== SECTION TITLE ===== */
+.schedTitleRow h1{
+  margin: 0 0 16px 0;
+  text-align: center;
+  font-size: 42px;
+  font-weight: 800;
+}
+
+.schedTitleRow hr{
+  border: none;
+  height: 2px;
+  background: #1C0F13;
+  width: 85%;
+  margin: 0 auto 24px auto;
+}
+
+/* ===== CALENDAR HEADER ===== */
 .calendar .header{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:18px;
-  margin: 16px 0 22px;
+  gap:20px;
+  margin: 20px 0 28px;
 }
 
+/* ===== CALENDAR BUTTONS ===== */
 .cal-btn{
-  width: 52px;
-  height: 52x;
+  width: 48px;
+  height: 48px;
   border-radius: 999px;
-  border: 1px solid rgba(0,0,0,0.35);
-  background: rgba(255,255,255,0.65);
-  font-size: 30px;
-  line-height: 1;
+  border: none;
+  background: #FAF9F9;
+  font-size: 28px;
   display:flex;
   align-items:center;
   justify-content:center;
   cursor:pointer;
-  transition: transform .12s ease, background .12s ease, box-shadow .12s ease;
+  box-shadow: 2px 2px 6px rgba(40, 88, 123, 0.45);
+  transition: transform .12s ease, box-shadow .12s ease;
 }
 
 .cal-btn:hover{
-  background: rgba(255,255,255,0.95);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
   transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
 
 .cal-btn:active{
-  transform: translateY(0px) scale(0.98);
+  transform: scale(0.96);
 }
 
+/* ===== MONTH / YEAR ===== */
 #monthYear {
-  font-size: 56px;     
+  font-size: 52px;
   font-weight: 800;
   letter-spacing: 2px;
   margin: 0;
   text-transform: uppercase;
 }
 
-#prev, #next {
-  width: 34px;
-  height: 34px;
-  border: 1px solid #000;
-  background: #fff;
-  cursor: pointer;
-}
-
+/* ===== CALENDAR GRID ===== */
 .days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  margin-top: 10px;
+  margin-top: 12px;
+  gap: 6px;
 }
 
-.day {
-  border: 1px solid #000;
-  min-height: 60px;
-  padding: 16px;
-  font-size: 16px;
-}
-
+/* day headers */
 .day.header {
   font-weight: 700;
   text-transform: uppercase;
   font-size: 12px;
-  min-height: 28px;
+  min-height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.day.today {
-  background: transparent;
-  border-radius: 0;
+/* normal day cells */
+.day {
+  background: #FAF9F9;
+  border-radius: 8px;
+  min-height: 90px;
+  padding: 14px;
+  font-size: 15px;
+  box-shadow: 1px 1px 4px rgba(40, 88, 123, 0.35);
 }
 
+/* today highlight */
+.day.today {
+  outline: 2px solid #28587B;
+}
+
+/* content alignment */
 .day:not(.header) {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
 }
 
-button {
-  cursor: pointer;
-}
-
-.content-box {
-  background: lightblue;
-  width: 100%;
-  max-width: 1100px;
-  margin: 16px auto;
-  padding: 28px 38px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-}
-
-.navLinks span {
-  margin-left: 25px;
-  cursor: pointer;
-}
-
-.topRow{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; 
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-
-.welcome { margin: 0; justify-self: start; }
-.graphTitle { margin: 0; justify-self: center; }
-.monthPick { justify-self: end; font-weight: 600; }
-
-.content-box{
-  width: 100%;
-  max-width: 1100px;
-  margin: 16px auto;
-  padding: 28px 38px;
-}
-
-.schedTitleRow h1{
-  margin: 0 0 12px 0;
-  text-align: center;  
-  font-size: 40px;      
-  font-weight: 700;
-}
-
-.schedTitleRow hr{
-  border: none;
-  height: 2px;
-  background: #000;
-  width: 85%;
-  margin: 0 auto 18px auto;
-}
-
-.monthPick{
-  justify-self:end;
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-
+/* ===== SELECT DROPDOWNS ===== */
 .monthPick select{
-  padding: 8px 10px;
+  padding: 8px 12px;
   border-radius: 8px;
-  border: 1px solid rgba(0,0,0,0.25);
-  background: #fff;
+  border: none;
+  background: #FAF9F9;
+  box-shadow: 1px 1px 4px rgba(40, 88, 123, 0.35);
   font-weight: 600;
   cursor: pointer;
 }
 
-.graphLink {
-  text-decoration: none;
-  color: inherit;
-  display: inline-block;
-}
-
-.graphLink:hover .graphTitle {
-  text-decoration: underline; /* optional hover effect */
-  cursor: pointer;
-}

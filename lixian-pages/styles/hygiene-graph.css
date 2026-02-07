@@ -5,6 +5,11 @@
 .graphSection{
   width: min(1200px, 94vw);
   margin: 28px auto;
+
+  /* NEW: section background behind everything */
+  background: #C9D0DC;          /* bluish background */
+  border-radius: 16px;
+  padding: 32px 28px 36px;      /* space so blue shows around the pink box */
 }
 
 .graphHeader{
@@ -28,7 +33,7 @@
   justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  margin: 18px 0 22px;
 }
 
 .pillGroup{
@@ -69,15 +74,22 @@
    ========================= */
 
 .graphCard{
-  background: #ffffff;
+  background: #F6ECF4;                 /* pinkish background */
   border-radius: 14px;
-  padding: 18px 22px;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+  padding: 24px 28px;
+  box-shadow: 2px 2px 6px rgba(40, 88, 123, 0.55);
 
-  height: 460px; /* control chart proportion */
+  height: 460px; /* KEEP the same size */
 }
 
+/* keep chart itself white */
 .graphCard canvas{
   width: 100% !important;
   height: 100% !important;
+  background: #FAF9F9;
+  border-radius: 10px;
+  padding: 12px;
 }
+
+
+
