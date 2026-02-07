@@ -135,6 +135,10 @@ function displayStallInfo(stall, rating, reviewCount) {
     </div>
     <p>${stall.description}</p>
   `;
+
+  const image = document.getElementById("stall-image");
+  console.log(stall)
+  image.src = stall.img || '/img/image-not-found.png';
 }
 
 loadStallData();
