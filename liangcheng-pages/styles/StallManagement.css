@@ -61,6 +61,7 @@ button {
     padding: 5px 15px;
     border-radius: 5px;
     font-weight: 3px;
+    color: #FAF9F9;
 }
 
 button:hover{
@@ -74,7 +75,7 @@ button:hover{
 }
 
 .order-status{
-    min-width: 90px;  /* keeps buttons from shifting when text changes */
+    min-width: 90px;
     font-weight: bold;
 }
 
@@ -96,6 +97,7 @@ button:hover{
     overflow: hidden;
     border-radius: 10px;
     margin-bottom: 12px;
+    background-color: #F6ECF4; /* Fallback color */
 }
 
 .image-placeholder img{
@@ -111,13 +113,25 @@ button:hover{
     background-color: #F6ECF4;
     border-radius: 12px;
     box-shadow: 2px 2px 5px #28587B;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-
 
 .menu-box h3{
     font-size: larger;
     font-weight: bold;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
+    min-height: 50px; /* Aligns titles */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-box p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    color: #1C0F13;
 }
 
 .boxed-section{
@@ -128,21 +142,22 @@ button:hover{
     gap: 25px;
 }
 
-.toggle-checkbox{
-    margin-top: 12px;
+.toggle-checkbox {
+    margin: 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
 }
 
-.toggle-checkbox input[type="checkbox"]{
+.toggle-checkbox input[type="checkbox"] {
     transform: scale(1.5);
     cursor: pointer;
 }
 
-.status-text{
-    font-size: large
+.status-text {
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 .add-new-box{
@@ -168,6 +183,7 @@ button:hover{
     justify-content: center;
     align-items: center;
     padding: 0;
+    color: #1C0F13;
 }
 
 #add-btn:hover{
@@ -178,68 +194,89 @@ button:hover{
     font-size: 50px;
 }
 
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-overlay.hidden { display: none; }
+
+.modal-content {
+    background: #F6ECF4;
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: left;
+}
+
+.modal-content h3 { text-align: center; margin-bottom: 15px; }
+
+.modal-content label { display: block; margin-top: 10px; font-weight: bold; }
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #FAF9F9;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between; /* Spreads buttons apart */
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.modal-actions button {
+    flex: 1; /* Makes buttons equal width */
+}
+
+/* Edit/Delete Button Group on Cards */
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto; /* Pushes buttons to bottom */
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.btn-edit {
+    background-color: #28587B;
+    color: white;
+    flex: 1;
+}
+
+.btn-delete {
+    background-color: #b94a48;
+    color: white;
+    flex: 1;
+}
+
+.btn-edit:hover { background-color: #1a3c55; }
+.btn-delete:hover { background-color: #943a38; }
+
 /* Phone View */
-@media screen and (max-width: 768px)
-{
-    /* QueueManagement */
-        .status-actions{
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .order-status{
-        flex-basis: 100%;
-    }
-
-    .btn-group{
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-
-    .btn-group button{
-        flex: 1 1 30%;
-        min-width: 70px;
-        padding: 6px 8px;
-        font-size: 0.8rem;
-    }
-
-    /* MenuManagement */
-    .boxed-section {
-        gap: 15px;
-        padding: 15px; 
-    }
-
+@media screen and (max-width: 768px) {
     .menu-box {
         width: 45%; 
         padding: 10px;
-        min-height: 220px; /* Ensure boxes are tall enough */
-    }
-
-    /* Shrink text and images slightly to fit small screens */
-    .menu-box h3 {
-        font-size: 1rem;
-        padding-bottom: 8px;
-    }
-
-    .image-placeholder {
-        height: 110px;
+        min-height: 250px; 
     }
     
-    .status-text {
-        font-size: 0.9rem;
-    }
-
-    /* Change the "Add New" button size */
-    .add-new-box {
-        min-height: 220px; /* Match other cards */
-    }
-    
-    #add-btn {
-        width: 70px;
-        height: 70px;
-    }
-
-    #plus {
-        font-size: 30px;
+    .card-actions {
+        flex-direction: column; /* Stack buttons on mobile */
     }
 }
