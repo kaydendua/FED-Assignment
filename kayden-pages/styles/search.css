@@ -1,3 +1,5 @@
+/*Colour Padlet: #1C0F13 #28587B #4988BB #749EC1 #C9D0DC #F6ECF4 #FAF9F9*/
+
 .search-container {
     display: flex;
     flex-direction: column;
@@ -18,14 +20,17 @@
     width: 100%;
     padding: 1rem 3rem 1rem 1rem;
     font-size: 1rem;
-    border: 2px solid #ddd;
+    background-color: #F6ECF4;
+    box-shadow: 2px 2px 5px #28587B;
     border-radius: 8px;
-    transition: border-color 0.2s;
+    border: none;
+    transition: box-shadow 0.2s;
 }
 
 #search-input:focus {
     outline: none;
-    border-color: #007bff;
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 10px #4988BB;
 }
 
 .clear-btn {
@@ -56,8 +61,8 @@
 
 .filter-btn {
     padding: 0.5rem 1rem;
-    border: 2px solid #ddd;
-    background: white;
+    border: 2px solid #F6ECF4;
+    background: #F6ECF4;
     border-radius: 6px;
     cursor: pointer;
     font-size: 0.9rem;
@@ -65,14 +70,14 @@
 }
 
 .filter-btn:hover {
-    border-color: #007bff;
-    color: #007bff;
+    border-color: #4988BB;
+    color: #4988BB;
 }
 
 .filter-btn.active {
-    background: #007bff;
+    background: #4988BB;
     color: white;
-    border-color: #007bff;
+    border-color: #4988BB;
 }
 
 .results-count {
@@ -96,16 +101,16 @@
 
 .hawker-card {
     display: flex;
-    background: white;
+    background: #F6ECF4;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 4px #28587B;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .hawker-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 4px 4px 8px #4988BB;
 }
 
 .hawker-image {
@@ -140,7 +145,7 @@
 }
 
 .hawker-stalls {
-    color: #007bff;
+    color: #4988BB;
     font-size: 0.9rem;
     margin: 0 0 1rem 0;
 }
@@ -148,8 +153,8 @@
 .view-stalls-btn {
     align-self: flex-start;
     padding: 0.5rem 1.5rem;
-    background: #007bff;
-    color: white;
+    background: #4988BB;
+    color: #FAF9F9;
     text-decoration: none;
     border-radius: 6px;
     font-size: 0.9rem;
@@ -159,7 +164,7 @@
 }
 
 .view-stalls-btn:hover {
-    background: #0056b3;
+    background: #28587B;
 }
 
 @media (max-width: 768px) {

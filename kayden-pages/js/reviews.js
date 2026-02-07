@@ -13,7 +13,6 @@ const columnLeft = document.getElementById("left-column");
 const columnRight = document.getElementById("right-column");
 const placeholder = document.getElementById("placeholder");
 const reviewsPageBtn = document.getElementById("back-btn");
-const loadingIndicator = document.getElementById("loading-indicator");
 const endMessage = document.getElementById("end-message");
 const writeReviewBtn = document.getElementById("write-review-btn");
 
@@ -85,9 +84,6 @@ async function loadAllReviews() {
     return;
   }
 
-  // Hide placeholder
-  placeholder.hidden = true;
-
   // Display first batch
   displayNextBatch();
 
@@ -102,13 +98,11 @@ function displayNextBatch() {
   
   if (remainingReviews === 0) {
     // All reviews displayed
-    loadingIndicator.style.display = "none";
     endMessage.style.display = "block";
     return;
   }
 
   isLoading = true;
-  loadingIndicator.style.display = "block";
 
   // Simulate a small delay for better UX (optional)
   setTimeout(() => {
@@ -125,8 +119,7 @@ function displayNextBatch() {
 
     displayedReviews = endIndex;
     isLoading = false;
-    loadingIndicator.style.display = "none";
-
+    placeholder.hidden = true;
     // Check if all reviews are loaded
     if (displayedReviews >= allReviews.length) {
       endMessage.style.display = "block";

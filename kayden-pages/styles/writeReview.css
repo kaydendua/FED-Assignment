@@ -1,3 +1,5 @@
+/*Colour Padlet: #1C0F13 #28587B #4988BB #749EC1 #C9D0DC #F6ECF4 #FAF9F9*/
+
 /* Write Review Page Styles */
 .write-review-container {
     margin: 0 72px;
@@ -6,7 +8,7 @@
 
 .back-link {
     display: inline-block;
-    color: #007bff;
+    color: #1C0F13;
     text-decoration: none;
     font-size: 1rem;
     margin-bottom: 1rem;
@@ -14,13 +16,8 @@
 }
 
 .back-link:hover {
-    color: #0056b3;
+    color: #4988BB;
     text-decoration: underline;
-}
-
-/* Review Form */
-.review-form {
-    overflow: hidden;
 }
 
 /* Form Header */
@@ -48,7 +45,7 @@
     border: none;
     font-size: 2rem;
     cursor: pointer;
-    color: #ddd;
+    color: #1C0F13;
     transition: all 0.2s;
     padding: 0;
     line-height: 1;
@@ -75,16 +72,18 @@
     width: 100%;
     padding: 1rem;
     font-size: 1.1rem;
-    border: 2px solid #e0e0e0;
+    background-color: #F6ECF4;
+    border: none;
     border-radius: 6px;
     margin-bottom: 1rem;
-    font-family: inherit;
-    transition: border-color 0.2s;
+    box-shadow: 2px 2px 4px #28587B;
+    transition: box-shadow 0.2s;
 }
 
 .review-title-input:focus {
     outline: none;
-    border-color: #007bff;
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 10px #4988BB;
 }
 
 .review-textarea {
@@ -92,17 +91,19 @@
     min-height: 250px;
     padding: 1rem;
     font-size: 1rem;
-    border: 2px solid #e0e0e0;
+    background-color: #F6ECF4;
+    border: none;
     border-radius: 6px;
     resize: vertical;
-    font-family: inherit;
     line-height: 1.6;
-    transition: border-color 0.2s;
+    box-shadow: 2px 2px 4px #4988BB;
+    transition: box-shadow 0.2s;
 }
 
 .review-textarea:focus {
     outline: none;
-    border-color: #007bff;
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 10px #4988BB;
 }
 
 .char-count {
@@ -141,7 +142,7 @@
 
 .submit-btn {
     padding: 0.75rem 2rem;
-    background: #007bff;
+    background: #4988BB;
     color: white;
     border: none;
     border-radius: 6px;
@@ -152,9 +153,9 @@
 }
 
 .submit-btn:hover {
-    background: #0056b3;
+    background: #28587B;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+    box-shadow: 2px 2px 4px #28587B;
 }
 
 .submit-btn:active {
