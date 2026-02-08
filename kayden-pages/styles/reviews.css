@@ -53,17 +53,6 @@
     text-align: center;
 }
 
-/* End Message */
-.end-message {
-  display: none;
-  text-align: center;
-  padding: 2rem;
-  color: #999;
-  font-style: italic;
-  border-top: 1px solid #e0e0e0;
-  margin-top: 2rem;
-}
-
 .floating-btn {
   position: fixed;
   bottom: 2rem;
