@@ -1,5 +1,6 @@
 // js/c-menu.js (MODULE)
 // Loads vendor menu from Firestore: vendor/{vendorId}/stallMenu/{itemId}
+// Supports linking by stallId in URL: ?stallId=2
 // Cart stored in localStorage
 
 import { db } from "../../firebase/firebase.js";
@@ -7,7 +8,9 @@ import {
   doc,
   getDoc,
   collection,
-  getDocs
+  getDocs,
+  query,
+  where
 } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
 
 console.log("c-menu.js loaded ✅");
@@ -15,7 +18,7 @@ console.log("c-menu.js loaded ✅");
 // -----------------------
 // CONFIG
 // -----------------------
-const MENU_SUBCOLLECTION = "stallMenu"; // change if yours is different
+const MENU_SUBCOLLECTION = "stallMenu";
 
 // -----------------------
 // Helpers
@@ -30,13 +33,35 @@ function safeText(v, fallback = "") {
   return String(v);
 }
 
+function getParam(name) {
+  return new URLSearchParams(window.location.search).get(name);
+}
+
+/**
+ * ✅ NEW: Find vendorId by stallId (vendor docs have stallId field)
+ * vendor collection docs: { stallId: "2", ... }
+ * returns the vendor document id (vendorId)
+ */
+async function getVendorIdByStallId(stallId) {
+  const stallIdStr = String(stallId); // your stallId is stored as string in Firestore
+  const q = query(collection(db, "vendor"), where("stallId", "==", stallIdStr));
+  const snap = await getDocs(q);
+
+  if (snap.empty) return null;
+  return snap.docs[0].id;
+}
+
 function getVendorId() {
-  // Prefer vendor chosen by customer (recommended)
   const qp = new URLSearchParams(window.location.search);
+
+  // ✅ priority:
+  // 1) vendorId directly (still supported)
+  // 2) selectedVendorId saved earlier
+  // 3) vendorId key (legacy)
   return (
     qp.get("vendorId") ||
-    localStorage.getItem("selectedVendorId") || // recommended key
-    localStorage.getItem("vendorId") ||         // if you reused vendor login key
+    localStorage.getItem("selectedVendorId") ||
+    localStorage.getItem("vendorId") ||
     ""
   );
 }
@@ -62,15 +87,7 @@ function cartTotal(cart) {
 }
 
 function findImage(data) {
-  // supports different field names
-  return (
-    data.imageUrl ||
-    data.imageURL ||
-    data.imgUrl ||
-    data.img ||
-    data.image ||
-    ""
-  );
+  return data.imageUrl || data.imageURL || data.imgUrl || data.img || data.image || "";
 }
 
 function findName(data) {
@@ -78,7 +95,6 @@ function findName(data) {
 }
 
 function findPrice(data) {
-  // supports number or string
   const p = data.price ?? data.itemPrice ?? data.cost ?? 0;
   const num = Number(p);
   return Number.isFinite(num) ? num : 0;
@@ -181,7 +197,7 @@ function renderCart() {
 function addToCart({ vendorId, itemId, name, price, imageUrl }) {
   const cart = readCart();
 
-  // Force single-vendor cart (optional but usually needed)
+  // single-vendor cart
   const existingVendor = cart[0]?.vendorId;
   if (existingVendor && existingVendor !== vendorId) {
     const ok = confirm("Your cart has items from another vendor. Clear cart and add this item?");
@@ -192,9 +208,8 @@ function addToCart({ vendorId, itemId, name, price, imageUrl }) {
   const updated = readCart();
   const idx = updated.findIndex((x) => x.itemId === itemId);
 
-  if (idx >= 0) {
-    updated[idx].qty += 1;
-  } else {
+  if (idx >= 0) updated[idx].qty += 1;
+  else {
     updated.push({
       vendorId,
       itemId,
@@ -215,10 +230,7 @@ function changeQty(itemId, delta) {
   if (idx < 0) return;
 
   cart[idx].qty = (cart[idx].qty || 0) + delta;
-
-  if (cart[idx].qty <= 0) {
-    cart.splice(idx, 1);
-  }
+  if (cart[idx].qty <= 0) cart.splice(idx, 1);
 
   writeCart(cart);
   renderCart();
@@ -245,7 +257,6 @@ cartCloseBtn?.addEventListener("click", () => {
 });
 
 cartPanel?.addEventListener("click", (e) => {
-  // click outside closes
   if (e.target === cartPanel) {
     cartPanel.classList.remove("open");
     cartPanel.setAttribute("aria-hidden", "true");
@@ -258,9 +269,29 @@ cartClearBtn?.addEventListener("click", () => {
 });
 
 cartCheckoutBtn?.addEventListener("click", () => {
-  // Go to your checkout page
   window.location.href = "c-checkout.html";
 });
+
+// -----------------------
+// ✅ NEW: Ensure vendor selected by stallId param
+// -----------------------
+async function ensureVendorSelected() {
+  // If vendorId already exists, do nothing
+  const existingVendorId = getVendorId();
+  if (existingVendorId) return existingVendorId;
+
+  // Try stallId param
+  const stallId = getParam("stallId");
+  if (!stallId) return "";
+
+  // Find vendor by stallId
+  const vendorId = await getVendorIdByStallId(stallId);
+  if (!vendorId) return "";
+
+  localStorage.setItem("selectedVendorId", vendorId);
+  localStorage.setItem("selectedStallId", String(stallId));
+  return vendorId;
+}
 
 // -----------------------
 // Load menu from Firestore
@@ -270,14 +301,14 @@ async function loadMenu() {
 
   if (!vendorId) {
     emptyMsg.style.display = "block";
-    emptyMsg.textContent = "No vendor selected. Pass vendorId in URL (?vendorId=...) or set localStorage selectedVendorId.";
+    emptyMsg.textContent =
+      "No vendor selected. Pass stallId in URL (?stallId=2) or vendorId (?vendorId=...).";
     return;
   }
 
-  // Store current vendor for later pages
   localStorage.setItem("selectedVendorId", vendorId);
 
-  // 1) Vendor info (optional)
+  // 1) Vendor info
   try {
     const vendorSnap = await getDoc(doc(db, "vendor", vendorId));
     if (vendorSnap.exists()) {
@@ -292,7 +323,7 @@ async function loadMenu() {
     vendorNameEl.textContent = `Vendor: ${vendorId}`;
   }
 
-  // 2) Menu items from subcollection
+  // 2) Menu items
   grid.innerHTML = "";
   emptyMsg.style.display = "none";
 
@@ -322,7 +353,6 @@ async function loadMenu() {
       img.alt = name;
       img.src = imageUrl || "";
       img.onerror = () => {
-        // fallback if missing/bad URL
         img.src = "";
         img.style.display = "none";
       };
@@ -368,6 +398,11 @@ async function loadMenu() {
   }
 }
 
+// -----------------------
 // Init
-renderCart();
-loadMenu();
+// -----------------------
+(async function init() {
+  renderCart();
+  await ensureVendorSelected(); // ✅ allows ?stallId=2 to work
+  loadMenu();
+})();
