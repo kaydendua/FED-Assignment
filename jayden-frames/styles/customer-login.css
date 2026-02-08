@@ -1,0 +1,203 @@
+/* ---------------- CUSTOMER LOGIN PAGE ---------------- */
+
+#page-login {
+  background: linear-gradient(180deg, #C9D0DC 0%, #AFC0D8 100%);
+  min-height: 100vh;
+}
+
+/* Center container vertically a bit more */
+#page-login #login-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+/* Main card — bigger */
+#page-login #login-box {
+  background: #F6ECF4;
+  padding: 56px 60px;              /* more breathing room */
+  display: flex;
+  width: 90%;                      /* take more width */
+  max-width: 1000px;               /* larger card */
+  border-radius: 18px;
+  border: 1px solid rgba(28, 15, 19, 0.12);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+}
+
+/* ---------- LEFT (FORM) ---------- */
+#page-login #login-form {
+  flex: 1;
+  max-width: 420px;                /* keeps form readable */
+}
+
+/* Bigger title */
+#page-login #login-title {
+  margin-bottom: 26px;
+  font-size: 34px;
+  font-weight: 1000;
+  color: #1C0F13;
+}
+
+/* Input boxes — larger */
+#page-login #login-email-box,
+#page-login #login-password-box {
+  display: flex;
+  align-items: center;
+  background: #FAF9F9;
+  padding: 16px 18px;              /* bigger inputs */
+  margin-bottom: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(28, 15, 19, 0.18);
+}
+
+#page-login #login-email,
+#page-login #login-password {
+  border: none;
+  background: transparent;
+  margin-left: 12px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;                 /* larger text */
+  font-weight: 600;
+  color: #1C0F13;
+}
+
+/* Submit button — centered under password input */
+#page-login #login-submit {
+  margin: 26px auto 24px;          /* 🔑 centers button */
+  display: block;                  /* allows margin auto */
+  width: 260px;                    /* visually aligned */
+  padding: 14px 0;
+
+  border: none;
+  border-radius: 999px;
+  background: #4988BB;
+  color: #FAF9F9;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 900;
+
+  box-shadow: 0 10px 22px rgba(73, 136, 187, 0.38);
+}
+
+#page-login #login-submit:hover {
+  background: #749EC1;
+}
+
+/* OR text */
+#page-login #login-or-text {
+  text-align: center;
+  font-size: 14px;
+  margin: 24px 0;
+  color: rgba(28, 15, 19, 0.7);
+  font-weight: 700;
+}
+
+/* Social icons */
+#page-login #login-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+#page-login #login-social-apple,
+#page-login #login-social-facebook,
+#page-login #login-social-twitter {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(28, 15, 19, 0.18);
+  background: #FAF9F9;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* ---------- DIVIDER ---------- */
+#page-login #login-divider {
+  width: 2px;
+  background: rgba(28, 15, 19, 0.2);
+  margin: 0 44px;                  /* more spacing */
+}
+
+/* ---------- RIGHT SIDE ---------- */
+#page-login #login-side {
+  flex: 1;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 360px;
+}
+
+#page-login #login-side-title {
+  font-size: 24px;
+  font-weight: 900;
+  margin: 0;
+  color: #1C0F13;
+}
+
+#page-login #login-signup-btn {
+  display: inline-block;
+  padding: 16px 42px;
+  border-radius: 999px;
+  background: #FAF9F9;
+  text-decoration: none;
+  color: #1C0F13;
+  font-weight: 800;
+  margin-top: 14px;
+  border: 1px solid rgba(28, 15, 19, 0.18);
+}
+
+#page-login #login-guest-text {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  color: rgba(28, 15, 19, 0.75);
+}
+
+#page-login #login-guest-btn {
+  padding: 16px 42px;
+  border: none;
+  border-radius: 999px;
+  background: #FAF9F9;
+  cursor: pointer;
+  font-weight: 800;
+  border: 1px solid rgba(28, 15, 19, 0.18);
+}
+
+/* Hover effects */
+#page-login #login-signup-btn:hover,
+#page-login #login-guest-btn:hover {
+  background: #F0E6EE;
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 768px) {
+  #page-login #login-box {
+    flex-direction: column;
+    padding: 34px 24px;
+  }
+
+  #page-login #login-form {
+    max-width: 100%;
+  }
+
+  #page-login #login-divider {
+    display: none;
+  }
+
+  #page-login #login-submit {
+    width: 100%;
+  }
+
+  #page-login #login-side {
+    min-height: auto;
+    gap: 20px;
+    padding-top: 30px;
+    justify-content: center;
+  }
+}
+
+

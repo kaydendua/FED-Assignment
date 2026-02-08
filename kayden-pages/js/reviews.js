@@ -13,14 +13,7 @@ const columnLeft = document.getElementById("left-column");
 const columnRight = document.getElementById("right-column");
 const placeholder = document.getElementById("placeholder");
 const reviewsPageBtn = document.getElementById("back-btn");
-const endMessage = document.getElementById("end-message");
 const writeReviewBtn = document.getElementById("write-review-btn");
-
-// Infinite scroll settings
-const REVIEWS_PER_BATCH = 20;
-let allReviews = [];
-let displayedReviews = 0;
-let isLoading = false;
 
 function getStallIdFromUrl() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -57,7 +50,7 @@ async function loadAllReviews() {
   }
 
   // Fetch all reviews in batches (Firestore 'in' operator limit is 30)
-  allReviews = [];
+  const allReviews = [];
   const batchSize = 30;
   
   for (let i = 0; i < reviews.length; i += batchSize) {
@@ -84,61 +77,13 @@ async function loadAllReviews() {
     return;
   }
 
-  // Display first batch
-  displayNextBatch();
+  // Hide placeholder
+  placeholder.hidden = true;
 
-  // Set up infinite scroll
-  setupInfiniteScroll();
-}
-
-function displayNextBatch() {
-  if (isLoading) return;
-  
-  const remainingReviews = allReviews.length - displayedReviews;
-  
-  if (remainingReviews === 0) {
-    // All reviews displayed
-    endMessage.style.display = "block";
-    return;
-  }
-
-  isLoading = true;
-
-  // Simulate a small delay for better UX (optional)
-  setTimeout(() => {
-    const endIndex = Math.min(displayedReviews + REVIEWS_PER_BATCH, allReviews.length);
-    const batchReviews = allReviews.slice(displayedReviews, endIndex);
-
-    // Display reviews in alternating columns
-    batchReviews.forEach((review, index) => {
-      // Calculate which column based on total displayed count
-      const totalIndex = displayedReviews + index;
-      const targetColumn = totalIndex % 2 === 0 ? columnLeft : columnRight;
-      displayReviewFull(review, targetColumn);
-    });
-
-    displayedReviews = endIndex;
-    isLoading = false;
-    placeholder.hidden = true;
-    // Check if all reviews are loaded
-    if (displayedReviews >= allReviews.length) {
-      endMessage.style.display = "block";
-    }
-  }, 300);
-}
-
-function setupInfiniteScroll() {
-  window.addEventListener('scroll', () => {
-    // Check if user is near bottom of page
-    const scrollPosition = window.innerHeight + window.scrollY;
-    const bottomPosition = document.documentElement.offsetHeight;
-    
-    // Trigger when user is 200px from bottom
-    if (scrollPosition >= bottomPosition - 200) {
-      if (!isLoading && displayedReviews < allReviews.length) {
-        displayNextBatch();
-      }
-    }
+  // Display all reviews at once
+  allReviews.forEach((review, index) => {
+    const targetColumn = index % 2 === 0 ? columnLeft : columnRight;
+    displayReviewFull(review, targetColumn);
   });
 }
 

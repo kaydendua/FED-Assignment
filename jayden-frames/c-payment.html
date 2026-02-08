@@ -4,33 +4,43 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Payment Page</title>
+<<<<<<< HEAD
+=======
+  <link rel="icon" href="/img/FED_LOGO.png">
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/pages.css">
+>>>>>>> ad1c8781e7dbaf062b13de0ae461c98dd0168467
 
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="../jayden-frames/styles/c-checkout-layout.css">
+  <link rel="stylesheet" href="../jayden-frames/styles/payment-page.css">
+</head>
 
 <body>
 
-  <!-- ===== NAV BAR (uses your navbar.css) ===== -->
+  <!-- ===== NAV BAR (matches your CSS) ===== -->
   <header class="navbar">
     <div class="nav-left">
       <button class="menu-btn">☰<br>Menu</button>
-      <div class="logo">
-        LOGO LOGO LOGO<br>
-        LOGO LOGO LOGO
+
+      <!-- CSS expects #logoArea img -->
+      <div id="logoArea">
+        <!-- Replace src with your real logo path -->
+        <img src="../img/FED_LOGO.png" alt="Website Logo">
       </div>
     </div>
 
-    <div class="nav-center"></div>
+    <!-- CSS expects #siteName centered with absolute positioning -->
+    <div id="siteName">Website Name</div>
 
     <div class="nav-right">
-      <a href="#" id="pay-avatar">JO</a>
+      <!-- CSS expects #co-avatar -->
+      <a href="#" id="co-avatar">JO</a>
     </div>
   </header>
 
-
   <main id="page-payment">
-
     <section id="pay-card">
 
       <h2 id="pay-title">Payment details</h2>
@@ -61,7 +71,6 @@
       </div>
 
     </section>
-
   </main>
 
   <!-- ===== Bottom Bar ===== -->
@@ -74,8 +83,7 @@
     <button id="pay-place-order-btn" type="button">Place order</button>
   </footer>
 
-  <!-- If you already created payment.js -->
-  <script type = "module" src="../jayden-frames/js/c-payment.js"></script>
-
+  <script type="module" src="../jayden-frames/js/c-payment.js"></script>
 </body>
 </html>
+

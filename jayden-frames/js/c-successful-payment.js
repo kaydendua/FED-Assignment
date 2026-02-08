@@ -160,4 +160,4 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (menuBtn) menuBtn.addEventListener("click", () => alert("Menu clicked"));
   if (profileBtn) profileBtn.addEventListener("click", () => alert("Open profile"));
-});
+})

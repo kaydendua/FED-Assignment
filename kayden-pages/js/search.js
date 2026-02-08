@@ -138,14 +138,16 @@ function createHawkerCard(feature) {
     const card = document.createElement('div');
     card.className = 'hawker-card';
     
-    // Get photo URL or use placeholder
     const photoUrl = props.PHOTOURL || '/img/image-not-found.png';
     
     // Build address
     const address = `${props.ADDRESSBLOCKHOUSENUMBER || ''} ${props.ADDRESSSTREETNAME || ''}, Singapore ${props.ADDRESSPOSTALCODE || ''}`.trim();
-    
-    // Get number of stalls
+
     const stallCount = props.NUMBER_OF_COOKED_FOOD_STALLS || 'N/A';
+
+    // google maps directions link
+    const [longitude, latitude] = feature.geometry.coordinates;
+    const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`;
     
     card.innerHTML = `
         <div class="hawker-image">
@@ -155,7 +157,10 @@ function createHawkerCard(feature) {
             <h3 class="hawker-name">${props.NAME || 'Unnamed Hawker Centre'}</h3>
             <p class="hawker-address">${address}</p>
             <p class="hawker-stalls">🍽️ ${stallCount} stalls</p>
-            <a href="browseStalls.html?hId=${props.OBJECTID}" class="view-stalls-btn">View Stalls →</a>
+            <div class="hawker-actions">
+                <a href="${directionsUrl}" target="_blank" class="directions-btn">Directions</a>
+                <a href="browseStalls.html?hId=${props.OBJECTID}" class="view-stalls-btn">View Stalls →</a>
+            </div>
         </div>
     `;
     

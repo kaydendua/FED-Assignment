@@ -9,6 +9,7 @@
 .search-section {
     flex: 1;
     padding: 0 72px;
+    margin-bottom: 72px;
 }
 
 .search-bar {
@@ -150,8 +151,29 @@
     margin: 0 0 1rem 0;
 }
 
+.hawker-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.directions-btn {
+    padding: 0.5rem 1rem;
+    background: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.2s;
+    text-align: center;
+}
+
+.directions-btn:hover {
+    background: #218838;
+}
+
 .view-stalls-btn {
-    align-self: flex-start;
     padding: 0.5rem 1.5rem;
     background: #4988BB;
     color: #FAF9F9;
@@ -161,6 +183,7 @@
     font-weight: 600;
     transition: background 0.2s;
     margin-top: auto;
+    text-align: center;
 }
 
 .view-stalls-btn:hover {
@@ -177,5 +200,17 @@
     .search-section {
         flex: 1;
         padding: 0 24px;
+    }
+
+    .hawker-actions {
+        flex-direction: column;
+    }
+
+    .directions-btn {
+        padding: 0.8rem 1rem;
+    }
+
+    .view-stalls-btn {
+        padding: 0.8rem 1rem;
     }
 }
