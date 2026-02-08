@@ -1,0 +1,117 @@
+/* =========================================================
+   PAGE BACKGROUND (keep your nice colors)
+   ========================================================= */
+#page-c-hero{
+  margin: 0;
+  background: #CFD8E4; /* light blue/grey */
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #1C0F13;
+}
+
+/* =========================================================
+   HERO CARD — BIGGER + SAME FORMAT AS 2ND SCREENSHOT
+   - left column for text
+   - right column for big image box
+   ========================================================= */
+#c-hero-container{
+  width: min(1600px, 96vw);     /* take up more screen */
+  min-height: calc(100vh - 80px); /* fill screen under navbar */
+  margin: 18px auto 26px;
+
+  background: #F7EEF6;          /* soft pink/lavender card */
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.14);
+
+  padding: 64px 70px;           /* bigger inner space */
+  display: grid;
+  grid-template-columns: 0.85fr 1.55fr; /* LEFT smaller, RIGHT much bigger */
+  gap: 70px;
+  align-items: center;
+}
+
+/* =========================================================
+   LEFT SIDE (big text like screenshot 2)
+   ========================================================= */
+#c-hero-left{
+  align-self: start;
+}
+
+#c-hero-motto-small{
+  margin: 0 0 22px;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+  color: rgba(28,15,19,0.78);
+}
+
+#c-hero-motto-title{
+  margin: 0 0 46px;
+  font-size: clamp(70px, 6vw, 110px); /* BIG like screenshot 2 */
+  font-weight: 900;
+  line-height: 1.03;
+  letter-spacing: 0.5px;
+}
+
+/* Button — keep style but scale it up */
+#c-hero-signup-btn{
+  background: #FFFFFF;
+  color: #1C0F13;
+  border: 2px solid #1C0F13;
+  border-radius: 999px;
+
+  padding: 16px 56px;          /* bigger */
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+#c-hero-signup-btn:hover{
+  background: #F2F2F2;
+}
+
+/* =========================================================
+   RIGHT SIDE (BIG image box like screenshot 2)
+   ========================================================= */
+#c-hero-right{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#c-hero-image-box{
+  width: 100%;
+  height: min(640px, 62vh);     /* very big, but still fits screen */
+  background: #FFFFFF;
+  border: 2px solid rgba(0,0,0,0.18);
+  border-radius: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+  font-weight: 800;
+  color: rgba(28,15,19,0.55);
+}
+
+/* =========================================================
+   RESPONSIVE — stack on smaller screens
+   ========================================================= */
+@media (max-width: 1100px){
+  #c-hero-container{
+    grid-template-columns: 1fr;
+    padding: 44px 28px;
+    gap: 34px;
+    min-height: auto;
+  }
+
+  #c-hero-motto-title{
+    font-size: clamp(52px, 9vw, 78px);
+  }
+
+  #c-hero-image-box{
+    height: 380px;
+  }
+}
+
