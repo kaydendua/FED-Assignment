@@ -28,6 +28,11 @@
   width: auto;
   object-fit: contain;
 }
+.navbar{
+  position: sticky;  /* or keep relative */
+  top: 0;
+  z-index: 9999;
+}
 
 /* =========================
    LEFT
