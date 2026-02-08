@@ -146,3 +146,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const wrapper = document.getElementById("v-login-nav-login");
+    const trigger = wrapper?.querySelector(".nav-link");
+    const menu = document.getElementById("v-login-dropdown-content");
+
+    if (!wrapper || !trigger || !menu) return;
+
+    // Ensure starts hidden
+    menu.hidden = true;
+
+    const openMenu = () => { menu.hidden = false; };
+    const closeMenu = () => { menu.hidden = true; };
+    const toggleMenu = () => { menu.hidden = !menu.hidden; };
+
+    trigger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    // Stop clicks inside menu from closing immediately
+    menu.addEventListener("click", (e) => e.stopPropagation());
+
+    // Click outside closes
+    document.addEventListener("click", closeMenu);
+
+    // ESC closes
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  });

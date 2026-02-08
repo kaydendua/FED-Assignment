@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/pages.css">
+  <link rel="stylesheet" href="../jayden-frames/styles/layout-main.css">
+  <link rel="stylesheet" href="../jayden-frames/styles/v-signup-successful.css">
 </head>
 
 <body>
@@ -15,9 +15,8 @@
   <header class="navbar">
     <div class="nav-left">
       <button class="menu-btn" type="button">☰ Menu</button>
-      <div class="logo">
-        LOGO LOGO LOGO<br>
-        LOGO LOGO LOGO
+      <div id="logoArea">
+        <img src="../img/FED_LOGO.png" alt="Website Logo">
       </div>
     </div>
 
@@ -29,12 +28,22 @@
     </div>
   </header>
 
+  <!-- ================= PAGE CONTENT ================= -->
   <main id="page-v-complete">
     <div id="v-complete-container">
+
       <section id="v-complete-card">
+
+        <!-- TOP AREA -->
         <div id="v-complete-top">
-          <div id="v-complete-circle"></div>
-          <div id="v-complete-logo">LOGO</div>
+
+          <!-- LOGO replaces the grey circle -->
+          <img
+            src="../img/FED_LOGO.png"
+            alt="Company Logo"
+            id="v-complete-logo"
+          >
+
         </div>
 
         <div id="v-complete-body">
@@ -55,7 +64,9 @@
             FINISH ACTIVATING YOUR ACCOUNT BY LOGGING IN!
           </p>
 
-          <button id="v-complete-login-btn" type="button">Log in here!</button>
+          <button id="v-complete-login-btn" type="button">
+            Log in here!
+          </button>
         </div>
 
         <footer id="v-complete-footer">
@@ -68,11 +79,11 @@
           <div>Tel: +65 8123 4567</div>
           <div>Email: Company@gmail.com</div>
         </footer>
+
       </section>
     </div>
   </main>
-
-  <script src="js/v-signup-successful.js"></script>
 </body>
 </html>
+
 

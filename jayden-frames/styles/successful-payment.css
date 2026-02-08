@@ -1,0 +1,172 @@
+/* ================================
+   CHECKOUT SUCCESS PAGE (SCOPED)
+   Bigger layout + airy spacing
+================================ */
+
+#checkout-success-element {
+  background: #C9D0DC;              /* bluish background */
+  min-height: 100vh;
+}
+
+/* MAIN LAYOUT */
+#checkout-success-main {
+  display: flex;
+  justify-content: center;
+  padding: 60px 24px;               /* MORE outer spacing */
+}
+
+/* BIGGER CARD */
+#checkout-success-card {
+  width: 100%;
+  max-width: 820px;                 /* was 650px */
+  min-height: 520px;
+
+  background: #F6ECF4;              /* pinkish */
+  border-radius: 18px;
+  border: 1px solid rgba(28, 15, 19, 0.14);
+
+  padding: 40px 44px 36px;          /* MUCH bigger padding */
+  box-sizing: border-box;
+
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
+}
+
+/* TITLES */
+#checkout-success-title {
+  margin: 0;
+  font-size: 28px;                  /* was ~20 */
+  font-weight: 900;
+  color: #1C0F13;
+}
+
+#checkout-success-subtitle {
+  margin: 6px 0 18px;
+  font-size: 20px;                  /* bigger */
+  font-weight: 800;
+  color: #28587B;
+}
+
+/* DIVIDERS */
+#checkout-success-element .cs-divider {
+  height: 1px;
+  background: rgba(28, 15, 19, 0.18);
+  margin: 26px 0;                   /* more separation */
+}
+
+/* ORDER ITEMS */
+#checkout-success-order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#checkout-success-element .cs-order-item {
+  display: flex;
+  gap: 18px;
+  font-size: 16px;                  /* bigger text */
+  font-weight: 700;
+
+  padding: 14px 18px;
+  border-radius: 12px;
+
+  background: rgba(250, 249, 249, 0.8);
+  border: 1px solid rgba(28, 15, 19, 0.12);
+}
+
+#checkout-success-element .cs-qty {
+  width: 42px;
+  font-weight: 900;
+  font-size: 16px;
+  color: #28587B;
+}
+
+/* FEES */
+#checkout-success-fees {
+  margin-top: 10px;
+}
+
+#checkout-success-element .cs-fee-row {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 10px 0;
+  color: rgba(28, 15, 19, 0.75);
+}
+
+/* TOTAL */
+#checkout-success-total {
+  margin-top: 18px;
+  font-size: 22px;
+  font-weight: 900;
+  color: #1C0F13;
+}
+
+/* TIMER BOX */
+#cs-timer-box {
+  margin: 26px 0 12px;
+  padding: 20px 22px;
+
+  border-radius: 16px;
+  background: #FAF9F9;
+  border: 1px solid rgba(28, 15, 19, 0.16);
+
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+}
+
+#cs-timer-label {
+  font-size: 14px;
+  font-weight: 900;
+}
+
+#cs-timer {
+  font-size: 36px;                  /* BIG timer */
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #4988BB;
+}
+
+#cs-timer-note {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* BUTTON */
+#checkout-success-order-more-btn {
+  margin-top: 28px;
+  width: 100%;
+  padding: 16px 18px;
+
+  border-radius: 999px;
+  border: none;
+
+  font-size: 16px;
+  font-weight: 900;
+
+  background: #4988BB;
+  color: #FAF9F9;
+  cursor: pointer;
+
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+#checkout-success-order-more-btn:hover {
+  background: #749EC1;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  #checkout-success-main {
+    padding: 32px 14px;
+  }
+
+  #checkout-success-card {
+    max-width: 100%;
+    padding: 24px;
+    border-radius: 14px;
+  }
+
+  #cs-timer {
+    font-size: 28px;
+  }
+}
+

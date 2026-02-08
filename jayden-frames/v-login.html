@@ -6,17 +6,28 @@
   <title>Vendor Login</title>
 
   <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/pages.css">
+  <link rel="stylesheet" href="../jayden-frames/styles/layout-main.css">
+  <link rel="stylesheet" href="../jayden-frames/styles/v-login.css">
 </head>
 
 <body id="page-v-login">
 
-  <!-- NAVBAR -->
+  <!-- ================= NAVBAR ================= -->
   <header class="navbar">
     <div class="nav-left">
-      <button class="menu-btn" id="v-login-menu-btn">☰<br><small>Menu</small></button>
-      <div class="logo">LOGO</div>
+      <button
+        class="menu-btn"
+        id="v-login-menu-btn"
+        type="button"
+        aria-label="Open menu"
+      >
+        <span class="menu-icon">☰</span>
+        <span class="menu-text">Menu</span>
+      </button>
+
+      <div id="logoArea">
+        <img src="../img/FED_LOGO.png" alt="Website Logo">
+      </div>
     </div>
 
     <div class="nav-center">Website Name</div>
@@ -26,40 +37,100 @@
       <div class="nav-login" id="v-login-nav-login">
         <span class="nav-link">Log in here ▼</span>
 
-        <div id="v-login-dropdown-content" class="dropdown-content">
-          <a href="#">Customer</a>
-          <a href="#">NEA Officer</a>
+        <!-- UPDATED DROPDOWN -->
+        <div id="v-login-dropdown-content" class="dropdown-content" hidden>
+          <a href="#">Customer Login</a>
+          <a href="#">Vendor Login</a>
+          <a href="#">Officer Login</a>
         </div>
       </div>
 
-      <a href="#" class="nav-link" id="v-login-nav-contact">Contact us</a>
+      <a href="#" class="nav-link" id="v-login-nav-contact">
+        Contact us!
+      </a>
     </div>
   </header>
+  <!-- ========================================= -->
 
-  <!-- MAIN CONTENT -->
-  <main id="v-login-container">
-    <div id="v-login-box">
+  <!-- ================= MAIN CONTENT ================= -->
+  <main id="v-login-page">
+    <section id="v-login-card">
 
-      <form id="v-login-form">
-        <h2>Vendor Login</h2>
+      <!-- LEFT: LOGIN FORM -->
+      <div id="v-login-left">
+        <h1 id="v-login-title">Vendor Login</h1>
 
-        <div class="v-login-input-box">
-          <input type="email" id="v-login-email" placeholder="Email">
-        </div>
+        <form id="v-login-form">
 
-        <div class="v-login-input-box">
-          <input type="password" id="v-login-password" placeholder="Password">
-        </div>
+          <!-- EMAIL -->
+          <div class="v-field">
+            <label class="v-label" for="v-login-email">Email</label>
+            <div class="v-input-wrap">
+              <span class="v-icon">📧</span>
+              <input
+                type="email"
+                id="v-login-email"
+                placeholder="Enter your email"
+              />
+            </div>
+          </div>
 
-        <button type="submit" id="v-login-submit-btn">Login</button>
-      </form>
+          <!-- PASSWORD -->
+          <div class="v-field">
+            <label class="v-label" for="v-login-password">Password</label>
+            <div class="v-input-wrap">
+              <span class="v-icon">🔒</span>
+              <input
+                type="password"
+                id="v-login-password"
+                placeholder="Enter password"
+              />
+              <button
+                type="button"
+                class="v-show-btn"
+                id="v-login-show-btn"
+              >
+                Show
+              </button>
+            </div>
+          </div>
 
+          <!-- REMEMBER -->
+          <label class="v-remember">
+            <input type="checkbox" />
+            Remember me
+          </label>
+
+          <!-- LOGIN BUTTON -->
+          <button type="submit" id="v-login-submit-btn">
+            Log In
+          </button>
+
+          <p id="v-login-help">
+            Contact HR: +65 12345678
+          </p>
+        </form>
+      </div>
+
+      <!-- DIVIDER -->
       <div id="v-login-divider"></div>
 
+      <!-- RIGHT: LOGO PANEL -->
+      <div id="v-login-right">
+        <div id="v-login-logo-panel">
+          <img
+            src="../img/FED_LOGO.png"
+            alt="Logo"
+            id="v-login-logo-img"
+          >
+        </div>
+      </div>
 
-    </div>
+    </section>
   </main>
+  <script type="module" src="..//jayden-frames/js/v-login.js"></script>
 
-  <script type = "module" src="../jayden-frames/js/v-login.js"></script>
 </body>
 </html>
+
+

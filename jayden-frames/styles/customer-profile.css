@@ -1,0 +1,186 @@
+/* ---------------- CUSTOMER PROFILE PAGE (FULL & SPACIOUS) ----------------
+   Palette:
+   #1C0F13 (text)
+   #28587B (dark blue)
+   #4988BB (blue accent)
+   #749EC1 (light blue)
+   #C9D0DC (bluish background)
+   #F6ECF4 (pink box)
+   #FAF9F9 (off-white)
+---------------------------------------------------------------------------- */
+
+/* Page background */
+#page-profile {
+  background: #C9D0DC;
+  min-height: 100vh;
+}
+
+/* BIG pink container (fills space) */
+#page-profile #profile-container {
+  width: min(1400px, 96vw);
+  min-height: calc(100vh - 140px);
+  margin: 24px auto 40px;
+  padding: 40px 42px 48px;
+  background: #F6ECF4;
+  border-radius: 22px;
+  box-shadow: 0 10px 22px rgba(28, 15, 19, 0.18);
+  box-sizing: border-box;
+}
+
+/* ---------------- TOP SECTION ---------------- */
+
+#page-profile #profile-top {
+  display: flex;
+  gap: 56px;
+  margin-bottom: 48px;
+  align-items: flex-start;
+}
+
+/* Image grid (bigger) */
+#page-profile #profile-image-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 12px;
+  width: 420px;
+}
+
+/* Big image */
+#page-profile #profile-big-img {
+  grid-row: span 3;
+  background: #FAF9F9;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: rgba(28, 15, 19, 0.55);
+  box-shadow: 0 6px 14px rgba(28, 15, 19, 0.12);
+}
+
+/* Small images */
+#page-profile .profile-small-img {
+  background: #FAF9F9;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: rgba(28, 15, 19, 0.55);
+  box-shadow: 0 6px 14px rgba(28, 15, 19, 0.12);
+}
+
+/* ---------------- PROFILE INFO ---------------- */
+
+#page-profile #profile-info {
+  max-width: 680px;
+  color: #1C0F13;
+}
+
+#page-profile #profile-username {
+  margin: 0 0 14px;
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+}
+
+#page-profile #profile-desc {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.65;
+  color: rgba(28, 15, 19, 0.8);
+}
+
+/* CTA button */
+#page-profile #profile-order-btn {
+  margin-top: 24px;
+  padding: 14px 26px;
+  background: linear-gradient(135deg, #4988BB, #28587B);
+  color: #FAF9F9;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+}
+
+#page-profile #profile-order-btn:hover {
+  background: linear-gradient(135deg, #749EC1, #4988BB);
+}
+
+/* ---------------- HISTORY SECTION ---------------- */
+
+#page-profile #profile-history-title {
+  margin: 0 0 18px;
+  font-size: 22px;
+  font-weight: 900;
+  color: #1C0F13;
+}
+
+#page-profile #profile-history-row {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+/* History cards (bigger) */
+#page-profile .profile-history-card {
+  min-width: 280px;
+  background: #FAF9F9;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 6px 14px rgba(28, 15, 19, 0.12);
+}
+
+#page-profile .profile-history-card p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+  color: #1C0F13;
+}
+
+/* History image placeholder */
+#page-profile .profile-history-img {
+  background: #C9D0DC;
+  height: 120px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+  font-weight: 900;
+  color: rgba(28, 15, 19, 0.55);
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media (max-width: 900px) {
+  #page-profile #profile-top {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  #page-profile #profile-image-grid {
+    width: 100%;
+    max-width: 560px;
+  }
+
+  #page-profile #profile-container {
+    padding: 26px 22px 32px;
+  }
+}
+
+@media (max-width: 520px) {
+  #page-profile #profile-username {
+    font-size: 26px;
+  }
+
+  #page-profile #profile-desc {
+    font-size: 14px;
+  }
+}
+

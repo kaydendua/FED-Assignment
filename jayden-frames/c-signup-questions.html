@@ -4,25 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Customer Sign Up</title>
+
   <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/pages.css">
+  <link rel="stylesheet" href="../jayden-frames/styles/layout-main.css">
+  <link rel="stylesheet" href="../jayden-frames/styles/c-signup-questions.css">
 </head>
+
 <body>
 
   <div id="customer-signup-page">
 
-    <!-- OPTIONAL: Your existing navbar can replace this -->
-    <header id="customer-signup-navbar">
-      <div id="customer-signup-navbar-left">
-        <button id="customer-signup-menu-btn" type="button">☰</button>
-        <div id="customer-signup-logo">LOGO LOGO LOGO</div>
+    <!-- ✅ Use the shared navbar structure that matches your .navbar CSS -->
+    <header class="navbar">
+      <div class="nav-left">
+        <button class="menu-btn" type="button">☰ Menu</button>
+
+      <div id="logoArea">
+        <img src="../img/FED_LOGO.png" alt="Website Logo">
       </div>
-      <div id="customer-signup-navbar-right">
-        <a id="customer-signup-login-link" href="c-logindetails.html">Log in</a>
+      </div>
+
+      <div class="nav-center">Website Name</div>
+
+      <div class="nav-right">
+        <a href="c-logindetails.html">Log in</a>
       </div>
     </header>
 
+    <!-- ✅ CONTENT -->
     <main id="customer-signup-main">
       <section id="customer-signup-card">
 
@@ -108,3 +117,4 @@
   <script type="module" src="js/c-signup-questions.js"></script>
 </body>
 </html>
+
