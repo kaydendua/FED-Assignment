@@ -49,7 +49,7 @@ function displayStalls(stallDoc) {
     card.className = "stall-card";
 
     const stall = stallDoc.data();
-    const stallId = stallDoc.id;
+    const stallId = String(stallDoc.id || "");
 
     const photoUrl = stall.img || '/img/image-not-found.png';
 

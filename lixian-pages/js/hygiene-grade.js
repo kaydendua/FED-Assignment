@@ -7,26 +7,41 @@
 let selectedRange = "month";
 let selectedLocation = "north";
 
+// More varied / random-looking data (can dip to 40s and rise to 90s)
 const chartData = {
   north: {
     month: { labels: ["Dec", "Jan", "Feb"], data: [76, 82, 79] },
     year:  {
       labels: ["Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","Jan","Feb"],
-      data:   [70, 74, 72, 78, 83, 79, 85, 81, 76, 80, 77, 82]
+      data:   [65, 72, 58, 75, 83, 69, 88, 77, 61, 80, 74, 82]
     }
   },
   central: {
-    month: { labels: ["Dec", "Jan", "Feb"], data: [68, 73, 70] },
+    month: { labels: ["Dec", "Jan", "Feb"], data: [54, 63, 49] },
     year:  {
       labels: ["Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","Jan","Feb"],
-      data:   [62, 66, 64, 71, 74, 70, 77, 73, 69, 72, 67, 71]
+      data:   [60, 52, 47, 69, 58, 41, 74, 66, 55, 71, 62, 50]
     }
   },
   east: {
-    month: { labels: ["Dec", "Jan", "Feb"], data: [84, 79, 86] },
+    month: { labels: ["Dec", "Jan", "Feb"], data: [88, 71, 90] },
     year:  {
       labels: ["Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","Jan","Feb"],
-      data:   [78, 81, 77, 83, 86, 82, 88, 85, 80, 84, 79, 83]
+      data:   [79, 86, 73, 91, 84, 62, 89, 76, 68, 83, 70, 88]
+    }
+  },
+  west: {
+    month: { labels: ["Dec", "Jan", "Feb"], data: [42, 58, 47] },
+    year:  {
+      labels: ["Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","Jan","Feb"],
+      data:   [55, 44, 63, 51, 72, 40, 66, 59, 48, 74, 61, 53]
+    }
+  },
+  south: {
+    month: { labels: ["Dec", "Jan", "Feb"], data: [91, 67, 84] },
+    year:  {
+      labels: ["Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","Jan","Feb"],
+      data:   [88, 73, 95, 81, 64, 77, 90, 58, 69, 92, 75, 86]
     }
   }
 };
@@ -84,7 +99,6 @@ function setActive(activeBtn, selector) {
 
 // =========================
 // Range Pills
-// HTML: <div id="rangeGroup"> buttons have data-range="month|year"
 // =========================
 
 const rangeGroup = document.getElementById("rangeGroup");
@@ -99,8 +113,7 @@ if (rangeGroup) {
 }
 
 // =========================
-// Location Pills
-// HTML: <div id="locationGroup"> buttons have data-location="north|central|east"
+// Location Pills (now includes west + south)
 // =========================
 
 const locationGroup = document.getElementById("locationGroup");
@@ -114,7 +127,7 @@ if (locationGroup) {
   });
 }
 
-// default UI (ensures correct active states if page loads)
+// default UI
 const defaultRangeBtn = document.querySelector('#rangeGroup .pill[data-range="month"]');
 if (defaultRangeBtn) setActive(defaultRangeBtn, "#rangeGroup .pill");
 
@@ -132,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
       searchBox.style.display === "block" ? "none" : "block";
   });
 
-    searchBox.addEventListener("click", (e) => {
+  searchBox.addEventListener("click", (e) => {
     e.stopPropagation();
   });
 
@@ -140,4 +153,5 @@ document.addEventListener("DOMContentLoaded", () => {
     searchBox.style.display = "none";
   });
 });
+
 

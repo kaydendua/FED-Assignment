@@ -1,6 +1,10 @@
 // js/c-menu.js (MODULE)
 // Loads vendor menu from Firestore: vendor/{vendorId}/stallMenu/{itemId}
-// Supports linking by stallId in URL: ?stallId=2
+// Supports linking by:
+//   ✅ ?stallId=2  (vendor.stallId field, usually "1","2"...)
+//   ✅ ?vendorId=VENDOR_DOC_ID
+//   ✅ (NEW) if someone passes a stalls doc id by mistake, we convert it:
+//        ?stallId=<STALLS_DOC_ID>  OR  ?id=<STALLS_DOC_ID>
 // Cart stored in localStorage
 
 import { db } from "../../firebase/firebase.js";
@@ -38,24 +42,51 @@ function getParam(name) {
 }
 
 /**
- * ✅ NEW: Find vendorId by stallId (vendor docs have stallId field)
- * vendor collection docs: { stallId: "2", ... }
- * returns the vendor document id (vendorId)
+ * Find vendorId by vendor.stallId field (stored as string like "1","2")
+ * vendor docs: { stallId: "2", ... }
+ * returns vendor document id (vendorId)
  */
 async function getVendorIdByStallId(stallId) {
-  const stallIdStr = String(stallId); // your stallId is stored as string in Firestore
+  const stallIdStr = String(stallId);
   const q = query(collection(db, "vendor"), where("stallId", "==", stallIdStr));
   const snap = await getDocs(q);
-
   if (snap.empty) return null;
   return snap.docs[0].id;
+}
+
+/**
+ * ✅ NEW: If someone passed stalls doc id instead of a real stallId,
+ * convert stalls/{stallDocId} -> vendorId.
+ *
+ * stalls doc should contain either:
+ *  - vendorId (best), OR
+ *  - stallId (string like "1","2") which matches vendor.stallId
+ */
+async function getVendorIdFromStallsDoc(stallDocId) {
+  try {
+    const stallSnap = await getDoc(doc(db, "stalls", String(stallDocId)));
+    if (!stallSnap.exists()) return null;
+
+    const stall = stallSnap.data();
+
+    if (stall.vendorId) return String(stall.vendorId);
+
+    if (stall.stallId !== undefined && stall.stallId !== null) {
+      return await getVendorIdByStallId(String(stall.stallId));
+    }
+
+    return null;
+  } catch (e) {
+    console.warn("Failed to read stalls doc:", e);
+    return null;
+  }
 }
 
 function getVendorId() {
   const qp = new URLSearchParams(window.location.search);
 
-  // ✅ priority:
-  // 1) vendorId directly (still supported)
+  // priority:
+  // 1) vendorId directly
   // 2) selectedVendorId saved earlier
   // 3) vendorId key (legacy)
   return (
@@ -124,9 +155,10 @@ const cartCheckoutBtn = document.getElementById("cart-checkout-btn");
 // -----------------------
 function renderCart() {
   const cart = readCart();
-  cartCountEl.textContent = cartCount(cart);
-  cartTotalEl.textContent = money(cartTotal(cart));
+  if (cartCountEl) cartCountEl.textContent = cartCount(cart);
+  if (cartTotalEl) cartTotalEl.textContent = money(cartTotal(cart));
 
+  if (!cartItemsEl) return;
   cartItemsEl.innerHTML = "";
 
   if (cart.length === 0) {
@@ -246,14 +278,14 @@ function removeItem(itemId) {
 // Cart panel events
 // -----------------------
 cartBtn?.addEventListener("click", () => {
-  cartPanel.classList.add("open");
-  cartPanel.setAttribute("aria-hidden", "false");
+  cartPanel?.classList.add("open");
+  cartPanel?.setAttribute("aria-hidden", "false");
   renderCart();
 });
 
 cartCloseBtn?.addEventListener("click", () => {
-  cartPanel.classList.remove("open");
-  cartPanel.setAttribute("aria-hidden", "true");
+  cartPanel?.classList.remove("open");
+  cartPanel?.setAttribute("aria-hidden", "true");
 });
 
 cartPanel?.addEventListener("click", (e) => {
@@ -273,36 +305,57 @@ cartCheckoutBtn?.addEventListener("click", () => {
 });
 
 // -----------------------
-// ✅ NEW: Ensure vendor selected by stallId param
+// ✅ Ensure vendor selected
+// Accepts:
+//  - ?vendorId=...
+//  - ?stallId=2 (real vendor stallId)
+//  - ?id=2 (alias)
+//  - ?stallId=<STALLS_DOC_ID> (we convert using stalls doc)
 // -----------------------
 async function ensureVendorSelected() {
-  // If vendorId already exists, do nothing
-  const existingVendorId = getVendorId();
-  if (existingVendorId) return existingVendorId;
+  const qp = new URLSearchParams(window.location.search);
 
-  // Try stallId param
-  const stallId = getParam("stallId");
-  if (!stallId) return "";
+  // ✅ 1) If URL has vendorId, ALWAYS use it (override localStorage)
+  const vendorIdFromUrl = qp.get("vendorId");
+  if (vendorIdFromUrl) {
+    localStorage.setItem("selectedVendorId", vendorIdFromUrl);
+    return vendorIdFromUrl;
+  }
 
-  // Find vendor by stallId
-  const vendorId = await getVendorIdByStallId(stallId);
-  if (!vendorId) return "";
+  // ✅ 2) If URL has stallId (or id), ALWAYS resolve it (override localStorage)
+  const raw = qp.get("stallId") || qp.get("id");
+  if (raw) {
+    // First: treat raw as real vendor stallId ("1","2")
+    let vendorId = await getVendorIdByStallId(raw);
 
-  localStorage.setItem("selectedVendorId", vendorId);
-  localStorage.setItem("selectedStallId", String(stallId));
-  return vendorId;
+    // If not found: treat raw as stalls doc id and convert
+    if (!vendorId) vendorId = await getVendorIdFromStallsDoc(raw);
+
+    if (!vendorId) return "";
+
+    localStorage.setItem("selectedVendorId", vendorId);
+    localStorage.setItem("selectedStallId", String(raw));
+    return vendorId;
+  }
+
+  // ✅ 3) No URL params → fallback to localStorage
+  return localStorage.getItem("selectedVendorId") || localStorage.getItem("vendorId") || "";
 }
+
 
 // -----------------------
 // Load menu from Firestore
 // -----------------------
 async function loadMenu() {
-  const vendorId = getVendorId();
+  // ✅ IMPORTANT: resolve vendorId first (from stallId/id/stallsDocId)
+  const vendorId = await ensureVendorSelected();
 
   if (!vendorId) {
-    emptyMsg.style.display = "block";
-    emptyMsg.textContent =
-      "No vendor selected. Pass stallId in URL (?stallId=2) or vendorId (?vendorId=...).";
+    if (emptyMsg) {
+      emptyMsg.style.display = "block";
+      emptyMsg.textContent =
+        "No vendor selected. Use ?stallId=2 or ?vendorId=... (or pass stalls doc id, if stalls has vendorId/stallId).";
+    }
     return;
   }
 
@@ -313,27 +366,29 @@ async function loadMenu() {
     const vendorSnap = await getDoc(doc(db, "vendor", vendorId));
     if (vendorSnap.exists()) {
       const v = vendorSnap.data();
-      vendorNameEl.textContent = v.name || v.stallName || `Vendor: ${vendorId}`;
-      vendorLocEl.textContent = v.stallLocation || v.location || "";
+      if (vendorNameEl) vendorNameEl.textContent = v.name || v.stallName || `Vendor: ${vendorId}`;
+      if (vendorLocEl) vendorLocEl.textContent = v.stallLocation || v.location || "";
     } else {
-      vendorNameEl.textContent = `Vendor: ${vendorId}`;
+      if (vendorNameEl) vendorNameEl.textContent = `Vendor: ${vendorId}`;
     }
   } catch (e) {
     console.warn("Vendor doc read failed:", e);
-    vendorNameEl.textContent = `Vendor: ${vendorId}`;
+    if (vendorNameEl) vendorNameEl.textContent = `Vendor: ${vendorId}`;
   }
 
   // 2) Menu items
-  grid.innerHTML = "";
-  emptyMsg.style.display = "none";
+  if (grid) grid.innerHTML = "";
+  if (emptyMsg) emptyMsg.style.display = "none";
 
   try {
     const menuRef = collection(db, "vendor", vendorId, MENU_SUBCOLLECTION);
     const menuSnap = await getDocs(menuRef);
 
     if (menuSnap.empty) {
-      emptyMsg.style.display = "block";
-      emptyMsg.textContent = "No menu items found.";
+      if (emptyMsg) {
+        emptyMsg.style.display = "block";
+        emptyMsg.textContent = "No menu items found.";
+      }
       return;
     }
 
@@ -388,13 +443,14 @@ async function loadMenu() {
       if (imageUrl) card.appendChild(img);
       card.appendChild(body);
 
-      grid.appendChild(card);
+      grid?.appendChild(card);
     });
-
   } catch (err) {
     console.error("Menu load error:", err);
-    emptyMsg.style.display = "block";
-    emptyMsg.textContent = "Failed to load menu. Check console + Firestore rules.";
+    if (emptyMsg) {
+      emptyMsg.style.display = "block";
+      emptyMsg.textContent = "Failed to load menu. Check console + Firestore rules.";
+    }
   }
 }
 
@@ -403,6 +459,5 @@ async function loadMenu() {
 // -----------------------
 (async function init() {
   renderCart();
-  await ensureVendorSelected(); // ✅ allows ?stallId=2 to work
-  loadMenu();
+  await loadMenu();
 })();

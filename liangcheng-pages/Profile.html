@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liang Cheng's Vendor Dashboard (Profile Page)</title>
-    <link rel="icon" href="/img/FED_LOGO.png">
+    <title>Vendor Profile</title>
     <link rel="stylesheet" href="styles/Base.css">
     <link rel="stylesheet" href="styles/Profile.css">
-    </head>
+</head>
 <body>
     <header class="dashboard">
         <div class="brand-logo">
@@ -18,32 +17,27 @@
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="/liangcheng-pages/StallManagement.html">Stall Management</a></li>
-                <li><a href="/liangcheng-pages/StallAnalytics.html">Stall Analytics</a></li>
-                <li><a href="/liangcheng-pages/CustomerSatisfaction.html">Customer Satisfaction</a></li>
-                <li><a href="/liangcheng-pages/Profile.html" class="active">Profile</a></li>
+                <li><a href="StallManagement.html">Stall Management</a></li>
+                <li><a href="StallAnalytics.html">Stall Analytics</a></li>
+                <li><a href="CustomerSatisfaction.html">Customer Satisfaction</a></li>
+                <li><a href="Profile.html" class="active">Profile</a></li>
                 <li><a href="#" id="logout-btn">Logout</a></li>
             </ul>
         </nav>
     </header>
         
     <main class="contents">
-
         <section class="profile-layout">
-
             <div class="profile-box">
                 <div class="profile-header">
                     <h3>Profile Picture</h3>
-                    <button class="edit-btn">Edit</button>
                 </div>
-
                 <div class="profile-image">
                     <img src="img/PFP.png" alt="Vendor Profile Picture">
                 </div>
             </div>
 
             <div class="info-box">
-
                 <div class="info-row">
                     <label>Name</label>
                     <div class="info-field">
@@ -73,26 +67,21 @@
                     <label>Email Address</label>
                     <div class="info-field">
                         <span id="email-display" class="info-text">Loading...</span>
-                        <input id="email-input" class="info-input" type="email">
-                        <button class="edit-btn" data-field="emailAddress">Edit</button>
-                    </div>
+                        </div>
                 </div>
 
                 <div class="info-row">
                     <label>Stall Location</label>
                     <div class="info-field">
                         <span id="location-display" class="info-text">Loading...</span>
-                        <input id="location-input" class="info-input" type="text">
-                        <button class="edit-btn" data-field="stallLocation">Edit</button>
-                    </div>
+                        </div>
                 </div>
 
                 <div class="info-row">
                     <label>Password</label>
                     <div class="info-field">
                         <span id="password-display" class="info-text">••••••••</span>
-                        <input id="password-input" class="info-input" type="password">
-                        <button class="edit-btn" data-field="password">Edit</button>
+                        <button id="toggle-pw-btn" class="show-btn">Show</button>
                     </div>
                 </div>
 
