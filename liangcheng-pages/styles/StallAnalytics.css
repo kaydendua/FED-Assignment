@@ -1,31 +1,43 @@
-/*Colour Padlet: #1C0F13 #28587B #4988BB #749EC1 #C9D0DC #F6ECF4 #FAF9F9*/
+/* Colour Padlet: #1C0F13 #28587B #4988BB #749EC1 #C9D0DC #F6ECF4 #FAF9F9 */
 
 .analytics-dashboard {
     max-width: 1200px;
     margin: 40px auto;
     padding: 0 20px;
+    width: 100%;
 }
 
 .top-section {
     display: flex;
-    justify-content: space-around; 
-    align-items: center; 
+    justify-content: space-between; 
+    align-items: flex-start; /* Aligns items to top */
     margin-bottom: 40px;
+    gap: 30px; /* Space between columns */
 }
 
 .metrics-column {
     display: flex;
     flex-direction: column;
     gap: 40px;
+    flex: 1; /* Takes up available space */
+    align-items: center; /* Centers boxes horizontally */
+}
+
+.current-sales, .hygiene-grade {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .sales-box {
     background-color: #F6ECF4;
-    width: 250px;
-    padding: 15px 0;
+    width: 100%;
+    max-width: 300px; /* Prevents it from getting too wide on desktop */
+    padding: 20px 0;
     border-radius: 10px;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: #1C0F13;
     box-shadow: 2px 2px 5px #28587B;
@@ -44,15 +56,16 @@
     color: #1C0F13;
     font-weight: bold;
     box-shadow: 2px 2px 5px #28587B;
-    margin: 0 auto; /* Centers the box within its column */
 }
 
 .current-sales h3, 
 .hygiene-grade h3 {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    color: #1C0F13;
 }
 
+/* Doughnut Chart */
 .doughnut-box {
     background-color: #F6ECF4;
     border-radius: 10px;
@@ -60,17 +73,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 40%;
+    flex: 1.5; /* Makes chart slightly wider than metrics col */
+    padding: 20px;
+    max-width: 500px; /* Prevents giant pie chart */
 }
 
 .doughnut-box h3 {
-    margin: 10px;
+    margin-bottom: 15px;
     text-align: center;
 }
 
-.doughnut-box canvas {
-    max-height: 300px; 
-    max-width: 100%;
+/* Wrapper ensures chart resizes correctly */
+.chart-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
 }
 
 .chart-container {
@@ -78,11 +95,76 @@
     border-radius: 10px;
     padding: 20px;
     box-shadow: 2px 2px 5px #28587B;
+    margin-bottom: 40px;
 }
 
 .chart-container h3 {
-    font-size: larger;
-    display: flex;
-    justify-content: center;
-    padding-bottom: 50px;
+    font-size: 1.3rem;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+/* Canvas styling for responsiveness */
+canvas {
+    max-width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    
+    .analytics-dashboard {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    /* 1. Stack the Top Section */
+    .top-section {
+        flex-direction: column; /* Stack vertically */
+        align-items: stretch; /* Stretch items to full width */
+        gap: 30px;
+    }
+
+    /* Adjust Metrics Column */
+    .metrics-column {
+        flex-direction: row; /* Put Sales and Grade side-by-side on phone */
+        flex-wrap: wrap; /* Wrap if screen is too small */
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* If screen is VERY small, stack metrics back to column */
+    @media screen and (max-width: 480px) {
+        .metrics-column {
+            flex-direction: column;
+        }
+    }
+
+    .current-sales, .hygiene-grade {
+        width: 100%; /* Occupy full width of their container */
+    }
+
+    .sales-box {
+        max-width: 100%; /* Allow full width on mobile */
+        font-size: 1.5rem;
+    }
+
+    /* Adjust Doughnut Box */
+    .doughnut-box {
+        width: 100%; /* Full width */
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .doughnut-box canvas {
+        max-height: 250px; /* Limit height so it doesn't take up whole phone screen */
+    }
+
+    /* Adjust Bottom Chart */
+    .chart-container {
+        padding: 15px;
+    }
+    
+    .chart-container h3 {
+        font-size: 1.1rem;
+        padding-bottom: 20px;
+    }
 }

@@ -1,22 +1,25 @@
 /*Colour Padlet: #1C0F13 #28587B #4988BB #749EC1 #C9D0DC #F6ECF4 #FAF9F9*/
 
-/* QueueManagement */
-.queue-box{
+/* Queue Management */
+.queue-box {
     background-color: #F6ECF4;
-    padding: 10px;
+    padding: 20px;
     margin: 20px;
     box-shadow: 2px 2px 5px #28587B;
     border-radius: 10px;
 }
+
 .queue-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    gap: 15px;
 }
 
-.queue-header h3{
+.queue-header h3 {
     font-size: 1.5rem;
+    color: #1C0F13;
 }
 
 .search-filter {
@@ -24,89 +27,105 @@
     gap: 10px;
 }
 
-.search-filter input, .search-filter select {
+.search-filter input, 
+.search-filter select {
     background-color: #FAF9F9;
     padding: 8px 12px;
     border: 1px solid #1C0F13;
     border-radius: 5px;
 }
 
+/* The wrapper ensures the table scrolls horizontally on phones */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+    border-radius: 5px;
+}
+
 .data-table {
     width: 100%;
     margin-top: 10px;
+    border-collapse: collapse;
+    /* Min-width forces the table to keep its shape and trigger scrolling */
+    min-width: 600px; 
 }
 
 .data-table thead tr {
     text-align: left;
+    background-color: #28587B;
+    color: #FAF9F9;
 }
 
-.data-table th{
+.data-table th {
     padding: 15px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    white-space: nowrap;
 }
 
 .data-table td {
     padding: 15px;
+    border-bottom: 1px solid #C9D0DC;
+    color: #1C0F13;
+    background-color: #FAF9F9;
+}
+
+.status-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.order-status {
+    min-width: 90px;
+    font-weight: bold;
 }
 
 .btn-group {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
 }
 
 button {
     background-color: #749EC1;
     cursor: pointer;
-    padding: 5px 15px;
+    padding: 8px 16px;
+    border: none;
     border-radius: 5px;
-    font-weight: 3px;
+    font-weight: bold;
     color: #FAF9F9;
 }
 
-button:hover{
+button:hover {
     background-color: #4988BB;
 }
 
-.status-actions{
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.btn-ready {
+    display: none; /* Toggled via JS */
 }
 
-.order-status{
-    min-width: 90px;
-    font-weight: bold;
+/* Menu Management */
+.menu-header-container {
+    text-align: center;
+    margin-top: 30px;
 }
 
-.btn-ready{
-    display: none;
-}
-
-/* MenuManagement */
-.menu-header h3{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.menu-header h3 {
     font-size: 1.5rem;
+    color: #1C0F13;
 }
 
-.image-placeholder{
-    width: 100%;
-    height: 160px;
-    overflow: hidden;
-    border-radius: 10px;
-    margin-bottom: 12px;
-    background-color: #F6ECF4; /* Fallback color */
+.boxed-section {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
 }
 
-.image-placeholder img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.menu-box{
+/* Menu Box */
+.menu-box {
     width: 240px;
     padding: 20px;
     text-align: center;
@@ -116,13 +135,18 @@ button:hover{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: transform 0.2s;
 }
 
-.menu-box h3{
-    font-size: larger;
+.menu-box:hover {
+    transform: translateY(-5px);
+}
+
+.menu-box h3 {
+    font-size: 1.2rem;
     font-weight: bold;
     padding-bottom: 10px;
-    min-height: 50px; /* Aligns titles */
+    min-height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -130,71 +154,69 @@ button:hover{
 
 .menu-box p {
     margin: 10px 0;
-    font-size: 1.1rem;
-    color: #1C0F13;
-}
-
-.boxed-section{
-    margin: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-}
-
-.toggle-checkbox {
-    margin: 10px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-}
-
-.toggle-checkbox input[type="checkbox"] {
-    transform: scale(1.5);
-    cursor: pointer;
-}
-
-.status-text {
     font-size: 1rem;
-    font-weight: bold;
 }
 
-.add-new-box{
+.image-placeholder {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    background-color: #C9D0DC;
+}
+
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Add New Item Box */
+.add-new-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 300px;
+    border: 2px dashed #28587B;
+    background-color: rgba(246, 236, 244, 0.5);
 }
 
-.add-new-box h4{
-    padding-top: 20px;
-}
-
-#add-btn{
+#add-btn {
     background-color: #749EC1;
     border: 2px solid #1C0F13;
     border-radius: 10px;
-    width: 120px;
-    height: 120px;
-    font-size: 50px;
-    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    font-size: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0;
+    margin-bottom: 15px;
     color: #1C0F13;
 }
 
-#add-btn:hover{
+#add-btn:hover {
     background-color: #4988BB;
+    color: #FAF9F9;
 }
 
-#plus{
-    font-size: 50px;
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    gap: 10px;
+    padding-top: 10px;
 }
 
-/* Modal Styles */
+.btn-edit { background-color: #28587B; flex: 1; }
+.btn-delete { background-color: #b94a48; flex: 1; }
+
+.btn-edit:hover { background-color: #1a3c55; }
+.btn-delete:hover { background-color: #943a38; }
+
+/* MODAL STYLES */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -221,62 +243,89 @@ button:hover{
 }
 
 .modal-content h3 { text-align: center; margin-bottom: 15px; }
-
 .modal-content label { display: block; margin-top: 10px; font-weight: bold; }
 
 .modal-content input {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    border: 1px solid #FAF9F9;
+    border: 1px solid #C9D0DC;
     border-radius: 5px;
-    box-sizing: border-box;
 }
 
 .modal-actions {
     display: flex;
-    justify-content: space-between; /* Spreads buttons apart */
+    justify-content: space-between;
     margin-top: 20px;
     gap: 10px;
 }
 
-.modal-actions button {
-    flex: 1; /* Makes buttons equal width */
-}
+.modal-actions button { flex: 1; }
+.btn-decline { background-color: #C9D0DC; color: #1C0F13; }
+.btn-decline:hover { background-color: #aeb5c1; }
 
-/* Edit/Delete Button Group on Cards */
-.card-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: auto; /* Pushes buttons to bottom */
-    gap: 10px;
-    padding-top: 10px;
-}
 
-.btn-edit {
-    background-color: #28587B;
-    color: #FAF9F9;
-    flex: 1;
-}
-
-.btn-delete {
-    background-color: #b94a48;
-    color: #FAF9F9;
-    flex: 1;
-}
-
-.btn-edit:hover { background-color: #1a3c55; }
-.btn-delete:hover { background-color: #943a38; }
-
-/* Phone View */
 @media screen and (max-width: 768px) {
-    .menu-box {
-        width: 45%; 
-        padding: 10px;
-        min-height: 250px; 
-    }
     
-    .card-actions {
-        flex-direction: column; /* Stack buttons on mobile */
+    /* Queue Section Adjustments */
+    .queue-box {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .queue-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-filter {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .search-filter input, 
+    .search-filter select {
+        width: 100%;
+    }
+
+    /* Table Adjustments */
+    /* Note: .table-responsive wrapper (defined above) handles the scrolling */
+    .data-table th, 
+    .data-table td {
+        padding: 10px; /* Compress padding slightly */
+    }
+
+    .btn-group {
+        flex-direction: column; /* Stack buttons vertically inside table */
+        width: 100%;
+    }
+
+    .btn-group button {
+        width: 100%;
+        padding: 6px;
+    }
+
+    /* Menu Grid Adjustments */
+    .boxed-section {
+        margin: 10px;
+        gap: 15px;
+    }
+
+    .menu-box {
+        /* Cards take full width on mobile */
+        width: 100%;
+        max-width: 400px; 
+    }
+
+    .image-placeholder {
+        height: 180px; /* Slightly taller for visibility on phone */
+    }
+
+    /* Modal Adjustments */
+    .modal-content {
+        width: 95%;
+        margin: 10px;
+        max-height: 90vh;
+        overflow-y: auto;
     }
 }
