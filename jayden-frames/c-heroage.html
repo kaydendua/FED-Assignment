@@ -6,27 +6,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="../jayden-frames/styles/layout.css">
-  <link rel="stylesheet" href="styles/pages.css">
+  <link rel="stylesheet" href="../jayden-frames/styles/c-heropage-layout.css">
+  <link rel="stylesheet" href="../jayden-frames/styles/c-heropage-content.css">
+
+  <!-- NAVBAR CSS (paste into your CSS file instead if you prefer) -->
 </head>
 
 <body id="page-c-hero">
 
-  <!-- TOP NAV BAR (shared layout) -->
+  <!-- TOP NAV BAR -->
   <header class="navbar">
     <div class="nav-left">
-      <button class="menu-btn">☰<br>Menu</button>
-      <div class="logo">
-        LOGO LOGO LOGO<br>
-        LOGO LOGO LOGO
+      <button class="menu-btn" type="button" aria-label="Open menu">
+        <span class="menu-icon">☰</span>
+        <span class="menu-text">Menu</span>
+      </button>
+
+      <div id="logoArea">
+        <img src="../img/FED_LOGO.png" alt="Website Logo">
       </div>
     </div>
 
+    <!-- keep your text, but make it centered like the screenshot -->
     <div class="nav-center">Website Name</div>
 
     <div class="nav-right">
-      <span>Log in here ▼</span>
-      <span>Contact us!</span>
+      <span class="nav-link">Log in here ▼</span>
+      <span class="nav-link">Contact us!</span>
     </div>
   </header>
 

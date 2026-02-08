@@ -1,0 +1,111 @@
+/* =========================
+   NAVBAR — MATCH SCREENSHOT STYLE
+   (same format + colors)
+   ========================= */
+
+.navbar {
+  height: 80px;
+  background-color: #2E5F82; /* screenshot-like dark blue */
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* consistent sizing */
+.navbar, .navbar * {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ================= LEFT ================= */
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* menu button (icon + text stacked) */
+.menu-btn {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+
+.menu-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.menu-icon {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.menu-text {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* logo sizing like screenshot */
+#logoArea {
+  display: flex;
+  align-items: center;
+}
+
+#logoArea img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* ================= CENTER (TRUE CENTER) ================= */
+
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #FFFFFF;
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1;
+  pointer-events: none; /* stays centered, doesn’t block clicks */
+}
+
+/* ================= RIGHT ================= */
+
+.nav-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+/* right items look like screenshot text */
+.nav-link {
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 1;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
