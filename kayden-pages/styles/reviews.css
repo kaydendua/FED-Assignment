@@ -104,4 +104,23 @@
     height: 56px;
     font-size: 1.8rem;
   }
+
+  .reviews-container {
+    flex-direction: column;
+    margin: 0 24px;
+  }
+
+  .review-page-header {
+    margin: 24px;
+    gap: 24px;
+    font-size: 0.8rem;
+  }
+
+  .review-column {
+    display: flex;
+    flex: 0 0 50%;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
 }
