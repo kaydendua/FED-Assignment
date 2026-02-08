@@ -1,4 +1,4 @@
-import { db } from '/firebase/firebase.js';
+import { db } from '/FED-Assignment/firebase/firebase.js';
 import {
   doc,
   getDoc,
@@ -51,7 +51,7 @@ function displayStalls(stallDoc) {
     const stall = stallDoc.data();
     const stallId = String(stallDoc.id || "");
 
-    const photoUrl = stall.img || '/img/image-not-found.png';
+    const photoUrl = stall.img || '/FED-Assignment/img/image-not-found.png';
 
     let averageRating = ""
     if (stall.reviewCount === 0) {

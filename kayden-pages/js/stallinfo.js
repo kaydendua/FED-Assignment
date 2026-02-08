@@ -1,4 +1,4 @@
-import { db } from "/firebase/firebase.js";
+import { db } from "/FED-Assignment/firebase/firebase.js";
 import {
   doc,
   getDoc,
@@ -141,7 +141,7 @@ function displayStallInfo(stall, rating, reviewCount) {
   `;
 
   const image = document.getElementById("stall-image");
-  image.src = stall.img || '/img/image-not-found.png';
+  image.src = stall.img || '/FED-Assignment/img/image-not-found.png';
 }
 
 loadStallData();

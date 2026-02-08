@@ -3,7 +3,7 @@ const sgBounds = L.latLngBounds([1.130, 103.590], [1.475, 104.100]);
 
 // Downloaded from https://data.gov.sg/datasets/d_4a086da0a5553be1d89383cd90d07ecd/view
 // Tried using API calls but could not work because of "Access-Control-Allow-Origin" policy
-const url = "/hawker-centre-data/HawkerCentresGEOJSON.geojson";
+const url = "/FED-Assignment/hawker-centre-data/HawkerCentresGEOJSON.geojson";
 
 let userLatLng = sgCenter;
 let apiData = {};
