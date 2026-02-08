@@ -26,6 +26,8 @@
     padding: 16px;
     border-radius: 8px;
     box-shadow: 2px 2px 4px #28587B;
+    display: flex;
+    flex-direction: column;
 }
 
 .stall-header {
@@ -34,6 +36,38 @@
     padding-bottom: 8px;
     margin-bottom: 8px;
     border-bottom: 2px solid #C9D0DC;
+}
+
+.stall-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+#hawker-centre-back {
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+#hawker-centre-back:hover {
+    color: #4988BB
+}
+
+.order-btn {
+    padding: 0.5rem 1.5rem;
+    background: #4988BB;
+    color: #FAF9F9;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.order-btn:hover {
+    background: #28587B;
 }
 
 .review-section {

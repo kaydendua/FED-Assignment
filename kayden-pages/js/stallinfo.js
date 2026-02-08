@@ -134,10 +134,13 @@ function displayStallInfo(stall, rating, reviewCount) {
         <h2>${ratingDisplay}</h2>
     </div>
     <p>${stall.description}</p>
+    <div class="stall-footer">
+      <a href="browseStalls.html?hId=${stall.hawkerCentre}" id="hawker-centre-back">📍 ${stall.hawkerCentreName}</a>
+      <a href="/jayden-frames/stallmenu.html?stallId=${stallId}" class="order-btn"> Order Food </a>
+    </div>
   `;
 
   const image = document.getElementById("stall-image");
-  console.log(stall)
   image.src = stall.img || '/img/image-not-found.png';
 }
 
