@@ -1,7 +1,6 @@
 /* =========================================================
-   START PAGE — TRUE CENTER BOX (VIDEO DOESN'T SHIFT LAYOUT)
+   PAGE BACKGROUND
    ========================================================= */
-
 #page-start{
   min-height: 100vh;
   margin: 0;
@@ -13,9 +12,11 @@
   );
 }
 
-/* Main area */
+/* =========================================================
+   MAIN AREA
+   ========================================================= */
 #start-main{
-  min-height: calc(100vh - 80px); /* navbar height */
+  min-height: calc(100vh - 80px);
   position: relative;
 
   display: flex;
@@ -26,7 +27,9 @@
   overflow: hidden;
 }
 
-/* Make video container not take layout space */
+/* =========================================================
+   VIDEO (BACKGROUND)
+   ========================================================= */
 #start-video-container{
   position: absolute;
   inset: 0;
@@ -34,20 +37,26 @@
   pointer-events: none;
 }
 
-/* Video */
 #start-video-container video{
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* Pink box */
+/* =========================================================
+   HERO CARD (IMAGE FILLS THE BOX)
+   ========================================================= */
 #start-motto{
   margin: 0;
   z-index: 1;
 
-  background: #F7EEF6;
-  color: #000;
+  /* normal background image */
+  background-image: url("../../img/hawker2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: #ffffff;
 
   width: min(1200px, 90vw);
   height: min(520px, 65vh);
@@ -56,8 +65,8 @@
   padding: 48px 56px;
 
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center;       /* centered vertically */
+  justify-content: center;   /* centered horizontally */
 
   font-size: clamp(28px, 4vw, 42px);
   font-weight: 800;
@@ -69,9 +78,11 @@
     inset 0 0 0 2px rgba(46,95,130,0.12);
 }
 
-/* =========================
-   TABLET (smooth scale)
-   ========================= */
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
 @media (max-width: 900px){
   #start-main{
     padding: 0 18px;
@@ -80,48 +91,40 @@
   #start-motto{
     width: min(900px, 92vw);
     height: min(460px, 60vh);
-
     padding: 36px 40px;
     border-radius: 24px;
-
     font-size: clamp(24px, 4.5vw, 34px);
   }
 }
 
-/* =========================
+/* =========================================================
    MOBILE
-   ========================= */
+   ========================================================= */
 @media (max-width: 600px){
   #start-main{
-    min-height: calc(100vh - 64px); /* shorter navbar on mobile */
+    min-height: calc(100vh - 64px);
     padding: 0 14px;
   }
 
   #start-motto{
     width: 94vw;
-    height: auto;              /* let height grow naturally */
+    height: auto;
     min-height: 320px;
-
     padding: 28px 22px;
     border-radius: 20px;
-
     font-size: 22px;
     line-height: 1.3;
   }
 }
 
-/* =========================
+/* =========================================================
    EXTRA SMALL PHONES
-   ========================= */
+   ========================================================= */
 @media (max-width: 420px){
   #start-motto{
     min-height: 280px;
     padding: 22px 18px;
     border-radius: 18px;
-
     font-size: 20px;
   }
 }
-
-
-

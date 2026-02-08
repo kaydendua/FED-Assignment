@@ -1,5 +1,5 @@
 // js/c-logindetails.js (MODULE)
-// Dropdown + Firebase login
+// Navbar dropdown + Firebase customer login
 
 import { auth, db } from "../../firebase/firebase.js";
 import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
@@ -9,45 +9,58 @@ console.log("c-logindetails.js loaded ✅");
 
 document.addEventListener("DOMContentLoaded", () => {
   // =========================
-  // NAVBAR DROPDOWN
+  // 1) NAVBAR DROPDOWN (your HTML uses v-login-* IDs)
   // =========================
-  const navLogin = document.getElementById("c-login-nav-login");
-  const dropdownContent = document.getElementById("c-login-dropdown-content");
+  const navLogin = document.getElementById("v-login-nav-login");
+  const dropdownContent = document.getElementById("v-login-dropdown-content");
 
   console.log("navLogin found?", !!navLogin);
   console.log("dropdownContent found?", !!dropdownContent);
 
   if (navLogin && dropdownContent) {
+    // start closed (your HTML already has hidden, but we enforce)
+    dropdownContent.hidden = true;
+
     navLogin.addEventListener("click", (e) => {
+      e.preventDefault();
       e.stopPropagation();
-      dropdownContent.style.display =
-        dropdownContent.style.display === "block" ? "none" : "block";
+      dropdownContent.hidden = !dropdownContent.hidden;
     });
 
-    // IMPORTANT: stop clicks inside dropdown from closing it instantly
+    // stop clicks inside dropdown from closing it immediately
     dropdownContent.addEventListener("click", (e) => {
       e.stopPropagation();
     });
 
-    // Close when clicking outside
+    // close when clicking outside
     document.addEventListener("click", () => {
-      dropdownContent.style.display = "none";
+      dropdownContent.hidden = true;
     });
 
-    // Redirects
+    // redirects (match link text: "Vendor", "NEA Officer")
     dropdownContent.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
-        const role = link.textContent.trim();
 
-        if (role === "Vendor") window.location.href = "v-login.html";
-        if (role === "NEA Officer") window.location.href = "../lixian-pages/loginIn.html";
+        const roleText = link.textContent.trim().toLowerCase();
+
+        if (roleText.includes("vendor")) {
+          window.location.href = "v-login.html";
+        } else if (roleText.includes("officer")) {
+          window.location.href = "../lixian-pages/loginIn.html";
+        } else {
+          console.warn("Unknown dropdown option:", link.textContent.trim());
+        }
+
+        dropdownContent.hidden = true;
       });
     });
+  } else {
+    console.warn("Navbar dropdown IDs not found. Check v-login-nav-login / v-login-dropdown-content.");
   }
 
   // =========================
-  // LOGIN FORM (Firebase)
+  // 2) LOGIN FORM (Firebase)
   // =========================
   const form = document.getElementById("login-form");
   const emailInput = document.getElementById("login-email");
@@ -55,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const submitBtn = document.getElementById("login-submit");
 
   if (!form || !emailInput || !passwordInput || !submitBtn) {
-    console.error("Login form IDs missing.");
+    console.error("Login form IDs missing. Check: login-form, login-email, login-password, login-submit.");
     return;
   }
 
@@ -89,18 +102,21 @@ document.addEventListener("DOMContentLoaded", () => {
       const cred = await signInWithEmailAndPassword(auth, email, password);
       const user = cred.user;
 
-      // Optional role check
+      // Optional role check (users/{uid}.role must be "customer")
       const snap = await getDoc(doc(db, "users", user.uid));
+
       if (snap.exists()) {
         const data = snap.data();
-        if (data.role && data.role !== "customer") {
+        if (data.role && String(data.role).toLowerCase() !== "customer") {
           alert("This is not a customer account.");
+          // sign out optional (if you want)
+          // await signOut(auth);
           return;
         }
       }
 
+      // ✅ go to your customer page
       window.location.href = "../kayden-pages/search.html";
-
     } catch (err) {
       console.error("Login error:", err.code, err.message);
       alert(niceError(err.code));

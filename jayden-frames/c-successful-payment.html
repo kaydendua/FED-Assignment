@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Payment Successful</title>
+
   <link rel="icon" href="/img/FED_LOGO.png">
 
-  <!-- ORDER MATTERS: navbar CSS must load AFTER layout files -->
+  <!-- Styles -->
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="../jayden-frames/styles/layout-main.css">
   <link rel="stylesheet" href="../jayden-frames/styles/successful-payment.css">
@@ -19,26 +20,19 @@
   <!-- ================= NAVBAR ================= -->
   <header id="checkout-success-navbar" class="navbar">
 
-    <!-- LEFT -->
     <div class="nav-left">
-
-      <!-- Menu button: matches .menu-btn + .menu-icon + .menu-text -->
       <button id="checkout-success-menu-btn" class="menu-btn" type="button">
         <span class="menu-icon">☰</span>
         <span class="menu-text">Menu</span>
       </button>
 
-      <!-- Logo MUST be #logoArea img -->
       <div id="logoArea">
         <img src="../img/FED_LOGO.png" alt="Website Logo">
       </div>
-
     </div>
 
-    <!-- CENTER (true centered title) -->
     <div class="nav-center">Hawker Central</div>
 
-    <!-- RIGHT -->
     <div class="nav-right">
       <a href="#" class="nav-link">Contact us!</a>
       <a href="#" class="nav-link">Log in here ▼</a>
@@ -47,21 +41,21 @@
   </header>
   <!-- ========================================== -->
 
-
-  <!-- ================= MAIN CONTENT ================= -->
+  <!-- ================= MAIN ================= -->
   <main id="checkout-success-main">
+
     <section id="checkout-success-card">
 
       <h2 id="checkout-success-title">Your payment is successful!</h2>
 
-      <div id="checkout-success-divider-1" class="cs-divider"></div>
+      <div class="cs-divider"></div>
 
       <h3 id="checkout-success-subtitle">Order summary</h3>
 
-      <!-- JS injects items -->
+      <!-- JS injects order items here -->
       <div id="checkout-success-order-list"></div>
 
-      <div id="checkout-success-divider-2" class="cs-divider"></div>
+      <div class="cs-divider"></div>
 
       <!-- Fees -->
       <div id="checkout-success-fees">
@@ -77,58 +71,30 @@
 
       <p id="checkout-success-total" class="cs-total">Total: $0.00</p>
 
+      <!-- ===== TIMER (ONLY ONE) ===== -->
       <div id="cs-timer-box">
         <div id="cs-timer-label">Estimated delivery time</div>
         <div id="cs-timer">40:00</div>
         <div id="cs-timer-note">Your order is being prepared.</div>
       </div>
 
-      <button id="checkout-success-order-more-btn" class="cs-btn" type="button">
+      <!-- ===== BUTTON (ONLY ONE) ===== -->
+      <button
+        id="checkout-success-order-more-btn"
+        class="cs-btn"
+        type="button">
         Order more!
       </button>
 
     </section>
+
   </main>
+  <!-- ========================================== -->
 
 </div>
 
-<<<<<<< HEAD
-<script src="js/c-successful-payment.js"></script>
-=======
-        <div id="checkout-success-divider-2" class="cs-divider"></div>
+<!-- Script (load ONCE only) -->
+<script type="module" src="js/c-successful-payment.js"></script>
 
-        <!-- ✅ JS will inject fees here -->
-        <div id="checkout-success-fees">
-          <p class="cs-fee-row">
-            <span>Delivery fee:</span>
-            <span id="cs-delivery-fee">$0.00</span>
-          </p>
-          <p class="cs-fee-row">
-            <span>GST (9%):</span>
-            <span id="cs-gst">$0.00</span>
-          </p>
-        </div>
-
-        <p id="checkout-success-total" class="cs-total">Total: $0.00</p>
-        <div id="cs-timer-box">
-           <div id="cs-timer-label">Estimated delivery time</div>
-           <div id="cs-timer">40:00</div>
-           <div id="cs-timer-note">Your order is being prepared.</div>
-        </div>
-
-
-        <button id="checkout-success-order-more-btn" class="cs-btn" type="button">
-          Order more!
-        </button>
-
-      </section>
-    </main>
-
-  </div>
-
-  <script type = "module" src="js/c-successful-payment.js"></script>
->>>>>>> 76c51890f9553cba0fa3d9944d681e1ba7bb1cd1
 </body>
 </html>
-
-
