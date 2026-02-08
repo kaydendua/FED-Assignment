@@ -26,9 +26,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Close dropdown when clicking outside
-  document.addEventListener("click", () => {
+  document.addEventListener("click", (e) => {
+  // If click is NOT inside the dropdown or the button → close it
+  if (
+    !loginDropdown.contains(e.target) &&
+    !dropdownContent.contains(e.target)
+  ) {
     dropdownContent.hidden = true;
-  });
+  }
+});
+
 
   // Prevent clicks inside menu from closing before link click
   dropdownContent.addEventListener("click", (e) => {
