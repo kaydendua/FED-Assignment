@@ -1,9 +1,11 @@
 // js/c-logindetails.js (MODULE)
 // Navbar dropdown + Firebase customer login
 
-import { auth, db } from "../../firebase/firebase.js";
+import { auth, db,  } from "../../firebase/firebase.js";
 import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+
+
 
 console.log("c-logindetails.js loaded ✅");
 
