@@ -11,7 +11,6 @@ html, body{
 body{
   background: #C9D0DC;
 }
- 
 
 /* =========================
    Graph Layout (Section)
@@ -25,7 +24,6 @@ body{
   border-radius: 18px;
   padding: 36px 32px 40px;
 
-  /* separation from page */
   box-shadow:
     0 18px 40px rgba(40, 88, 123, 0.25),
     inset 0 1px 0 rgba(255,255,255,0.6);
@@ -43,7 +41,6 @@ body{
   letter-spacing: 2px;
 }
 
-
 /* =========================
    Pills
    ========================= */
@@ -56,18 +53,22 @@ body{
   margin: 18px 0 22px;
 }
 
+/* Make the group wrap nicely if needed */
 .pillGroup{
   display: inline-flex;
+  flex-wrap: wrap;              /* ✅ allow wrap inside the pill group */
+  justify-content: center;      /* ✅ keep centered when wrapping */
   gap: 10px;
   background: rgba(255,255,255,0.55);
   border-radius: 999px;
-  padding: 6px;
+  padding: 8px;                 /* slightly more padding for 5 buttons */
 
   box-shadow:
     0 6px 14px rgba(40, 88, 123, 0.25),
     inset 0 1px 0 rgba(255,255,255,0.6);
 }
 
+/* Ensure buttons don’t become tiny when wrapping */
 .pill{
   border: none;
   background: transparent;
@@ -76,13 +77,13 @@ body{
   font-weight: 700;
   font-size: 14px;
   cursor: pointer;
+  white-space: nowrap;          /* ✅ prevents “South” breaking etc. */
 }
 
 .pill.active{
   background: #ffffff;
   box-shadow: 0 6px 14px rgba(40, 88, 123, 0.35);
 }
-
 
 /* =========================
    Chart Card (Pink)
@@ -99,7 +100,6 @@ body{
     inset 0 1px 0 rgba(255,255,255,0.7);
 }
 
-
 /* =========================
    Chart Canvas
    ========================= */
@@ -114,7 +114,6 @@ body{
   box-shadow:
     inset 0 2px 4px rgba(0,0,0,0.08);
 }
-
 
 /* =========================
    MOBILE
@@ -142,4 +141,5 @@ body{
     padding: 10px;
   }
 }
+
 
