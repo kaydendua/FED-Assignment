@@ -1,13 +1,21 @@
+// c-payment.js
+// IMPORTANT: In payment.html use:
+// <script type="module" src="../jayden-frames/js/c-payment.js"></script>
+
+import { db, getCurrentUser } from "../../firebase/firebase.js";
+import {
+  collection,
+  addDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   // =========================
   // 0) Load total from checkout
   // =========================
   const totalEl = document.getElementById("pay-total-price");
 
-  // If you saved from checkout:
-  // localStorage.setItem("checkoutTotal", "$12.34");
   const savedTotalText = localStorage.getItem("checkoutTotal");
-
   if (totalEl && savedTotalText) {
     totalEl.textContent = savedTotalText;
   }
@@ -88,9 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Demo promo codes
   const promos = {
-    SAVE5: 5.0,     // minus $5
-    OFF10: 0.1,     // 10% off
-    FREESHIP: "FREESHIP", // optional: remove delivery fee later if you want
+    SAVE5: 5.0,            // minus $5
+    OFF10: 0.1,            // 10% off
+    FREESHIP: "FREESHIP",  // subtract $4 delivery fee (demo)
   };
 
   if (applyBtn) {
@@ -107,7 +115,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Prevent stacking promos in this demo
       if (appliedPromo) {
         alert(`Promo already applied: ${appliedPromo}`);
         return;
@@ -115,21 +122,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
       appliedPromo = code;
 
-      // Re-read base total in case it changed
+      // Re-read base total
       baseTotal = parseCurrency(totalEl?.textContent || "$0.00");
       discountedTotal = baseTotal;
 
       const value = promos[code];
 
       if (value === "FREESHIP") {
-        // If you later store delivery fee separately, you can subtract it here.
-        // For now, demo just subtract $4.00 (match your checkout delivery fee)
         discountedTotal = round2(Math.max(0, baseTotal - 4.0));
       } else if (value < 1) {
-        // percentage
         discountedTotal = round2(baseTotal * (1 - value));
       } else {
-        // flat discount
         discountedTotal = round2(Math.max(0, baseTotal - value));
       }
 
@@ -149,13 +152,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // =========================
-  // 5) Place order button
+  // 5) Place order button (WRITE TO FIRESTORE)
   // =========================
   const placeOrderBtn = document.getElementById("pay-place-order-btn");
   const payMethod = document.getElementById("pay-method");
 
   if (placeOrderBtn) {
-    placeOrderBtn.addEventListener("click", () => {
+    placeOrderBtn.addEventListener("click", async () => {
       const method = (payMethod?.value || "").trim();
 
       if (!method) {
@@ -164,49 +167,72 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // ✅ Try to read cart items if you saved them earlier
-      // Expected format example:
-      // localStorage.setItem("cartItems", JSON.stringify([{name:"Chicken Rice", qty:2, price:4.5}]));
+      // Ensure a user exists (anonymous guest or logged-in)
+      const user = await getCurrentUser();
+      if (!user) {
+        alert("Unable to identify user.");
+        return;
+      }
+
+      // Read cart items
       const cartRaw = localStorage.getItem("cartItems");
-      const items = cartRaw ? JSON.parse(cartRaw) : [];
+      const cartItems = cartRaw ? JSON.parse(cartRaw) : [];
 
-      // If you didn't save items, it still works, just shows empty list on success page.
-      // You can change delivery fee if yours differs.
-      const deliveryFee = 4.0;
-      const subtotalGuess = Math.max(0, discountedTotal - deliveryFee);
-      const gst = round2(subtotalGuess * 0.09);
+      if (!Array.isArray(cartItems) || cartItems.length === 0) {
+        alert("Your cart is empty.");
+        return;
+      }
 
-      // ✅ This structure matches the success page JS I gave you earlier
-      const lastOrder = {
-        items: items.map((i) => ({
-          name: i.name || "Item",
-          qty: Number(i.qty) || 1,
-          price: Number(i.price) || 0,
-        })),
-        subtotal: subtotalGuess,
-        deliveryFee: deliveryFee,
-        gst: gst,
-        total: discountedTotal,
-        paymentMethod: method,
-        promoApplied: appliedPromo || null,
-        placedAt: new Date().toISOString(),
-      };
-
-      localStorage.setItem("lastOrder", JSON.stringify(lastOrder));
-
-      // Optional: also keep your simple summary key
-      localStorage.setItem(
-        "last_order_summary",
-        JSON.stringify({
-          paymentMethod: method,
-          promoApplied: appliedPromo || null,
-          total: discountedTotal,
-          placedAt: new Date().toISOString(),
-        })
+      // Subtotal from cart (recommended)
+      const subtotal = round2(
+        cartItems.reduce(
+          (sum, i) => sum + (Number(i.price) || 0) * (Number(i.qty) || 1),
+          0
+        )
       );
 
-      // ✅ Redirect to your success page
-      window.location.href = "c-successful-payment.html"; // change to your actual file
+      const deliveryFee = 4.0;
+      const gst = round2(subtotal * 0.09);
+      const total = round2(subtotal + deliveryFee + gst);
+
+      // Build Firestore items array (matches your "items (array)" structure)
+      const items = cartItems.map((i) => ({
+        itemid: i.itemid || i.itemId || "UNKNOWN",
+        name: i.name || "Item",
+        price: Number(i.price) || 0,
+        qty: Number(i.qty) || 1,
+      }));
+
+      const orderDoc = {
+        createdat: serverTimestamp(),
+        customeruid: user.uid,
+        items,
+        subtotal,
+        deliveryfee: deliveryFee,
+        gst,
+        total,
+        paymentmethod: method,
+        promoapplied: appliedPromo || null,
+        orderstatus: "placed",
+      };
+
+      try {
+        // NOTE: Your collection name in Firestore is "order" (singular)
+        const docRef = await addDoc(collection(db, "order"), orderDoc);
+
+        // Save orderId for success page to load
+        localStorage.setItem("lastOrderId", docRef.id);
+
+        // Clear cart after order is placed
+        localStorage.removeItem("cartItems");
+        localStorage.removeItem("checkoutTotal");
+
+        // Redirect to success page (fix path if needed)
+        window.location.href = "c-successful-payment.html";
+      } catch (err) {
+        console.error("Firestore addDoc error:", err);
+        alert("Failed to place order. Check console for details.");
+      }
     });
   }
 

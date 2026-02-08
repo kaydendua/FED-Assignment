@@ -1,7 +1,7 @@
 // js/c-signup-questions.js
 // FULL Customer Signup JS (Firebase Auth + Firestore) for your form IDs
 
-import { auth, db } from "/firebase/firebase.js";
+import { auth, db } from "../../firebase/firebase.js";
 import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
 import { doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
 
@@ -110,7 +110,7 @@ form.addEventListener("submit", async (e) => {
     showAlert("success", "Account created successfully! Redirecting...");
 
     setTimeout(() => {
-      window.location.href = "customer-profile.html"; // change if needed
+      window.location.href = "../kayden-pages/search.html"; // change if needed
     }, 900);
 
   } catch (error) {
