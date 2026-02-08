@@ -177,16 +177,50 @@
   transform: translateY(-1px);
 }
 
-/* Mobile */
+/* =========================
+   TABLET (smooth scaling)
+   ========================= */
+@media (max-width: 900px) {
+  #page-payment {
+    padding: 26px 16px 130px;
+  }
+
+  #pay-card {
+    padding: 22px 20px;
+    border-radius: 15px;
+    min-height: auto;
+  }
+
+  #pay-title {
+    font-size: 24px;
+  }
+
+  #pay-place-order-btn {
+    width: 220px;
+  }
+}
+
+/* =========================
+   MOBILE (upgraded)
+   ========================= */
 @media (max-width: 600px) {
   #page-payment {
-    padding: 22px 14px 120px;
+    padding: 18px 12px 170px; /* more space because bottom bar becomes taller */
+    align-items: flex-start;
   }
 
   #pay-card {
     padding: 18px 16px;
     border-radius: 14px;
     min-height: auto; /* avoid weird tall card on small screens */
+  }
+
+  #pay-title {
+    font-size: 22px;
+  }
+
+  #pay-line {
+    margin: 12px 0 18px;
   }
 
   #pay-promo-row {
@@ -198,8 +232,50 @@
     width: 100%;
   }
 
+  /* Bottom bar becomes stacked */
+  #pay-bottom-bar {
+    padding: 12px 14px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  #pay-total-price {
+    font-size: 20px;
+  }
+
+  /* Full-width primary CTA on phone */
   #pay-place-order-btn {
-    width: 180px;
+    width: 100%;
+    max-width: none;
+    padding: 14px 16px;
+    font-size: 14px;
   }
 }
+
+/* =========================
+   EXTRA SMALL PHONES
+   ========================= */
+@media (max-width: 420px) {
+  #page-payment {
+    padding: 16px 10px 175px;
+  }
+
+  #pay-card {
+    padding: 16px 12px;
+  }
+
+  #pay-title {
+    font-size: 20px;
+  }
+
+  #pay-promo-title {
+    font-size: 16px;
+  }
+
+  #pay-total-price {
+    font-size: 18px;
+  }
+}
+
 

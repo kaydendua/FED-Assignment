@@ -246,7 +246,7 @@ body{
   color: var(--navy);
 }
 
-/* ===== Responsive ===== */
+/* ===== Responsive (existing) ===== */
 @media (max-width: 980px){
   #loginCard{
     flex-direction: column;
@@ -268,3 +268,122 @@ body{
     font-size: 36px;
   }
 }
+
+/* =========================
+   PHONE (better mobile layout)
+   ========================= */
+@media (max-width: 600px){
+
+  #contentWrapper{
+    padding: 18px 0 26px;
+    align-items: flex-start; /* feels more natural on phone */
+  }
+
+  #loginCard{
+    width: 94vw;
+    padding: 20px 16px;
+    gap: 18px;
+    border-radius: 16px;
+  }
+
+  #loginIn{
+    margin-bottom: 14px;
+  }
+
+  #loginIn h2{
+    font-size: 28px;
+    letter-spacing: 0.2px;
+  }
+
+  .inputGroup{
+    margin-bottom: 12px;
+  }
+
+  .inputGroup input{
+    padding: 14px 14px;
+    font-size: 14px;
+    border-radius: 12px;
+  }
+
+  .checkboxGroup{
+    font-size: 13px;
+    margin: 6px 0 16px;
+  }
+
+  #loginBtn{
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+
+  #contactHr{
+    font-size: 13px;
+  }
+
+  /* Logo panel shorter on phone */
+  #logoSection h1{
+    min-height: 220px;
+    padding: 18px;
+  }
+
+  #logoSection img{
+    max-width: 220px;
+    max-height: 220px;
+  }
+
+  /* Toggle button smaller so it doesn't crowd */
+  .passwordGroup input{
+    padding-right: 74px;
+  }
+
+  .toggle-password{
+    font-size: 12px;
+    padding: 6px 8px;
+    border-radius: 9px;
+  }
+
+  /* Dropdown menu a bit smaller */
+  #loginMenu{
+    min-width: 160px;
+  }
+
+  #loginMenu a{
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+}
+
+/* =========================
+   EXTRA SMALL PHONES
+   ========================= */
+@media (max-width: 420px){
+
+  #loginCard{
+    padding: 18px 12px;
+  }
+
+  #loginIn h2{
+    font-size: 24px;
+  }
+
+  #logoSection h1{
+    min-height: 200px;
+    padding: 14px;
+  }
+
+  #logoSection img{
+    max-width: 190px;
+    max-height: 190px;
+  }
+
+  .passwordGroup input{
+    padding-right: 68px;
+  }
+
+  .toggle-password{
+    right: 8px;
+    font-size: 11px;
+    padding: 5px 7px;
+  }
+}
+

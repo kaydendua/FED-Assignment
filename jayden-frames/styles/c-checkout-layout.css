@@ -63,7 +63,7 @@
   font-size: 28px;
   font-weight: 800;
   letter-spacing: 0.3px;
-  pointer-events: none; /* prevents blocking clicks */
+  pointer-events: none;
 }
 
 /* ================= RIGHT ================= */
@@ -87,4 +87,61 @@
   font-weight: 800;
   font-size: 14px;
   text-decoration: none;
+}
+
+/* =====================================================
+   📱 MOBILE / PHONE VIEW
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    height: 64px;
+    padding: 0 16px;
+  }
+
+  /* Left section tighter */
+  .nav-left {
+    gap: 10px;
+  }
+
+  /* Menu button bigger & tap-friendly */
+  .menu-btn {
+    font-size: 12px;
+    gap: 2px;
+  }
+
+  /* Smaller logo */
+  #logoArea img {
+    height: 32px;
+  }
+
+  /* Center title smaller */
+  #siteName {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  /* Avatar smaller */
+  #co-avatar {
+    width: 34px;
+    height: 34px;
+    font-size: 12px;
+  }
+}
+
+/* =====================================================
+   📱 EXTRA SMALL PHONES (optional but recommended)
+   ===================================================== */
+
+@media (max-width: 420px) {
+
+  #siteName {
+    font-size: 16px;
+    letter-spacing: 0.2px;
+  }
+
+  .menu-btn {
+    font-size: 11px;
+  }
 }

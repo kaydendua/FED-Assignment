@@ -321,7 +321,7 @@
 }
 
 /* =========================
-   RESPONSIVE (CLEANED)
+   RESPONSIVE (CLEANED + BETTER PHONE)
    ========================= */
 
 @media (max-width: 900px) {
@@ -342,16 +342,122 @@
   }
 }
 
+/* PHONE */
 @media (max-width: 768px) {
   #page-checkout {
-    padding: 22px 14px 120px;
+    padding: 20px 12px 160px; /* more space because bottom bar becomes taller */
+  }
+
+  #co-title-area {
+    margin: 4px 0 16px;
   }
 
   #co-title {
     font-size: 20px;
   }
 
+  #co-subtitle {
+    font-size: 13px;
+    margin-top: 6px;
+  }
+
+  #co-card {
+    width: 100%;
+    border-radius: 14px;
+  }
+
+  #co-card-header {
+    padding: 14px 14px;
+  }
+
+  #co-card-body {
+    padding: 14px 14px 16px;
+    gap: 14px;
+  }
+
+  #co-map {
+    min-height: 180px;
+    border-radius: 12px;
+  }
+
+  /* make inputs more thumb-friendly */
+  #co-address,
+  #co-address-detail {
+    padding: 14px 14px;
+    font-size: 14px;
+    border-radius: 12px;
+  }
+
+  #co-summary {
+    padding: 14px 14px;
+  }
+
+  #co-summary-badge {
+    font-size: 10px;
+    padding: 5px 9px;
+  }
+
+  /* Bottom bar becomes stacked */
+  #co-bottom-bar {
+    padding: 12px 14px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  /* total row (left/right) */
+  #co-bottom-bar > div,
+  #co-bottom-bar > .co-total,
+  #co-bottom-bar .left {
+    width: 100%;
+  }
+
+  /* If your HTML is just label + price (not wrapped), this still looks ok */
+  #co-total-label {
+    font-size: 12px;
+  }
+
+  #co-total-price {
+    font-size: 20px;
+  }
+
+  /* Button full width on phone */
   #co-place-order-btn {
-    width: 160px;
+    width: 100%;
+    max-width: none;
+    padding: 14px 16px;
+    font-size: 14px;
   }
 }
+
+/* EXTRA SMALL PHONES */
+@media (max-width: 420px) {
+  #page-checkout {
+    padding: 18px 10px 170px;
+  }
+
+  #co-title {
+    font-size: 18px;
+  }
+
+  #co-map {
+    min-height: 160px;
+  }
+
+  .co-item {
+    padding: 10px 10px;
+  }
+
+  .co-item-name {
+    font-size: 12px;
+  }
+
+  .co-item-price {
+    font-size: 12px;
+  }
+
+  #co-total-price {
+    font-size: 18px;
+  }
+}
+

@@ -60,6 +60,7 @@
   margin: 0;
   pointer-events: none; /* prevents blocking clicks */
   line-height: 1;
+  white-space: nowrap;
 }
 
 /* ================= RIGHT ================= */
@@ -138,4 +139,126 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* =========================
+   TABLET (smooth scale-down)
+   ========================= */
+@media (max-width: 900px){
+  .navbar{
+    padding: 0 18px;
+  }
+
+  .menu-btn{
+    font-size: 16px;
+  }
+
+  .site-name{
+    font-size: 22px;
+    max-width: 48vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-right{
+    gap: 14px;
+  }
+
+  .login-btn,
+  .contact-link{
+    font-size: 14px;
+  }
+
+  .dropdown-content{
+    top: 44px;
+    min-width: 170px;
+  }
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+@media (max-width: 700px){
+  .navbar{
+    height: 64px;
+    padding: 0 14px;
+  }
+
+  .nav-left{
+    gap: 10px;
+  }
+
+  .menu-btn{
+    font-size: 14px;
+    padding: 6px 8px;
+    border-radius: 8px;
+  }
+
+  .logo{
+    font-size: 12px;
+  }
+
+  .site-name{
+    font-size: 18px;
+    max-width: 50vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-right{
+    gap: 10px;
+  }
+
+  .login-btn{
+    font-size: 13px;
+    padding: 7px 10px;
+  }
+
+  .contact-link{
+    font-size: 13px;
+  }
+
+  /* Dropdown aligned to shorter navbar */
+  .dropdown-content{
+    top: 64px;          /* opens right under navbar */
+    right: 0;
+    min-width: 160px;
+  }
+
+  .dropdown-content a{
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+}
+
+/* =========================
+   EXTRA SMALL PHONES
+   ========================= */
+@media (max-width: 420px){
+  .navbar{
+    padding: 0 10px;
+  }
+
+  .site-name{
+    font-size: 16px;
+    max-width: 46vw;
+  }
+
+  .nav-right{
+    gap: 8px;
+  }
+
+  .login-btn{
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .contact-link{
+    font-size: 12px;
+  }
+
+  .dropdown-content{
+    min-width: 150px;
+  }
+}
+
 

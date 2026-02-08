@@ -203,16 +203,105 @@
 }
 
 /* =========================
-   MOBILE
+   TABLET / SMALL SCREENS
+========================= */
+
+@media (max-width: 768px) {
+  #customer-signup-main {
+    padding: 28px 12px;
+  }
+
+  #customer-signup-card {
+    max-width: 560px;
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  #customer-signup-title {
+    font-size: 22px;
+  }
+
+  #customer-signup-subtitle {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .csu-input {
+    padding: 13px 14px; /* slightly more thumb-friendly */
+  }
+
+  .csu-btn {
+    padding: 14px 16px;
+  }
+}
+
+/* =========================
+   MOBILE (existing, upgraded)
 ========================= */
 
 @media (max-width: 520px) {
+  #customer-signup-main {
+    padding: 22px 10px;
+  }
+
   #customer-signup-card {
     padding: 20px;
+    border-radius: 16px;
+  }
+
+  #customer-signup-title {
+    font-size: 20px;
+  }
+
+  #customer-signup-subtitle {
+    font-size: 12.5px;
   }
 
   .csu-row {
     flex-direction: column;
+    gap: 0; /* cleaner stacked look */
+  }
+
+  .csu-field {
+    margin-bottom: 12px;
+  }
+
+  .csu-check {
+    font-size: 12.5px;
+  }
+
+  .csu-btn {
+    font-size: 14px;
+    padding: 14px 16px;
   }
 }
+
+/* =========================
+   EXTRA SMALL PHONES
+========================= */
+
+@media (max-width: 420px) {
+  #customer-signup-card {
+    padding: 16px;
+  }
+
+  #customer-signup-title {
+    font-size: 19px;
+  }
+
+  .csu-label {
+    font-size: 12.5px;
+  }
+
+  .csu-input {
+    font-size: 13.5px;
+    padding: 12px 12px;
+    border-radius: 12px;
+  }
+
+  #customer-signup-footer {
+    font-size: 12px;
+  }
+}
+
 

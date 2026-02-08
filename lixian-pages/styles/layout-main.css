@@ -89,6 +89,37 @@
 }
 
 /* =========================
+   TABLET (OPTIONAL BUT NICE)
+   ========================= */
+
+@media (max-width: 900px){
+  #mainHeader{
+    padding: 0 18px;
+    gap: 14px;
+  }
+
+  #logoArea img{
+    max-height: 48px;
+  }
+
+  #siteName{
+    font-size: 22px;
+    max-width: 46vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .navLinks{
+    gap: 16px;
+  }
+
+  #searchBox{
+    right: 18px;
+  }
+}
+
+/* =========================
    PHONE VERSION – NAVBAR
    ========================= */
 @media (max-width: 600px){
@@ -136,5 +167,40 @@
     padding: 8px 10px;
     font-size: 13px;
     border-radius: 10px;
+  }
+}
+
+/* =========================
+   EXTRA SMALL PHONES
+   ========================= */
+@media (max-width: 420px){
+
+  #mainHeader{
+    padding: 0 10px;
+    gap: 8px;
+  }
+
+  #siteName{
+    font-size: 15px;
+    max-width: 48vw;
+  }
+
+  /* Optional: make nav super compact */
+  .navLinks{
+    gap: 6px;
+  }
+
+  .navLinks .nav-item{
+    font-size: 12px;
+    padding: 6px 7px;
+  }
+
+  #searchBox{
+    right: 10px;
+  }
+
+  #searchBox input{
+    width: 180px;
+    font-size: 12px;
   }
 }
