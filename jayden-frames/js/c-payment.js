@@ -2,7 +2,7 @@
 // IMPORTANT: In payment.html use:
 // <script type="module" src="../jayden-frames/js/c-payment.js"></script>
 
-import { db, getCurrentUser } from "./firebase.js";
+import { db, getCurrentUser } from "../../firebase/firebase.js";
 import {
   collection,
   addDoc,
