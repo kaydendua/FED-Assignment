@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const orderBtn = $("profile-order-btn");
   orderBtn?.addEventListener("click", () => {
     // ✅ Set to your customer browse page / ordering start page
-    window.location.href = "../kayden-pages/browseStalls.html";
+    window.location.href = "../../kayden-pages/search.html";
   });
 
   // Optional edit profile button (if exists)
