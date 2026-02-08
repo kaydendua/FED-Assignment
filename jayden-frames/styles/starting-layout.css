@@ -132,3 +132,116 @@
 #start-login-dropdown:hover #start-dropdown-content{
   display: block;
 }
+
+/* =========================
+   TABLET (smooth scaling)
+   ========================= */
+@media (max-width: 900px){
+  #page-start .navbar{
+    padding: 0 18px;
+  }
+
+  #start-menu-icon{
+    gap: 8px;
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  #start-nav-logo{
+    height: 36px;
+  }
+
+  #page-start .nav-center{
+    font-size: 22px;
+    max-width: 48vw;          /* prevent overlap */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #start-login-dropdown{
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  #start-dropdown-content{
+    min-width: 180px;
+  }
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+@media (max-width: 700px){
+  #page-start .navbar{
+    height: 64px;
+    padding: 0 14px;
+  }
+
+  #start-menu-icon{
+    gap: 6px;
+    padding: 6px 8px;
+    font-size: 12px;
+    border-radius: 9px;
+  }
+
+  #start-nav-logo{
+    height: 32px;
+  }
+
+  #page-start .nav-center{
+    font-size: 18px;
+    max-width: 50vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #start-login-dropdown{
+    font-size: 13px;
+    padding: 7px 9px;
+    border-radius: 9px;
+  }
+
+  /* Dropdown opens nicely under shorter navbar */
+  #start-dropdown-content{
+    top: calc(100% + 8px);
+    min-width: 170px;
+  }
+
+  #start-dropdown-content a{
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+}
+
+/* =========================
+   EXTRA SMALL PHONES
+   ========================= */
+@media (max-width: 420px){
+  #page-start .navbar{
+    padding: 0 10px;
+  }
+
+  #start-nav-logo{
+    height: 30px;
+  }
+
+  #page-start .nav-center{
+    font-size: 16px;
+    max-width: 46vw;
+  }
+
+  #start-menu-icon{
+    font-size: 11px;
+    padding: 6px 7px;
+  }
+
+  #start-login-dropdown{
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  #start-dropdown-content{
+    min-width: 160px;
+  }
+}
+

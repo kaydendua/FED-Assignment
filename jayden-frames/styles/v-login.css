@@ -182,9 +182,11 @@
   object-fit: contain;
   display: block;
 }
+
+/* Center button (your request) */
 #v-login-submit-btn{
-  margin: 16px auto 0;   /* auto left/right centers it */
-  display: block;        /* ensures margin auto works */
+  margin: 16px auto 0;
+  display: block;
 }
 
 /* =========================================================
@@ -241,11 +243,16 @@
   display: none !important;
 }
 
-
 /* =========================================================
    Responsive
    ========================================================= */
+
+/* Tablet + small laptops */
 @media (max-width: 980px){
+  #v-login-page{
+    padding: 22px 0 34px;
+  }
+
   #v-login-card{
     grid-template-columns: 1fr;
   }
@@ -266,4 +273,107 @@
   #v-login-logo-panel{
     height: 320px;
   }
+
+  #v-login-title{
+    font-size: 38px;
+  }
 }
+
+/* Mobile */
+@media (max-width: 700px){
+  #v-login-page{
+    min-height: calc(100vh - 64px); /* if navbar shrinks on mobile */
+    padding: 18px 0 26px;
+  }
+
+  #v-login-card{
+    width: 94vw;
+    border-radius: 16px;
+  }
+
+  #v-login-left{
+    padding: 26px 16px;
+  }
+
+  #v-login-title{
+    font-size: 28px;
+    margin-bottom: 18px;
+  }
+
+  .v-label{
+    font-size: 13px;
+  }
+
+  .v-input-wrap{
+    padding: 10px 10px;
+    border-radius: 12px;
+    grid-template-columns: 24px 1fr auto;
+    gap: 8px;
+  }
+
+  .v-icon{
+    font-size: 15px;
+  }
+
+  #v-login-email,
+  #v-login-password{
+    font-size: 14px;
+  }
+
+  .v-show-btn{
+    padding: 6px 8px;
+    font-size: 12px;
+    border-radius: 9px;
+  }
+
+  .v-remember{
+    font-size: 14px;
+  }
+
+  #v-login-submit-btn{
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+
+  #v-login-help{
+    font-size: 13px;
+  }
+
+  #v-login-right{
+    padding: 16px;
+  }
+
+  #v-login-logo-panel{
+    height: 220px;
+    border-radius: 14px;
+    padding: 16px;
+  }
+
+  /* dropdown: slightly smaller on phone */
+  #page-v-login #v-login-dropdown-content.dropdown-content{
+    min-width: 170px;
+    top: calc(100% + 8px);
+  }
+
+  #page-v-login #v-login-dropdown-content a{
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 420px){
+  #v-login-left{
+    padding: 22px 12px;
+  }
+
+  #v-login-title{
+    font-size: 26px;
+  }
+
+  #v-login-logo-panel{
+    height: 200px;
+  }
+}
+

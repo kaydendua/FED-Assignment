@@ -61,6 +61,7 @@
   font-weight: 800;
   letter-spacing: 0.3px;
   pointer-events: none;
+  white-space: nowrap;
 }
 
 /* ================= RIGHT ================= */
@@ -113,3 +114,120 @@
   font-size: 14px;
   text-decoration: none;
 }
+
+/* =========================
+   TABLET (smooth scale)
+   ========================= */
+@media (max-width: 900px){
+  .navbar{
+    padding: 0 18px;
+  }
+
+  .nav-left{
+    gap: 12px;
+  }
+
+  #logoArea img{
+    height: 38px;
+  }
+
+  #siteName{
+    font-size: 22px;
+    max-width: 48vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-right{
+    gap: 12px;
+  }
+
+  #menu-cart-btn{
+    font-size: 15px;
+    gap: 6px;
+  }
+
+  #co-avatar{
+    width: 38px;
+    height: 38px;
+    font-size: 13px;
+  }
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+@media (max-width: 700px){
+  .navbar{
+    height: 64px;
+    padding: 0 14px;
+  }
+
+  .nav-left{
+    gap: 10px;
+  }
+
+  .menu-btn{
+    font-size: 12px;
+    gap: 2px;
+  }
+
+  #logoArea img{
+    height: 32px;
+  }
+
+  #siteName{
+    font-size: 18px;
+    max-width: 50vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: 0.2px;
+  }
+
+  .nav-right{
+    gap: 10px;
+  }
+
+  #menu-cart-btn{
+    font-size: 14px;
+    gap: 6px;
+  }
+
+  #menu-cart-count.badge{
+    min-width: 20px;
+    height: 20px;
+    font-size: 11px;
+  }
+
+  #co-avatar{
+    width: 34px;
+    height: 34px;
+    font-size: 12px;
+  }
+}
+
+/* =========================
+   EXTRA SMALL PHONES
+   ========================= */
+@media (max-width: 420px){
+  .navbar{
+    padding: 0 10px;
+  }
+
+  #siteName{
+    font-size: 16px;
+    max-width: 46vw;
+  }
+
+  #menu-cart-btn{
+    font-size: 13px;
+    gap: 5px;
+  }
+
+  #co-avatar{
+    width: 32px;
+    height: 32px;
+    font-size: 11px;
+  }
+}
+

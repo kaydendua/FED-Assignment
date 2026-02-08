@@ -1,6 +1,6 @@
 /* =========================================================
    VENDOR SIGNUP SUCCESS — HERO/CHECKOUT VIBE
-   + logo image fits nicely
+   (CLEAN + RESPONSIVE + LOGO FITS)
    ========================================================= */
 
 #page-v-complete{
@@ -27,40 +27,32 @@
   overflow: hidden;
 }
 
-/* TOP AREA */
+/* ================= TOP AREA ================= */
 #v-complete-top{
   background: rgba(0,0,0,0.06);
-  padding: 34px 26px 22px;
+  padding: 34px 26px 30px;
   text-align: center;
 }
 
-#v-complete-circle{
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.12);
-  margin: 0 auto 14px;
-}
-
-/* CHANGED: logo container now holds an image */
+/* Logo container (replaces circle) */
 #v-complete-logo{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 0 auto 6px;
 }
 
-/* The logo image itself */
+/* Logo image */
 #v-complete-logo-img{
-  max-width: 140px;     /* adjust if you want bigger */
-  max-height: 54px;     /* fits nicely like navbar */
+  max-width: 160px;   /* same visual weight as old circle */
+  max-height: 80px;
   width: auto;
   height: auto;
   object-fit: contain;
   display: block;
 }
 
-/* BODY */
+/* ================= BODY ================= */
 #v-complete-body{
   padding: 26px 34px 22px;
   text-align: center;
@@ -101,7 +93,7 @@
   letter-spacing: 0.6px;
 }
 
-/* BUTTON */
+/* ================= BUTTON ================= */
 #v-complete-login-btn{
   width: 100%;
   background: #2E5F82;
@@ -119,7 +111,7 @@
   filter: brightness(1.06);
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 #v-complete-footer{
   background: rgba(0,0,0,0.06);
   padding: 14px 18px;
@@ -151,39 +143,63 @@
 }
 
 /* =========================================================
-   TOP LOGO — replaces grey circle completely
+   RESPONSIVE
    ========================================================= */
 
-#v-complete-top{
-  background: rgba(0,0,0,0.06);
-  padding: 34px 26px 30px;
-  text-align: center;
-}
+/* Tablet */
+@media (max-width: 900px){
+  #page-v-complete{
+    padding: 22px 0 34px;
+  }
 
-/* Logo now takes the circle’s place */
-#v-complete-logo{
-  max-width: 160px;     /* similar visual weight as circle */
-  max-height: 80px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-}
+  #v-complete-card{
+    width: min(560px, 94vw);
+  }
 
-/* =========================================================
-   (keep rest of your previous content CSS unchanged)
-   ========================================================= */
+  #v-complete-top{
+    padding: 28px 20px 24px;
+  }
 
-
-
-@media (max-width: 560px){
   #v-complete-body{
-    padding: 22px 20px 18px;
+    padding: 22px 24px 20px;
+  }
+
+  #v-complete-title{
+    font-size: 36px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 560px){
+  #page-v-complete{
+    min-height: calc(100vh - 64px); /* if navbar is shorter on mobile */
+    padding: 18px 0 26px;
+  }
+
+  #v-complete-top{
+    padding: 22px 16px 18px;
+  }
+
+  #v-complete-logo-img{
+    max-width: 140px;
+    max-height: 70px;
+  }
+
+  #v-complete-body{
+    padding: 20px 16px 18px;
+  }
+
+  #v-complete-hello{
+    font-size: 18px;
+    margin-bottom: 12px;
   }
 
   #v-complete-title{
     font-size: 32px;
+  }
+
+  #v-complete-text{
+    font-size: 13px;
   }
 
   #v-complete-footer{
@@ -195,4 +211,23 @@
     justify-content: center;
   }
 }
+
+/* Extra small phones */
+@media (max-width: 420px){
+  #v-complete-title{
+    font-size: 28px;
+  }
+
+  #v-complete-login-btn{
+    font-size: 15px;
+    padding: 13px 14px;
+  }
+
+  #v-complete-socials span{
+    width: 24px;
+    height: 24px;
+    border-radius: 7px;
+  }
+}
+
 

@@ -153,20 +153,128 @@
   background: #749EC1;
 }
 
-/* MOBILE */
+/* =========================
+   TABLET (smooth scaling)
+   ========================= */
+@media (max-width: 900px){
+  #checkout-success-main{
+    padding: 44px 18px;
+  }
+
+  #checkout-success-card{
+    padding: 32px 28px 28px;
+    min-height: auto;
+  }
+
+  #checkout-success-title{
+    font-size: 26px;
+  }
+
+  #checkout-success-subtitle{
+    font-size: 18px;
+  }
+
+  #checkout-success-element .cs-order-item{
+    font-size: 15px;
+    padding: 12px 14px;
+  }
+
+  #checkout-success-total{
+    font-size: 20px;
+  }
+}
+
+/* =========================
+   MOBILE (upgraded)
+   ========================= */
 @media (max-width: 600px) {
   #checkout-success-main {
-    padding: 32px 14px;
+    padding: 28px 12px;
   }
 
   #checkout-success-card {
     max-width: 100%;
-    padding: 24px;
+    padding: 22px 16px;
     border-radius: 14px;
   }
 
-  #cs-timer {
+  #checkout-success-title{
+    font-size: 22px;
+  }
+
+  #checkout-success-subtitle{
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+
+  #checkout-success-element .cs-divider{
+    margin: 18px 0;
+  }
+
+  /* Reduce squeeze: allow wrap + nicer spacing */
+  #checkout-success-element .cs-order-item{
+    gap: 12px;
+    font-size: 14px;
+    padding: 12px;
+    flex-wrap: wrap;
+  }
+
+  #checkout-success-element .cs-qty{
+    width: auto;
+    min-width: 34px;
+    font-size: 14px;
+  }
+
+  #checkout-success-element .cs-fee-row{
+    font-size: 13.5px;
+    margin: 8px 0;
+  }
+
+  #checkout-success-total{
+    font-size: 18px;
+  }
+
+  #cs-timer-box{
+    padding: 16px 16px;
+    border-radius: 14px;
+    margin: 18px 0 10px;
+  }
+
+  #cs-timer{
     font-size: 28px;
+    letter-spacing: 1px;
+  }
+
+  #cs-timer-note{
+    font-size: 13px;
+  }
+
+  #checkout-success-order-more-btn{
+    margin-top: 18px;
+    padding: 14px 16px;
+    font-size: 15px;
   }
 }
+
+/* =========================
+   EXTRA SMALL PHONES
+   ========================= */
+@media (max-width: 420px){
+  #checkout-success-card{
+    padding: 18px 12px;
+  }
+
+  #checkout-success-title{
+    font-size: 20px;
+  }
+
+  #cs-timer{
+    font-size: 26px;
+  }
+
+  #checkout-success-order-more-btn{
+    font-size: 14px;
+  }
+}
+
 

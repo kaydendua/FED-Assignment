@@ -125,3 +125,67 @@
     height: 380px;
   }
 }
+
+
+
+/* =========================================================
+   PHONE (clean mobile layout)
+   ========================================================= */
+@media (max-width: 768px){
+
+  #c-hero-container{
+    width: 94vw;
+    margin: 14px auto 18px;
+    padding: 26px 16px;
+    gap: 18px;
+    border-radius: 16px;
+  }
+
+  #c-hero-motto-small{
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  #c-hero-motto-title{
+    margin: 0 0 18px;
+    font-size: clamp(34px, 9.5vw, 52px);
+    line-height: 1.05;
+  }
+
+  /* Button more thumb-friendly */
+  #c-hero-signup-btn{
+    width: 100%;
+    max-width: 420px;
+    padding: 14px 18px;
+    font-size: 16px;
+  }
+
+  #c-hero-image-box{
+    height: min(320px, 40vh);
+    font-size: 16px;
+    border-radius: 14px;
+  }
+}
+
+/* =========================================================
+   EXTRA SMALL PHONES
+   ========================================================= */
+@media (max-width: 420px){
+
+  #c-hero-container{
+    padding: 22px 12px;
+  }
+
+  #c-hero-motto-title{
+    font-size: clamp(30px, 10vw, 44px);
+  }
+
+  #c-hero-image-box{
+    height: min(280px, 38vh);
+    font-size: 14px;
+  }
+}
+
+
+

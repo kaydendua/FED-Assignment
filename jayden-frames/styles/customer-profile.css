@@ -125,6 +125,7 @@
   gap: 22px;
   overflow-x: auto;
   padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* History cards (bigger) */
@@ -264,8 +265,9 @@
   }
 }
 
-/* ---------------- MOBILE ---------------- */
+/* ---------------- RESPONSIVE ---------------- */
 
+/* Tablet / medium screens */
 @media (max-width: 900px) {
   #page-profile #profile-top {
     flex-direction: column;
@@ -279,16 +281,90 @@
 
   #page-profile #profile-container {
     padding: 26px 22px 32px;
+    min-height: auto;
+  }
+
+  #page-profile #profile-history-row{
+    gap: 16px;
   }
 }
 
+/* Phone */
 @media (max-width: 520px) {
+  #page-profile #profile-container{
+    width: 94vw;
+    margin: 16px auto 24px;
+    padding: 20px 14px 24px;
+    border-radius: 18px;
+  }
+
+  #page-profile #profile-image-grid{
+    gap: 10px;
+  }
+
+  /* Make the image area feel less “tall” on phone */
+  #page-profile #profile-big-img{
+    min-height: 220px;
+  }
+
+  #page-profile .profile-small-img{
+    min-height: 105px;
+  }
+
   #page-profile #profile-username {
     font-size: 26px;
+    margin-bottom: 10px;
   }
 
   #page-profile #profile-desc {
     font-size: 14px;
+    line-height: 1.6;
+  }
+
+  #page-profile #profile-order-btn{
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+
+  #page-profile #profile-history-title{
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  #page-profile .profile-history-card{
+    min-width: 240px;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  #page-profile .profile-history-img{
+    height: 110px;
+    border-radius: 12px;
   }
 }
+
+/* Extra small phones */
+@media (max-width: 420px){
+  #page-profile #profile-container{
+    padding: 18px 12px 22px;
+  }
+
+  #page-profile #profile-username{
+    font-size: 24px;
+  }
+
+  #page-profile .profile-history-card{
+    min-width: 220px;
+  }
+
+  #page-profile .profile-history-card p{
+    font-size: 14px;
+  }
+
+  #page-profile .profile-history-img{
+    height: 100px;
+  }
+}
+
 
