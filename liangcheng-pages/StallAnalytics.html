@@ -14,24 +14,23 @@
             <img src="img/FED_LOGO.png" alt="Hawker Logo">
         </div>
         <div class="welcome-msg">
-            <h2>Welcome! Vendor Name</h2>
+            <h2>Welcome! <span id="header-name">Vendor</span></h2>
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="/liangcheng-pages/StallManagement.html">Stall Management</a></li>
-                <li><a href="/liangcheng-pages/StallAnalytics.html" class="active">Stall Analytics</a></li>
-                <li><a href="/liangcheng-pages/CustomerSatisfaction.html">Customer Satisfaction</a></li>
-                <li><a href="/liangcheng-pages/Profile.html">Profile</a></li>
+                <li><a href="StallManagement.html">Stall Management</a></li>
+                <li><a href="StallAnalytics.html" class="active">Stall Analytics</a></li>
+                <li><a href="CustomerSatisfaction.html">Customer Satisfaction</a></li>
+                <li><a href="Profile.html">Profile</a></li>
                 <li><a href="#" id="logout-btn">Logout</a></li>
             </ul>
         </nav>
     </header>
         
     <main class="contents">
-
         <section class="analytics-dashboard">
             <div class="top-section">
-        
+                
                 <div class="metrics-column">
                     <div class="current-sales">
                         <h3>Current Sales (This Month):</h3>
@@ -39,7 +38,7 @@
                     </div>
                     <div class="hygiene-grade">
                         <h3>Current Hygiene Grade:</h3>
-                        <div class="grade-box">A</div>
+                        <div class="grade-box" id="hygiene-grade-display">-</div>
                     </div>
                 </div>
 
@@ -55,7 +54,9 @@
             </div>
         </section>
     </main>
-    <script src="js/StallAnalytics.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script type="module" src="js/StallAnalytics.js"></script>
 </body>
 </html>

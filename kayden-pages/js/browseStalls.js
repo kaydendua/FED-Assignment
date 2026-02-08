@@ -53,6 +53,13 @@ function displayStalls(stallDoc) {
 
     const photoUrl = stall.img || '/img/image-not-found.png';
 
+    let averageRating = ""
+    if (stall.reviewCount === 0) {
+        averageRating = "N/A"
+    } else {
+        averageRating = `${stall.averageRating.toFixed(1)} ⭐`
+    }
+
     card.innerHTML = `
         <div class="stall-image-container">
             <div class="transparent-gradient"></div>
@@ -61,7 +68,7 @@ function displayStalls(stallDoc) {
         <div class="stall-info">
             <div class="stall-info-header">
                 <h3>${stall.name}</h3>
-                <p>${stall.averageRating.toFixed(1)} ⭐</p>
+                <p>${averageRating}</p>
             </div>
             <p>${stall.description}</p>
         </div>

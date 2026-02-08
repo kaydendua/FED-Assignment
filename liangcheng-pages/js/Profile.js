@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getFirestore, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-// --- 1. CONFIGURATION ---
+// CONFIGURATION & SETUP
 const firebaseConfig = {
     apiKey: "AIzaSyDTYTjyaAt1FwKbHmZX1A1kiayskiFRBUw",
     authDomain: "fed-assignment-f0cd8.firebaseapp.com",
@@ -15,23 +15,20 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// --- 2. AUTHENTICATION CHECK ---
+// AUTHENTICATION & PATHS
 const vendorId = localStorage.getItem("vendorId");
 
 if (!vendorId) {
-    alert("You are not logged in! Redirecting...");
-    window.location.href = "../jayden-frames/v-login.html"; // Adjust path if needed
+    window.location.href = "../jayden-frames/v-login.html"; 
     throw new Error("No vendor ID found.");
 }
 
-// Reference to the Vendor's Document
 const vendorRef = doc(db, "vendor", vendorId);
 
-
-// --- 3. MAIN LOGIC ---
+// MAIN LOGIC
 document.addEventListener("DOMContentLoaded", async () => {
 
-    // --- LOGOUT LOGIC ---
+    // Logout Logic
     const logoutBtn = document.getElementById("logout-btn");
     if (logoutBtn) {
         logoutBtn.addEventListener("click", (e) => {
@@ -43,120 +40,110 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
-    // --- FUNCTION: LOAD DATA ---
+    // Load Profile Data
     async function loadProfile() {
-        console.log("Fetching profile for:", vendorId);
         try {
             const docSnap = await getDoc(vendorRef);
 
             if (docSnap.exists()) {
                 const data = docSnap.data();
                 
-                // 1. Update Header Name
+                // Header
                 const headerName = document.getElementById("header-name");
                 if (headerName) headerName.textContent = data.name;
 
-                // 2. Update Fields Helper Function
+                // Editable Fields
                 updateField("name", data.name);
-                updateField("nric", data.nric, true); // Read-only
-                updateField("contact", data.contactNumber); // Note: DB field is contactNumber
-                updateField("email", data.emailAddress || data.email); // Handle both namings
-                updateField("location", data.stallLocation || data.location);
-                updateField("password", data.password);
+                updateField("contact", data.contactNumber); 
 
+                // Read-Only Fields (Just Text)
+                document.getElementById("nric-display").textContent = data.nric || "N/A";
+                document.getElementById("email-display").textContent = data.email || data.emailAddress || "N/A";
+                document.getElementById("location-display").textContent = data.location || data.stallLocation || "N/A";
+
+                // Password (Special Handling)
+                const pwDisplay = document.getElementById("password-display");
+                pwDisplay.textContent = "••••••••"; // Default Mask
+                pwDisplay.dataset.realPassword = data.password; // Store real password secretly in HTML
+                
             } else {
-                console.log("No such document!");
-                alert("Vendor profile not found in database.");
+                alert("Vendor profile not found.");
             }
         } catch (error) {
-            console.error("Error getting document:", error);
-            alert("Error loading profile: " + error.message);
+            console.error("Error loading:", error);
         }
     }
 
-    // Helper to update HTML elements safely
-    function updateField(prefix, value, isReadOnly = false) {
+    function updateField(prefix, value) {
         const display = document.getElementById(`${prefix}-display`);
         const input = document.getElementById(`${prefix}-input`);
-        
-        if (display) display.textContent = value || "N/A";
+        if (display) display.textContent = value || "";
         if (input) input.value = value || "";
     }
 
-    // Load data immediately
     loadProfile();
 
+    // PASSWORD SHOW/HIDE LOGIC
+    const toggleBtn = document.getElementById("toggle-pw-btn");
+    
+    toggleBtn.addEventListener("click", () => {
+        const pwDisplay = document.getElementById("password-display");
+        const realPassword = pwDisplay.dataset.realPassword;
 
-    // --- FUNCTION: HANDLE EDIT/SAVE ---
+        if (pwDisplay.textContent === "••••••••") {
+            // Show Password
+            pwDisplay.textContent = realPassword;
+            toggleBtn.textContent = "Hide";
+        } else {
+            // Hide Password
+            pwDisplay.textContent = "••••••••";
+            toggleBtn.textContent = "Show";
+        }
+    });
+
+    // EDIT/SAVE LOGIC (Only for Name & Contact)
     const editButtons = document.querySelectorAll(".edit-btn");
 
     editButtons.forEach(btn => {
         btn.addEventListener("click", async () => {
-            // Find the parent container (info-field)
             const fieldDiv = btn.closest(".info-field");
-            if (!fieldDiv) return; // Guard clause
-
             const textSpan = fieldDiv.querySelector(".info-text");
             const input = fieldDiv.querySelector(".info-input");
-            
-            // Get the database field name from HTML (data-field="...")
             const fieldName = btn.getAttribute("data-field");
-            if (!fieldName) return; // Skip if no field name
 
-            const isPassword = fieldName === "password";
-
-            // --- EDIT MODE ---
+            // Edit Mode
             if (btn.textContent === "Edit") {
                 textSpan.style.display = "none";
                 input.style.display = "block";
-                
-                if (isPassword) {
-                    input.type = "text"; // Show password while editing
-                }
-
                 input.focus();
                 btn.textContent = "Save";
             } 
-            
-            // --- SAVE MODE ---
+            // Save Mode
             else {
                 const newValue = input.value;
                 btn.textContent = "Saving...";
                 btn.disabled = true;
 
                 try {
-                    // Create update object
                     const updateData = {};
                     updateData[fieldName] = newValue;
 
-                    // Send to Firebase
                     await updateDoc(vendorRef, updateData);
 
-                    // Update UI on success
-                    if (isPassword) {
-                        textSpan.textContent = "••••••••"; 
-                        input.type = "password"; 
-                    } else {
-                        textSpan.textContent = newValue;
-                    }
-
-                    // Update Welcome Message if Name changed
+                    textSpan.textContent = newValue;
                     if (fieldName === "name") {
-                        const headerName = document.getElementById("header-name");
-                        if (headerName) headerName.textContent = newValue;
-                        // Also update localStorage so other pages see the new name
+                        document.getElementById("header-name").textContent = newValue;
                         localStorage.setItem("vendorName", newValue);
                     }
 
                     textSpan.style.display = "block";
                     input.style.display = "none";
                     btn.textContent = "Edit";
-                    alert("Profile updated!");
 
                 } catch (error) {
                     console.error("Error updating:", error);
-                    alert("Failed to save: " + error.message);
-                    btn.textContent = "Save"; 
+                    alert("Failed to save.");
+                    btn.textContent = "Save";
                 } finally {
                     btn.disabled = false;
                 }

@@ -87,6 +87,22 @@
     outline: none;
 }
 
+.show-btn {
+    background: none;
+    border: 1px solid #749EC1;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #28587B;
+    transition: background-color 0.3s;
+}
+
+.show-btn:hover {
+    background-color:#4988BB;
+    color: #FAF9F9;
+}
+
 @media (max-width: 768px) {
     .profile-layout {
         grid-template-columns: 1fr;
