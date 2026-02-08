@@ -43,3 +43,12 @@ export async function getCurrentUser() {
   }
   return currentUser;
 }
+
+export function waitForAuthUser() {
+  return new Promise((resolve) => {
+    const unsub = onAuthStateChanged(auth, (user) => {
+      unsub();
+      resolve(user); // user is either a real user OR null
+    });
+  });
+}

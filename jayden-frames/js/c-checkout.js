@@ -71,51 +71,32 @@ document.addEventListener("DOMContentLoaded", () => {
   finalTotalText.textContent = `$${finalTotal.toFixed(2)}`;
   totalPriceText.textContent = `$${finalTotal.toFixed(2)}`;
 
-  // ===============================
-  // PLACE ORDER
-  // ===============================
   placeOrderBtn.addEventListener("click", () => {
-    const address = addressInput.value.trim();
-    const addressDetail = addressDetailInput.value.trim();
+  const address = addressInput.value.trim();
+  const addressDetail = addressDetailInput.value.trim();
 
-    if (!address || !addressDetail) {
-      alert("Please fill in your delivery address details.");
-      return;
-    }
+  if (!address || !addressDetail) {
+    alert("Please fill in your delivery address details.");
+    return;
+  }
 
-    placeOrderBtn.disabled = true;
-    placeOrderBtn.textContent = "Placing order...";
+  // ✅ Save cart in the key your payment page expects
+  localStorage.setItem("cartItems", JSON.stringify(cart));
 
-    setTimeout(() => {
-      alert(
-        `Order placed successfully!\n\n` +
-        `Items: ${cart.length}\n` +
-        `Subtotal: $${subtotal.toFixed(2)}\n` +
-        `Delivery: $${DELIVERY_FEE.toFixed(2)}\n` +
-        `GST (9%): $${gstAmount.toFixed(2)}\n\n` +
-        `Total Paid: $${finalTotal.toFixed(2)}`
-      );
-
-      // Clear cart after success
-      localStorage.removeItem("cart");
-
-      // Redirect if needed
-      // window.location.href = "checkout-success.html";
-
-      placeOrderBtn.textContent = "Order placed ✓";
-    }, 1500);
-  });
-
-  document.getElementById("co-place-order-btn").addEventListener("click", () => {
-  // Get final total
+  // ✅ Save total for payment page
   const total = document.getElementById("co-total-final").innerText;
-
-  // Save total so payment page can read it
   localStorage.setItem("checkoutTotal", total);
 
-  // Go to payment page
+  // ✅ Save delivery details (optional but useful for Firestore order)
+  localStorage.setItem("deliveryAddress", JSON.stringify({
+    address,
+    addressDetail
+  }));
+
+  // ✅ Go to payment page
   window.location.href = "c-payment.html";
 });
+
 
   // ===============================
   // NAV PLACEHOLDERS
