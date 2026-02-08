@@ -159,8 +159,8 @@
 
 .directions-btn {
     padding: 0.5rem 1rem;
-    background: #28a745;
-    color: white;
+    background: #C9D0DC;
+    color: #1C0F13;
     text-decoration: none;
     border-radius: 6px;
     font-size: 0.9rem;
@@ -170,7 +170,7 @@
 }
 
 .directions-btn:hover {
-    background: #218838;
+    background: #749EC1;
 }
 
 .view-stalls-btn {
