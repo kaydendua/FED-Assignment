@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     orderMoreBtn.addEventListener("click", () => {
       // Optional: clear order id so it won't show old order next time
       // localStorage.removeItem("lastOrderId");
-      window.location.href = "restaurants.html"; // change to your real page
+      window.location.href = "../../kayden-pages/search.html"; // change to your real page
     });
   }
 
