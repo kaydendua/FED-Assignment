@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (signupBtn) {
     signupBtn.addEventListener("click", () => {
       // Default signup path (customer)
-      window.location.href = "customer-signup.html";
+      window.location.href = "c-signup-questions.html";
     });
   }
 
