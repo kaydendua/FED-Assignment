@@ -1,19 +1,21 @@
-/* ===== PALETTE ===== */
+/* ===== PALETTE (match vendor/hero/checkout) ===== */
 :root{
   --ink: #1C0F13;
-  --navy: #28587B;
-  --bg: #C9D0DC;
-  --card: #F6ECF4;
-  --paper: #FAF9F9;
-  --shadow: 2px 2px 6px rgba(40, 88, 123, 0.55);
-  --radius: 12px;
+  --navy: #2E5F82;                 /* match navbar/button blue */
+  --bg: #CFD8E4;                   /* light blue/grey background */
+  --card: #F7EEF6;                 /* soft pink/lavender card */
+  --paper: #FFFFFF;                /* clean white */
+  --border: rgba(0,0,0,0.12);      /* subtle borders like vendor */
+  --shadow: 0 14px 30px rgba(0,0,0,0.14);
+  --shadow-soft: 0 6px 14px rgba(0,0,0,0.08);
+  --radius: 18px;                  /* vendor style roundness */
 }
 
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
 html, body{
@@ -34,24 +36,24 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px;
+  padding: 26px 0 40px; /* like vendor pages */
 }
 
-/* ===== CARD (pink box like screenshot) ===== */
+/* ===== CARD (pink box like vendor/checkout) ===== */
 #loginCard{
-  width: min(1100px, 100%);
-  min-height: 520px;
-
+  width: min(1200px, 94vw);        /* wider like vendor cards */
+  min-height: 560px;               /* taller / more “present” */
   background: var(--card);
   border-radius: var(--radius);
+  border: 1px solid rgba(0,0,0,0.08);
   box-shadow: var(--shadow);
 
   display: flex;
   align-items: stretch;
   justify-content: space-between;
 
-  padding: 35px;
-  gap: 30px;
+  padding: 54px 60px;              /* cleaner, bigger spacing */
+  gap: 44px;
 }
 
 /* ===== LEFT SIDE ===== */
@@ -63,40 +65,43 @@ body{
 }
 
 #loginIn{
-  margin-bottom: 18px;
+  margin-bottom: 22px;
 }
 
 #loginIn h2{
-  font-size: 34px;
+  font-size: 44px;                 /* vendor-like headline size */
   color: var(--ink);
-  font-weight: 700;
+  font-weight: 1000;
+  letter-spacing: 0.3px;
 }
 
 /* ===== divider ===== */
 #divider{
-  width: 1px;
-  background: rgba(28, 15, 19, 0.25);
+  width: 2px;
+  background: rgba(0,0,0,0.10);    /* subtle like vendor divider */
   border-radius: 2px;
 }
 
 /* ===== inputs ===== */
 .inputGroup{
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .inputGroup input{
   width: 100%;
   padding: 14px 16px;
-  border: none;
-  border-radius: 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
   background: var(--paper);
-  box-shadow: var(--shadow);
-  font-size: 16px;
+  box-shadow: var(--shadow-soft);
+  font-size: 15px;
+  font-weight: 700;
   outline: none;
 }
 
 .inputGroup input::placeholder{
-  color: rgba(28, 15, 19, 0.6);
+  color: rgba(28, 15, 19, 0.55);
+  font-weight: 700;
 }
 
 /* ===== checkbox ===== */
@@ -104,41 +109,44 @@ body{
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 8px 0 22px;
+  margin: 6px 0 20px;
   font-size: 15px;
+  font-weight: 800;
+  color: rgba(28, 15, 19, 0.78);
 }
 
 .checkboxGroup input[type="checkbox"]{
-  transform: scale(1.2);
+  transform: scale(1.15);
   transform-origin: center;
 }
 
-/* ===== button ===== */
+/* ===== button (match vendor pill button style) ===== */
 #loginBtn{
-  width: 260px;
+  width: min(340px, 100%);
   padding: 14px 18px;
   border: none;
-  border-radius: 30px;
+  border-radius: 999px;
   background: var(--navy);
-  color: var(--paper);
+  color: #FFFFFF;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 1000;
   cursor: pointer;
-  margin: 0 auto;
+  margin: 10px auto 0;
   display: block;
-  box-shadow: var(--shadow);
+  box-shadow: 0 12px 22px rgba(46,95,130,0.22);
 }
 
 #loginBtn:hover{
-  filter: brightness(1.05);
+  filter: brightness(1.06);
 }
 
 /* ===== contact text ===== */
 #contactHr{
-  margin-top: 22px;
-  font-size: 15px;
+  margin-top: 16px;
+  font-size: 14px;
   text-align: center;
-  opacity: 0.9;
+  font-weight: 800;
+  color: rgba(28,15,19,0.72);
 }
 
 /* ===== RIGHT SIDE (logo box) ===== */
@@ -149,24 +157,29 @@ body{
   align-items: center;
 }
 
-/* Make the logo sit inside a white “inner card” like screenshot */
+/* White “inner card” (match vendor) */
 #logoSection h1{
   width: 100%;
   height: 100%;
-  min-height: 380px;
+  min-height: 420px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
   background: var(--paper);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  padding: 26px;
 }
 
 #logoSection img{
-  max-width: 240px;
+  max-width: 320px; /* larger, like vendor logo panel */
+  max-height: 320px;
+  width: auto;
   height: auto;
+  object-fit: contain;
 }
 
 /* ===== password toggle ===== */
@@ -175,30 +188,30 @@ body{
 }
 
 .passwordGroup input{
-  padding-right: 80px; /* room for the button */
+  padding-right: 92px; /* room for the button */
 }
 
 .toggle-password{
   position: absolute;
-  right: 12px;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  background: none;
-  border: none;
+  background: rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.08);
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 700;
-  color: rgba(28, 15, 19, 0.7);
+  font-size: 13px;
+  font-weight: 900;
+  color: rgba(28, 15, 19, 0.70);
   padding: 6px 10px;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .toggle-password:hover{
-  background: rgba(40, 88, 123, 0.12);
+  background: rgba(46,95,130,0.10);
   color: var(--navy);
 }
 
-/* ===== Dropdown menu (keep your tags, match theme) ===== */
+/* ===== Dropdown menu (keep tags, match vendor theme) ===== */
 #loginDropdown{
   position: relative;
 }
@@ -210,8 +223,9 @@ body{
   margin-top: 10px;
 
   background: var(--paper);
-  border-radius: 10px;
-  box-shadow: var(--shadow);
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.10);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.18);
 
   padding: 10px 0;
   min-width: 180px;
@@ -224,109 +238,33 @@ body{
   display: block;
   padding: 10px 16px;
   font-size: 14px;
+  font-weight: 700;
 }
 
 #loginMenu a:hover{
-  background: var(--card);
+  background: #F6ECF4;
   color: var(--navy);
 }
 
-/* =========================
-   PHONE VERSION (MEDIA QUERY)
-   ========================= */
-@media (max-width: 600px){
-
-  /* Wrapper: less padding so card fits */
-  #contentWrapper{
-    padding: 14px;
-    align-items: flex-start; /* prevents vertical squish */
-  }
-
-  /* Card: stack vertically instead of 2 columns */
+/* ===== Responsive ===== */
+@media (max-width: 980px){
   #loginCard{
     flex-direction: column;
-    gap: 18px;
-    padding: 18px;
+    padding: 38px 26px;
+    gap: 24px;
     min-height: auto;
   }
 
-  /* Divider: hide on phone */
   #divider{
-    display: none;
-  }
-
-  /* Headings: smaller */
-  #loginIn h2{
-    font-size: 26px;
-  }
-
-  /* Inputs: slightly tighter */
-  .inputGroup input{
-    padding: 12px 14px;
-    font-size: 15px;
-    border-radius: 12px;
-  }
-
-  /* Checkbox row: slightly smaller */
-  .checkboxGroup{
-    font-size: 14px;
-    margin: 6px 0 16px;
-  }
-
-  .checkboxGroup input[type="checkbox"]{
-    transform: scale(1.1);
-  }
-
-  /* Button: full width on phone */
-  #loginBtn{
     width: 100%;
-    max-width: 420px;
-    border-radius: 999px;
-    padding: 13px 16px;
-    font-size: 15px;
+    height: 2px;
   }
 
-  /* Contact text */
-  #contactHr{
-    font-size: 14px;
-    margin-top: 16px;
-  }
-
-  /* Logo section: move ABOVE or BELOW form nicely */
-  #logoSection{
-    order: -1; /* put logo at top on phone (remove if you want it at bottom) */
-  }
-
-  /* Logo box: shorter height */
   #logoSection h1{
-    min-height: 180px;
-    border-radius: 14px;
+    min-height: 320px;
   }
 
-  #logoSection img{
-    max-width: 160px;
-  }
-
-  /* Password toggle: smaller, tighter */
-  .passwordGroup input{
-    padding-right: 72px;
-  }
-
-  .toggle-password{
-    right: 10px;
-    font-size: 13px;
-    padding: 5px 8px;
-  }
-
-  /* Dropdown: stay inside screen */
-  #loginMenu{
-    min-width: 160px;
-    max-width: 85vw;
-    right: 0;
-  }
-
-  #loginMenu a{
-    padding: 12px 16px; /* easier tapping */
-    font-size: 14px;
+  #loginIn h2{
+    font-size: 36px;
   }
 }

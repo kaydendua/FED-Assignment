@@ -6,34 +6,46 @@
   <title>Menu</title>
 
   <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/pages.css">
+  <link rel="stylesheet" href="../jayden-frames/styles/layout-stall.css">
+  <link rel="stylesheet" href="../jayden-frames/styles/stallmenu.css">
 </head>
 
 <body id="page-menu">
 
-  <!-- NAVBAR (same style as your other pages) -->
+  <!-- ================= NAVBAR ================= -->
   <header class="navbar">
+
+    <!-- LEFT -->
     <div class="nav-left">
-      <button class="menu-btn" id="menu-menu-btn">☰<br>Menu</button>
-      <div class="logo">
-        LOGO LOGO LOGO<br>
-        LOGO LOGO LOGO
+      <button class="menu-btn" id="menu-menu-btn" type="button">
+        <span>☰</span>
+        <span>Menu</span>
+      </button>
+
+      <div id="logoArea">
+        <img src="../img/FED_LOGO.png" alt="Website Logo">
       </div>
     </div>
 
-    <div class="nav-center">Website Name</div>
+    <!-- CENTER -->
+    <div id="siteName">HawkerCentral</div>
 
+    <!-- RIGHT -->
     <div class="nav-right">
-      <button id="menu-cart-btn" class="nav-link-btn" type="button">
+      <button id="menu-cart-btn" type="button">
         Cart <span id="menu-cart-count" class="badge">0</span>
       </button>
-    </div>
-  </header>
 
-  <!-- PAGE -->
+      <a href="#" id="co-avatar">JO</a>
+    </div>
+
+  </header>
+  <!-- ========================================== -->
+
+  <!-- ================= PAGE CONTENT (ORIGINAL) ================= -->
   <main id="menu-container">
 
+    <!-- HEADER CARD -->
     <section id="menu-header-card">
       <h1 id="menu-title">Menu</h1>
       <p id="menu-subtitle">Choose your items and add to cart.</p>
@@ -44,17 +56,18 @@
       </div>
     </section>
 
-    <!-- GRID -->
+    <!-- MENU GRID -->
     <section id="menu-grid">
       <!-- Cards inserted by JS -->
     </section>
 
-    <!-- Empty state -->
+    <!-- EMPTY STATE -->
     <p id="menu-empty" style="display:none;">No menu items found.</p>
 
   </main>
+  <!-- =========================================================== -->
 
-  <!-- CART PANEL (hidden by default) -->
+  <!-- ================= CART PANEL (ORIGINAL) ================= -->
   <aside id="cart-panel" aria-hidden="true">
     <div id="cart-panel-inner">
 
@@ -79,8 +92,11 @@
 
     </div>
   </aside>
+  <!-- ========================================================== -->
 
-  <!-- IMPORTANT: module script -->
   <script type="module" src="js/c-menu.js"></script>
 </body>
 </html>
+
+
+

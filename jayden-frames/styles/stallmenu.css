@@ -1,0 +1,355 @@
+/* =========================================
+   STALL MENU (C-MENU) — BIGGER + PRETTIER
+   Pink cards + Blue background (Navbar ignored)
+========================================= */
+
+/* Blue-ish background */
+#page-menu {
+  background: #C9D0DC;
+  min-height: 100vh;
+}
+
+/* Wider page + more breathing room */
+#page-menu #menu-container {
+  max-width: 1280px;        /* bigger than before */
+  margin: 0 auto;
+  padding: 56px 28px 90px;
+  box-sizing: border-box;
+}
+
+/* ================= HEADER CARD ================= */
+#page-menu #menu-header-card {
+  background: #F6ECF4;
+  border: 1px solid rgba(28, 15, 19, 0.12);
+  border-radius: 18px;
+  padding: 28px 30px;
+  margin-bottom: 22px;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
+}
+
+#page-menu #menu-title {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 900;
+  color: #1C0F13;
+  letter-spacing: 0.2px;
+}
+
+#page-menu #menu-subtitle {
+  margin: 10px 0 16px;
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(28, 15, 19, 0.72);
+}
+
+#page-menu #menu-vendor-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  font-weight: 800;
+  color: #28587B;
+}
+
+/* ================= BIGGER GRID ================= */
+/* Make cards larger: 2 columns on desktop */
+#page-menu #menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* BIGGER cards */
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* ================= MENU CARD ================= */
+#page-menu .menu-card {
+  background: #F6ECF4;
+  border: 1px solid rgba(28, 15, 19, 0.12);
+  border-radius: 20px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+#page-menu .menu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.24);
+}
+
+/* Bigger image */
+#page-menu .menu-img {
+  width: 100%;
+  height: 230px;            /* was 160-170 */
+  background: rgba(250, 249, 249, 0.8);
+  object-fit: cover;
+}
+
+/* Bigger content spacing */
+#page-menu .menu-card-body {
+  padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Bigger title */
+#page-menu .menu-name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 900;
+  color: #1C0F13;
+  line-height: 1.2;
+}
+
+/* Price row */
+#page-menu .menu-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+
+#page-menu .menu-price {
+  font-weight: 900;
+  font-size: 18px;
+  color: #1C0F13;
+}
+
+/* More premium blue button */
+#page-menu .menu-add-btn {
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: none;
+
+  background: #4988BB;
+  color: #FAF9F9;
+
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.18);
+}
+
+#page-menu .menu-add-btn:hover {
+  background: #749EC1;
+}
+
+/* ================= CART PANEL ================= */
+#page-menu #cart-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 430px;             /* wider */
+  max-width: 94vw;
+  height: 100vh;
+  background: rgba(28, 15, 19, 0.32);
+  display: none;
+  justify-content: flex-end;
+  z-index: 999;
+}
+
+#page-menu #cart-panel.open {
+  display: flex;
+}
+
+#page-menu #cart-panel-inner {
+  width: 100%;
+  height: 100%;
+  background: #F6ECF4;
+  border-left: 1px solid rgba(28, 15, 19, 0.14);
+  padding: 18px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cart top */
+#page-menu #cart-panel-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+#page-menu #cart-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 900;
+  color: #1C0F13;
+}
+
+#page-menu #cart-close-btn {
+  border: none;
+  background: rgba(250, 249, 249, 0.9);
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 10px 12px;
+  font-weight: 900;
+}
+
+#page-menu #cart-close-btn:hover {
+  background: #FAF9F9;
+}
+
+/* Cart items */
+#page-menu #cart-items {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-right: 2px;
+}
+
+#page-menu .cart-item {
+  background: rgba(250, 249, 249, 0.88);
+  border: 1px solid rgba(28, 15, 19, 0.12);
+  border-radius: 16px;
+  padding: 14px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+#page-menu .cart-item-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  object-fit: cover;
+  background: rgba(250, 249, 249, 0.9);
+}
+
+#page-menu .cart-item-name {
+  margin: 0 0 4px;
+  font-weight: 900;
+  font-size: 14px;
+  color: #1C0F13;
+}
+
+#page-menu .cart-item-meta {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(28, 15, 19, 0.72);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Qty */
+#page-menu .qty-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  border: 1px solid rgba(28, 15, 19, 0.22);
+  background: #FAF9F9;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+#page-menu .qty-btn:hover {
+  background: #ffffff;
+}
+
+#page-menu .remove-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 800;
+  text-decoration: underline;
+  color: #28587B;
+}
+
+/* Cart summary */
+#page-menu #cart-summary {
+  border-top: 1px solid rgba(28, 15, 19, 0.16);
+  padding-top: 14px;
+  margin-top: 14px;
+}
+
+#page-menu .cart-row {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 900;
+  font-size: 14px;
+  color: #1C0F13;
+  margin-bottom: 12px;
+}
+
+#page-menu #cart-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Clear */
+#page-menu #cart-clear-btn {
+  flex: 1;
+  padding: 14px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(28, 15, 19, 0.22);
+  background: rgba(250, 249, 249, 0.9);
+  cursor: pointer;
+  font-weight: 900;
+}
+
+#page-menu #cart-clear-btn:hover {
+  background: #FAF9F9;
+}
+
+/* Checkout */
+#page-menu #cart-checkout-btn {
+  flex: 1;
+  padding: 14px 12px;
+  border-radius: 14px;
+  border: none;
+  background: #4988BB;
+  color: #FAF9F9;
+  cursor: pointer;
+  font-weight: 900;
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.18);
+}
+
+#page-menu #cart-checkout-btn:hover {
+  background: #749EC1;
+}
+
+/* ================= RESPONSIVE ================= */
+/* On medium screens, keep 2 columns but tighter */
+@media (max-width: 980px) {
+  #page-menu #menu-container {
+    padding: 38px 18px 80px;
+  }
+
+  #page-menu #menu-grid {
+    gap: 16px;
+  }
+
+  #page-menu .menu-img {
+    height: 210px;
+  }
+}
+
+/* Mobile: 1 column, still big */
+@media (max-width: 640px) {
+  #page-menu #menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #page-menu #menu-title {
+    font-size: 26px;
+  }
+
+  #page-menu .menu-img {
+    height: 200px;
+  }
+
+  #page-menu #cart-panel {
+    width: 92vw;
+  }
+}
+

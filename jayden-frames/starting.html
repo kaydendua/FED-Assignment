@@ -6,44 +6,69 @@
   <title>HawkerCentral</title>
 
   <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/pages.css">
+  <link rel="stylesheet" href="../jayden-frames/styles/starting-layout.css">
+  <link rel="stylesheet" href="../jayden-frames/styles/starting.css">
 </head>
 
 <body id="page-start">
 
-  <!-- Shared Navbar -->
+  <!-- ================= NAVBAR ================= -->
   <header class="navbar">
+
+    <!-- LEFT: Menu + Logo -->
     <div class="nav-left">
-      <div id="start-menu-icon">☰ Menu</div>
+      <div id="start-menu-icon">
+        ☰ Menu
+        <img
+          id="start-nav-logo"
+          src="../img/FED_LOGO.png"
+          alt="HawkerCentral Logo"
+        >
+      </div>
     </div>
 
-    <div class="nav-center">Website Name</div>
+    <!-- CENTER: Website Name -->
+    <div class="nav-center">
+      Website Name
+    </div>
 
+    <!-- RIGHT: Login Dropdown -->
     <div class="nav-right">
       <div id="start-login-dropdown">
         Log in here! ▼
+
         <div id="start-dropdown-content">
-          <a href="#">NEA Officer</a>
-          <a href="#">Vendor</a>
-          <a href="#">Customer</a>
+          <a href="#">Customer Login</a>
+          <a href="#">Vendor Login</a>
+          <a href="#">Officer Login</a>
         </div>
+
       </div>
     </div>
-  </header>
 
-  <!-- Main Section -->
+  </header>
+  <!-- ========================================== -->
+
+  <!-- ================= MAIN ================= -->
   <main id="start-main">
+
     <div id="start-video-container">
-      <video autoplay muted loop>
-        <source src="">
+      <video autoplay muted loop playsinline>
+        <source src="" type="video/mp4">
         Your browser does not support this video format
       </video>
     </div>
 
-    <h1 id="start-motto">With us, everything is good</h1>
-  </main>
+    <h1 id="start-motto">
+      With us, everything is good
+    </h1>
 
+  </main>
+  <!-- ======================================== -->
+
+  <!-- JS -->
   <script src="../jayden-frames/js/starting.js"></script>
+
 </body>
 </html>
+

@@ -1,0 +1,158 @@
+/* =========================
+   NAVBAR (DARK BLUE THEME)
+========================= */
+
+.navbar {
+  height: 80px;
+  background: #28587B; /* darker blue */
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Ensure clean sizing */
+.navbar,
+.navbar * {
+  box-sizing: border-box;
+}
+#logoArea {
+  display: flex;
+  align-items: center;
+}
+
+#logoArea img {
+  max-height: 55px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* =========================
+   LEFT
+========================= */
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Menu button */
+.menu-btn {
+  background: none;
+  border: none;
+  color: #FAF9F9;
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+.menu-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* =========================
+   LOGO IMAGE
+========================= */
+
+.nav-left .logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-left .logo img {
+  max-height: 48px;     /* fits inside 80px navbar */
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* =========================
+   CENTER (TRUE CENTER)
+========================= */
+
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #FAF9F9;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+}
+
+/* =========================
+   RIGHT
+========================= */
+
+.nav-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Nav links */
+.nav-link {
+  color: #FAF9F9;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+/* Hover */
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+/* Active page */
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.28);
+  font-weight: 900;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 18px;
+  }
+
+  .nav-left {
+    gap: 12px;
+  }
+
+  .nav-left .logo img {
+    max-height: 42px; /* slightly smaller on mobile */
+  }
+
+  .nav-center {
+    font-size: 20px;
+  }
+
+  .nav-right {
+    gap: 10px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+}

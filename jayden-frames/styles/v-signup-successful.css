@@ -1,0 +1,198 @@
+/* =========================================================
+   VENDOR SIGNUP SUCCESS — HERO/CHECKOUT VIBE
+   + logo image fits nicely
+   ========================================================= */
+
+#page-v-complete{
+  min-height: calc(100vh - 80px);
+  background: #CFD8E4;
+  padding: 28px 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#v-complete-container{
+  width: min(1200px, 92vw);
+  display: flex;
+  justify-content: center;
+}
+
+#v-complete-card{
+  width: min(560px, 92vw);
+  background: #F7EEF6;
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.14);
+  overflow: hidden;
+}
+
+/* TOP AREA */
+#v-complete-top{
+  background: rgba(0,0,0,0.06);
+  padding: 34px 26px 22px;
+  text-align: center;
+}
+
+#v-complete-circle{
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.12);
+  margin: 0 auto 14px;
+}
+
+/* CHANGED: logo container now holds an image */
+#v-complete-logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* The logo image itself */
+#v-complete-logo-img{
+  max-width: 140px;     /* adjust if you want bigger */
+  max-height: 54px;     /* fits nicely like navbar */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* BODY */
+#v-complete-body{
+  padding: 26px 34px 22px;
+  text-align: center;
+}
+
+#v-complete-hint{
+  margin: 0 0 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(28,15,19,0.70);
+}
+
+#v-complete-hello{
+  margin: 0 0 18px;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+#v-complete-title{
+  margin: 0 0 14px;
+  font-size: 40px;
+  font-weight: 1000;
+  line-height: 1.08;
+}
+
+#v-complete-text{
+  margin: 0 0 14px;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(28,15,19,0.82);
+  line-height: 1.45;
+}
+
+#v-complete-activate{
+  margin: 10px 0 18px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.6px;
+}
+
+/* BUTTON */
+#v-complete-login-btn{
+  width: 100%;
+  background: #2E5F82;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 16px;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 10px 18px rgba(46,95,130,0.22);
+}
+
+#v-complete-login-btn:hover{
+  filter: brightness(1.06);
+}
+
+/* FOOTER */
+#v-complete-footer{
+  background: rgba(0,0,0,0.06);
+  padding: 14px 18px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1.2fr;
+  gap: 10px;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(28,15,19,0.8);
+}
+
+#v-complete-socials{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#v-complete-socials span{
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(0,0,0,0.12);
+  font-weight: 900;
+}
+
+/* =========================================================
+   TOP LOGO — replaces grey circle completely
+   ========================================================= */
+
+#v-complete-top{
+  background: rgba(0,0,0,0.06);
+  padding: 34px 26px 30px;
+  text-align: center;
+}
+
+/* Logo now takes the circle’s place */
+#v-complete-logo{
+  max-width: 160px;     /* similar visual weight as circle */
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   (keep rest of your previous content CSS unchanged)
+   ========================================================= */
+
+
+
+@media (max-width: 560px){
+  #v-complete-body{
+    padding: 22px 20px 18px;
+  }
+
+  #v-complete-title{
+    font-size: 32px;
+  }
+
+  #v-complete-footer{
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  #v-complete-socials{
+    justify-content: center;
+  }
+}
+
