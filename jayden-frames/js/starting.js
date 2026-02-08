@@ -1,5 +1,5 @@
 // ===============================
-// Starting Page JavaScript
+// Starting Page JavaScript (FIXED)
 // ===============================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginDropdown = document.getElementById("start-login-dropdown");
   const dropdownContent = document.getElementById("start-dropdown-content");
 
-  // Safety check (prevents errors if IDs are missing)
   if (!menuIcon || !loginDropdown || !dropdownContent) {
     console.error("Missing element(s): check your IDs in the HTML.");
     return;
@@ -18,36 +17,50 @@ document.addEventListener("DOMContentLoaded", () => {
     alert("Menu clicked (open navigation / sidebar here)");
   });
 
-  // Login dropdown toggle
+  // Toggle dropdown (use hidden instead of style.display)
+  dropdownContent.hidden = true;
+
   loginDropdown.addEventListener("click", (e) => {
     e.stopPropagation();
-    const isOpen = dropdownContent.style.display === "block";
-    dropdownContent.style.display = isOpen ? "none" : "block";
+    dropdownContent.hidden = !dropdownContent.hidden;
   });
 
   // Close dropdown when clicking outside
-  document.addEventListener("click", () => {
-    dropdownContent.style.display = "none";
+  document.addEventListener("click", (e) => {
+  // If click is NOT inside the dropdown or the button → close it
+  if (
+    !loginDropdown.contains(e.target) &&
+    !dropdownContent.contains(e.target)
+  ) {
+    dropdownContent.hidden = true;
+  }
+});
+
+
+  // Prevent clicks inside menu from closing before link click
+  dropdownContent.addEventListener("click", (e) => {
+    e.stopPropagation();
   });
 
-  // Handle login role redirects
-  const roleLinks = dropdownContent.querySelectorAll("a");
-
-  roleLinks.forEach((link) => {
+  // Handle login role redirects (match your real link text)
+  dropdownContent.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
 
-      const role = link.textContent.trim();
+      const roleText = link.textContent.trim().toLowerCase();
 
-      if (role === "Customer") {
+      if (roleText.includes("customer")) {
         window.location.href = "c-logindetails.html";
-      } else if (role === "Vendor") {
+      } else if (roleText.includes("vendor")) {
         window.location.href = "v-login.html";
-      } else if (role === "NEA Officer") {
+      } else if (roleText.includes("officer")) {
         window.location.href = "../../lixian-pages/loginIn.html";
       } else {
-        console.warn("Unknown role clicked:", role);
+        console.warn("Unknown role clicked:", link.textContent.trim());
       }
+
+      // close after click
+      dropdownContent.hidden = true;
     });
   });
 });

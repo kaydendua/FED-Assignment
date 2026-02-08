@@ -173,6 +173,7 @@
   background: #F0E6EE;
 }
 
+
 /* =========================
    TABLET (smooth scaling)
    ========================= */
@@ -196,6 +197,7 @@
 }
 
 /* ---------- MOBILE (upgraded) ---------- */
+
 @media (max-width: 768px) {
   #page-login #login-container{
     margin-top: 22px;
@@ -306,6 +308,7 @@
     font-size: 18px;
   }
 }
+
 
 
 
