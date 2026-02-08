@@ -140,7 +140,12 @@
 .dropdown-content[hidden]{
   display: none !important;
 }
-
+.c-hero-img {
+  width: 140px;        /* control size */
+  height: 48px;        /* controls crop height */
+  object-fit: cover;   /* THIS does the cropping */
+  object-position: center; /* crop from center */
+}
 /* ================= MOBILE ================= */
 
 @media (max-width: 700px){

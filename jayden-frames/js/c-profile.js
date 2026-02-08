@@ -1,4 +1,4 @@
-// ../jayden-frames/js/c-profile.js (MODULE)
+
 // Loads customer profile from Firestore: users/{uid}
 
 import { db } from "../../firebase/firebase.js";
@@ -185,10 +185,6 @@ document.addEventListener("DOMContentLoaded", () => {
       setText("profile-postal", data.postalCode);
 
       setText("profile-createdAt", formatCreatedAt(data.createdAt));
-
-      // If you later add profile photo URL in Firestore (e.g. data.photoUrl)
-      // you can set it here:
-      // if (data.photoUrl && bigImg) bigImg.src = data.photoUrl;
 
     } catch (err) {
       console.error("Failed to load user profile:", err);
