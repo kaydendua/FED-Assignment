@@ -5,34 +5,39 @@
   <title>Customer Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Shared Styles -->
+  <!-- Styles (unchanged) -->
   <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/pages.css">
+  <link rel="stylesheet" href="../jayden-frames/styles/c-login.css">
+  <link rel="stylesheet" href="../jayden-frames/styles/customer-login.css">
 </head>
 
 <body id="page-login">
 
   <!-- ===============================
-       NAVBAR
+       NAVBAR (MATCHES VENDOR LOGIN CSS)
   =============================== -->
   <header class="navbar">
     <div class="nav-left">
       <button class="menu-btn" id="c-login-menu-btn">☰<br>Menu</button>
-      <div class="logo">
-        LOGO LOGO LOGO<br>
-        LOGO LOGO LOGO
+
+      <div id="logoArea">
+        <img src="../img/FED_LOGO.png" alt="Website Logo">
       </div>
     </div>
 
     <div class="nav-center">Website Name</div>
 
     <div class="nav-right">
-      <!-- LOGIN DROPDOWN -->
-      <div class="nav-login" id="c-login-nav-login">
+
+      <!-- TAGS MATCH VENDOR LOGIN NAVBAR -->
+      <div class="nav-login" id="v-login-nav-login">
         <span class="nav-link">Log in here ▼</span>
 
-        <div id="c-login-dropdown-content" class="dropdown-content">
+        <div
+          id="v-login-dropdown-content"
+          class="dropdown-content"
+          hidden
+        >
           <a href="#">Vendor</a>
           <a href="#">NEA Officer</a>
         </div>
@@ -43,7 +48,7 @@
   </header>
 
   <!-- ===============================
-       LOGIN CONTENT
+       CUSTOMER LOGIN CONTENT (UNCHANGED)
   =============================== -->
   <main id="login-container">
     <div id="login-box">
@@ -104,9 +109,10 @@
     </div>
   </main>
 
-  <!-- MODULE SCRIPT -->
-  <script type = "module" src = "js/c-navbardropdown.js"></script>
+  <!-- Scripts (unchanged) -->
+  <script type="module" src="js/c-navbardropdown.js"></script>
   <script type="module" src="js/c-logindetails.js"></script>
-  
+
 </body>
 </html>
+

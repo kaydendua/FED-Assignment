@@ -1,0 +1,205 @@
+/* ---------------- PAYMENT PAGE (UPDATED THEME) ---------------- */
+
+#page-payment {
+  /* bluish background */
+  background: linear-gradient(180deg, #C9D0DC 0%, #AFC0D8 100%);
+  min-height: calc(100vh - 80px);
+  padding: 34px 20px 130px; /* space for fixed bottom bar */
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* let card stretch taller */
+}
+
+/* Bigger + pinkish main card */
+#pay-card {
+  width: min(980px, 96vw);     /* much wider */
+  min-height: calc(100vh - 80px - 34px - 130px); /* fill the page area */
+  background: #F6ECF4;         /* pinkish */
+  border: 1px solid rgba(28, 15, 19, 0.15);
+  border-radius: 16px;
+  padding: 26px 26px 22px;
+  box-sizing: border-box;
+
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* Header */
+#pay-title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 900;
+  color: #1C0F13;
+  letter-spacing: 0.2px;
+}
+
+#pay-line {
+  height: 1px;
+  background: rgba(28, 15, 19, 0.18);
+  margin: 14px 0 22px;
+}
+
+/* Sections */
+.pay-section {
+  margin-bottom: 22px;
+}
+
+.pay-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(28, 15, 19, 0.85);
+  margin-bottom: 8px;
+}
+
+/* Inputs / Dropdown */
+#pay-method,
+#pay-promo-input {
+  width: 100%;
+  padding: 14px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(28, 15, 19, 0.22);
+  background: #FAF9F9;
+  outline: none;
+  font-size: 14px;
+  font-weight: 650;
+  color: #1C0F13;
+}
+
+#pay-method:focus,
+#pay-promo-input:focus {
+  border-color: #4988BB;
+  box-shadow: 0 0 0 3px rgba(73, 136, 187, 0.25);
+}
+
+/* Promo */
+#pay-promo-title {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 900;
+  color: #1C0F13;
+}
+
+#pay-promo-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+#pay-apply-btn {
+  width: 120px;
+  padding: 14px 14px;
+  border-radius: 12px;
+  border: none;
+  background: #4988BB;
+  color: #FAF9F9;
+  cursor: pointer;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.16);
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+
+#pay-apply-btn:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+/* Points row */
+#pay-points-row {
+  margin-top: 12px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(28, 15, 19, 0.12);
+  border-radius: 14px;
+  padding: 14px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 14px;
+  font-weight: 800;
+  color: rgba(28, 15, 19, 0.9);
+}
+
+#pay-arrow {
+  font-size: 22px;
+  line-height: 1;
+  color: rgba(28, 15, 19, 0.65);
+}
+
+/* Fixed bottom total bar (nicer) */
+#pay-bottom-bar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  background: #1C0F13;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+
+  box-shadow: 0 -10px 24px rgba(0, 0, 0, 0.22);
+}
+
+#pay-total-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(250, 249, 249, 0.85);
+}
+
+#pay-total-price {
+  font-size: 24px;
+  font-weight: 900;
+  color: #FAF9F9;
+}
+
+#pay-place-order-btn {
+  width: 260px;
+  max-width: 55%;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: none;
+  background: #4988BB;
+  color: #FAF9F9;
+  cursor: pointer;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22);
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+
+#pay-place-order-btn:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  #page-payment {
+    padding: 22px 14px 120px;
+  }
+
+  #pay-card {
+    padding: 18px 16px;
+    border-radius: 14px;
+    min-height: auto; /* avoid weird tall card on small screens */
+  }
+
+  #pay-promo-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #pay-apply-btn {
+    width: 100%;
+  }
+
+  #pay-place-order-btn {
+    width: 180px;
+  }
+}
+
