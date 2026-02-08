@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
     // ==========================================
-    // PART B: DYNAMIC FIREBASE DATA
+    // DYNAMIC FIREBASE DATA
     try {
         const docRef = doc(db, "vendor", vendorId);
         const docSnap = await getDoc(docRef);
@@ -106,11 +106,11 @@ document.addEventListener("DOMContentLoaded", async function () {
         if (docSnap.exists()) {
             const data = docSnap.data();
 
-            // 1. Update Welcome Message
+            // Update Welcome Message
             const nameEl = document.getElementById("header-name");
             if (nameEl) nameEl.textContent = data.name || "Vendor";
 
-            // 2. Update Hygiene Grade
+            // Update Hygiene Grade
             const gradeEl = document.getElementById("hygiene-grade-display");
             if (gradeEl) gradeEl.textContent = data.hygieneGrade || "-";
             
