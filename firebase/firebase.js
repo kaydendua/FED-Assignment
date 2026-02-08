@@ -32,6 +32,12 @@ onAuthStateChanged(auth, (user) => {
 
 export async function getCurrentUser() {  
   if (!currentUser) {
+    currentUser = signInAsGuest()
+  }
+  return currentUser;
+}
+
+export async function signInAsGuest() {
     try {
       const userCredential = await signInAnonymously(auth);
       currentUser = userCredential.user;
@@ -40,8 +46,7 @@ export async function getCurrentUser() {
       console.error("Error signing in anonymously:", error);
       alert("Unable to connect. Please refresh the page.");
     }
-  }
-  return currentUser;
+    return currentUser
 }
 
 export function waitForAuthUser() {
