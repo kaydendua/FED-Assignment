@@ -3,9 +3,7 @@ import {
     getFirestore, collection, getDocs, addDoc, deleteDoc, doc, updateDoc 
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-// ==========================================
-// 1. CONFIGURATION & SETUP
-// ==========================================
+// CONFIGURATION & SETUP
 const firebaseConfig = {
     apiKey: "AIzaSyDTYTjyaAt1FwKbHmZX1A1kiayskiFRBUw",
     authDomain: "fed-assignment-f0cd8.firebaseapp.com",
@@ -19,9 +17,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// ==========================================
-// 2. AUTHENTICATION & PATHS
-// ==========================================
+
+// AUTHENTICATION & PATHS
 const vendorId = localStorage.getItem("vendorId");
 const vendorName = localStorage.getItem("vendorName");
 
@@ -38,12 +35,9 @@ if (vendorName) {
     if(welcomeMsg) welcomeMsg.textContent = `Welcome! ${vendorName}`;
 }
 
-// IMPORTANT: Matches the "stallMenu" (No Space) from your database
 const MENU_COLLECTION = `vendor/${vendorId}/stallMenu`; 
 
-// ==========================================
-// 3. DOM ELEMENTS
-// ==========================================
+// DOM ELEMENTS
 const menuContainer = document.getElementById('menu-container');
 const dishModal = document.getElementById('dish-modal');
 const dishForm = document.getElementById('dish-form');
@@ -62,9 +56,7 @@ if(logoutBtn) {
     });
 }
 
-// ==========================================
-// 4. MENU FUNCTIONS (Fetch & Render)
-// ==========================================
+// MENU FUNCTIONS (Fetch & Render)
 async function fetchAndRenderMenu() {
     try {
         const querySnapshot = await getDocs(collection(db, MENU_COLLECTION));
@@ -136,9 +128,7 @@ function createDishCard(dish) {
     menuContainer.appendChild(card);
 }
 
-// ==========================================
-// 5. MENU ACTIONS (Add, Edit, Toggle, Delete)
-// ==========================================
+// MENU ACTIONS (Add, Edit, Toggle, Delete)
 
 // Toggle Availability
 window.toggleAvailability = async function(id, isChecked) {
@@ -228,9 +218,7 @@ window.deleteDish = async function(id) {
     }
 }
 
-// ==========================================
-// 6. QUEUE MANAGEMENT LOGIC (Static UI)
-// ==========================================
+// QUEUE MANAGEMENT LOGIC (Static UI)
 const queueList = document.getElementById('queue-list');
 
 if (queueList) {
@@ -272,7 +260,5 @@ if (queueList) {
     });
 }
 
-// ==========================================
-// 7. START APP
-// ==========================================
+// START APP
 fetchAndRenderMenu();

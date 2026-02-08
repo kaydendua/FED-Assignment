@@ -255,13 +255,13 @@ button:hover{
 
 .btn-edit {
     background-color: #28587B;
-    color: white;
+    color: #FAF9F9;
     flex: 1;
 }
 
 .btn-delete {
     background-color: #b94a48;
-    color: white;
+    color: #FAF9F9;
     flex: 1;
 }
 
