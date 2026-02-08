@@ -44,19 +44,22 @@
 
                 <div class="doughnut-box">
                     <h3>Top 5 Best Selling Items</h3>
-                    <canvas id="bestSellingChart"></canvas>
+                    <div class="chart-wrapper">
+                        <canvas id="bestSellingChart"></canvas>
+                    </div>
                 </div>
             </div>
 
             <div class="chart-container">
-                <h3>Analytics of Past 12 Months in terms of Sales Revenue</h3>
-                <canvas id="salesChart"></canvas>
+                <h3>Analytics of Past 12 Months (Sales Revenue)</h3>
+                <div class="chart-wrapper">
+                    <canvas id="salesChart"></canvas>
+                </div>
             </div>
         </section>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
     <script type="module" src="js/StallAnalytics.js"></script>
 </body>
 </html>
