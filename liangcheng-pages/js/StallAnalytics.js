@@ -1,4 +1,42 @@
-document.addEventListener("DOMContentLoaded", function () {
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+// CONFIGURATION & SETUP
+const firebaseConfig = {
+    apiKey: "AIzaSyDTYTjyaAt1FwKbHmZX1A1kiayskiFRBUw",
+    authDomain: "fed-assignment-f0cd8.firebaseapp.com",
+    projectId: "fed-assignment-f0cd8",
+    storageBucket: "fed-assignment-f0cd8.firebasestorage.app",
+    messagingSenderId: "114542382438",
+    appId: "1:114542382438:web:3227de541d821031004ca7",
+    measurementId: "G-VDMMRF2WE5"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// AUTHENTICATION & PATHS
+const vendorId = localStorage.getItem("vendorId");
+if (!vendorId) {
+    window.location.href = "../jayden-frames/v-login.html"; 
+    throw new Error("No vendor ID found.");
+}
+
+// LOGOUT LOGIC
+const logoutBtn = document.getElementById("logout-btn");
+if(logoutBtn) {
+    logoutBtn.addEventListener("click", (e) => {
+        if(confirm("Logout?")) {
+            localStorage.clear();
+            window.location.href = "../jayden-frames/v-login.html";
+        }
+    });
+}
+
+// MAIN LOGIC
+document.addEventListener("DOMContentLoaded", async function () {
+
+    // Bar Graph
     const ctx = document.getElementById('salesChart').getContext('2d');
 
     // Create a gradient for the bars
@@ -13,15 +51,9 @@ document.addEventListener("DOMContentLoaded", function () {
         data: {
             labels: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'],
             datasets: [{
-                data: [30, 15, 20, 10, 25], // Example data matching visual proportions
-                backgroundColor: [
-                    '#bbdefb', 
-                    '#ffcc80', 
-                    '#f8bbd0', 
-                    '#b9f6ca', 
-                    '#e1bee7'  
-                ],
-                borderWidth: 1 , // No border as per image
+                data: [30, 15, 20, 10, 25], 
+                backgroundColor: ['#bbdefb', '#ffcc80', '#f8bbd0', '#b9f6ca', '#e1bee7'],
+                borderWidth: 1,
                 hoverOffset: 4
             }]
         },
@@ -29,70 +61,64 @@ document.addEventListener("DOMContentLoaded", function () {
             responsive: true,
             plugins: {
                 legend: {
-                    position: 'left', // Moves legend to the left side
-                    labels: {
-                        font: {
-                            size: 14
-                        },
-                        boxWidth: 20,
-                        padding: 20
-                    }
+                    position: 'left',
+                    labels: { font: { size: 14 }, boxWidth: 20, padding: 20 }
                 }
             },
-            layout: {
-                padding: 20
-            }
+            layout: { padding: 20 }
         }
     });
 
-    const salesChart = new Chart(ctx, {
+    new Chart(ctx, {
         type: 'bar',
         data: {
-            // Labels for the last 12 months
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             datasets: [{
                 label: 'Sales Revenue ($)',
-                // Dummy data matching the heights in your image (~1800 to 2200 range)
                 data: [4500, 3550, 4700, 4850, 4200, 4100, 4450, 3950, 4850, 4250, 3900, 4900],
-                backgroundColor: gradient, // Apply the gradient created above
-                
+                backgroundColor: gradient,
                 borderWidth: 0,
-                barPercentage: 0.7, // Width of bars relative to category width
-                borderRadius: 4 // Slight rounding at the top of bars
+                barPercentage: 0.7,
+                borderRadius: 4
             }]
         },
         options: {
             responsive: true,
-            maintainAspectRatio: true, // keeps the aspect ratio
-            plugins: {
-                legend: {
-                    display: false // Hides the label "Sales Revenue" box at top (not in your image)
-                },
-                tooltip: {
-                    enabled: true
-                }
-            },
+            maintainAspectRatio: true,
+            plugins: { legend: { display: false }, tooltip: { enabled: true } },
             scales: {
                 y: {
-                    beginAtZero: true,
-                    max: 5000, // Matches the top scale in your image
-                    ticks: {
-                        stepSize: 500, // Matches the intervals (200, 400, 600...)
-                        font: {
-                            size: 10
-                        }
-                    },
-                    grid: {
-                        color: '#e5e5e5', // Light grid lines
-                        borderDash: [5, 5] // Dashed lines like in the design
-                    }
+                    beginAtZero: true, max: 5000,
+                    ticks: { stepSize: 500, font: { size: 10 } },
+                    grid: { color: '#e5e5e5', borderDash: [5, 5] }
                 },
-                x: {
-                    grid: {
-                        display: false // Removes vertical grid lines
-                    }
-                }
+                x: { grid: { display: false } }
             }
         }
     });
+
+    // ==========================================
+    // PART B: DYNAMIC FIREBASE DATA
+    try {
+        const docRef = doc(db, "vendor", vendorId);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            const data = docSnap.data();
+
+            // 1. Update Welcome Message
+            const nameEl = document.getElementById("header-name");
+            if (nameEl) nameEl.textContent = data.name || "Vendor";
+
+            // 2. Update Hygiene Grade
+            const gradeEl = document.getElementById("hygiene-grade-display");
+            if (gradeEl) gradeEl.textContent = data.hygieneGrade || "-";
+            
+        } else {
+            console.log("No vendor profile found!");
+        }
+    } catch (error) {
+        console.error("Error fetching vendor data:", error);
+    }
+
 });
