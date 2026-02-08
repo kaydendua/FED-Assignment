@@ -37,21 +37,73 @@
 
     <section id="profile-top">
       <div id="profile-image-grid">
-        <div id="profile-big-img">Image</div>
-        <div class="profile-small-img">Image</div>
-        <div class="profile-small-img">Image</div>
-        <div class="profile-small-img">6+</div>
+        <div id="profile-big-img">
+          <img id="profile-main-photo" src="/img/profile.png" alt="Profile photo">
+        </div>
+        <div class="profile-small-img">
+          <img class="profile-thumb" src="/img/image-not-found.png" alt="Photo 1">
+        </div>
+        <div class="profile-small-img">
+          <img class="profile-thumb" src="/img/image-not-found.png" alt="Photo 2">
+        </div>
+        <div class="profile-small-img" id="profile-more-count">6+</div>
       </div>
 
       <div id="profile-info">
-        <h2 id="profile-username">Username</h2>
+        <!-- ✅ from Firebase later -->
+        <h2 id="profile-username">Loading...</h2>
+
         <p id="profile-desc">
-          Profile description Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit, sed do eiusmod tempor incididunt ut labore
-          et dolore magna aliqua.
+          Your account details and delivery information will appear here.
         </p>
 
-        <button id="profile-order-btn">Order Food</button>
+        <!-- ✅ NEW: Details grid -->
+        <div id="profile-details-card">
+          <div class="detail-row">
+            <span class="detail-label">Account Status</span>
+            <span class="detail-value" id="profile-status">—</span>
+          </div>
+
+          <div class="detail-row">
+            <span class="detail-label">Role</span>
+            <span class="detail-value" id="profile-role">—</span>
+          </div>
+
+          <div class="detail-row">
+            <span class="detail-label">Email</span>
+            <span class="detail-value" id="profile-email">—</span>
+          </div>
+
+          <div class="detail-row">
+            <span class="detail-label">Phone</span>
+            <span class="detail-value" id="profile-phone">—</span>
+          </div>
+
+          <div class="detail-row detail-row-full">
+            <span class="detail-label">Address</span>
+            <span class="detail-value" id="profile-address">—</span>
+          </div>
+
+          <div class="detail-row">
+            <span class="detail-label">Unit No.</span>
+            <span class="detail-value" id="profile-unit">—</span>
+          </div>
+
+          <div class="detail-row">
+            <span class="detail-label">Postal Code</span>
+            <span class="detail-value" id="profile-postal">—</span>
+          </div>
+
+          <div class="detail-row">
+            <span class="detail-label">Created At</span>
+            <span class="detail-value" id="profile-createdAt">—</span>
+          </div>
+        </div>
+
+        <div id="profile-actions">
+          <button id="profile-order-btn" type="button">Order Food</button>
+          <button id="profile-edit-btn" type="button">Edit Profile</button>
+        </div>
       </div>
     </section>
 
@@ -78,6 +130,7 @@
 
   </main>
 
-  <script src="../jayden-frames/js/c-profile.js"></script>
+  <!-- JS later -->
+  <script type = "module" src="../jayden-frames/js/c-profile.js"></script>
 </body>
 </html>

@@ -155,6 +155,114 @@
   font-weight: 900;
   color: rgba(28, 15, 19, 0.55);
 }
+/* ---------------- DETAILS CARD ---------------- */
+
+#page-profile #profile-details-card {
+  margin-top: 18px;
+  background: #FAF9F9;
+  border-radius: 18px;
+  padding: 18px 18px 12px;
+  box-shadow: 0 6px 14px rgba(28, 15, 19, 0.12);
+  border: 1px solid rgba(28, 15, 19, 0.06);
+}
+
+#page-profile .detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 10px 6px;
+  border-bottom: 1px solid rgba(28, 15, 19, 0.08);
+}
+
+#page-profile .detail-row:last-child {
+  border-bottom: none;
+}
+
+#page-profile .detail-row-full {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#page-profile .detail-label {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.25px;
+  color: rgba(28, 15, 19, 0.7);
+  text-transform: uppercase;
+}
+
+#page-profile .detail-value {
+  font-size: 14px;
+  font-weight: 900;
+  color: #1C0F13;
+  text-align: right;
+  word-break: break-word;
+}
+
+#page-profile .detail-row-full .detail-value {
+  text-align: left;
+  width: 100%;
+  margin-top: 6px;
+  font-weight: 800;
+  color: rgba(28, 15, 19, 0.88);
+}
+
+/* ---------------- ACTION BUTTONS ---------------- */
+
+#page-profile #profile-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+#page-profile #profile-edit-btn {
+  margin-top: 24px;
+  padding: 14px 22px;
+  background: #FAF9F9;
+  color: #1C0F13;
+  border: 2px solid rgba(40, 88, 123, 0.35);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.10);
+}
+
+#page-profile #profile-edit-btn:hover {
+  border-color: rgba(73, 136, 187, 0.65);
+}
+
+/* ---------------- IMAGE GRID IMG TAGS ---------------- */
+
+#page-profile #profile-big-img,
+#page-profile .profile-small-img {
+  overflow: hidden;
+}
+
+#page-profile #profile-main-photo,
+#page-profile .profile-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------------- MOBILE TWEAK ---------------- */
+
+@media (max-width: 520px) {
+  #page-profile .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #page-profile .detail-value {
+    text-align: left;
+    width: 100%;
+  }
+}
 
 /* ---------------- MOBILE ---------------- */
 
