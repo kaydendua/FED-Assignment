@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
 
-      window.location.href = "c-profile.html";
+      window.location.href = "../kayden-pages/search.html";
 
     } catch (err) {
       console.error("Login error:", err.code, err.message);

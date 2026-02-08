@@ -5,6 +5,8 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/12.8.0/firebase
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
+
+
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -40,4 +42,13 @@ export async function getCurrentUser() {
     }
   }
   return currentUser;
+}
+
+export function waitForAuthUser() {
+  return new Promise((resolve) => {
+    const unsub = onAuthStateChanged(auth, (user) => {
+      unsub();
+      resolve(user); // user is either a real user OR null
+    });
+  });
 }
