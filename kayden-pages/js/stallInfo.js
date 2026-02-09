@@ -1,4 +1,4 @@
-import { db } from "/FED-Assignment/firebase/firebase.js";
+import { db } from "../../firebase/firebase.js";
 import {
   doc,
   getDoc,
@@ -136,12 +136,12 @@ function displayStallInfo(stall, rating, reviewCount) {
     <p>${stall.description}</p>
     <div class="stall-footer">
       <a href="browseStalls.html?hId=${stall.hawkerCentre}" id="hawker-centre-back">📍 ${stall.hawkerCentreName}</a>
-      <a href="/jayden-frames/stallmenu.html?stallId=${stallId}" class="order-btn"> Order Food </a>
+      <a href="../../jayden-frames/stallmenu.html?stallId=${stallId}" class="order-btn"> Order Food </a>
     </div>
   `;
 
   const image = document.getElementById("stall-image");
-  image.src = stall.img || '/FED-Assignment/img/image-not-found.png';
+  image.src = stall.img || '../../img/image-not-found.png';
 }
 
 loadStallData();

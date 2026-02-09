@@ -138,7 +138,7 @@ function createHawkerCard(feature) {
     const card = document.createElement('div');
     card.className = 'hawker-card';
     
-    const photoUrl = props.PHOTOURL || '/FED-Assignment/img/image-not-found.png';
+    const photoUrl = props.PHOTOURL || '../../img/image-not-found.png';
     
     // Build address
     const address = `${props.ADDRESSBLOCKHOUSENUMBER || ''} ${props.ADDRESSSTREETNAME || ''}, Singapore ${props.ADDRESSPOSTALCODE || ''}`.trim();

@@ -1,4 +1,4 @@
-import { db, getCurrentUser } from '/FED-Assignment/firebase/firebase.js';
+import { db, getCurrentUser } from '../../firebase/firebase.js';
 import {
   collection,
   addDoc,
